@@ -190,12 +190,12 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
         listResult.dataSource = self
         
         navBarStars.setTitleTextAttributes([
-            NSAttributedStringKey.font : UIFont(name: "Mohave", size: 17)
-            ], for: .normal)
+            NSAttributedString.Key.font : UIFont(name: "Mohave", size: 17)
+            ], for: UIControl.State.normal)
         
         navBarStars.setTitleTextAttributes([
-            NSAttributedStringKey.font : UIFont(name: "Mohave", size: 17)
-            ], for: .selected)
+            NSAttributedString.Key.font : UIFont(name: "Mohave", size: 17)
+            ], for: UIControl.State.selected)
         
         let searchResult = getSearchResult()
         searchResult.delegate = self

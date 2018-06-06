@@ -101,12 +101,12 @@ class TDollViewController: UIViewController {
         }
         
         sepView.setTitleTextAttributes([
-            NSAttributedStringKey.font : UIFont(name: "Mohave", size: 14)
-            ], for: .normal)
+            NSAttributedString.Key.font : UIFont(name: "Mohave", size: 14)
+            ], for: UIControl.State.normal)
         
         sepView.setTitleTextAttributes([
-            NSAttributedStringKey.font : UIFont(name: "Mohave", size: 14)
-            ], for: .selected)
+            NSAttributedString.Key.font : UIFont(name: "Mohave", size: 14)
+            ], for: UIControl.State.selected)
         
         Zh_name.text = selectedTDoll?.Zh_Name
         Eng_name.text = selectedTDoll?.Eng_Name

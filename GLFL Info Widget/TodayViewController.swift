@@ -71,7 +71,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     @IBAction func btnHr(_ sender: UIButton) {
         
-        hrBtn.setTitle("|", for: .normal)
+        hrBtn.setTitle("|", for: UIControl.State.normal)
         selectedBtn = hrBtn
         tempNum = ""
     }
@@ -79,7 +79,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     @IBAction func btnMin(_ sender: UIButton) {
         
-        minbtn.setTitle("|", for: .normal)
+        minbtn.setTitle("|", for: UIControl.State.normal)
         selectedBtn = minbtn
         tempNum = ""
     }
@@ -87,7 +87,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 
     @IBAction func btnSec(_ sender: UIButton) {
         
-        secbtn.setTitle("|", for: .normal)
+        secbtn.setTitle("|", for: UIControl.State.normal)
         selectedBtn = secbtn
         tempNum = ""
     }
@@ -98,14 +98,14 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         case hrBtn:
             
             tempNum += "1"
-            hrBtn.setTitle(tempNum, for: .normal)
+            hrBtn.setTitle(tempNum, for: UIControl.State.normal)
             
         case minbtn:
             tempNum += "1"
-            minbtn.setTitle(tempNum, for: .normal)
+            minbtn.setTitle(tempNum, for: UIControl.State.normal)
         case secbtn:
             tempNum += "1"
-            secbtn.setTitle(tempNum, for: .normal)
+            secbtn.setTitle(tempNum, for: UIControl.State.normal)
         default:
             break
         }
@@ -117,13 +117,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         switch selectedBtn{
         case hrBtn:
             tempNum += "2"
-            hrBtn.setTitle(tempNum, for: .normal)
+            hrBtn.setTitle(tempNum, for: UIControl.State.normal)
         case minbtn:
             tempNum += "2"
-            minbtn.setTitle(tempNum, for: .normal)
+            minbtn.setTitle(tempNum, for: UIControl.State.normal)
         case secbtn:
             tempNum += "2"
-            secbtn.setTitle(tempNum, for: .normal)
+            secbtn.setTitle(tempNum, for: UIControl.State.normal)
         default:
             break
         }
@@ -135,13 +135,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         switch selectedBtn{
         case hrBtn:
             tempNum += "3"
-            hrBtn.setTitle(tempNum, for: .normal)
+            hrBtn.setTitle(tempNum, for: UIControl.State.normal)
         case minbtn:
             tempNum += "3"
-            minbtn.setTitle(tempNum, for: .normal)
+            minbtn.setTitle(tempNum, for: UIControl.State.normal)
         case secbtn:
             tempNum += "3"
-            secbtn.setTitle(tempNum, for: .normal)
+            secbtn.setTitle(tempNum, for: UIControl.State.normal)
         default:
             break
         }
@@ -153,13 +153,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         switch selectedBtn{
         case hrBtn:
             tempNum += "4"
-            hrBtn.setTitle(tempNum, for: .normal)
+            hrBtn.setTitle(tempNum, for: UIControl.State.normal)
         case minbtn:
             tempNum += "4"
-            minbtn.setTitle(tempNum, for: .normal)
+            minbtn.setTitle(tempNum, for: UIControl.State.normal)
         case secbtn:
             tempNum += "4"
-            secbtn.setTitle(tempNum, for: .normal)
+            secbtn.setTitle(tempNum, for: UIControl.State.normal)
         default:
             break
         }
@@ -171,13 +171,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         switch selectedBtn{
         case hrBtn:
             tempNum += "5"
-            hrBtn.setTitle(tempNum, for: .normal)
+            hrBtn.setTitle(tempNum, for: UIControl.State.normal)
         case minbtn:
             tempNum += "5"
-            minbtn.setTitle(tempNum, for: .normal)
+            minbtn.setTitle(tempNum, for: UIControl.State.normal)
         case secbtn:
             tempNum += "5"
-            secbtn.setTitle(tempNum, for: .normal)
+            secbtn.setTitle(tempNum, for: UIControl.State.normal)
         default:
             break
         }
@@ -189,13 +189,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         switch selectedBtn{
         case hrBtn:
             tempNum += "6"
-            hrBtn.setTitle(tempNum, for: .normal)
+            hrBtn.setTitle(tempNum, for: UIControl.State.normal)
         case minbtn:
             tempNum += "6"
-            minbtn.setTitle(tempNum, for: .normal)
+            minbtn.setTitle(tempNum, for: UIControl.State.normal)
         case secbtn:
             tempNum += "6"
-            secbtn.setTitle(tempNum, for: .normal)
+            secbtn.setTitle(tempNum, for: UIControl.State.normal)
         default:
             break
         }
@@ -207,13 +207,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         switch selectedBtn{
         case hrBtn:
             tempNum += "7"
-            hrBtn.setTitle(tempNum, for: .normal)
+            hrBtn.setTitle(tempNum, for: UIControl.State.normal)
         case minbtn:
             tempNum += "7"
-            minbtn.setTitle(tempNum, for: .normal)
+            minbtn.setTitle(tempNum, for: UIControl.State.normal)
         case secbtn:
             tempNum += "7"
-            secbtn.setTitle(tempNum, for: .normal)
+            secbtn.setTitle(tempNum, for: UIControl.State.normal)
         default:
             break
         }
@@ -225,13 +225,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         switch selectedBtn{
         case hrBtn:
             tempNum += "8"
-            hrBtn.setTitle(tempNum, for: .normal)
+            hrBtn.setTitle(tempNum, for: UIControl.State.normal)
         case minbtn:
             tempNum += "8"
-            minbtn.setTitle(tempNum, for: .normal)
+            minbtn.setTitle(tempNum, for: UIControl.State.normal)
         case secbtn:
             tempNum += "8"
-            secbtn.setTitle(tempNum, for: .normal)
+            secbtn.setTitle(tempNum, for: UIControl.State.normal)
         default:
             break
         }
@@ -243,13 +243,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         switch selectedBtn{
         case hrBtn:
             tempNum += "9"
-            hrBtn.setTitle(tempNum, for: .normal)
+            hrBtn.setTitle(tempNum, for: UIControl.State.normal)
         case minbtn:
             tempNum += "9"
-            minbtn.setTitle(tempNum, for: .normal)
+            minbtn.setTitle(tempNum, for: UIControl.State.normal)
         case secbtn:
             tempNum += "9"
-            secbtn.setTitle(tempNum, for: .normal)
+            secbtn.setTitle(tempNum, for: UIControl.State.normal)
         default:
             break
         }
@@ -261,13 +261,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         switch selectedBtn{
         case hrBtn:
             tempNum += "0"
-            hrBtn.setTitle(tempNum, for: .normal)
+            hrBtn.setTitle(tempNum, for: UIControl.State.normal)
         case minbtn:
             tempNum += "0"
-            minbtn.setTitle(tempNum, for: .normal)
+            minbtn.setTitle(tempNum, for: UIControl.State.normal)
         case secbtn:
             tempNum += "0"
-            secbtn.setTitle(tempNum, for: .normal)
+            secbtn.setTitle(tempNum, for: UIControl.State.normal)
         default:
             break
         }
@@ -283,7 +283,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     @IBAction func btnDel(_ sender: UIButton) {
         
-        selectedBtn?.setTitle("|", for: .normal)
+        selectedBtn?.setTitle("|", for: UIControl.State.normal)
         tempNum = ""
         
     }
