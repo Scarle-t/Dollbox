@@ -104,6 +104,11 @@ class getSearchResult: NSObject, URLSessionDataDelegate {
                 tdoll.critical = "\(critical)"
             }
             
+            if let chain = jsonElement["chain"] as? Int
+            {
+                tdoll.chain = "\(chain)"
+            }
+            
             if let efficiency = jsonElement["efficiency"] as? Int
             {
                 tdoll.efficiency = "\(efficiency)"

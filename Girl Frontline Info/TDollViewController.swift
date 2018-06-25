@@ -29,6 +29,10 @@ class TDollViewController: UIViewController {
     @IBOutlet weak var dodge: UILabel!
     @IBOutlet weak var movement_Speed: UILabel!
     @IBOutlet weak var crit_rate: UILabel!
+    @IBOutlet weak var chain: UILabel!
+    
+    @IBOutlet weak var critLabel: UILabel!
+    @IBOutlet weak var chainLabel: UILabel!
     
     @IBOutlet weak var cover: UIImageView!
     
@@ -119,8 +123,24 @@ class TDollViewController: UIViewController {
         dodge.text = selectedTDoll?.dodge
         movement_Speed.text = selectedTDoll?.movement
         if let critRate = selectedTDoll?.critical{
-            crit_rate.text = critRate + "%"
+            if critRate == "0"{
+                critLabel.isHidden = true
+                crit_rate.isHidden = true
+            }else{
+                critLabel.isHidden = false
+                crit_rate.isHidden = false
+                crit_rate.text = critRate + "%"
+            }
         }
+        if selectedTDoll?.chain == "0" {
+            chainLabel.isHidden = true
+            chain.isHidden = true
+        }else{
+            chainLabel.isHidden = false
+            chain.isHidden = false
+            chain.text = selectedTDoll?.chain
+        }
+        
         
         
         ammo.text = selectedTDoll?.ammo

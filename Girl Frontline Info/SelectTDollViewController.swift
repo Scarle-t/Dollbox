@@ -172,8 +172,8 @@ class SelectTDollViewController: UIViewController, UICollectionViewDataSource, U
     
     @IBOutlet weak var rareIndicator: UILabel!
     
-    var selectedType: String = ""
-    var selectedRare: String = ""
+    var selectedType: String = "ALL"
+    var selectedRare: String = "ALL"
     
     @IBAction func rareChange(_ sender: UISegmentedControl) {
         
