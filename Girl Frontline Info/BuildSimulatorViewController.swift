@@ -412,7 +412,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
     
     var appearType: [String] = ["SMG"]
     
-    var downloadStrings: [String] = ["https://scarletsc.net/girlfrontline/BuildType_search.php?type=SMG"]
+    var downloadStrings: [String] = ["https://scarletsc.net/girlfrontline/search.php?build=SMG"]
 
     @IBAction func finishButton(_ sender: UIButton) {
         
@@ -492,7 +492,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
                 
             case "HG":
                 
-                downloadStrings.append("https://scarletsc.net/girlfrontline/BuildType_search.php?type=HG")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?build=HG")
 //                searchResult.urlPath = "https://scarletsc.net/girlfrontline/BuildType_search.php?type=HG"
                 
                 
@@ -500,7 +500,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
                 continue
             case "AR":
                 
-                downloadStrings.append("https://scarletsc.net/girlfrontline/BuildType_search.php?type=AR")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?build=AR")
 //                searchResult.urlPath = "https://scarletsc.net/girlfrontline/BuildType_search.php?type=AR"
                 
                 
@@ -508,7 +508,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
                 continue
             case "RF":
                 
-                downloadStrings.append("https://scarletsc.net/girlfrontline/BuildType_search.php?type=RF")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?build=RF")
 //                searchResult.urlPath = "https://scarletsc.net/girlfrontline/BuildType_search.php?type=RF"
                 
                 
@@ -516,28 +516,28 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
                 continue
             case "MG":
                 
-                downloadStrings.append("https://scarletsc.net/girlfrontline/BuildType_search.php?type=MG")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?build=MG")
 //                searchResult.urlPath = "https://scarletsc.net/girlfrontline/BuildType_search.php?type=MG"
                 
                 
                 continue
             case "5SHG":
 
-                downloadStrings.append("https://scarletsc.net/girlfrontline/typeANDstar_search.php?type=HG&star=5")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?type=HG&star=5")
 //                searchResult.urlPath = "https://scarletsc.net/girlfrontline/typeANDstar_search.php?type=HG&star=5"
 
                 
                 continue
             case "5SSMG":
 
-                downloadStrings.append("https://scarletsc.net/girlfrontline/typeANDstar_search.php?type=SMG&star=5")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?type=SMG&star=5")
 //                searchResult.urlPath = "https://scarletsc.net/girlfrontline/typeANDstar_search.php?type=SMG&star=5"
                 
                 
                 continue
             case "5SAR":
 
-                downloadStrings.append("https://scarletsc.net/girlfrontline/typeANDstar_search.php?type=AR&star=5")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?type=AR&star=5")
 //                searchResult.urlPath = "https://scarletsc.net/girlfrontline/typeANDstar_search.php?type=AR&star=5"
                 
 
@@ -545,7 +545,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
                 continue
             case "5SRF":
 
-                downloadStrings.append("https://scarletsc.net/girlfrontline/typeANDstar_search.php?type=RF&star=5")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?type=RF&star=5")
 //                searchResult.urlPath = "https://scarletsc.net/girlfrontline/typeANDstar_search.php?type=RF&star=5"
                 
 
@@ -553,7 +553,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
                 continue
             case "5SMG":
 
-                downloadStrings.append("https://scarletsc.net/girlfrontline/typeANDstar_search.php?type=MG&star=5")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?type=MG&star=5")
 //                searchResult.urlPath = "https://scarletsc.net/girlfrontline/typeANDstar_search.php?type=MG&star=5"
                 
 

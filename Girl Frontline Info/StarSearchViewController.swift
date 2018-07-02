@@ -108,7 +108,7 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
             
             let searchResult = getSearchResult()
             searchResult.delegate = self
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/star_search.php?star=2"
+            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=2"
             
             searchResult.downloadItems()
         case 1:
@@ -117,7 +117,7 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
             
             let searchResult = getSearchResult()
             searchResult.delegate = self
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/star_search.php?star=3"
+            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=3"
             
             searchResult.downloadItems()
         case 2:
@@ -126,7 +126,7 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
             
             let searchResult = getSearchResult()
             searchResult.delegate = self
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/star_search.php?star=4"
+            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=4"
             
             searchResult.downloadItems()
         case 3:
@@ -135,7 +135,7 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
             
             let searchResult = getSearchResult()
             searchResult.delegate = self
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/star_search.php?star=5"
+            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=5"
             
             searchResult.downloadItems()
         case 4:
@@ -144,7 +144,7 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
             
             let searchResult = getSearchResult()
             searchResult.delegate = self
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/star_search.php?star=EXTRA"
+            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=EXTRA"
             
             searchResult.downloadItems()
         default:
@@ -199,7 +199,7 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
         
         let searchResult = getSearchResult()
         searchResult.delegate = self
-        searchResult.urlPath = "https://scarletsc.net/girlfrontline/star_search.php?star=2"
+        searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=2"
         
         searchResult.downloadItems()
         

@@ -109,6 +109,16 @@ class getSearchResult: NSObject, URLSessionDataDelegate {
                 tdoll.chain = "\(chain)"
             }
             
+            if let loads = jsonElement["loads"] as? Int
+            {
+                tdoll.loads = "\(loads)"
+            }
+            
+            if let shield = jsonElement["shield"] as? Int
+            {
+                tdoll.shield = "\(shield)"
+            }
+            
             if let efficiency = jsonElement["efficiency"] as? Int
             {
                 tdoll.efficiency = "\(efficiency)"

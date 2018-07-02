@@ -30,9 +30,13 @@ class TDollViewController: UIViewController {
     @IBOutlet weak var movement_Speed: UILabel!
     @IBOutlet weak var crit_rate: UILabel!
     @IBOutlet weak var chain: UILabel!
+    @IBOutlet weak var loads: UILabel!
+    @IBOutlet weak var shield: UILabel!
     
     @IBOutlet weak var critLabel: UILabel!
     @IBOutlet weak var chainLabel: UILabel!
+    @IBOutlet weak var loadLabel: UILabel!
+    @IBOutlet weak var shieldLabel: UILabel!
     
     @IBOutlet weak var cover: UIImageView!
     
@@ -132,6 +136,7 @@ class TDollViewController: UIViewController {
                 crit_rate.text = critRate + "%"
             }
         }
+        
         if selectedTDoll?.chain == "0" {
             chainLabel.isHidden = true
             chain.isHidden = true
@@ -141,7 +146,23 @@ class TDollViewController: UIViewController {
             chain.text = selectedTDoll?.chain
         }
         
+        if selectedTDoll?.loads == "0" {
+            loadLabel.isHidden = true
+            loads.isHidden = true
+        }else{
+            loadLabel.isHidden = false
+            loads.isHidden = false
+            loads.text = selectedTDoll?.loads
+        }
         
+        if selectedTDoll?.shield == "0" {
+            shieldLabel.isHidden = true
+            shield.isHidden = true
+        }else{
+            shieldLabel.isHidden = false
+            shield.isHidden = false
+            shield.text = selectedTDoll?.shield
+        }
         
         ammo.text = selectedTDoll?.ammo
         mre.text = selectedTDoll?.mre

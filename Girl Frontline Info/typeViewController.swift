@@ -110,7 +110,7 @@ class typeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             let searchResult = getSearchResult()
             searchResult.delegate = self
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/type_search.php?type=HG"
+            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?type=HG"
             
             searchResult.downloadItems()
             
@@ -118,7 +118,7 @@ class typeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             let searchResult = getSearchResult()
             searchResult.delegate = self
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/type_search.php?type=SMG"
+            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?type=SMG"
             
             searchResult.downloadItems()
             
@@ -126,7 +126,7 @@ class typeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             let searchResult = getSearchResult()
             searchResult.delegate = self
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/type_search.php?type=RF"
+            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?type=RF"
             
             searchResult.downloadItems()
             
@@ -134,7 +134,7 @@ class typeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             let searchResult = getSearchResult()
             searchResult.delegate = self
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/type_search.php?type=AR"
+            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?type=AR"
             
             searchResult.downloadItems()
             
@@ -142,7 +142,7 @@ class typeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             let searchResult = getSearchResult()
             searchResult.delegate = self
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/type_search.php?type=MG"
+            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?type=MG"
             
             searchResult.downloadItems()
             
@@ -150,7 +150,7 @@ class typeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             let searchResult = getSearchResult()
             searchResult.delegate = self
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/type_search.php?type=SG"
+            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?type=SG"
             
             searchResult.downloadItems()
             
@@ -214,7 +214,7 @@ class typeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let searchResult = getSearchResult()
         searchResult.delegate = self
-        searchResult.urlPath = "https://scarletsc.net/girlfrontline/type_search.php?type=HG"
+        searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?type=HG"
         
         searchResult.downloadItems()
         

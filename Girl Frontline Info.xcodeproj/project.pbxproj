@@ -16,10 +16,10 @@
 		A610868C20C1A7E4006DF67E /* SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610868B20C1A7E4006DF67E /* SQLite.swift */; };
 		A6185FB920B9C82800A5D83B /* BuildSimulatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6185FB820B9C82800A5D83B /* BuildSimulatorViewController.swift */; };
 		A6185FBB20B9C84400A5D83B /* TeamSimulatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6185FBA20B9C84400A5D83B /* TeamSimulatorViewController.swift */; };
-		A63036A720E172AD001395B7 /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63036A620E172AD001395B7 /* menuViewController.swift */; };
 		A642306620AA92C9008622B4 /* getSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642306520AA92C9008622B4 /* getSearchResult.swift */; };
 		A642306820AA93D2008622B4 /* TDoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642306720AA93D2008622B4 /* TDoll.swift */; };
 		A642306A20ABA235008622B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A642306920ABA235008622B4 /* Assets.xcassets */; };
+		A646509420EA45D200051266 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646509320EA45D200051266 /* Version.swift */; };
 		A64B35C820A5C89C00A3602D /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64B35C720A5C89C00A3602D /* Session.swift */; };
 		A655A6F120A13A8900E29E9B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A655A6F020A13A8900E29E9B /* CategoryViewController.swift */; };
 		A655A6F320A1400600E29E9B /* StarSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A655A6F220A1400600E29E9B /* StarSearchViewController.swift */; };
@@ -29,8 +29,7 @@
 		A661B45820AA26E800F9ED2F /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A661B45720AA26E800F9ED2F /* NotificationCenter.framework */; };
 		A661B45B20AA26E800F9ED2F /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A661B45A20AA26E800F9ED2F /* TodayViewController.swift */; };
 		A661B45E20AA26E800F9ED2F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A661B45C20AA26E800F9ED2F /* MainInterface.storyboard */; };
-		A661B46220AA26E800F9ED2F /* GLFL Info Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A661B45520AA26E800F9ED2F /* GLFL Info Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A678A3E120E17120006424D2 /* menuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A678A3E020E17120006424D2 /* menuCell.swift */; };
+		A67208B120EA3C3B000A58B3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67208B020EA3C3B000A58B3 /* SettingsViewController.swift */; };
 		A6B1A2CF20C0531900647DB3 /* SelectTDollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */; };
 		A6BB3BB220A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB3BB120A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift */; };
 		A6BB3BB420A3B6E40094C06C /* ResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB3BB320A3B6E40094C06C /* ResultCollectionViewCell.swift */; };
@@ -43,31 +42,10 @@
 		A6F6071220B8625000097FDC /* SimulatorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F6071120B8625000097FDC /* SimulatorsViewController.swift */; };
 		A6F6071520B887B900097FDC /* Mohave.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6F6071420B887B800097FDC /* Mohave.otf */; };
 		A6F6071620B887B900097FDC /* Mohave.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6F6071420B887B800097FDC /* Mohave.otf */; };
+		A6FCC45220E9912800D31DE1 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6FCC45120E9912800D31DE1 /* settings.plist */; };
+		A6FCC45420E9919D00D31DE1 /* OfflineSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FCC45320E9919D00D31DE1 /* OfflineSettingsViewController.swift */; };
+		A6FCC45620E995C100D31DE1 /* offlineToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FCC45520E995C100D31DE1 /* offlineToggleCell.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		A661B46020AA26E800F9ED2F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A60D4642209FC985003D85D3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A661B45420AA26E800F9ED2F;
-			remoteInfo = "GLFL Info Widget";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		A661B46620AA26E800F9ED2F /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				A661B46220AA26E800F9ED2F /* GLFL Info Widget.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A60D464A209FC985003D85D3 /* Girl Frontline Info.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Girl Frontline Info.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,10 +60,10 @@
 		A610868B20C1A7E4006DF67E /* SQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLite.swift; sourceTree = "<group>"; };
 		A6185FB820B9C82800A5D83B /* BuildSimulatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildSimulatorViewController.swift; sourceTree = "<group>"; };
 		A6185FBA20B9C84400A5D83B /* TeamSimulatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSimulatorViewController.swift; sourceTree = "<group>"; };
-		A63036A620E172AD001395B7 /* menuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
 		A642306520AA92C9008622B4 /* getSearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = getSearchResult.swift; path = "Girl Frontline Info/getSearchResult.swift"; sourceTree = SOURCE_ROOT; };
 		A642306720AA93D2008622B4 /* TDoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TDoll.swift; path = "Girl Frontline Info/TDoll.swift"; sourceTree = SOURCE_ROOT; };
 		A642306920ABA235008622B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A646509320EA45D200051266 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		A64B35C720A5C89C00A3602D /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A655A6F020A13A8900E29E9B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		A655A6F220A1400600E29E9B /* StarSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSearchViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +77,7 @@
 		A661B45D20AA26E800F9ED2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		A661B45F20AA26E800F9ED2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A661B46720AA270000F9ED2F /* GLFL Info Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GLFL Info Widget.entitlements"; sourceTree = "<group>"; };
-		A678A3E020E17120006424D2 /* menuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuCell.swift; sourceTree = "<group>"; };
+		A67208B020EA3C3B000A58B3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTDollViewController.swift; sourceTree = "<group>"; };
 		A6BB3BB120A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildtimeSearchCollectionViewController.swift; sourceTree = "<group>"; };
 		A6BB3BB320A3B6E40094C06C /* ResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +89,9 @@
 		A6F2958C20A0EB6A00239089 /* TDollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDollViewController.swift; sourceTree = "<group>"; };
 		A6F6071120B8625000097FDC /* SimulatorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorsViewController.swift; sourceTree = "<group>"; };
 		A6F6071420B887B800097FDC /* Mohave.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mohave.otf; sourceTree = "<group>"; };
+		A6FCC45120E9912800D31DE1 /* settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
+		A6FCC45320E9919D00D31DE1 /* OfflineSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineSettingsViewController.swift; sourceTree = "<group>"; };
+		A6FCC45520E995C100D31DE1 /* offlineToggleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = offlineToggleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +139,7 @@
 				A661B45020AA265E00F9ED2F /* Girl Frontline Info.entitlements */,
 				A610868A20C1A608006DF67E /* sqlite.h */,
 				A60D4659209FC986003D85D3 /* Info.plist */,
+				A6FCC45120E9912800D31DE1 /* settings.plist */,
 				A65B259420A658660036BC39 /* iPhone678.storyboard */,
 				A60D464D209FC985003D85D3 /* AppDelegate.swift */,
 				A6185FB820B9C82800A5D83B /* BuildSimulatorViewController.swift */,
@@ -166,9 +148,12 @@
 				A655A6F020A13A8900E29E9B /* CategoryViewController.swift */,
 				A65B259220A655A00036BC39 /* DeviceExtension.swift */,
 				A6F2958A20A062A000239089 /* getSearchResult.swift */,
+				A6FCC45320E9919D00D31DE1 /* OfflineSettingsViewController.swift */,
+				A6FCC45520E995C100D31DE1 /* offlineToggleCell.swift */,
 				A6BB3BB320A3B6E40094C06C /* ResultCollectionViewCell.swift */,
 				A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */,
 				A64B35C720A5C89C00A3602D /* Session.swift */,
+				A67208B020EA3C3B000A58B3 /* SettingsViewController.swift */,
 				A6F6071120B8625000097FDC /* SimulatorsViewController.swift */,
 				A610868B20C1A7E4006DF67E /* SQLite.swift */,
 				A655A6F220A1400600E29E9B /* StarSearchViewController.swift */,
@@ -178,13 +163,12 @@
 				A6E5BEE220C19CE500B1D01E /* TutorialEndViewController.swift */,
 				A6E5BEE020C1895D00B1D01E /* TutorialPagesViewController.swift */,
 				A655A6F420A1502E00E29E9B /* typeViewController.swift */,
+				A646509320EA45D200051266 /* Version.swift */,
 				A60D464F209FC985003D85D3 /* ViewController.swift */,
 				A60D4654209FC986003D85D3 /* Assests.xcassets */,
 				A6F6071320B8879400097FDC /* fonts */,
 				A60D4656209FC986003D85D3 /* LaunchScreen.storyboard */,
 				A60D4651209FC985003D85D3 /* Main.storyboard */,
-				A678A3E020E17120006424D2 /* menuCell.swift */,
-				A63036A620E172AD001395B7 /* menuViewController.swift */,
 			);
 			path = "Girl Frontline Info";
 			sourceTree = "<group>";
@@ -230,12 +214,10 @@
 				A60D4646209FC985003D85D3 /* Sources */,
 				A60D4647209FC985003D85D3 /* Frameworks */,
 				A60D4648209FC985003D85D3 /* Resources */,
-				A661B46620AA26E800F9ED2F /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A661B46120AA26E800F9ED2F /* PBXTargetDependency */,
 			);
 			name = "Girl Frontline Info";
 			productName = "Girl Frontline Info";
@@ -314,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A60D4658209FC986003D85D3 /* LaunchScreen.storyboard in Resources */,
+				A6FCC45220E9912800D31DE1 /* settings.plist in Resources */,
 				A6F6071520B887B900097FDC /* Mohave.otf in Resources */,
 				A60D4655209FC986003D85D3 /* Assests.xcassets in Resources */,
 				A60D4653209FC985003D85D3 /* Main.storyboard in Resources */,
@@ -339,25 +322,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6185FB920B9C82800A5D83B /* BuildSimulatorViewController.swift in Sources */,
-				A678A3E120E17120006424D2 /* menuCell.swift in Sources */,
 				A610868C20C1A7E4006DF67E /* SQLite.swift in Sources */,
 				A6BB3BB220A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift in Sources */,
 				A6185FBB20B9C84400A5D83B /* TeamSimulatorViewController.swift in Sources */,
-				A63036A720E172AD001395B7 /* menuViewController.swift in Sources */,
 				A6E5BEE120C1895D00B1D01E /* TutorialPagesViewController.swift in Sources */,
 				A655A6F320A1400600E29E9B /* StarSearchViewController.swift in Sources */,
 				A6F2958B20A062A000239089 /* getSearchResult.swift in Sources */,
 				A60D4650209FC985003D85D3 /* ViewController.swift in Sources */,
 				A6E5BEE320C19CE500B1D01E /* TutorialEndViewController.swift in Sources */,
+				A646509420EA45D200051266 /* Version.swift in Sources */,
 				A655A6F120A13A8900E29E9B /* CategoryViewController.swift in Sources */,
 				A6ECCAF220BC05F500D15ED5 /* BuildStatsViewController.swift in Sources */,
 				A6F2958D20A0EB6A00239089 /* TDollViewController.swift in Sources */,
 				A6F2958920A05E0800239089 /* TDoll.swift in Sources */,
+				A6FCC45620E995C100D31DE1 /* offlineToggleCell.swift in Sources */,
 				A64B35C820A5C89C00A3602D /* Session.swift in Sources */,
+				A67208B120EA3C3B000A58B3 /* SettingsViewController.swift in Sources */,
 				A6BB3BB420A3B6E40094C06C /* ResultCollectionViewCell.swift in Sources */,
 				A65B259320A655A00036BC39 /* DeviceExtension.swift in Sources */,
 				A6B1A2CF20C0531900647DB3 /* SelectTDollViewController.swift in Sources */,
 				A6F6071220B8625000097FDC /* SimulatorsViewController.swift in Sources */,
+				A6FCC45420E9919D00D31DE1 /* OfflineSettingsViewController.swift in Sources */,
 				A60D464E209FC985003D85D3 /* AppDelegate.swift in Sources */,
 				A655A6F520A1502E00E29E9B /* typeViewController.swift in Sources */,
 			);
@@ -374,14 +359,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A661B46120AA26E800F9ED2F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A661B45420AA26E800F9ED2F /* GLFL Info Widget */;
-			targetProxy = A661B46020AA26E800F9ED2F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A60D4651209FC985003D85D3 /* Main.storyboard */ = {
@@ -528,7 +505,6 @@
 		A60D465D209FC986003D85D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Girl Frontline Info/Girl Frontline Info.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -542,7 +518,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.scarletsc.Girl-Frontline-Info";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Girl Frontline Info/sqlite.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -550,7 +526,6 @@
 		A60D465E209FC986003D85D3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Girl Frontline Info/Girl Frontline Info.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -564,7 +539,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.scarletsc.Girl-Frontline-Info";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Girl Frontline Info/sqlite.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

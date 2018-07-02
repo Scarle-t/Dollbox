@@ -25,6 +25,8 @@ class TDoll: NSObject {
     var movement: String?
     var critical: String?
     var chain: String?
+    var loads: String?
+    var shield: String?
     var efficiency: String?
     
     var ammo: String?
@@ -54,7 +56,7 @@ class TDoll: NSObject {
         
     }
     
-    init(ID: String, Eng_name: String, Zh_name: String, type: String, stars: String, health: String, attack: String, speed: String, hit_rate: String, dodge: String, movement: String, critical: String, chain: String, efficiency: String, ammo: String, mre: String, skill_name: String, skill_desc: String, area1: String, area2: String, area3: String, area4: String, area5: String, area6: String, area7: String, area8: String, area9: String, position: String, effect: String, build_time: String, obtain_method: String, photo_path: String){
+    init(ID: String, Eng_name: String, Zh_name: String, type: String, stars: String, health: String, attack: String, speed: String, hit_rate: String, dodge: String, movement: String, critical: String, chain: String, loads: String, shield: String, efficiency: String, ammo: String, mre: String, skill_name: String, skill_desc: String, area1: String, area2: String, area3: String, area4: String, area5: String, area6: String, area7: String, area8: String, area9: String, position: String, effect: String, build_time: String, obtain_method: String, photo_path: String){
         
         self.ID = ID
         self.Eng_Name = Eng_name
@@ -69,6 +71,8 @@ class TDoll: NSObject {
         self.movement = movement
         self.critical = critical
         self.chain = chain
+        self.loads = loads
+        self.shield = shield
         self.efficiency = efficiency
         self.ammo = ammo
         self.mre = mre
@@ -92,7 +96,7 @@ class TDoll: NSObject {
     }
     
     override var description: String{
-        return "\(ID), \(Eng_Name), \(Zh_Name), \(type), \(stars), \(health), \(attack), \(speed), \(hit_rate), \(dodge), \(movement), \(critical), \(chain), \(efficiency), \(ammo), \(mre), \(skill_name), \(skill_desc), \(area1), \(area2), \(area3), \(area4), \(area5), \(area6), \(area7), \(area8), \(area9), \(position), \(effect), \(build_time), \(obtain_method), \(photo_path)"
+        return "\(ID), \(Eng_Name), \(Zh_Name), \(type), \(stars), \(health), \(attack), \(speed), \(hit_rate), \(dodge), \(movement), \(critical), \(chain), \(loads), \(shield), \(efficiency), \(ammo), \(mre), \(skill_name), \(skill_desc), \(area1), \(area2), \(area3), \(area4), \(area5), \(area6), \(area7), \(area8), \(area9), \(position), \(effect), \(build_time), \(obtain_method), \(photo_path)"
     }
     
 

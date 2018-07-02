@@ -146,7 +146,7 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
             let minute = txtMinute.text,
             let second = txtSecond.text{
             
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/buildtime_search.php?hour=\(hour)&minute=\(minute)&second=\(second)"
+            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?hour=\(hour)&minute=\(minute)&second=\(second)"
             
         }
         
