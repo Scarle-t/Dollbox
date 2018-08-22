@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="63f-HN-DVO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="63f-HN-DVO">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -24,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buildtime_search" translatesAutoresizingMaskIntoConstraints="NO" id="7RP-6x-MeV">
-                                <rect key="frame" x="16" y="220" width="343" height="299"/>
+                                <rect key="frame" x="16" y="220" width="343" height="265"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="D8C-Au-xNR" appends="YES" id="7Tc-PN-4C4"/>
@@ -543,7 +544,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WTF-BS-jDg">
-                                <rect key="frame" x="0.0" y="140" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="140" width="375" height="589"/>
                                 <subviews>
                                     <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star_search" translatesAutoresizingMaskIntoConstraints="NO" id="VZz-Ho-7pc">
                                         <rect key="frame" x="16" y="29" width="343" height="265"/>
@@ -613,7 +614,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4C7-Ej-Tzw">
-                                <rect key="frame" x="0.0" y="140" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="140" width="375" height="589"/>
                                 <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GIy-TK-EUI">
                                     <size key="itemSize" width="104" height="212"/>
@@ -726,7 +727,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tXy-4s-1Pk">
-                                <rect key="frame" x="0.0" y="140" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="140" width="375" height="589"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7E7-5a-0Vh">
                                     <size key="itemSize" width="104" height="212"/>
@@ -859,7 +860,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wov-PE-6ge">
-                                <rect key="frame" x="0.0" y="140" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="140" width="375" height="589"/>
                                 <subviews>
                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="build_simulator" translatesAutoresizingMaskIntoConstraints="NO" id="Uy6-F7-E6q">
                                         <rect key="frame" x="16" y="29" width="343" height="265"/>
@@ -2321,7 +2322,7 @@ Available on TestFlight</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3920.8000000000002" y="3659.8522167487686"/>
+            <point key="canvasLocation" x="3921" y="3660"/>
         </scene>
         <!--Buildtime Search Collection View Controller-->
         <scene sceneID="48g-bi-OYS">
@@ -2358,8 +2359,8 @@ Available on TestFlight</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請輸入時間（59秒/分當作1分/時計算）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xq6-5Z-jGU">
-                                <rect key="frame" x="16" y="176" width="291" height="17.333333333333343"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請輸入時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xq6-5Z-jGU">
+                                <rect key="frame" x="16" y="176" width="85" height="17.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2385,7 +2386,7 @@ Available on TestFlight</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="k6G-tO-qRo">
-                                <rect key="frame" x="0.0" y="330.33333333333326" width="375" height="481.66666666666674"/>
+                                <rect key="frame" x="0.0" y="330.33333333333326" width="375" height="447.66666666666674"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="D58-W7-b8N">
                                     <size key="itemSize" width="104" height="212"/>
@@ -2777,7 +2778,8 @@ Available on TestFlight</string>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="ZdT-we-t3f">
-                                <string key="footerTitle">離線瀏覽會下載整個資料庫，請確定有足夠儲存空間
+                                <string key="footerTitle">[即將推出]
+離線瀏覽會下載整個資料庫，請確定有足夠儲存空間
 建議使用Wi-Fi下載以避免流動數據收費</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="offlineToggle" textLabel="bIj-OD-5Ma" style="IBUITableViewCellStyleDefault" id="fkH-KO-mqn" customClass="offlineToggleCell" customModule="Girl_Frontline_Info" customModuleProvider="target">
@@ -2802,7 +2804,7 @@ Available on TestFlight</string>
                             <tableViewSection headerTitle="資料庫" footerTitle="線上資料庫版本" id="kzU-EP-36m">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="G6G-xq-lJs" style="IBUITableViewCellStyleDefault" id="QWk-5I-Xie">
-                                        <rect key="frame" x="0.0" y="170.33333333333334" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="186.33333333333334" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QWk-5I-Xie" id="oCI-I9-dw9">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -2819,7 +2821,7 @@ Available on TestFlight</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="1ai-qX-71n" detailTextLabel="MdT-FA-YKu" style="IBUITableViewCellStyleValue1" id="bcb-wb-IiV">
-                                        <rect key="frame" x="0.0" y="214.33333333333334" width="375" height="44.000000000000028"/>
+                                        <rect key="frame" x="0.0" y="230.33333333333334" width="375" height="44.000000000000028"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bcb-wb-IiV" id="USj-R4-hVn">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -2843,7 +2845,7 @@ Available on TestFlight</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="RDa-cc-MJ6" detailTextLabel="NAZ-j2-jQ5" style="IBUITableViewCellStyleValue1" id="AsT-fU-HIP">
-                                        <rect key="frame" x="0.0" y="258.33333333333337" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="274.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AsT-fU-HIP" id="fWB-DO-Mrc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -2871,7 +2873,7 @@ Available on TestFlight</string>
                             <tableViewSection headerTitle="" id="LJG-Jq-jKd">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="niB-Vd-UtN" style="IBUITableViewCellStyleDefault" id="tSg-1S-XHZ">
-                                        <rect key="frame" x="0.0" y="350.33333333333337" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="366.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tSg-1S-XHZ" id="UUw-gU-FvC">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -2919,13 +2921,13 @@ Available on TestFlight</string>
         <image name="close" width="250" height="250"/>
         <image name="green_box" width="107" height="142"/>
         <image name="history" width="25" height="25"/>
-        <image name="more" width="50" height="50"/>
+        <image name="more" width="25" height="25"/>
         <image name="search icon" width="25" height="25"/>
         <image name="team_simulator" width="800" height="487"/>
         <image name="tools" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2ER-6K-DQC"/>
-        <segue reference="kUb-gC-m8b"/>
+        <segue reference="Dfc-68-Yr9"/>
+        <segue reference="opG-Rg-cEJ"/>
     </inferredMetricsTieBreakers>
 </document>

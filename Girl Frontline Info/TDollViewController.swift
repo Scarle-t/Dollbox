@@ -104,17 +104,19 @@ class TDollViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        sepView.setEnabled(false, forSegmentAt: 3)
+        
         if from == "stats"{
             dismissBtn.isHidden = false
         }
         
         sepView.setTitleTextAttributes([
-            NSAttributedString.Key.font : UIFont(name: "Mohave", size: 14)
-            ], for: UIControl.State.normal)
+            NSAttributedStringKey.font : UIFont(name: "Mohave", size: 14)
+            ], for: UIControlState.normal)
         
         sepView.setTitleTextAttributes([
-            NSAttributedString.Key.font : UIFont(name: "Mohave", size: 14)
-            ], for: UIControl.State.selected)
+            NSAttributedStringKey.font : UIFont(name: "Mohave", size: 14)
+            ], for: UIControlState.selected)
         
         Zh_name.text = selectedTDoll?.Zh_Name
         Eng_name.text = selectedTDoll?.Eng_Name

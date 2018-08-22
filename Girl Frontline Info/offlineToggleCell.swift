@@ -15,11 +15,11 @@ class offlineToggleCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        switchView.setOn(readPlist(), animated: true)
+        switchView.setOn(Plist().read(), animated: true)
         switchView.tag = 1 // for detect which row switch Changed
         switchView.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
         self.accessoryView = switchView
-        
+        switchView.isEnabled = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,37 +35,6 @@ class offlineToggleCell: UITableViewCell {
 //        sender.isOn ? writePlist(toggle: true) : writePlist(toggle: false)
         print("The switch is \(sender.isOn ? "ON" : "OFF")")
         
-        print(readPlist())
-        
     }
-    
-    func readPlist()->Bool{
-        
-        let plistPath:String? = Bundle.main.path(forResource: "settings", ofType: "plist")!
-        
-//        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//        let plistPath = urls[urls.count-1].absoluteString + "settings.plist"
-//        print(plistPath)
-        let plistSettings = NSMutableDictionary(contentsOfFile: plistPath!)
-
-        return plistSettings!["isOffline"]! as! Bool
-        
-    }
-    
-//    func writePlist(toggle: Bool){
-//        
-////        let plistPath:String? = Bundle.main.path(forResource: "settings", ofType: "plist")!
-//        
-//        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//        let plistPath = urls[urls.count-1].absoluteString + "settings.plist"
-//        let plistSettings = NSMutableDictionary(contentsOfFile: plistPath)
-//        
-//        plistSettings!["isOffline"] = toggle
-//        
-//        plistSettings?.write(toFile: plistPath, atomically: true)
-//        
-//        print(plistPath)
-//        
-//    }
 
 }

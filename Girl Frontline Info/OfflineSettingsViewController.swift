@@ -52,7 +52,7 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         let cell = offlineToggleCell()
-        cell.switchView.setOn(readPlist(), animated: true)
+        cell.switchView.setOn(Plist().read(), animated: true)
         
         versionLabel.text = " "
         tsLabel.text = " "
@@ -96,20 +96,6 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol {
             break
         }
     }
-    
-    func readPlist()->Bool{
-        
-        let plistPath:String? = Bundle.main.path(forResource: "settings", ofType: "plist")!
-        
-        let plistSettings = NSMutableDictionary(contentsOfFile: plistPath!)
-        
-        return plistSettings!["isOffline"]! as! Bool
-        
-    }
-    
-    
-    
-
     
 //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "offlineToggle", for: indexPath)

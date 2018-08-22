@@ -29,6 +29,7 @@
 		A661B45820AA26E800F9ED2F /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A661B45720AA26E800F9ED2F /* NotificationCenter.framework */; };
 		A661B45B20AA26E800F9ED2F /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A661B45A20AA26E800F9ED2F /* TodayViewController.swift */; };
 		A661B45E20AA26E800F9ED2F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A661B45C20AA26E800F9ED2F /* MainInterface.storyboard */; };
+		A66D426C20FCCD8E002CDC54 /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D426B20FCCD8E002CDC54 /* Plist.swift */; };
 		A67208B120EA3C3B000A58B3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67208B020EA3C3B000A58B3 /* SettingsViewController.swift */; };
 		A6B1A2CF20C0531900647DB3 /* SelectTDollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */; };
 		A6BB3BB220A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB3BB120A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift */; };
@@ -77,6 +78,8 @@
 		A661B45D20AA26E800F9ED2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		A661B45F20AA26E800F9ED2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A661B46720AA270000F9ED2F /* GLFL Info Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GLFL Info Widget.entitlements"; sourceTree = "<group>"; };
+		A66D426B20FCCD8E002CDC54 /* Plist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
+		A66D426D20FCD8FB002CDC54 /* Testing.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Testing.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A67208B020EA3C3B000A58B3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTDollViewController.swift; sourceTree = "<group>"; };
 		A6BB3BB120A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildtimeSearchCollectionViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +141,7 @@
 			children = (
 				A661B45020AA265E00F9ED2F /* Girl Frontline Info.entitlements */,
 				A610868A20C1A608006DF67E /* sqlite.h */,
+				A66D426D20FCD8FB002CDC54 /* Testing.playground */,
 				A60D4659209FC986003D85D3 /* Info.plist */,
 				A6FCC45120E9912800D31DE1 /* settings.plist */,
 				A65B259420A658660036BC39 /* iPhone678.storyboard */,
@@ -150,6 +154,7 @@
 				A6F2958A20A062A000239089 /* getSearchResult.swift */,
 				A6FCC45320E9919D00D31DE1 /* OfflineSettingsViewController.swift */,
 				A6FCC45520E995C100D31DE1 /* offlineToggleCell.swift */,
+				A66D426B20FCCD8E002CDC54 /* Plist.swift */,
 				A6BB3BB320A3B6E40094C06C /* ResultCollectionViewCell.swift */,
 				A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */,
 				A64B35C720A5C89C00A3602D /* Session.swift */,
@@ -326,6 +331,7 @@
 				A6BB3BB220A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift in Sources */,
 				A6185FBB20B9C84400A5D83B /* TeamSimulatorViewController.swift in Sources */,
 				A6E5BEE120C1895D00B1D01E /* TutorialPagesViewController.swift in Sources */,
+				A66D426C20FCCD8E002CDC54 /* Plist.swift in Sources */,
 				A655A6F320A1400600E29E9B /* StarSearchViewController.swift in Sources */,
 				A6F2958B20A062A000239089 /* getSearchResult.swift in Sources */,
 				A60D4650209FC985003D85D3 /* ViewController.swift in Sources */,

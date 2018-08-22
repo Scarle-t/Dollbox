@@ -80,7 +80,7 @@ class TeamSimulatorViewController: UIViewController {
     
     func displayWarning(title: String){
         
-        let alert = UIAlertController(title: title, message: "", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: title, message: "", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             switch action.style{
             case .default:

@@ -22,8 +22,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        let plistUrl = Bundle.main.path(forResource: "settings", ofType: "plist")!
+        let plistSettings = [["isOffline":true]]
+        
+        do{
+            let serializedData = try PropertyListSerialization.data(fromPropertyList: plistSettings, format: .xml, options: 0)
+            let file = urls[0].appendingPathComponent("settings.plist")
+            let _ = try serializedData.write(to: file)
+            print(file)
+        }catch{
+            print(error)
+        }
+        
         let sqlitePath = urls[urls.count-1].absoluteString + "sqlite3.db"
         
         print(sqlitePath)
