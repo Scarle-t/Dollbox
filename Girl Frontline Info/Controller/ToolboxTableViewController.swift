@@ -22,9 +22,7 @@ class ToolboxTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        self.navigationController?.navigationBar.barTintColor = UIColor.white
-        
+        setNavBarColor().white(self)
     }
 
     override func didReceiveMemoryWarning() {

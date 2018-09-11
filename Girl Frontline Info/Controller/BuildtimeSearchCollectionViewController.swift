@@ -149,9 +149,7 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
             searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?hour=\(hour)&minute=\(minute)&second=\(second)"
             
         }
-        
         searchResult.downloadItems()
-        
     }
     
     @IBOutlet weak var txtHour: UITextField!
@@ -196,7 +194,7 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.barTintColor = UIColor.white
+        setNavBarColor().white(self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

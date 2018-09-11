@@ -12,6 +12,8 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
     
     let imgCache = Session.sharedInstance.imgSession
     
+    let searchResult = getSearchResult()
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return feedItems.count
     }
@@ -68,7 +70,6 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
         
     }
     
-    
     var feedItems: NSArray = NSArray()
     
     var selectedTDoll: TDoll = TDoll()
@@ -104,65 +105,34 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
         
         switch navBarStars.selectedSegmentIndex {
         case 0:
-            navigationController?.navigationBar.barTintColor = UIColor.white
-            
-            let searchResult = getSearchResult()
-            searchResult.delegate = self
+            setNavBarColor().white(self)
             searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=2"
-            
-            searchResult.downloadItems()
         case 1:
-            
-            navigationController?.navigationBar.barTintColor = UIColor(red: 116.0/255.0, green: 220.0/255.0, blue: 204.0/255.0, alpha: 1.0)
-            
-            let searchResult = getSearchResult()
-            searchResult.delegate = self
+            setNavBarColor().blue(self)
             searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=3"
-            
-            searchResult.downloadItems()
         case 2:
-            
-            navigationController?.navigationBar.barTintColor = UIColor(red: 210.0/255.0, green: 226.0/255.0, blue: 102.0/255.0, alpha: 1.0)
-            
-            let searchResult = getSearchResult()
-            searchResult.delegate = self
+            setNavBarColor().green(self)
             searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=4"
-            
-            searchResult.downloadItems()
         case 3:
-            
-            navigationController?.navigationBar.barTintColor = UIColor(red: 253.0/255.0, green: 181.0/255.0, blue: 35.0/255.0, alpha: 1.0)
-            
-            let searchResult = getSearchResult()
-            searchResult.delegate = self
+            setNavBarColor().gold(self)
             searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=5"
-            
-            searchResult.downloadItems()
         case 4:
-            
-            navigationController?.navigationBar.barTintColor = UIColor(red: 223.0/255.0, green: 180.0/255.0, blue: 253.0/255.0, alpha: 1.0)
-            
-            let searchResult = getSearchResult()
-            searchResult.delegate = self
+            setNavBarColor().purple(self)
             searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=EXTRA"
-            
-            searchResult.downloadItems()
         default:
             if let string = navBarStars.titleForSegment(
                 at: navBarStars.selectedSegmentIndex){
                 print(string)
             }
         }
+        
+        searchResult.downloadItems()
+        
     }
-    
-    
     
     @IBAction func navbBarStars(_ sender: UISegmentedControl) {
-        
         swipeResult()
-        
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -197,7 +167,6 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
             NSAttributedStringKey.font : UIFont(name: "Mohave", size: 17)!
             ], for: UIControlState.selected)
         
-        let searchResult = getSearchResult()
         searchResult.delegate = self
         searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=2"
         

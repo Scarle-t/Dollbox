@@ -247,29 +247,23 @@ class TDollViewController: UIViewController {
         
         
         if selectedTDoll?.stars == "2"{
-            navigationController?.navigationBar.barTintColor = UIColor.white
-            
-            
+            setNavBarColor().white(self)
         }
         
         if selectedTDoll?.stars == "3"{
-            navigationController?.navigationBar.barTintColor = UIColor(red: 116.0/255.0, green: 220.0/255.0, blue: 204.0/255.0, alpha: 1.0)
-            
+            setNavBarColor().blue(self)
         }
         
         if selectedTDoll?.stars == "4"{
-            navigationController?.navigationBar.barTintColor = UIColor(red: 210.0/255.0, green: 226.0/255.0, blue: 102.0/255.0, alpha: 1.0)
-           
+            setNavBarColor().green(self)
         }
         
         if selectedTDoll?.stars == "5"{
-            navigationController?.navigationBar.barTintColor = UIColor(red: 253.0/255.0, green: 181.0/255.0, blue: 35.0/255.0, alpha: 1.0)
-           
+            setNavBarColor().gold(self)
         }
         
         if selectedTDoll?.stars == "EXTRA"{
-            navigationController?.navigationBar.barTintColor = UIColor(red: 223.0/255.0, green: 180.0/255.0, blue: 253.0/255.0, alpha: 1.0)
-        
+            setNavBarColor().purple(self)
         }
         
         self.title = "人形資料"

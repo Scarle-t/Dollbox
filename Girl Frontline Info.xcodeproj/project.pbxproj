@@ -17,6 +17,7 @@
 		A610868C20C1A7E4006DF67E /* SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610868B20C1A7E4006DF67E /* SQLite.swift */; };
 		A6185FB920B9C82800A5D83B /* BuildSimulatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6185FB820B9C82800A5D83B /* BuildSimulatorViewController.swift */; };
 		A6185FBB20B9C84400A5D83B /* TeamSimulatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6185FBA20B9C84400A5D83B /* TeamSimulatorViewController.swift */; };
+		A61D153E21484FBA005D7EDE /* setNavBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61D153D21484FBA005D7EDE /* setNavBarColor.swift */; };
 		A642306620AA92C9008622B4 /* getSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642306520AA92C9008622B4 /* getSearchResult.swift */; };
 		A642306820AA93D2008622B4 /* TDoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642306720AA93D2008622B4 /* TDoll.swift */; };
 		A642306A20ABA235008622B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A642306920ABA235008622B4 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		A610868B20C1A7E4006DF67E /* SQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLite.swift; sourceTree = "<group>"; };
 		A6185FB820B9C82800A5D83B /* BuildSimulatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildSimulatorViewController.swift; sourceTree = "<group>"; };
 		A6185FBA20B9C84400A5D83B /* TeamSimulatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSimulatorViewController.swift; sourceTree = "<group>"; };
+		A61D153D21484FBA005D7EDE /* setNavBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setNavBarColor.swift; sourceTree = "<group>"; };
 		A642306520AA92C9008622B4 /* getSearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = getSearchResult.swift; path = "Girl Frontline Info/getSearchResult.swift"; sourceTree = SOURCE_ROOT; };
 		A642306720AA93D2008622B4 /* TDoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TDoll.swift; path = "Girl Frontline Info/TDoll.swift"; sourceTree = SOURCE_ROOT; };
 		A642306920ABA235008622B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				A646509320EA45D200051266 /* Version.swift */,
 				A6F2958A20A062A000239089 /* getSearchResult.swift */,
 				A6B03C4721484ACB00FAF61A /* DownloadPhoto.swift */,
+				A61D153D21484FBA005D7EDE /* setNavBarColor.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				A6ECCAF220BC05F500D15ED5 /* BuildStatsViewController.swift in Sources */,
 				A6B03C4821484ACB00FAF61A /* DownloadPhoto.swift in Sources */,
 				A6F2958D20A0EB6A00239089 /* TDollViewController.swift in Sources */,
+				A61D153E21484FBA005D7EDE /* setNavBarColor.swift in Sources */,
 				A6F2958920A05E0800239089 /* TDoll.swift in Sources */,
 				A6FCC45620E995C100D31DE1 /* offlineToggleCell.swift in Sources */,
 				A64B35C820A5C89C00A3602D /* Session.swift in Sources */,

@@ -147,8 +147,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.barTintColor = UIColor.white
-        
+        setNavBarColor().white(self)
         updateValue()
         
     }
