@@ -143,44 +143,21 @@
 		A60D464C209FC985003D85D3 /* Girl Frontline Info */ = {
 			isa = PBXGroup;
 			children = (
-				A661B45020AA265E00F9ED2F /* Girl Frontline Info.entitlements */,
-				A610868A20C1A608006DF67E /* sqlite.h */,
-				A66D426D20FCD8FB002CDC54 /* Testing.playground */,
-				A60D4659209FC986003D85D3 /* Info.plist */,
-				A6FCC45120E9912800D31DE1 /* settings.plist */,
+				A6B03C45214849C800FAF61A /* Action */,
 				A60D464D209FC985003D85D3 /* AppDelegate.swift */,
-				A6185FB820B9C82800A5D83B /* BuildSimulatorViewController.swift */,
-				A6ECCAF120BC05F500D15ED5 /* BuildStatsViewController.swift */,
-				A6BB3BB120A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift */,
-				A655A6F020A13A8900E29E9B /* CategoryViewController.swift */,
-				A65B259220A655A00036BC39 /* DeviceExtension.swift */,
-				A6F2958A20A062A000239089 /* getSearchResult.swift */,
-				A6FCC45320E9919D00D31DE1 /* OfflineSettingsViewController.swift */,
-				A6FCC45520E995C100D31DE1 /* offlineToggleCell.swift */,
-				A66D426B20FCCD8E002CDC54 /* Plist.swift */,
-				A6BB3BB320A3B6E40094C06C /* ResultCollectionViewCell.swift */,
-				A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */,
-				A64B35C720A5C89C00A3602D /* Session.swift */,
-				A67208B020EA3C3B000A58B3 /* SettingsViewController.swift */,
-				A6F6071120B8625000097FDC /* SimulatorsViewController.swift */,
-				A610868B20C1A7E4006DF67E /* SQLite.swift */,
-				A655A6F220A1400600E29E9B /* StarSearchViewController.swift */,
-				A6F2958820A05E0800239089 /* TDoll.swift */,
-				A6F2958C20A0EB6A00239089 /* TDollViewController.swift */,
-				A6185FBA20B9C84400A5D83B /* TeamSimulatorViewController.swift */,
-				A60D69A6213DE65800610D40 /* ToolboxTableViewController.swift */,
-				A6E5BEE220C19CE500B1D01E /* TutorialEndViewController.swift */,
-				A6E5BEE020C1895D00B1D01E /* TutorialPagesViewController.swift */,
-				A655A6F420A1502E00E29E9B /* typeViewController.swift */,
-				A646509320EA45D200051266 /* Version.swift */,
-				A60D464F209FC985003D85D3 /* ViewController.swift */,
 				A60D4654209FC986003D85D3 /* Assests.xcassets */,
 				A6B03C442148490500FAF61A /* Cell */,
 				A6B03C42214848D400FAF61A /* Class */,
 				A6B03C41214848BC00FAF61A /* Controller */,
+				A6B03C46214849F600FAF61A /* Extension */,
 				A6F6071320B8879400097FDC /* fonts */,
+				A661B45020AA265E00F9ED2F /* Girl Frontline Info.entitlements */,
+				A60D4659209FC986003D85D3 /* Info.plist */,
 				A6B03C43214848E000FAF61A /* Object */,
+				A6FCC45120E9912800D31DE1 /* settings.plist */,
+				A610868A20C1A608006DF67E /* sqlite.h */,
 				A6B03C40214848B200FAF61A /* Storyboard */,
+				A66D426D20FCD8FB002CDC54 /* Testing.playground */,
 			);
 			path = "Girl Frontline Info";
 			sourceTree = "<group>";
@@ -222,6 +199,22 @@
 		A6B03C41214848BC00FAF61A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A6185FB820B9C82800A5D83B /* BuildSimulatorViewController.swift */,
+				A6ECCAF120BC05F500D15ED5 /* BuildStatsViewController.swift */,
+				A6BB3BB120A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift */,
+				A655A6F020A13A8900E29E9B /* CategoryViewController.swift */,
+				A6FCC45320E9919D00D31DE1 /* OfflineSettingsViewController.swift */,
+				A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */,
+				A67208B020EA3C3B000A58B3 /* SettingsViewController.swift */,
+				A6F6071120B8625000097FDC /* SimulatorsViewController.swift */,
+				A655A6F220A1400600E29E9B /* StarSearchViewController.swift */,
+				A6F2958C20A0EB6A00239089 /* TDollViewController.swift */,
+				A6185FBA20B9C84400A5D83B /* TeamSimulatorViewController.swift */,
+				A60D69A6213DE65800610D40 /* ToolboxTableViewController.swift */,
+				A6E5BEE220C19CE500B1D01E /* TutorialEndViewController.swift */,
+				A6E5BEE020C1895D00B1D01E /* TutorialPagesViewController.swift */,
+				A655A6F420A1502E00E29E9B /* typeViewController.swift */,
+				A60D464F209FC985003D85D3 /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -229,6 +222,7 @@
 		A6B03C42214848D400FAF61A /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				A64B35C720A5C89C00A3602D /* Session.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -236,6 +230,7 @@
 		A6B03C43214848E000FAF61A /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				A6F2958820A05E0800239089 /* TDoll.swift */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -243,8 +238,29 @@
 		A6B03C442148490500FAF61A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				A6FCC45520E995C100D31DE1 /* offlineToggleCell.swift */,
+				A6BB3BB320A3B6E40094C06C /* ResultCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		A6B03C45214849C800FAF61A /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				A610868B20C1A7E4006DF67E /* SQLite.swift */,
+				A66D426B20FCCD8E002CDC54 /* Plist.swift */,
+				A646509320EA45D200051266 /* Version.swift */,
+				A6F2958A20A062A000239089 /* getSearchResult.swift */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		A6B03C46214849F600FAF61A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A65B259220A655A00036BC39 /* DeviceExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		A6F6071320B8879400097FDC /* fonts */ = {
