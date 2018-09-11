@@ -97,7 +97,7 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
                 
             }else{
                 
-                getDataFromUrl(url: url!) { data, response, error in
+                DownloadPhoto().get(url: url!) { data, response, error in
                     guard let imgData = data, error == nil else { return }
                     print(url!)
                     print("Download Finished")
@@ -217,12 +217,6 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
         
     }
 
-    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            completion(data, response, error)
-            }.resume()
-    }
-    
     /*
     // MARK: - Navigation
 

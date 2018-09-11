@@ -37,7 +37,7 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
                 
             }else{
                 
-                getDataFromUrl(url: url!) { data, response, error in
+                DownloadPhoto().get(url: url!) { data, response, error in
                     guard let imgData = data, error == nil else { return }
                     print(url!)
                     print("Download Finished")
@@ -190,11 +190,11 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
         listResult.dataSource = self
         
         navBarStars.setTitleTextAttributes([
-            NSAttributedStringKey.font : UIFont(name: "Mohave", size: 17)
+            NSAttributedStringKey.font : UIFont(name: "Mohave", size: 17)!
             ], for: UIControlState.normal)
         
         navBarStars.setTitleTextAttributes([
-            NSAttributedStringKey.font : UIFont(name: "Mohave", size: 17)
+            NSAttributedStringKey.font : UIFont(name: "Mohave", size: 17)!
             ], for: UIControlState.selected)
         
         let searchResult = getSearchResult()
@@ -209,12 +209,6 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            completion(data, response, error)
-            }.resume()
     }
 
     /*

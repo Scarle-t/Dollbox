@@ -56,7 +56,7 @@ class SelectTDollViewController: UIViewController, UICollectionViewDataSource, U
                 
             }else{
                 
-                getDataFromUrl(url: url!) { data, response, error in
+                DownloadPhoto().get(url: url!) { data, response, error in
                     guard let imgData = data, error == nil else { return }
                     print(url!)
                     print("Download Finished")
@@ -654,9 +654,7 @@ class SelectTDollViewController: UIViewController, UICollectionViewDataSource, U
             dimView.isHidden = true
             
             displayItem()
-            
-        default:
-            break
+
         }
         
         resultView.reloadData()
@@ -692,12 +690,6 @@ class SelectTDollViewController: UIViewController, UICollectionViewDataSource, U
         }
     }
     
-    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            completion(data, response, error)
-            }.resume()
-    }
-
     /*
     // MARK: - Navigation
 
