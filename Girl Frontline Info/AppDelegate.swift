@@ -21,25 +21,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         switch modelName{
             
+        case "iPad":
+            
+            if #available(iOS 12.0, *){
+                let storyboard = UIStoryboard(name: "iPhone678", bundle: nil)
+                let tabVc = storyboard.instantiateViewController(withIdentifier: "iPhone678TB") as! UITabBarController
+                
+                self.window?.rootViewController = tabVc
+                print("iPad iOS 12 available running iPhone678 storyboard")
+                print(modelName)
+            }else{
+                let storyboard = UIStoryboard(name: "small", bundle: nil)
+                let tabVc = storyboard.instantiateViewController(withIdentifier: "small") as! UITabBarController
+                
+                self.window?.rootViewController = tabVc
+                print("iPad running small storyboard")
+                print(modelName)
+            }
+            
+        case "iPhone 5/s/c/SE":
+            
+            let storyboard = UIStoryboard(name: "small", bundle: nil)
+            let tabVc = storyboard.instantiateViewController(withIdentifier: "small") as! UITabBarController
+            
+            self.window?.rootViewController = tabVc
+            print("iPhone 5/s/c/SE running small storyboard")
+            print(modelName)
+            
         case "iPhone 6/s/7/8":
+            
             let storyboard = UIStoryboard(name: "iPhone678", bundle: nil)
             let tabVc = storyboard.instantiateViewController(withIdentifier: "iPhone678TB") as! UITabBarController
             
             self.window?.rootViewController = tabVc
-            
+            print("iPhone 6/s/7/8 running iPhone678 storyboard")
             print(modelName)
             
         case "iPhone X":
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let tabVc = storyboard.instantiateViewController(withIdentifier: "iPhoneX") as! UITabBarController
-            
+            print("iPhone X running Main storyboard")
             self.window?.rootViewController = tabVc
             
             print(modelName)
             
         default:
             
-            break
+            let storyboard = UIStoryboard(name: "small", bundle: nil)
+            let tabVc = storyboard.instantiateViewController(withIdentifier: "small") as! UITabBarController
+            print("default running small storyboard")
+            self.window?.rootViewController = tabVc
+            
+            print(modelName)
             
         }
         
@@ -75,10 +109,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabVc = self.window?.rootViewController as! UITabBarController
         
-        let searchNC = storyboard.instantiateViewController(withIdentifier: "searchNC") as! UINavigationController
-        let cateNC = storyboard.instantiateViewController(withIdentifier: "cateNC") as! UINavigationController
-        
-        let simNC = storyboard.instantiateViewController(withIdentifier: "simNC") as! UINavigationController
+        let toolsNC = storyboard.instantiateViewController(withIdentifier: "toolsNC") as! UINavigationController
+        let moreNC = storyboard.instantiateViewController(withIdentifier: "moreNC") as! UINavigationController
         
         let typeSearch = storyboard.instantiateViewController(withIdentifier: "typeSearch")
         let starSearch = storyboard.instantiateViewController(withIdentifier: "starSearch")
@@ -86,33 +118,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if shortcutItem.type == "net.scarletsc.Girl-Frontline-Info.TimeSearch"{
             
-            tabVc.viewControllers = [searchNC, cateNC, simNC]
-            tabVc.selectedViewController = searchNC
-            searchNC.navigationController?.pushViewController(timeSearch, animated: true)
-            searchNC.show(timeSearch, sender: self)
+            tabVc.viewControllers = [toolsNC, moreNC]
+            tabVc.selectedViewController = toolsNC
+            toolsNC.navigationController?.pushViewController(timeSearch, animated: true)
+            toolsNC.show(timeSearch, sender: self)
             self.window?.makeKeyAndVisible()
             
         }
         
         if shortcutItem.type == "net.scarletsc.Girl-Frontline-Info.StarSearch"{
-            tabVc.viewControllers = [searchNC, cateNC, simNC]
-            tabVc.selectedViewController = cateNC
+            tabVc.viewControllers = [toolsNC, moreNC]
+            tabVc.selectedViewController = toolsNC
             tabVc.navigationController?.pushViewController(starSearch, animated: true)
-            cateNC.show(starSearch, sender: self)
+            toolsNC.show(starSearch, sender: self)
             self.window?.makeKeyAndVisible()
         }
         
         if shortcutItem.type == "net.scarletsc.Girl-Frontline-Info.TypeSearch"{
-            tabVc.viewControllers = [searchNC, cateNC, simNC]
-            tabVc.selectedViewController = cateNC
+            tabVc.viewControllers = [toolsNC, moreNC]
+            tabVc.selectedViewController = toolsNC
             tabVc.navigationController?.pushViewController(typeSearch, animated: true)
-            cateNC.show(typeSearch, sender: self)
+            toolsNC.show(typeSearch, sender: self)
             self.window?.makeKeyAndVisible()
         }
         
         if shortcutItem.type == "net.scarletsc.Girl-Frontline-Info.Simulator"{
-            tabVc.viewControllers = [searchNC, cateNC, simNC]
-            tabVc.selectedViewController = simNC
+            tabVc.viewControllers = [toolsNC, moreNC]
+            tabVc.selectedViewController = toolsNC
             //simNC.show(simNC, sender: self)
             self.window?.makeKeyAndVisible()
         }

@@ -141,20 +141,6 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
     
     @IBOutlet weak var sepBuildType: UISegmentedControl!
     
-    @IBOutlet var upDownArrow: [UIButton]!
-    
-    @IBOutlet var upButtons: [UIButton]!
-    @IBOutlet var downButtons: [UIButton]!
-    
-    @IBOutlet var values: [UITextField]!
-    
-    @IBOutlet var manPowerValues: [UITextField]!
-    @IBOutlet var ammoValues: [UITextField]!
-    @IBOutlet var rationValues: [UITextField]!
-    @IBOutlet var partsValues: [UITextField]!
-    
-    @IBOutlet var frames: [UIImageView]!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -168,6 +154,9 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.barTintColor = UIColor.white
+        
+        updateValue()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -175,263 +164,104 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func valueUp(_ sender: UIButton){
-        
-        if let index = upButtons.index(of: sender){
-            
-            
-            switch sepBuildType.selectedSegmentIndex{
-                
-            case 1:
-                if values[2].text == "3" && (index == 0 || index == 1 || index == 2){
-                    
-                    switch index {
-                        
-                    case 0, 1, 2:
-                        
-                        values[0].text = "0"
-                        values[1].text = "0"
-                        values[2].text = "3"
-                        
-                    default:
-                        break
-                    }
-                    
-                    
-                }else if values[5].text == "3" && (index == 3 || index == 4 || index == 5){
-                    
-                    switch index {
-                        
-                    case 3, 4, 5:
-                        
-                        values[3].text = "0"
-                        values[4].text = "0"
-                        values[5].text = "3"
-                        
-                    default:
-                        break
-                    }
-                    
-                }else if values[8].text == "3" && (index == 6 || index == 7 || index == 8){
-                    
-                    switch index {
-                        
-                    case 6, 7, 8:
-                        
-                        values[6].text = "0"
-                        values[7].text = "0"
-                        values[8].text = "3"
-                        
-                    default:
-                        break
-                    }
-                    
-                }else if values[11].text == "3" && (index == 9 || index == 10 || index == 11){
-                    
-                    switch index {
-                        
-                    case 9, 10, 11:
-                        
-                        values[9].text = "0"
-                        values[10].text = "0"
-                        values[11].text = "3"
-                        
-                    default:
-                        break
-                    }
-                    
-                }else{
-
-                    if values[index].text != "9"{
-                        values[index].text = "\(Int(values[index].text!)! + 1)"
-                    }else if values[index].text == "9"{
-                        if index == 0 || index == 1 || index == 3 || index == 4 || index == 6 || index == 7 || index == 9 || index == 10{
-                            if values[index + 1].text != "9"{
-                                values[index].text = "0"
-                                values[index+1].text = "\(Int(values[index+1].text!)! + 1)"
-                            }else{
-                                if index == 0 || index == 3 || index == 6 || index == 9{
-                                    if values[index + 2].text != "9"{
-                                        values[index].text = "0"
-                                        values[index + 1].text = "0"
-                                        values[index+2].text = "\(Int(values[index+2].text!)! + 1)"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            default:
-                if values[index].text != "9"{
-                    values[index].text = "\(Int(values[index].text!)! + 1)"
-                }else if values[index].text == "9"{
-                    if index == 0 || index == 1 || index == 3 || index == 4 || index == 6 || index == 7 || index == 9 || index == 10{
-                        if values[index + 1].text != "9"{
-                            values[index].text = "0"
-                            values[index+1].text = "\(Int(values[index+1].text!)! + 1)"
-                        }else{
-                            if index == 0 || index == 3 || index == 6 || index == 9{
-                                if values[index + 2].text != "9"{
-                                    values[index].text = "0"
-                                    values[index + 1].text = "0"
-                                    values[index+2].text = "\(Int(values[index+2].text!)! + 1)"
-                                }
-                                
-                            }
-                        }
-                    }
-                }
-            }
-            
-            
-            
-        }
-    }
-    
-    @IBAction func valueDown(_ sender: UIButton){
-        
-        switch sepBuildType.selectedSegmentIndex{
-        case 0:
-            
-            if let index = downButtons.index(of: sender){
-                if let value = values[index].text{
-                    
-                    if index == 1 || index == 4 || index == 7 || index == 10{
-                        
-                        if values[index + 1].text == "0"{
-                            if value != "3"{
-                                values[index].text = "\(Int(value)! - 1)"
-                            }
-                        }else{
-                            if value == "0"{
-                                values[index].text = "9"
-                                values[index + 1].text = "\(Int(values[index + 1].text!)! - 1)"
-                            }else{
-                                values[index].text = "\(Int(value)! - 1)"
-                            }
-                            
-                        }
-   
-                    }else{
-                        if value != "0"{
-                            values[index].text = "\(Int(value)! - 1)"
-                        }
-                    }
-                }
-            }
-            
-        case 1:
-            
-            if let index = downButtons.index(of: sender){
-                if let value = values[index].text{
-                    
-                    if index == 1 || index == 4 || index == 7 || index == 10{
-                        
-                        if values[index + 1].text == "0"{
-                            if value != "1"{
-                                values[index].text = "\(Int(value)! - 1)"
-                            }
-                        }else{
-                            if value == "0"{
-                                values[index].text = "9"
-                                values[index + 1].text = "\(Int(values[index + 1].text!)! - 1)"
-                            }else{
-                                values[index].text = "\(Int(value)! - 1)"
-                            }
-                            
-                        }
-                        
-                    }else{
-                        if value != "0"{
-                            values[index].text = "\(Int(value)! - 1)"
-                        }
-                    }
-                }
-            }
-            
-            
-        default:
-            break
-        }
-        
-    }
-    
-    @IBAction func typeChange(_ sender: UISegmentedControl) {
-       
-        switch sender.selectedSegmentIndex{
-            
-        case 0:
-            for index in upDownArrow{
-                
-                index.backgroundColor = UIColor(red: 144/255, green: 198/255, blue: 53/255, alpha: 1.0)
-                
-            }
-            
-            for index in frames{
-                index.image = #imageLiteral(resourceName: "green_box")
-            }
-            
-            for index in values{
-                if values.index(of: index) == 1 || values.index(of: index) == 4 || values.index(of: index) == 7 || values.index(of: index) == 10{
-                    
-                    index.text = "3"
-                    
-                }
-                else{
-                    index.text = "0"
-                }
-            }
-            
-        case 1:
-            for index in upDownArrow{
-                
-                index.backgroundColor = UIColor(red: 50/255, green: 195/255, blue: 191/255, alpha: 1.0)
-                
-            }
-            
-            for index in frames{
-                index.image = #imageLiteral(resourceName: "box_blue")
-            }
-            
-            for index in values{
-                if values.index(of: index) == 1 || values.index(of: index) == 4 || values.index(of: index) == 7 || values.index(of: index) == 10{
-                    
-                    index.text = "1"
-                    
-                }
-                else{
-                    index.text = "0"
-                }
-            }
-            
-        default:
-            break
-            
-        }
-    }
-    
     var appearType: [String] = ["SMG"]
     
     var downloadStrings: [String] = ["https://scarletsc.net/girlfrontline/search.php?build=SMG"]
+    var manPower: Int = 30
+    var ammo: Int = 30
+    var ration: Int = 30
+    var parts: Int = 30
+    
+    @IBOutlet weak var mpValue: UILabel!
+    @IBOutlet weak var ammoValue: UILabel!
+    @IBOutlet weak var rationValue: UILabel!
+    @IBOutlet weak var partsValue: UILabel!
+    
+    @IBOutlet weak var mpSlide: UISlider!
+    @IBOutlet weak var ammoSlide: UISlider!
+    @IBOutlet weak var rationSlide: UISlider!
+    @IBOutlet weak var partsSlide: UISlider!
+    
+    @IBOutlet weak var mpStep: UIStepper!
+    @IBOutlet weak var ammoStep: UIStepper!
+    @IBOutlet weak var rationStep: UIStepper!
+    @IBOutlet weak var partsSetp: UIStepper!
+    
+    @IBAction func slideChange(_ sender: UISlider) {
+        
+        switch sender.tag{
+        case 0:
+            manPower = Int(sender.value)
+            mpStep.value = Double(sender.value)
+            updateValue()
+        case 1:
+            ammo = Int(sender.value)
+            ammoStep.value = Double(sender.value)
+            updateValue()
+        case 2:
+            ration = Int(sender.value)
+            rationStep.value = Double(sender.value)
+            updateValue()
+        case 3:
+            parts = Int(sender.value)
+            partsSetp.value = Double(sender.value)
+            updateValue()
+        default:
+            break
+            
+        }
+        
+    }
+    
+    @IBAction func stepperChange(_ sender: UIStepper) {
+        
+        switch sender.tag{
+            
+        case 0:
+            mpSlide.value = Float(sender.value)
+            manPower = Int(sender.value)
+            updateValue()
+        case 1:
+            ammoSlide.value = Float(sender.value)
+            ammo = Int(sender.value)
+            updateValue()
+        case 2:
+            rationSlide.value = Float(sender.value)
+            ration = Int(sender.value)
+            updateValue()
+        case 3:
+            partsSlide.value = Float(sender.value)
+            parts = Int(sender.value)
+            updateValue()
+        default:
+            break
+            
+        }
+        
+    }
+    
+    func updateValue(){
+        mpValue.text = String(manPower)
+        ammoValue.text = String(ammo)
+        rationValue.text = String(ration)
+        partsValue.text = String(parts)
+    }
 
     @IBAction func finishButton(_ sender: UIButton) {
         
         self.resultView.isHidden = true
         
-        let manPower = Int(manPowerValues[0].text! + manPowerValues[1].text! + manPowerValues[2].text!)
-        let ammo = Int(ammoValues[0].text! + ammoValues[1].text! + ammoValues[2].text!)
-        let ration = Int(rationValues[0].text! + rationValues[1].text! + rationValues[2].text!)
-        let parts = Int(partsValues[0].text! + partsValues[1].text! + partsValues[2].text!)
+        appearType.removeAll()
         
-        let total = manPower! + ammo! + ration! + parts!
+        let total = manPower + ammo + ration + parts
         
-        totalUsedAmmo += ammo!
-        totalUsedParts += parts!
-        totalUsedRation += ration!
-        totalUsedManPower += manPower!
+        totalUsedAmmo += ammo
+        totalUsedParts += parts
+        totalUsedRation += ration
+        totalUsedManPower += manPower
 
         if total < 920 {
-            if manPower! >= 130 && ammo! >= 130 && ration! >= 130 && parts! >= 130{
+            if manPower >= 130 && ammo >= 130 && ration >= 130 && parts >= 130{
                 appearType.append("5SHG")
             }
             
@@ -440,7 +270,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
         }
         
         if total > 800 {
-            if manPower! >= 30 && ammo! >= 400 && ration! >= 400 && parts! >= 30{
+            if manPower >= 30 && ammo >= 400 && ration >= 400 && parts >= 30{
                 appearType.append("5SAR")
             }else{
                 appearType.append("AR")
@@ -448,19 +278,19 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
             
         }
         
-        if manPower! >= 400 && ammo! >= 400 && ration! >= 30 && parts! >= 30{
+        if manPower >= 400 && ammo >= 400 && ration >= 30 && parts >= 30{
             appearType.append("5SSMG")
         }
         
-        if manPower! >= 300 && ration! >= 300{
-            if manPower! >= 400 && ammo! >= 30 && ration! >= 400 && parts! >= 30{
+        if manPower >= 300 && ration >= 300{
+            if manPower >= 400 && ammo >= 30 && ration >= 400 && parts >= 30{
                 appearType.append("5SRF")
             }
             appearType.append("RF")
         }
         
-        if manPower! >= 400 && ammo! >= 600 && parts! >= 300{
-            if manPower! >= 600 && ammo! >= 600 && ration! >= 100 && parts! >= 400{
+        if manPower >= 400 && ammo >= 600 && parts >= 300{
+            if manPower >= 600 && ammo >= 600 && ration >= 100 && parts >= 400{
                 appearType.append("5SMG")
             }
             appearType.append("MG")

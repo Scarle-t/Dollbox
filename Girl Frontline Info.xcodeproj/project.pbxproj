@@ -12,6 +12,7 @@
 		A60D4653209FC985003D85D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60D4651209FC985003D85D3 /* Main.storyboard */; };
 		A60D4655209FC986003D85D3 /* Assests.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60D4654209FC986003D85D3 /* Assests.xcassets */; };
 		A60D4658209FC986003D85D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60D4656209FC986003D85D3 /* LaunchScreen.storyboard */; };
+		A60D69A7213DE65800610D40 /* ToolboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D69A6213DE65800610D40 /* ToolboxTableViewController.swift */; };
 		A610868920C1A595006DF67E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A610868820C1A595006DF67E /* libsqlite3.tbd */; };
 		A610868C20C1A7E4006DF67E /* SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610868B20C1A7E4006DF67E /* SQLite.swift */; };
 		A6185FB920B9C82800A5D83B /* BuildSimulatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6185FB820B9C82800A5D83B /* BuildSimulatorViewController.swift */; };
@@ -34,6 +35,7 @@
 		A6B1A2CF20C0531900647DB3 /* SelectTDollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */; };
 		A6BB3BB220A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB3BB120A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift */; };
 		A6BB3BB420A3B6E40094C06C /* ResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB3BB320A3B6E40094C06C /* ResultCollectionViewCell.swift */; };
+		A6D6B00421398E7700F2C7AD /* small.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D6B00321398E7700F2C7AD /* small.storyboard */; };
 		A6E5BEE120C1895D00B1D01E /* TutorialPagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E5BEE020C1895D00B1D01E /* TutorialPagesViewController.swift */; };
 		A6E5BEE320C19CE500B1D01E /* TutorialEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E5BEE220C19CE500B1D01E /* TutorialEndViewController.swift */; };
 		A6ECCAF220BC05F500D15ED5 /* BuildStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ECCAF120BC05F500D15ED5 /* BuildStatsViewController.swift */; };
@@ -56,6 +58,7 @@
 		A60D4654209FC986003D85D3 /* Assests.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assests.xcassets; sourceTree = "<group>"; };
 		A60D4657209FC986003D85D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A60D4659209FC986003D85D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A60D69A6213DE65800610D40 /* ToolboxTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolboxTableViewController.swift; sourceTree = "<group>"; };
 		A610868820C1A595006DF67E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A610868A20C1A608006DF67E /* sqlite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sqlite.h; sourceTree = "<group>"; };
 		A610868B20C1A7E4006DF67E /* SQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLite.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 		A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTDollViewController.swift; sourceTree = "<group>"; };
 		A6BB3BB120A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildtimeSearchCollectionViewController.swift; sourceTree = "<group>"; };
 		A6BB3BB320A3B6E40094C06C /* ResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		A6D6B00321398E7700F2C7AD /* small.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = small.storyboard; sourceTree = "<group>"; };
 		A6E5BEE020C1895D00B1D01E /* TutorialPagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPagesViewController.swift; sourceTree = "<group>"; };
 		A6E5BEE220C19CE500B1D01E /* TutorialEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEndViewController.swift; sourceTree = "<group>"; };
 		A6ECCAF120BC05F500D15ED5 /* BuildStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildStatsViewController.swift; sourceTree = "<group>"; };
@@ -144,7 +148,6 @@
 				A66D426D20FCD8FB002CDC54 /* Testing.playground */,
 				A60D4659209FC986003D85D3 /* Info.plist */,
 				A6FCC45120E9912800D31DE1 /* settings.plist */,
-				A65B259420A658660036BC39 /* iPhone678.storyboard */,
 				A60D464D209FC985003D85D3 /* AppDelegate.swift */,
 				A6185FB820B9C82800A5D83B /* BuildSimulatorViewController.swift */,
 				A6ECCAF120BC05F500D15ED5 /* BuildStatsViewController.swift */,
@@ -165,15 +168,19 @@
 				A6F2958820A05E0800239089 /* TDoll.swift */,
 				A6F2958C20A0EB6A00239089 /* TDollViewController.swift */,
 				A6185FBA20B9C84400A5D83B /* TeamSimulatorViewController.swift */,
+				A60D69A6213DE65800610D40 /* ToolboxTableViewController.swift */,
 				A6E5BEE220C19CE500B1D01E /* TutorialEndViewController.swift */,
 				A6E5BEE020C1895D00B1D01E /* TutorialPagesViewController.swift */,
 				A655A6F420A1502E00E29E9B /* typeViewController.swift */,
 				A646509320EA45D200051266 /* Version.swift */,
 				A60D464F209FC985003D85D3 /* ViewController.swift */,
 				A60D4654209FC986003D85D3 /* Assests.xcassets */,
+				A6B03C442148490500FAF61A /* Cell */,
+				A6B03C42214848D400FAF61A /* Class */,
+				A6B03C41214848BC00FAF61A /* Controller */,
 				A6F6071320B8879400097FDC /* fonts */,
-				A60D4656209FC986003D85D3 /* LaunchScreen.storyboard */,
-				A60D4651209FC985003D85D3 /* Main.storyboard */,
+				A6B03C43214848E000FAF61A /* Object */,
+				A6B03C40214848B200FAF61A /* Storyboard */,
 			);
 			path = "Girl Frontline Info";
 			sourceTree = "<group>";
@@ -199,6 +206,45 @@
 				A661B45F20AA26E800F9ED2F /* Info.plist */,
 			);
 			path = "GLFL Info Widget";
+			sourceTree = "<group>";
+		};
+		A6B03C40214848B200FAF61A /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A65B259420A658660036BC39 /* iPhone678.storyboard */,
+				A6D6B00321398E7700F2C7AD /* small.storyboard */,
+				A60D4656209FC986003D85D3 /* LaunchScreen.storyboard */,
+				A60D4651209FC985003D85D3 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		A6B03C41214848BC00FAF61A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A6B03C42214848D400FAF61A /* Class */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		A6B03C43214848E000FAF61A /* Object */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
+		A6B03C442148490500FAF61A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		A6F6071320B8879400097FDC /* fonts */ = {
@@ -305,6 +351,7 @@
 				A6F6071520B887B900097FDC /* Mohave.otf in Resources */,
 				A60D4655209FC986003D85D3 /* Assests.xcassets in Resources */,
 				A60D4653209FC985003D85D3 /* Main.storyboard in Resources */,
+				A6D6B00421398E7700F2C7AD /* small.storyboard in Resources */,
 				A65B259520A658660036BC39 /* iPhone678.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,6 +385,7 @@
 				A6E5BEE320C19CE500B1D01E /* TutorialEndViewController.swift in Sources */,
 				A646509420EA45D200051266 /* Version.swift in Sources */,
 				A655A6F120A13A8900E29E9B /* CategoryViewController.swift in Sources */,
+				A60D69A7213DE65800610D40 /* ToolboxTableViewController.swift in Sources */,
 				A6ECCAF220BC05F500D15ED5 /* BuildStatsViewController.swift in Sources */,
 				A6F2958D20A0EB6A00239089 /* TDollViewController.swift in Sources */,
 				A6F2958920A05E0800239089 /* TDoll.swift in Sources */,

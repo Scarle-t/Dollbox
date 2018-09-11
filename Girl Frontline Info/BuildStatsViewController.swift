@@ -14,6 +14,7 @@ class BuildStatsViewController: UIViewController, UICollectionViewDelegate, UICo
     var selectedTDoll: TDoll = TDoll()
     
     var constructTDoll: NSMutableArray = NSMutableArray()
+    var sortedTDoll = NSMutableArray()
     
     var totalBuildTime = 0
     
@@ -51,7 +52,7 @@ class BuildStatsViewController: UIViewController, UICollectionViewDelegate, UICo
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath as IndexPath) as! ResultCollectionViewCell
         // Get the location to be shown
         
-        let item: TDoll = constructTDoll[indexPath.row] as! TDoll
+        let item: TDoll = sortedTDoll[indexPath.row] as! TDoll
         // Get references to labels of cell
         
         if let photo_path = item.photo_path{
@@ -109,6 +110,10 @@ class BuildStatsViewController: UIViewController, UICollectionViewDelegate, UICo
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        for i in 0..<constructTDoll.count{
+            sortedTDoll.add(constructTDoll[constructTDoll.index(of: constructTDoll.lastObject!) - i])
+        }
 
         resultView.delegate = self
         resultView.dataSource = self
@@ -139,7 +144,7 @@ class BuildStatsViewController: UIViewController, UICollectionViewDelegate, UICo
         if let sender = sender as? UICollectionViewCell{
             let indexPath = self.resultView.indexPath(for: sender)
             
-            selectedTDoll = constructTDoll[(indexPath?.row)!] as! TDoll
+            selectedTDoll = sortedTDoll[(indexPath?.row)!] as! TDoll
             
         }
         
