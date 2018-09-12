@@ -27,7 +27,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
     var total2Star = 0
     var result: TDoll = TDoll()
     var appearType: [String] = ["SMG"]
-    var downloadStrings: [String] = ["https://scarletsc.net/girlfrontline/search.php?build=SMG"]
+    var downloadStrings: [String] = ["https://scarletsc.net/girlfrontline/search.php?build=SMG&buildable"]
     var manPower: Int = 30
     var ammo: Int = 30
     var ration: Int = 30
@@ -186,31 +186,31 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
         for type in types{
             switch type{
             case "HG":
-                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?build=HG")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?build=HG&buildable")
                 continue
             case "AR":
-                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?build=AR")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?build=AR&buildable")
                 continue
             case "RF":
-                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?build=RF")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?build=RF&buildable")
                 continue
             case "MG":
-                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?build=MG")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?build=MG&buildable")
                 continue
             case "5SHG":
-                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?type=HG&star=5")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?type=HG&star=5&buildable")
                 continue
             case "5SSMG":
-                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?type=SMG&star=5")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?type=SMG&star=5&buildable")
                 continue
             case "5SAR":
-                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?type=AR&star=5")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?type=AR&star=5&buildable")
                 continue
             case "5SRF":
-                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?type=RF&star=5")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?type=RF&star=5&buildable")
                 continue
             case "5SMG":
-                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?type=MG&star=5")
+                downloadStrings.append("https://scarletsc.net/girlfrontline/search.php?type=MG&star=5&buildable")
                 continue
             default:
                 continue

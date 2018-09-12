@@ -7,50 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A60D464E209FC985003D85D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D464D209FC985003D85D3 /* AppDelegate.swift */; };
-		A60D4650209FC985003D85D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D464F209FC985003D85D3 /* ViewController.swift */; };
 		A60D4653209FC985003D85D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60D4651209FC985003D85D3 /* Main.storyboard */; };
 		A60D4655209FC986003D85D3 /* Assests.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60D4654209FC986003D85D3 /* Assests.xcassets */; };
 		A60D4658209FC986003D85D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60D4656209FC986003D85D3 /* LaunchScreen.storyboard */; };
-		A60D69A7213DE65800610D40 /* ToolboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D69A6213DE65800610D40 /* ToolboxTableViewController.swift */; };
 		A610868920C1A595006DF67E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A610868820C1A595006DF67E /* libsqlite3.tbd */; };
-		A610868C20C1A7E4006DF67E /* SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610868B20C1A7E4006DF67E /* SQLite.swift */; };
-		A6185FB920B9C82800A5D83B /* BuildSimulatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6185FB820B9C82800A5D83B /* BuildSimulatorViewController.swift */; };
-		A6185FBB20B9C84400A5D83B /* TeamSimulatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6185FBA20B9C84400A5D83B /* TeamSimulatorViewController.swift */; };
-		A61D153E21484FBA005D7EDE /* setNavBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61D153D21484FBA005D7EDE /* setNavBarColor.swift */; };
-		A61D1540214861A9005D7EDE /* pickType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61D153F214861A9005D7EDE /* pickType.swift */; };
 		A642306620AA92C9008622B4 /* getSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642306520AA92C9008622B4 /* getSearchResult.swift */; };
 		A642306820AA93D2008622B4 /* TDoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642306720AA93D2008622B4 /* TDoll.swift */; };
 		A642306A20ABA235008622B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A642306920ABA235008622B4 /* Assets.xcassets */; };
-		A646509420EA45D200051266 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646509320EA45D200051266 /* Version.swift */; };
-		A64B35C820A5C89C00A3602D /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64B35C720A5C89C00A3602D /* Session.swift */; };
-		A655A6F120A13A8900E29E9B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A655A6F020A13A8900E29E9B /* CategoryViewController.swift */; };
-		A655A6F320A1400600E29E9B /* StarSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A655A6F220A1400600E29E9B /* StarSearchViewController.swift */; };
-		A655A6F520A1502E00E29E9B /* typeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A655A6F420A1502E00E29E9B /* typeViewController.swift */; };
-		A65B259320A655A00036BC39 /* DeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65B259220A655A00036BC39 /* DeviceExtension.swift */; };
 		A65B259520A658660036BC39 /* iPhone678.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A65B259420A658660036BC39 /* iPhone678.storyboard */; };
 		A661B45820AA26E800F9ED2F /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A661B45720AA26E800F9ED2F /* NotificationCenter.framework */; };
 		A661B45B20AA26E800F9ED2F /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A661B45A20AA26E800F9ED2F /* TodayViewController.swift */; };
 		A661B45E20AA26E800F9ED2F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A661B45C20AA26E800F9ED2F /* MainInterface.storyboard */; };
-		A66D426C20FCCD8E002CDC54 /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D426B20FCCD8E002CDC54 /* Plist.swift */; };
-		A67208B120EA3C3B000A58B3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67208B020EA3C3B000A58B3 /* SettingsViewController.swift */; };
-		A6B03C4821484ACB00FAF61A /* DownloadPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B03C4721484ACB00FAF61A /* DownloadPhoto.swift */; };
-		A6B1A2CF20C0531900647DB3 /* SelectTDollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */; };
-		A6BB3BB220A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB3BB120A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift */; };
-		A6BB3BB420A3B6E40094C06C /* ResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB3BB320A3B6E40094C06C /* ResultCollectionViewCell.swift */; };
+		A67B50EF21487A8800A7D4E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D464D209FC985003D85D3 /* AppDelegate.swift */; };
+		A67B50F021487A8B00A7D4E1 /* sqlite.h in Sources */ = {isa = PBXBuildFile; fileRef = A610868A20C1A608006DF67E /* sqlite.h */; };
+		A67B50F121487A9600A7D4E1 /* SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610868B20C1A7E4006DF67E /* SQLite.swift */; };
+		A67B50F221487A9600A7D4E1 /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D426B20FCCD8E002CDC54 /* Plist.swift */; };
+		A67B50F321487A9600A7D4E1 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646509320EA45D200051266 /* Version.swift */; };
+		A67B50F421487A9600A7D4E1 /* getSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F2958A20A062A000239089 /* getSearchResult.swift */; };
+		A67B50F521487A9600A7D4E1 /* DownloadPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B03C4721484ACB00FAF61A /* DownloadPhoto.swift */; };
+		A67B50F621487A9600A7D4E1 /* setNavBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61D153D21484FBA005D7EDE /* setNavBarColor.swift */; };
+		A67B50F721487A9600A7D4E1 /* pickType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61D153F214861A9005D7EDE /* pickType.swift */; };
+		A67B50F821487A9600A7D4E1 /* offlineToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FCC45520E995C100D31DE1 /* offlineToggleCell.swift */; };
+		A67B50F921487A9600A7D4E1 /* ResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB3BB320A3B6E40094C06C /* ResultCollectionViewCell.swift */; };
+		A67B50FA21487A9600A7D4E1 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64B35C720A5C89C00A3602D /* Session.swift */; };
+		A67B50FB21487A9600A7D4E1 /* BuildSimulatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6185FB820B9C82800A5D83B /* BuildSimulatorViewController.swift */; };
+		A67B50FC21487A9600A7D4E1 /* BuildStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ECCAF120BC05F500D15ED5 /* BuildStatsViewController.swift */; };
+		A67B50FD21487A9600A7D4E1 /* BuildtimeSearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB3BB120A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift */; };
+		A67B50FE21487A9600A7D4E1 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A655A6F020A13A8900E29E9B /* CategoryViewController.swift */; };
+		A67B50FF21487A9600A7D4E1 /* OfflineSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FCC45320E9919D00D31DE1 /* OfflineSettingsViewController.swift */; };
+		A67B510021487A9600A7D4E1 /* SelectTDollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */; };
+		A67B510121487A9600A7D4E1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67208B020EA3C3B000A58B3 /* SettingsViewController.swift */; };
+		A67B510221487A9600A7D4E1 /* SimulatorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F6071120B8625000097FDC /* SimulatorsViewController.swift */; };
+		A67B510321487A9600A7D4E1 /* StarSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A655A6F220A1400600E29E9B /* StarSearchViewController.swift */; };
+		A67B510421487A9600A7D4E1 /* TDollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F2958C20A0EB6A00239089 /* TDollViewController.swift */; };
+		A67B510521487A9600A7D4E1 /* TeamSimulatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6185FBA20B9C84400A5D83B /* TeamSimulatorViewController.swift */; };
+		A67B510621487A9600A7D4E1 /* ToolboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D69A6213DE65800610D40 /* ToolboxTableViewController.swift */; };
+		A67B510721487A9600A7D4E1 /* TutorialEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E5BEE220C19CE500B1D01E /* TutorialEndViewController.swift */; };
+		A67B510821487A9600A7D4E1 /* TutorialPagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E5BEE020C1895D00B1D01E /* TutorialPagesViewController.swift */; };
+		A67B510921487A9600A7D4E1 /* typeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A655A6F420A1502E00E29E9B /* typeViewController.swift */; };
+		A67B510A21487A9600A7D4E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D464F209FC985003D85D3 /* ViewController.swift */; };
+		A67B510B21487A9600A7D4E1 /* allViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61D154121486A54005D7EDE /* allViewController.swift */; };
+		A67B510C21487A9600A7D4E1 /* DeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65B259220A655A00036BC39 /* DeviceExtension.swift */; };
+		A67B510D21487A9600A7D4E1 /* TDoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F2958820A05E0800239089 /* TDoll.swift */; };
 		A6D6B00421398E7700F2C7AD /* small.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D6B00321398E7700F2C7AD /* small.storyboard */; };
-		A6E5BEE120C1895D00B1D01E /* TutorialPagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E5BEE020C1895D00B1D01E /* TutorialPagesViewController.swift */; };
-		A6E5BEE320C19CE500B1D01E /* TutorialEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E5BEE220C19CE500B1D01E /* TutorialEndViewController.swift */; };
-		A6ECCAF220BC05F500D15ED5 /* BuildStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ECCAF120BC05F500D15ED5 /* BuildStatsViewController.swift */; };
-		A6F2958920A05E0800239089 /* TDoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F2958820A05E0800239089 /* TDoll.swift */; };
-		A6F2958B20A062A000239089 /* getSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F2958A20A062A000239089 /* getSearchResult.swift */; };
-		A6F2958D20A0EB6A00239089 /* TDollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F2958C20A0EB6A00239089 /* TDollViewController.swift */; };
-		A6F6071220B8625000097FDC /* SimulatorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F6071120B8625000097FDC /* SimulatorsViewController.swift */; };
 		A6F6071520B887B900097FDC /* Mohave.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6F6071420B887B800097FDC /* Mohave.otf */; };
 		A6F6071620B887B900097FDC /* Mohave.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6F6071420B887B800097FDC /* Mohave.otf */; };
 		A6FCC45220E9912800D31DE1 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6FCC45120E9912800D31DE1 /* settings.plist */; };
-		A6FCC45420E9919D00D31DE1 /* OfflineSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FCC45320E9919D00D31DE1 /* OfflineSettingsViewController.swift */; };
-		A6FCC45620E995C100D31DE1 /* offlineToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FCC45520E995C100D31DE1 /* offlineToggleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,7 @@
 		A6185FBA20B9C84400A5D83B /* TeamSimulatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSimulatorViewController.swift; sourceTree = "<group>"; };
 		A61D153D21484FBA005D7EDE /* setNavBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setNavBarColor.swift; sourceTree = "<group>"; };
 		A61D153F214861A9005D7EDE /* pickType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickType.swift; sourceTree = "<group>"; };
+		A61D154121486A54005D7EDE /* allViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allViewController.swift; sourceTree = "<group>"; };
 		A642306520AA92C9008622B4 /* getSearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = getSearchResult.swift; path = "Girl Frontline Info/getSearchResult.swift"; sourceTree = SOURCE_ROOT; };
 		A642306720AA93D2008622B4 /* TDoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TDoll.swift; path = "Girl Frontline Info/TDoll.swift"; sourceTree = SOURCE_ROOT; };
 		A642306920ABA235008622B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -221,6 +224,7 @@
 				A6E5BEE020C1895D00B1D01E /* TutorialPagesViewController.swift */,
 				A655A6F420A1502E00E29E9B /* typeViewController.swift */,
 				A60D464F209FC985003D85D3 /* ViewController.swift */,
+				A61D154121486A54005D7EDE /* allViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -398,35 +402,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6185FB920B9C82800A5D83B /* BuildSimulatorViewController.swift in Sources */,
-				A610868C20C1A7E4006DF67E /* SQLite.swift in Sources */,
-				A6BB3BB220A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift in Sources */,
-				A6185FBB20B9C84400A5D83B /* TeamSimulatorViewController.swift in Sources */,
-				A6E5BEE120C1895D00B1D01E /* TutorialPagesViewController.swift in Sources */,
-				A66D426C20FCCD8E002CDC54 /* Plist.swift in Sources */,
-				A655A6F320A1400600E29E9B /* StarSearchViewController.swift in Sources */,
-				A6F2958B20A062A000239089 /* getSearchResult.swift in Sources */,
-				A60D4650209FC985003D85D3 /* ViewController.swift in Sources */,
-				A6E5BEE320C19CE500B1D01E /* TutorialEndViewController.swift in Sources */,
-				A646509420EA45D200051266 /* Version.swift in Sources */,
-				A655A6F120A13A8900E29E9B /* CategoryViewController.swift in Sources */,
-				A60D69A7213DE65800610D40 /* ToolboxTableViewController.swift in Sources */,
-				A6ECCAF220BC05F500D15ED5 /* BuildStatsViewController.swift in Sources */,
-				A6B03C4821484ACB00FAF61A /* DownloadPhoto.swift in Sources */,
-				A6F2958D20A0EB6A00239089 /* TDollViewController.swift in Sources */,
-				A61D153E21484FBA005D7EDE /* setNavBarColor.swift in Sources */,
-				A61D1540214861A9005D7EDE /* pickType.swift in Sources */,
-				A6F2958920A05E0800239089 /* TDoll.swift in Sources */,
-				A6FCC45620E995C100D31DE1 /* offlineToggleCell.swift in Sources */,
-				A64B35C820A5C89C00A3602D /* Session.swift in Sources */,
-				A67208B120EA3C3B000A58B3 /* SettingsViewController.swift in Sources */,
-				A6BB3BB420A3B6E40094C06C /* ResultCollectionViewCell.swift in Sources */,
-				A65B259320A655A00036BC39 /* DeviceExtension.swift in Sources */,
-				A6B1A2CF20C0531900647DB3 /* SelectTDollViewController.swift in Sources */,
-				A6F6071220B8625000097FDC /* SimulatorsViewController.swift in Sources */,
-				A6FCC45420E9919D00D31DE1 /* OfflineSettingsViewController.swift in Sources */,
-				A60D464E209FC985003D85D3 /* AppDelegate.swift in Sources */,
-				A655A6F520A1502E00E29E9B /* typeViewController.swift in Sources */,
+				A67B50F121487A9600A7D4E1 /* SQLite.swift in Sources */,
+				A67B50F221487A9600A7D4E1 /* Plist.swift in Sources */,
+				A67B50F321487A9600A7D4E1 /* Version.swift in Sources */,
+				A67B50F421487A9600A7D4E1 /* getSearchResult.swift in Sources */,
+				A67B50F521487A9600A7D4E1 /* DownloadPhoto.swift in Sources */,
+				A67B50F621487A9600A7D4E1 /* setNavBarColor.swift in Sources */,
+				A67B50F721487A9600A7D4E1 /* pickType.swift in Sources */,
+				A67B50F821487A9600A7D4E1 /* offlineToggleCell.swift in Sources */,
+				A67B50F921487A9600A7D4E1 /* ResultCollectionViewCell.swift in Sources */,
+				A67B50FA21487A9600A7D4E1 /* Session.swift in Sources */,
+				A67B50FB21487A9600A7D4E1 /* BuildSimulatorViewController.swift in Sources */,
+				A67B50FC21487A9600A7D4E1 /* BuildStatsViewController.swift in Sources */,
+				A67B50FD21487A9600A7D4E1 /* BuildtimeSearchCollectionViewController.swift in Sources */,
+				A67B50FE21487A9600A7D4E1 /* CategoryViewController.swift in Sources */,
+				A67B50FF21487A9600A7D4E1 /* OfflineSettingsViewController.swift in Sources */,
+				A67B510021487A9600A7D4E1 /* SelectTDollViewController.swift in Sources */,
+				A67B510121487A9600A7D4E1 /* SettingsViewController.swift in Sources */,
+				A67B510221487A9600A7D4E1 /* SimulatorsViewController.swift in Sources */,
+				A67B510321487A9600A7D4E1 /* StarSearchViewController.swift in Sources */,
+				A67B510421487A9600A7D4E1 /* TDollViewController.swift in Sources */,
+				A67B510521487A9600A7D4E1 /* TeamSimulatorViewController.swift in Sources */,
+				A67B510621487A9600A7D4E1 /* ToolboxTableViewController.swift in Sources */,
+				A67B510721487A9600A7D4E1 /* TutorialEndViewController.swift in Sources */,
+				A67B510821487A9600A7D4E1 /* TutorialPagesViewController.swift in Sources */,
+				A67B510921487A9600A7D4E1 /* typeViewController.swift in Sources */,
+				A67B510A21487A9600A7D4E1 /* ViewController.swift in Sources */,
+				A67B510B21487A9600A7D4E1 /* allViewController.swift in Sources */,
+				A67B510C21487A9600A7D4E1 /* DeviceExtension.swift in Sources */,
+				A67B510D21487A9600A7D4E1 /* TDoll.swift in Sources */,
+				A67B50F021487A8B00A7D4E1 /* sqlite.h in Sources */,
+				A67B50EF21487A8800A7D4E1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

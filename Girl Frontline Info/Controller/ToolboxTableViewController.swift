@@ -41,6 +41,8 @@ class ToolboxTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         if section == 0{
             return 1
+        }else if section == 1{
+            return 3
         }else{
             return 2
         }

@@ -2352,12 +2352,32 @@ Available on App Store</string>
                                             <segue destination="69h-a2-E6Y" kind="show" id="3qo-tv-icu"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="z6S-gZ-gda" style="IBUITableViewCellStyleDefault" id="gPC-wV-n9e">
+                                        <rect key="frame" x="0.0" y="243.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gPC-wV-n9e" id="pmY-J3-htA">
+                                            <rect key="frame" x="0.0" y="0.0" width="286" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="全圖鑑" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z6S-gZ-gda">
+                                                    <rect key="frame" x="16" y="0.0" width="269" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="2mW-Aq-aii" kind="show" id="Jxh-2X-SSM"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="模擬器" id="7lR-Oe-bqd">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="laB-cx-KCe" style="IBUITableViewCellStyleDefault" id="rrq-BA-HZP">
-                                        <rect key="frame" x="0.0" y="299.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="343.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rrq-BA-HZP" id="TI3-9l-Zuw">
                                             <rect key="frame" x="0.0" y="0.0" width="286" height="43.5"/>
@@ -2377,7 +2397,7 @@ Available on App Store</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Hjn-Gl-X35" style="IBUITableViewCellStyleDefault" id="SY0-uV-sS7">
-                                        <rect key="frame" x="0.0" y="343.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="387.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SY0-uV-sS7" id="nOn-aP-o5x">
                                             <rect key="frame" x="0.0" y="0.0" width="286" height="43.5"/>
@@ -2429,6 +2449,120 @@ Available on App Store</string>
             </objects>
             <point key="canvasLocation" x="1070" y="1475"/>
         </scene>
+        <!--All View Controller-->
+        <scene sceneID="ATN-GA-bGU">
+            <objects>
+                <viewController storyboardIdentifier="allSearch" id="2mW-Aq-aii" customClass="allViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tqY-2a-uYh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cn9-cU-9L0">
+                                <rect key="frame" x="0.0" y="141" width="320" height="376"/>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DUF-ed-mWd">
+                                    <size key="itemSize" width="105" height="232"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BasicCell" id="bqR-7c-x9N" customClass="ResultCollectionViewCell" customModule="Girl_Frontline_Info" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="105" height="232"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="105" height="232"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ImgNotReady" translatesAutoresizingMaskIntoConstraints="NO" id="Ldq-9w-dfn">
+                                                    <rect key="frame" x="8" y="12" width="88" height="141"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cA4-3m-d97">
+                                                    <rect key="frame" x="8" y="157" width="88" height="49"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="imgResult" destination="Ldq-9w-dfn" id="Sgr-PB-ofE"/>
+                                            <outlet property="lblResult" destination="cA4-3m-d97" id="J5Y-Nt-Rcd"/>
+                                            <segue destination="bYr-w7-rqP" kind="show" identifier="TdollDetailSegue" id="TDS-0o-QgH">
+                                                <segue key="commit" inheritsFrom="parent" id="c1U-n8-Kew"/>
+                                                <segue key="preview" inheritsFrom="commit" id="RlJ-qL-Jk7"/>
+                                            </segue>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nIy-KR-GpI">
+                                <rect key="frame" x="0.0" y="64" width="320" height="76"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="6" translatesAutoresizingMaskIntoConstraints="NO" id="PHD-Vr-uJ3">
+                                        <rect key="frame" x="8" y="8" width="304" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="HG"/>
+                                            <segment title="SMG"/>
+                                            <segment title="RF"/>
+                                            <segment title="AR"/>
+                                            <segment title="MG"/>
+                                            <segment title="SG"/>
+                                            <segment title="ALL"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="navbBarStars:" destination="2mW-Aq-aii" eventType="valueChanged" id="kPH-H9-djj"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="5" translatesAutoresizingMaskIntoConstraints="NO" id="lUG-Wk-IYc">
+                                        <rect key="frame" x="8" y="43" width="304" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="2☆"/>
+                                            <segment title="3☆"/>
+                                            <segment title="4☆"/>
+                                            <segment title="5☆"/>
+                                            <segment title="EXTRA"/>
+                                            <segment title="ALL"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="navbBarStars:" destination="2mW-Aq-aii" eventType="valueChanged" id="A2R-q3-vF8"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="nIy-KR-GpI" firstAttribute="top" secondItem="2mU-Qp-Vgx" secondAttribute="top" id="Q0t-ag-q7X"/>
+                            <constraint firstAttribute="trailing" secondItem="cn9-cU-9L0" secondAttribute="trailing" id="QWO-Qw-Vxn"/>
+                            <constraint firstItem="cn9-cU-9L0" firstAttribute="top" secondItem="nIy-KR-GpI" secondAttribute="bottom" constant="1" id="YZB-aP-HvD"/>
+                            <constraint firstItem="cn9-cU-9L0" firstAttribute="trailing" secondItem="nIy-KR-GpI" secondAttribute="trailing" id="fAF-5A-oyf"/>
+                            <constraint firstItem="cn9-cU-9L0" firstAttribute="leading" secondItem="tqY-2a-uYh" secondAttribute="leading" id="g2r-Ks-hgV"/>
+                            <constraint firstItem="cn9-cU-9L0" firstAttribute="top" secondItem="2mU-Qp-Vgx" secondAttribute="top" constant="77" id="jss-v1-KVU"/>
+                            <constraint firstItem="cn9-cU-9L0" firstAttribute="leading" secondItem="nIy-KR-GpI" secondAttribute="leading" id="kBN-od-plE"/>
+                            <constraint firstItem="2mU-Qp-Vgx" firstAttribute="bottom" secondItem="cn9-cU-9L0" secondAttribute="bottom" constant="2" id="vcN-1w-xGD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2mU-Qp-Vgx"/>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="JGO-Sv-fJW">
+                        <nil key="title"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="listResult" destination="cn9-cU-9L0" id="23K-31-hZD"/>
+                        <outlet property="navBarStars" destination="lUG-Wk-IYc" id="eWX-wa-MbF"/>
+                        <outlet property="navBarTypes" destination="PHD-Vr-uJ3" id="e58-xM-VL6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5XB-p0-5Ya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3806.25" y="2247.8873239436621"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ImgNotReady" width="404" height="496"/>
@@ -2441,6 +2575,6 @@ Available on App Store</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="32p-mr-FxF"/>
-        <segue reference="ZI1-rL-Jv3"/>
+        <segue reference="TDS-0o-QgH"/>
     </inferredMetricsTieBreakers>
 </document>

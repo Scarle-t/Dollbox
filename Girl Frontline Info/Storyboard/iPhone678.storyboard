@@ -2362,12 +2362,32 @@ Available on App Store</string>
                                             <segue destination="69h-a2-E6Y" kind="show" id="3qo-tv-icu"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="L0o-tE-dil" style="IBUITableViewCellStyleDefault" id="nE1-9P-ZUY">
+                                        <rect key="frame" x="0.0" y="243.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nE1-9P-ZUY" id="FjP-uC-wPd">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="全圖鑑" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L0o-tE-dil">
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="S0H-ww-ee2" kind="show" id="WBI-pe-8Ki"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="模擬器" id="7lR-Oe-bqd">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="laB-cx-KCe" style="IBUITableViewCellStyleDefault" id="rrq-BA-HZP">
-                                        <rect key="frame" x="0.0" y="299.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="343.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rrq-BA-HZP" id="TI3-9l-Zuw">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -2387,7 +2407,7 @@ Available on App Store</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Hjn-Gl-X35" style="IBUITableViewCellStyleDefault" id="SY0-uV-sS7">
-                                        <rect key="frame" x="0.0" y="343.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="387.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SY0-uV-sS7" id="nOn-aP-o5x">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -2439,6 +2459,120 @@ Available on App Store</string>
             </objects>
             <point key="canvasLocation" x="1070" y="1475"/>
         </scene>
+        <!--All View Controller-->
+        <scene sceneID="VPH-eV-dGl">
+            <objects>
+                <viewController storyboardIdentifier="allSearch" id="S0H-ww-ee2" customClass="allViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5qw-ca-PGG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CJJ-uM-XSe">
+                                <rect key="frame" x="0.0" y="145" width="375" height="473"/>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fNA-Cr-Nwp">
+                                    <size key="itemSize" width="105" height="232"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BasicCell" id="9Cp-4S-e3u" customClass="ResultCollectionViewCell" customModule="Girl_Frontline_Info" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="105" height="232"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="105" height="232"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ImgNotReady" translatesAutoresizingMaskIntoConstraints="NO" id="OUG-Oo-qzT">
+                                                    <rect key="frame" x="8" y="12" width="88" height="141"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gX8-qF-ftU">
+                                                    <rect key="frame" x="8" y="157" width="88" height="49"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="imgResult" destination="OUG-Oo-qzT" id="tQf-vv-JsS"/>
+                                            <outlet property="lblResult" destination="gX8-qF-ftU" id="sp2-Gl-2qK"/>
+                                            <segue destination="bYr-w7-rqP" kind="show" id="FlK-0s-MR7">
+                                                <segue key="commit" inheritsFrom="parent" id="fvO-hp-p3k"/>
+                                                <segue key="preview" inheritsFrom="commit" id="Rlm-8O-uoz"/>
+                                            </segue>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lnK-xV-YQ0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="80"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="6" translatesAutoresizingMaskIntoConstraints="NO" id="XDN-dp-X08">
+                                        <rect key="frame" x="8" y="8" width="359" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="HG"/>
+                                            <segment title="SMG"/>
+                                            <segment title="RF"/>
+                                            <segment title="AR"/>
+                                            <segment title="MG"/>
+                                            <segment title="SG"/>
+                                            <segment title="ALL"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="navbBarStars:" destination="S0H-ww-ee2" eventType="valueChanged" id="Fmt-se-N7f"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="5" translatesAutoresizingMaskIntoConstraints="NO" id="NoI-xc-qNV">
+                                        <rect key="frame" x="8" y="43" width="359" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="2☆"/>
+                                            <segment title="3☆"/>
+                                            <segment title="4☆"/>
+                                            <segment title="5☆"/>
+                                            <segment title="EXTRA"/>
+                                            <segment title="ALL"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="navbBarStars:" destination="S0H-ww-ee2" eventType="valueChanged" id="ZFh-nw-4rK"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="rxo-cT-zWF" firstAttribute="bottom" secondItem="CJJ-uM-XSe" secondAttribute="bottom" id="B5j-VW-lwG"/>
+                            <constraint firstItem="lnK-xV-YQ0" firstAttribute="top" secondItem="rxo-cT-zWF" secondAttribute="top" id="B7F-sh-Xtb"/>
+                            <constraint firstItem="CJJ-uM-XSe" firstAttribute="top" secondItem="lnK-xV-YQ0" secondAttribute="bottom" constant="1" id="I2P-DD-WCK"/>
+                            <constraint firstItem="CJJ-uM-XSe" firstAttribute="trailing" secondItem="lnK-xV-YQ0" secondAttribute="trailing" id="Jeh-52-2bB"/>
+                            <constraint firstItem="CJJ-uM-XSe" firstAttribute="leading" secondItem="5qw-ca-PGG" secondAttribute="leading" id="ZaT-dj-eaQ"/>
+                            <constraint firstAttribute="trailing" secondItem="CJJ-uM-XSe" secondAttribute="trailing" id="ejT-gw-Vbq"/>
+                            <constraint firstItem="CJJ-uM-XSe" firstAttribute="leading" secondItem="lnK-xV-YQ0" secondAttribute="leading" id="hlB-Vk-hMT"/>
+                            <constraint firstItem="CJJ-uM-XSe" firstAttribute="top" secondItem="rxo-cT-zWF" secondAttribute="top" constant="81" id="qAY-bi-va2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rxo-cT-zWF"/>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="7Tp-jg-ScQ">
+                        <nil key="title"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="listResult" destination="CJJ-uM-XSe" id="Ija-vu-T7h"/>
+                        <outlet property="navBarStars" destination="NoI-xc-qNV" id="a3j-h2-6PU"/>
+                        <outlet property="navBarTypes" destination="XDN-dp-X08" id="KbW-xI-69b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oYH-Lu-8LW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3808.8000000000002" y="2247.5262368815593"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ImgNotReady" width="404" height="496"/>
@@ -2451,6 +2585,6 @@ Available on App Store</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="32p-mr-FxF"/>
-        <segue reference="FlB-nE-FtK"/>
+        <segue reference="FlK-0s-MR7"/>
     </inferredMetricsTieBreakers>
 </document>
