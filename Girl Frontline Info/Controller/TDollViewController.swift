@@ -252,7 +252,11 @@ class TDollViewController: UIViewController {
             area9.image = #imageLiteral(resourceName: "area")
         }
         buff.text = selectedTDoll?.effect
-        
+
+        self.title = "人形資料"
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if selectedTDoll?.stars == "2"{
             setNavBarColor().white(self)
         }
@@ -268,7 +272,6 @@ class TDollViewController: UIViewController {
         if selectedTDoll?.stars == "EXTRA"{
             setNavBarColor().purple(self)
         }
-        self.title = "人形資料"
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

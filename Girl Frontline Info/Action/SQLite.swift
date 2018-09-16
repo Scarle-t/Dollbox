@@ -124,7 +124,6 @@ class SQLiteConnect {
             }
             sqlite3_finalize(statement)
         }
-        
         return false
     }
     

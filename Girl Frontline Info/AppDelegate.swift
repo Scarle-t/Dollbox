@@ -48,13 +48,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("iPhone 5/s/c/SE running small storyboard")
             print(modelName)
             
-        case "iPhone 6/s/7/8":
+        case "iPhone 6/s/7/8", "iPhone 6/s/7/8 Plus":
             
             let storyboard = UIStoryboard(name: "iPhone678", bundle: nil)
             let tabVc = storyboard.instantiateViewController(withIdentifier: "iPhone678TB") as! UITabBarController
             
             self.window?.rootViewController = tabVc
-            print("iPhone 6/s/7/8 running iPhone678 storyboard")
+            print("iPhone 6/s/7/8 / PLUS running iPhone678 storyboard")
             print(modelName)
             
         case "iPhone X":
