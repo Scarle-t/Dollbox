@@ -12,47 +12,67 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol {
     
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var tsLabel: UILabel!
+    @IBOutlet weak var offlineToggle: UITableViewCell!
     
     let ver = Version()
+    let switchView = UISwitch(frame: .zero)
     
     func returnVersion(version: NSMutableArray) {
         
         versionLabel.text = "\(version[0])"
         tsLabel.text = "\(version[1])"
         
+        let db = Session.sharedInstance.db
+        if let mydb = db{
+            let statement = mydb.fetch("dataversion", cond: nil, order: nil)
+            if sqlite3_step(statement) != SQLITE_ROW{
+                let _ = mydb.insert("dataversion", rowInfo: [
+                    "online_last" : version[1] as! String,
+                    "online_version" : String(version[0] as! Int),
+                    ])
+            }else{
+                let _ = mydb.update("dataversion", cond: nil, rowInfo: [
+                    "online_last" : version[1] as! String,
+                    "online_version" : String(version[0] as! Int),
+                    ])
+            }
+        }
+        
 //        let alert = UIAlertController(title: "當前版本: \(version[0])", message: "最後更新時間: \(version[1])", preferredStyle: UIAlertController.Style.alert)
 //
-//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-//            switch action.style{
-//            case .default:
-//                print("default")
-//
-//            case .cancel:
-//                print("cancel")
-//
-//            case .destructive:
-//                print("destructive")
-//
-//
-//            }}))
+//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+//            }))
 //
 //        self.present(alert, animated: true, completion: nil)
+    }
+    func switchAlert(_ state: Bool) {
+        if state{
+            let alert = UIAlertController(title: "將會下載資料檔", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
+                localDB().download(self)
+            }))
+            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in
+                self.switchView.setOn(false, animated: true)
+                localDB().writeSettings(item: "isOffline", value: "0")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }else{
+            localDB().delete()
+        }
         
-        
-        
+    }
+    @objc func switchChanged(_ sender : UISwitch!){
+        sender.isOn ? localDB().writeSettings(item: "isOffline", value: "1") : localDB().writeSettings(item: "isOffline", value: "0")
+        switchAlert(sender.isOn)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        let cell = offlineToggleCell()
-        cell.switchView.setOn(Plist().read(), animated: true)
+        switchView.setOn(localDB().readSettings()[0], animated: true)
+        switchView.tag = 1 // for detect which row switch Changed
+        switchView.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
+        offlineToggle.accessoryView = switchView
         
         versionLabel.text = " "
         tsLabel.text = " "
@@ -62,27 +82,19 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 4
     }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         switch section {
-            
-        case 0:
+        case 0, 3:
             return 1
-        case 1:
+        case 1, 2:
             return 3
-        case 2:
-            return 1
         default:
             return 0
         }
     }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section{
         case 1:
@@ -96,63 +108,5 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol {
             break
         }
     }
-    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "offlineToggle", for: indexPath)
-//
-//        // Configure the cell...
-//
-////        switchView.setOn(false, animated: true)
-//        switchView.tag = indexPath.row // for detect which row switch Changed
-//        switchView.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
-//        cell.accessoryView = switchView
-//
-//        return cell
-//    }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -51,7 +51,7 @@ class SQLiteConnect {
         var statement :OpaquePointer? = nil
         let sql = "insert into \(tableName) "
             + "(\(rowInfo.keys.joined(separator: ","))) "
-            + "values (\(rowInfo.values.joined(separator: ",")))"
+            + "values (" + (rowInfo.values.joined(separator: ",")) + ")"
         
         if sqlite3_prepare_v2(self.db, sql.cString(using: String.Encoding.utf8), -1, &statement, nil) == SQLITE_OK {
             if sqlite3_step(statement) == SQLITE_DONE {

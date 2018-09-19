@@ -27,7 +27,6 @@
 		A67B50F521487A9600A7D4E1 /* DownloadPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B03C4721484ACB00FAF61A /* DownloadPhoto.swift */; };
 		A67B50F621487A9600A7D4E1 /* setNavBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61D153D21484FBA005D7EDE /* setNavBarColor.swift */; };
 		A67B50F721487A9600A7D4E1 /* pickType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61D153F214861A9005D7EDE /* pickType.swift */; };
-		A67B50F821487A9600A7D4E1 /* offlineToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FCC45520E995C100D31DE1 /* offlineToggleCell.swift */; };
 		A67B50F921487A9600A7D4E1 /* ResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB3BB320A3B6E40094C06C /* ResultCollectionViewCell.swift */; };
 		A67B50FA21487A9600A7D4E1 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64B35C720A5C89C00A3602D /* Session.swift */; };
 		A67B50FB21487A9600A7D4E1 /* BuildSimulatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6185FB820B9C82800A5D83B /* BuildSimulatorViewController.swift */; };
@@ -49,6 +48,8 @@
 		A67B510B21487A9600A7D4E1 /* allViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61D154121486A54005D7EDE /* allViewController.swift */; };
 		A67B510C21487A9600A7D4E1 /* DeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65B259220A655A00036BC39 /* DeviceExtension.swift */; };
 		A67B510D21487A9600A7D4E1 /* TDoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F2958820A05E0800239089 /* TDoll.swift */; };
+		A69E75B4214EF366001FE25F /* setupLocalDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E75B3214EF366001FE25F /* setupLocalDB.swift */; };
+		A69E75B6214EF545001FE25F /* downloadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E75B5214EF545001FE25F /* downloadData.swift */; };
 		A6D6B00421398E7700F2C7AD /* small.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D6B00321398E7700F2C7AD /* small.storyboard */; };
 		A6F6071520B887B900097FDC /* Mohave.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6F6071420B887B800097FDC /* Mohave.otf */; };
 		A6F6071620B887B900097FDC /* Mohave.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6F6071420B887B800097FDC /* Mohave.otf */; };
@@ -92,6 +93,8 @@
 		A66D426B20FCCD8E002CDC54 /* Plist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
 		A66D426D20FCD8FB002CDC54 /* Testing.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Testing.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A67208B020EA3C3B000A58B3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A69E75B3214EF366001FE25F /* setupLocalDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setupLocalDB.swift; sourceTree = "<group>"; };
+		A69E75B5214EF545001FE25F /* downloadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = downloadData.swift; sourceTree = "<group>"; };
 		A6B03C4721484ACB00FAF61A /* DownloadPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadPhoto.swift; sourceTree = "<group>"; };
 		A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTDollViewController.swift; sourceTree = "<group>"; };
 		A6BB3BB120A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildtimeSearchCollectionViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +110,6 @@
 		A6F6071420B887B800097FDC /* Mohave.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mohave.otf; sourceTree = "<group>"; };
 		A6FCC45120E9912800D31DE1 /* settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
 		A6FCC45320E9919D00D31DE1 /* OfflineSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineSettingsViewController.swift; sourceTree = "<group>"; };
-		A6FCC45520E995C100D31DE1 /* offlineToggleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = offlineToggleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,7 +250,6 @@
 		A6B03C442148490500FAF61A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				A6FCC45520E995C100D31DE1 /* offlineToggleCell.swift */,
 				A6BB3BB320A3B6E40094C06C /* ResultCollectionViewCell.swift */,
 			);
 			path = Cell;
@@ -264,6 +265,8 @@
 				A6B03C4721484ACB00FAF61A /* DownloadPhoto.swift */,
 				A61D153D21484FBA005D7EDE /* setNavBarColor.swift */,
 				A61D153F214861A9005D7EDE /* pickType.swift */,
+				A69E75B3214EF366001FE25F /* setupLocalDB.swift */,
+				A69E75B5214EF545001FE25F /* downloadData.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -409,7 +412,6 @@
 				A67B50F521487A9600A7D4E1 /* DownloadPhoto.swift in Sources */,
 				A67B50F621487A9600A7D4E1 /* setNavBarColor.swift in Sources */,
 				A67B50F721487A9600A7D4E1 /* pickType.swift in Sources */,
-				A67B50F821487A9600A7D4E1 /* offlineToggleCell.swift in Sources */,
 				A67B50F921487A9600A7D4E1 /* ResultCollectionViewCell.swift in Sources */,
 				A67B50FA21487A9600A7D4E1 /* Session.swift in Sources */,
 				A67B50FB21487A9600A7D4E1 /* BuildSimulatorViewController.swift in Sources */,
@@ -417,6 +419,7 @@
 				A67B50FD21487A9600A7D4E1 /* BuildtimeSearchCollectionViewController.swift in Sources */,
 				A67B50FE21487A9600A7D4E1 /* CategoryViewController.swift in Sources */,
 				A67B50FF21487A9600A7D4E1 /* OfflineSettingsViewController.swift in Sources */,
+				A69E75B4214EF366001FE25F /* setupLocalDB.swift in Sources */,
 				A67B510021487A9600A7D4E1 /* SelectTDollViewController.swift in Sources */,
 				A67B510121487A9600A7D4E1 /* SettingsViewController.swift in Sources */,
 				A67B510221487A9600A7D4E1 /* SimulatorsViewController.swift in Sources */,
@@ -433,6 +436,7 @@
 				A67B510D21487A9600A7D4E1 /* TDoll.swift in Sources */,
 				A67B50F021487A8B00A7D4E1 /* sqlite.h in Sources */,
 				A67B50EF21487A8800A7D4E1 /* AppDelegate.swift in Sources */,
+				A69E75B6214EF545001FE25F /* downloadData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,7 @@ protocol VersionProtocol: class{
 
 class Version: NSObject, URLSessionDataDelegate {
     
-    weak var delegate: VersionProtocol!
+    var delegate: VersionProtocol!
     
     var data = Data()
     

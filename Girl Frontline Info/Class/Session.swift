@@ -20,6 +20,8 @@ class Session {
     
     var selected: Bool = false
     
+    var db: SQLiteConnect?
+    
     func loadImgSession() -> NSCache<AnyObject, AnyObject>{
         return imgSession
     }

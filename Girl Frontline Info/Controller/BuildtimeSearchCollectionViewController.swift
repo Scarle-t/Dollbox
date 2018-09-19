@@ -8,11 +8,12 @@
 
 import UIKit
 
-class BuildtimeSearchCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate ,getSearchProtocol {
+class BuildtimeSearchCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate ,getSearchProtocol, localDBDelegate {
 
     let imgCache = Session.sharedInstance.imgSession
     let pickerView = UIPickerView()
     let searchResult = getSearchResult()
+    let localSearch = localDB()
     
     var feedItems : NSArray = NSArray()
     var selectedTDoll: TDoll = TDoll()
@@ -93,16 +94,33 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
         feedItems = items
         self.collectionResult.reloadData()
     }
+    func returndData(items: NSArray) {
+        feedItems = items
+        self.collectionResult.reloadData()
+    }
 
     @IBAction func btnTimeSearch(_ sender: UIButton) {
         
         view.endEditing(true)
-        if let hour = txtHour.text,
-            let minute = txtMinute.text,
-            let second = txtSecond.text{
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?hour=\(hour)&minute=\(minute)&second=\(second)"
+        guard var hour = txtHour.text else {return}
+        guard var minute = txtMinute.text else {return}
+        guard var second = txtSecond.text else {return}
+        if hour.count < 2{
+            hour = "0" + hour
         }
-        searchResult.downloadItems()
+        if minute.count < 2{
+            minute = "0" + minute
+        }
+        if second.count < 2{
+            second = "0" + second
+        }
+        if localDB().readSettings()[0] {
+            localSearch.search(cond: "build_time = '" + hour + ":" + minute + ":" + second + "'")
+        }else{
+                searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?hour=\(hour)&minute=\(minute)&second=\(second)"
+            searchResult.downloadItems()
+        }
+        
     }
     @IBOutlet weak var txtHour: UITextField!
     @IBOutlet weak var txtMinute: UITextField!
@@ -119,6 +137,7 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
         collectionResult.delegate = self
         collectionResult.dataSource = self
         searchResult.delegate = self
+        localSearch.delegate = self
         
         txtSecond.inputView = pickerView
         txtMinute.inputView = pickerView
