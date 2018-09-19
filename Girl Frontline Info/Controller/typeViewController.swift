@@ -8,10 +8,11 @@
 
 import UIKit
 
-class typeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, getSearchProtocol {
+class typeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, getSearchProtocol, localDBDelegate {
     
     let imgCache = Session.sharedInstance.imgSession
     let searchResult = getSearchResult()
+    let localSearch = localDB()
     
     var feedItems: NSArray = NSArray()
     var selectedTDoll: TDoll = TDoll()
@@ -23,7 +24,6 @@ class typeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return feedItems.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellIdentifier: String = "BasicCell"
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath as IndexPath) as! ResultCollectionViewCell
@@ -56,6 +56,10 @@ class typeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         myCell.contentView.frame = myCell.bounds
         return myCell
     }
+    func returndData(items: NSArray) {
+        feedItems = items
+        listResult.reloadData()
+    }
     
     @IBOutlet weak var listResult: UICollectionView!
     @IBOutlet weak var navBarStars: UISegmentedControl!
@@ -76,27 +80,35 @@ class typeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func swipeResult(){
+        var type = String()
         switch navBarStars.selectedSegmentIndex {
         case 0:
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?type=HG"
+            type = "HG"
         case 1:
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?type=SMG"
+            type = "SMG"
         case 2:
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?type=RF"
+            type = "RF"
         case 3:
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?type=AR"
+            type = "AR"
         case 4:
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?type=MG"
+            type = "MG"
         case 5:
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?type=SG"
+            type = "SG"
         default:
             if let string = navBarStars.titleForSegment(
                 at: navBarStars.selectedSegmentIndex){
                 print(string)
             }
         }
-        searchResult.downloadItems()
-        listResult.reloadData()
+        if localDB().readSettings()[0] {
+            type = "'" + type + "'"
+            localSearch.search(col: ["type"], value: [type], both: false)
+        }else{
+            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?type=\(type)"
+            searchResult.downloadItems()
+            listResult.reloadData()
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -123,6 +135,7 @@ class typeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         listResult.delegate = self
         listResult.dataSource = self
         searchResult.delegate = self
+        localSearch.delegate = self
         
         navBarStars.setTitleTextAttributes([
             NSAttributedStringKey.font : UIFont(name: "Mohave", size: 17)!

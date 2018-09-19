@@ -8,11 +8,12 @@
 
 import UIKit
 
-class StarSearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, getSearchProtocol {
+class StarSearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, getSearchProtocol, localDBDelegate {
     
     //LET
     let imgCache = Session.sharedInstance.imgSession
     let searchResult = getSearchResult()
+    let localSearch = localDB()
     
     //VAR
     var feedItems: NSArray = NSArray()
@@ -58,6 +59,10 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
         feedItems = items
         listResult.reloadData()
     }
+    func returndData(items: NSArray) {
+        feedItems = items
+        listResult.reloadData()
+    }
     
     //OUTLET
     @IBOutlet weak var listResult: UICollectionView!
@@ -80,30 +85,39 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
     
     //FUNC
     func swipeResult(){
-        
+        var star = String()
         switch navBarStars.selectedSegmentIndex {
         case 0:
             setNavBarColor().white(self)
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=2"
+            star = "2"
         case 1:
             setNavBarColor().blue(self)
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=3"
+            star = "3"
         case 2:
             setNavBarColor().green(self)
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=4"
+            star = "4"
         case 3:
             setNavBarColor().gold(self)
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=5"
+            star = "5"
         case 4:
             setNavBarColor().purple(self)
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=EXTRA"
+            star = "EXTRA"
         default:
             if let string = navBarStars.titleForSegment(
                 at: navBarStars.selectedSegmentIndex){
                 print(string)
             }
         }
-        searchResult.downloadItems()
+        if localDB().readSettings()[0] {
+            if star == "EXTRA"{
+                star = "'EXTRA'"
+            }
+            localSearch.search(col: ["Stars"], value: [star], both: false)
+        }else{
+            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=\(star)"
+            searchResult.downloadItems()
+        }
+        
     }
 
     //VIEW CONTROLLER
@@ -128,6 +142,7 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
         listResult.delegate = self
         listResult.dataSource = self
         searchResult.delegate = self
+        localSearch.delegate = self
         
         navBarStars.setTitleTextAttributes([
             NSAttributedStringKey.font : UIFont(name: "Mohave", size: 17)!

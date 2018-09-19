@@ -8,14 +8,19 @@
 
 import UIKit
 
-class allViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, getSearchProtocol {
+class allViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, getSearchProtocol, localDBDelegate {
 
     let imgCache = Session.sharedInstance.imgSession
     let searchResult = getSearchResult()
+    let localSearch = localDB()
     
     var feedItems: NSArray = NSArray()
     var selectedTDoll: TDoll = TDoll()
     
+    func returndData(items: NSArray) {
+        feedItems = items
+        listResult.reloadData()
+    }
     func itemsDownloaded(items: NSArray) {
         feedItems = items
         listResult.reloadData()
@@ -98,9 +103,35 @@ class allViewController: UIViewController, UICollectionViewDelegate, UICollectio
         if type != "" {
             all += "type=\(type)"
         }
-        print(all)
-        searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php\(all)"
-        searchResult.downloadItems()
+        
+        if localDB().readSettings()[0] {
+            if type == ""{
+                if star == ""{
+                    localSearch.search()
+                }else{
+                    if star == "EXTRA"{
+                        star = "'EXTRA'"
+                    }
+                    localSearch.search(col: ["Stars"], value: [star], both: false)
+                }
+            }else if star == ""{
+                if type == ""{
+                    localSearch.search()
+                }else{
+                    type = "'" + type + "'"
+                    localSearch.search(col: ["type"], value: [type], both: false)
+                }
+            }else{
+                if star == "EXTRA"{
+                    star = "'EXTRA'"
+                }
+                type = "'" + type + "'"
+                localSearch.search(col: ["Stars", "type"], value: [star, type], both: true)
+            }
+        }else{
+            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php\(all)"
+            searchResult.downloadItems()
+        }
         listResult.reloadData()
     }
     
@@ -128,6 +159,7 @@ class allViewController: UIViewController, UICollectionViewDelegate, UICollectio
         listResult.delegate = self
         listResult.dataSource = self
         searchResult.delegate = self
+        localSearch.delegate = self
         
         navBarStars.setTitleTextAttributes([
             NSAttributedStringKey.font : UIFont(name: "Mohave", size: 17)!

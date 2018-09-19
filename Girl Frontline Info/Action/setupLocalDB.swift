@@ -152,7 +152,6 @@ class localDB: NSObject {
     func search(cond: String){
         db = Session.sharedInstance.db
         let tdolls = NSMutableArray()
-        
         if let mydb = db{
             let statement = mydb.fetch("obtain", cond: cond, order: nil)
             while sqlite3_step(statement) == SQLITE_ROW{
@@ -201,6 +200,132 @@ class localDB: NSObject {
                     tdoll.Zh_Name = String(cString: sqlite3_column_text(info, 2))
                     tdoll.type = String(cString: sqlite3_column_text(info, 3))
                     tdoll.stars = String(cString: sqlite3_column_text(info, 4))
+                }
+                if sqlite3_step(skill) == SQLITE_ROW{
+                    tdoll.skill_name = String(cString: sqlite3_column_text(skill, 0))
+                    tdoll.skill_desc = String(cString: sqlite3_column_text(skill, 1))
+                }
+                tdolls.add(tdoll)
+            }
+        }
+        self.delegate?.returndData(items: tdolls)
+    }
+    func search(col: [String], value: [String], both: Bool){
+        db = Session.sharedInstance.db
+        let tdolls = NSMutableArray()
+        
+        let cond = both ? (col[0] + " = " + value[0] + " AND " + col[1] + " = " + value[1]) : (col[0] + " = " + value[0])
+        if let mydb = db{
+            let statement = mydb.fetch("info", cond: cond, order: nil)
+            
+            while sqlite3_step(statement) == SQLITE_ROW{
+                let tdoll = TDoll()
+                let id = String(cString: sqlite3_column_text(statement, 0))
+                tdoll.ID = id
+                tdoll.Eng_Name = String(cString: sqlite3_column_text(statement, 1))
+                tdoll.Zh_Name = String(cString: sqlite3_column_text(statement, 2))
+                tdoll.type = String(cString: sqlite3_column_text(statement, 3))
+                tdoll.stars = String(cString: sqlite3_column_text(statement, 4))
+                
+                let obtain = mydb.fetch("obtain", cond: "ID = '" + id + "'", order: nil)
+                let buff = mydb.fetch("buff", cond: "ID = '" + id + "'", order: nil)
+                let consumption = mydb.fetch("consumption", cond: "ID = '" + id + "'", order: nil)
+                let stats = mydb.fetch("stats", cond: "ID = '" + id + "'", order: nil)
+                let skill = mydb.fetch("skill", cond: "ID = '" + id + "'", order: nil)
+                if sqlite3_step(stats) == SQLITE_ROW{
+                    tdoll.health = String(cString: sqlite3_column_text(stats, 0))
+                    tdoll.attack = String(cString: sqlite3_column_text(stats, 1))
+                    tdoll.speed = String(cString: sqlite3_column_text(stats, 2))
+                    tdoll.hit_rate = String(cString: sqlite3_column_text(stats, 3))
+                    tdoll.dodge = String(cString: sqlite3_column_text(stats, 4))
+                    tdoll.movement = String(cString: sqlite3_column_text(stats, 5))
+                    tdoll.critical = String(cString: sqlite3_column_text(stats, 6))
+                    tdoll.chain = String(cString: sqlite3_column_text(stats, 7))
+                    tdoll.loads = String(cString: sqlite3_column_text(stats, 8))
+                    tdoll.shield = String(cString: sqlite3_column_text(stats, 9))
+                    tdoll.efficiency = String(cString: sqlite3_column_text(stats, 10))
+                }
+                if sqlite3_step(buff) == SQLITE_ROW{
+                    tdoll.effect = String(cString: sqlite3_column_text(buff, 0))
+                    tdoll.position = String(cString: sqlite3_column_text(buff, 1))
+                    tdoll.area1 = String(cString: sqlite3_column_text(buff, 2))
+                    tdoll.area2 = String(cString: sqlite3_column_text(buff, 3))
+                    tdoll.area3 = String(cString: sqlite3_column_text(buff, 4))
+                    tdoll.area4 = String(cString: sqlite3_column_text(buff, 5))
+                    tdoll.area5 = String(cString: sqlite3_column_text(buff, 6))
+                    tdoll.area6 = String(cString: sqlite3_column_text(buff, 7))
+                    tdoll.area7 = String(cString: sqlite3_column_text(buff, 8))
+                    tdoll.area8 = String(cString: sqlite3_column_text(buff, 9))
+                    tdoll.area9 = String(cString: sqlite3_column_text(buff, 10))
+                }
+                if sqlite3_step(consumption) == SQLITE_ROW{
+                    tdoll.ammo = String(cString: sqlite3_column_text(consumption, 0))
+                    tdoll.mre = String(cString: sqlite3_column_text(consumption, 1))
+                }
+                if sqlite3_step(obtain) == SQLITE_ROW{
+                    tdoll.build_time = String(cString: sqlite3_column_text(statement, 0))
+                    tdoll.obtain_method = String(cString: sqlite3_column_text(statement, 1))
+                }
+                if sqlite3_step(skill) == SQLITE_ROW{
+                    tdoll.skill_name = String(cString: sqlite3_column_text(skill, 0))
+                    tdoll.skill_desc = String(cString: sqlite3_column_text(skill, 1))
+                }
+                tdolls.add(tdoll)
+            }
+        }
+        self.delegate?.returndData(items: tdolls)
+    }
+    func search(){
+        db = Session.sharedInstance.db
+        let tdolls = NSMutableArray()
+        if let mydb = db{
+            let statement = mydb.fetch("info", cond: nil, order: nil)
+            while sqlite3_step(statement) == SQLITE_ROW{
+                let tdoll = TDoll()
+                let id = String(cString: sqlite3_column_text(statement, 0))
+                tdoll.ID = id
+                tdoll.Eng_Name = String(cString: sqlite3_column_text(statement, 1))
+                tdoll.Zh_Name = String(cString: sqlite3_column_text(statement, 2))
+                tdoll.type = String(cString: sqlite3_column_text(statement, 3))
+                tdoll.stars = String(cString: sqlite3_column_text(statement, 4))
+                let obtain = mydb.fetch("obtain", cond: "ID = '" + id + "'", order: nil)
+                let buff = mydb.fetch("buff", cond: "ID = '" + id + "'", order: nil)
+                let consumption = mydb.fetch("consumption", cond: "ID = '" + id + "'", order: nil)
+                let stats = mydb.fetch("stats", cond: "ID = '" + id + "'", order: nil)
+                let skill = mydb.fetch("skill", cond: "ID = '" + id + "'", order: nil)
+                if sqlite3_step(stats) == SQLITE_ROW{
+                    tdoll.health = String(cString: sqlite3_column_text(stats, 0))
+                    tdoll.attack = String(cString: sqlite3_column_text(stats, 1))
+                    tdoll.speed = String(cString: sqlite3_column_text(stats, 2))
+                    tdoll.hit_rate = String(cString: sqlite3_column_text(stats, 3))
+                    tdoll.dodge = String(cString: sqlite3_column_text(stats, 4))
+                    tdoll.movement = String(cString: sqlite3_column_text(stats, 5))
+                    tdoll.critical = String(cString: sqlite3_column_text(stats, 6))
+                    tdoll.chain = String(cString: sqlite3_column_text(stats, 7))
+                    tdoll.loads = String(cString: sqlite3_column_text(stats, 8))
+                    tdoll.shield = String(cString: sqlite3_column_text(stats, 9))
+                    tdoll.efficiency = String(cString: sqlite3_column_text(stats, 10))
+                }
+                if sqlite3_step(buff) == SQLITE_ROW{
+                    tdoll.effect = String(cString: sqlite3_column_text(buff, 0))
+                    tdoll.position = String(cString: sqlite3_column_text(buff, 1))
+                    tdoll.area1 = String(cString: sqlite3_column_text(buff, 2))
+                    tdoll.area2 = String(cString: sqlite3_column_text(buff, 3))
+                    tdoll.area3 = String(cString: sqlite3_column_text(buff, 4))
+                    tdoll.area4 = String(cString: sqlite3_column_text(buff, 5))
+                    tdoll.area5 = String(cString: sqlite3_column_text(buff, 6))
+                    tdoll.area6 = String(cString: sqlite3_column_text(buff, 7))
+                    tdoll.area7 = String(cString: sqlite3_column_text(buff, 8))
+                    tdoll.area8 = String(cString: sqlite3_column_text(buff, 9))
+                    tdoll.area9 = String(cString: sqlite3_column_text(buff, 10))
+                }
+                if sqlite3_step(consumption) == SQLITE_ROW{
+                    tdoll.ammo = String(cString: sqlite3_column_text(consumption, 0))
+                    tdoll.mre = String(cString: sqlite3_column_text(consumption, 1))
+                }
+                if sqlite3_step(obtain) == SQLITE_ROW{
+                    tdoll.build_time = String(cString: sqlite3_column_text(statement, 0))
+                    tdoll.obtain_method = String(cString: sqlite3_column_text(statement, 1))
                 }
                 if sqlite3_step(skill) == SQLITE_ROW{
                     tdoll.skill_name = String(cString: sqlite3_column_text(skill, 0))
