@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        let storyboard = selectDevice().storyboard()
+        
         let modelName = UIDevice.current.modelName
         
         switch modelName{
@@ -24,14 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case "iPad":
             
             if #available(iOS 12.0, *){
-                let storyboard = UIStoryboard(name: "iPhone678", bundle: nil)
+                
                 let tabVc = storyboard.instantiateViewController(withIdentifier: "iPhone678TB") as! UITabBarController
                 
                 self.window?.rootViewController = tabVc
                 print("iPad iOS 12 available running iPhone678 storyboard")
                 print(modelName)
             }else{
-                let storyboard = UIStoryboard(name: "small", bundle: nil)
+                
                 let tabVc = storyboard.instantiateViewController(withIdentifier: "small") as! UITabBarController
                 
                 self.window?.rootViewController = tabVc
@@ -41,7 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         case "iPhone 5/s/c/SE":
             
-            let storyboard = UIStoryboard(name: "small", bundle: nil)
             let tabVc = storyboard.instantiateViewController(withIdentifier: "small") as! UITabBarController
             
             self.window?.rootViewController = tabVc
@@ -50,7 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         case "iPhone 6/s/7/8", "iPhone 6/s/7/8 Plus":
             
-            let storyboard = UIStoryboard(name: "iPhone678", bundle: nil)
             let tabVc = storyboard.instantiateViewController(withIdentifier: "iPhone678TB") as! UITabBarController
             
             self.window?.rootViewController = tabVc
@@ -59,7 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         case "iPhone X":
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let tabVc = storyboard.instantiateViewController(withIdentifier: "iPhoneX") as! UITabBarController
             print("iPhone X running Main storyboard")
             self.window?.rootViewController = tabVc
@@ -68,7 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         default:
             
-            let storyboard = UIStoryboard(name: "small", bundle: nil)
             let tabVc = storyboard.instantiateViewController(withIdentifier: "small") as! UITabBarController
             print("default running small storyboard")
             self.window?.rootViewController = tabVc
@@ -106,7 +104,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = selectDevice().storyboard()
+        
         let tabVc = self.window?.rootViewController as! UITabBarController
         
         let toolsNC = storyboard.instantiateViewController(withIdentifier: "toolsNC") as! UINavigationController

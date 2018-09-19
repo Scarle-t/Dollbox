@@ -1362,7 +1362,7 @@
         <!--更多-->
         <scene sceneID="RrP-C9-zvh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8uV-HK-msY" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="moreNC" automaticallyAdjustsScrollViewInsets="NO" id="8uV-HK-msY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="更多" image="more" id="hRn-mp-pH8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="X86-n6-BIs">
@@ -2291,7 +2291,7 @@ Available on App Store</string>
         <!--工具-->
         <scene sceneID="Xa6-3M-b74">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X7U-MI-Pb7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="toolsNC" automaticallyAdjustsScrollViewInsets="NO" id="X7U-MI-Pb7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="工具" image="tools" id="54t-AC-7bo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Zpv-j2-IVH">
@@ -2424,7 +2424,7 @@ Available on App Store</string>
         <!--資料來源-->
         <scene sceneID="MwW-c3-i6x">
             <objects>
-                <tableViewController id="56h-iu-AD2" customClass="OfflineSettingsViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="offlineSettings" id="56h-iu-AD2" customClass="OfflineSettingsViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="yKs-Ww-pvZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2591,27 +2591,6 @@ Available on App Store</string>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="" id="Ojh-Yo-Ccb">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="sqy-ko-IUE" style="IBUITableViewCellStyleDefault" id="sM1-k3-qOn">
-                                        <rect key="frame" x="0.0" y="578.5" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sM1-k3-qOn" id="FYH-08-J88">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="移除已下載資料" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="sqy-ko-IUE">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="56h-iu-AD2" id="ffi-gJ-gzM"/>
@@ -2620,6 +2599,8 @@ Available on App Store</string>
                     </tableView>
                     <navigationItem key="navigationItem" title="資料來源" largeTitleDisplayMode="never" id="ujf-VI-38M"/>
                     <connections>
+                        <outlet property="localTS" destination="nYD-K7-AiW" id="eug-Pw-FfF"/>
+                        <outlet property="localVersion" destination="Q2g-9V-kUw" id="7QF-Ib-Gd8"/>
                         <outlet property="offlineToggle" destination="tNX-w5-BQg" id="amp-Zf-680"/>
                         <outlet property="tsLabel" destination="UYC-UG-WhA" id="bWy-Us-gTL"/>
                         <outlet property="versionLabel" destination="FBe-0q-jDH" id="Glq-4Y-BwE"/>

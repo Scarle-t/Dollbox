@@ -2292,7 +2292,7 @@ Available on App Store</string>
         <!--資料來源-->
         <scene sceneID="ydm-gL-eEu">
             <objects>
-                <tableViewController id="UmS-cY-Eoz" customClass="OfflineSettingsViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="offlineSettings" id="UmS-cY-Eoz" customClass="OfflineSettingsViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="fSy-6G-ylD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2459,27 +2459,6 @@ Available on App Store</string>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="" id="LJG-Jq-jKd">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="niB-Vd-UtN" style="IBUITableViewCellStyleDefault" id="tSg-1S-XHZ">
-                                        <rect key="frame" x="0.0" y="578.66666666666663" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tSg-1S-XHZ" id="UUw-gU-FvC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="移除已下載資料" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="niB-Vd-UtN">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.666666666666664"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="UmS-cY-Eoz" id="ced-jY-u2E"/>
@@ -2488,6 +2467,8 @@ Available on App Store</string>
                     </tableView>
                     <navigationItem key="navigationItem" title="資料來源" largeTitleDisplayMode="never" id="kiS-0q-QrK"/>
                     <connections>
+                        <outlet property="localTS" destination="LON-JW-X0Q" id="ime-Vs-DVc"/>
+                        <outlet property="localVersion" destination="eB4-1q-35n" id="25d-O4-WLM"/>
                         <outlet property="offlineToggle" destination="fkH-KO-mqn" id="iOj-Ay-XRN"/>
                         <outlet property="tsLabel" destination="NAZ-j2-jQ5" id="Jas-zp-Gia"/>
                         <outlet property="versionLabel" destination="MdT-FA-YKu" id="jUZ-zK-rss"/>
@@ -2649,6 +2630,6 @@ Available on App Store</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Dfc-68-Yr9"/>
-        <segue reference="SSl-Nf-xhJ"/>
+        <segue reference="Yze-C3-unL"/>
     </inferredMetricsTieBreakers>
 </document>

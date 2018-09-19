@@ -51,6 +51,7 @@
 		A69E75B4214EF366001FE25F /* setupLocalDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E75B3214EF366001FE25F /* setupLocalDB.swift */; };
 		A69E75B6214EF545001FE25F /* downloadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E75B5214EF545001FE25F /* downloadData.swift */; };
 		A6D6B00421398E7700F2C7AD /* small.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D6B00321398E7700F2C7AD /* small.storyboard */; };
+		A6E830082152E04E009337A8 /* selectDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E830072152E04E009337A8 /* selectDevice.swift */; };
 		A6F6071520B887B900097FDC /* Mohave.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6F6071420B887B800097FDC /* Mohave.otf */; };
 		A6F6071620B887B900097FDC /* Mohave.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6F6071420B887B800097FDC /* Mohave.otf */; };
 		A6FCC45220E9912800D31DE1 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6FCC45120E9912800D31DE1 /* settings.plist */; };
@@ -102,6 +103,7 @@
 		A6D6B00321398E7700F2C7AD /* small.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = small.storyboard; sourceTree = "<group>"; };
 		A6E5BEE020C1895D00B1D01E /* TutorialPagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPagesViewController.swift; sourceTree = "<group>"; };
 		A6E5BEE220C19CE500B1D01E /* TutorialEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEndViewController.swift; sourceTree = "<group>"; };
+		A6E830072152E04E009337A8 /* selectDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectDevice.swift; sourceTree = "<group>"; };
 		A6ECCAF120BC05F500D15ED5 /* BuildStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildStatsViewController.swift; sourceTree = "<group>"; };
 		A6F2958820A05E0800239089 /* TDoll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDoll.swift; sourceTree = "<group>"; };
 		A6F2958A20A062A000239089 /* getSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getSearchResult.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				A61D153F214861A9005D7EDE /* pickType.swift */,
 				A69E75B3214EF366001FE25F /* setupLocalDB.swift */,
 				A69E75B5214EF545001FE25F /* downloadData.swift */,
+				A6E830072152E04E009337A8 /* selectDevice.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				A67B50FF21487A9600A7D4E1 /* OfflineSettingsViewController.swift in Sources */,
 				A69E75B4214EF366001FE25F /* setupLocalDB.swift in Sources */,
 				A67B510021487A9600A7D4E1 /* SelectTDollViewController.swift in Sources */,
+				A6E830082152E04E009337A8 /* selectDevice.swift in Sources */,
 				A67B510121487A9600A7D4E1 /* SettingsViewController.swift in Sources */,
 				A67B510221487A9600A7D4E1 /* SimulatorsViewController.swift in Sources */,
 				A67B510321487A9600A7D4E1 /* StarSearchViewController.swift in Sources */,

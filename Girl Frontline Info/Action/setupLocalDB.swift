@@ -100,6 +100,21 @@ class localDB: NSObject {
     }
     func download(_ source: UIViewController?){
         downloadData().getItems("download")
+        db = Session.sharedInstance.db
+            if let mydb = db{
+                let statement = mydb.fetch("dataversion", cond: nil, order: nil)
+                if sqlite3_step(statement) != SQLITE_ROW{
+                    let _ = mydb.insert("dataversion", rowInfo: [
+                        "local_last" : "'" + String(cString: sqlite3_column_text(statement, 0)) + "'",
+                        "local_version" : String(cString: sqlite3_column_text(statement, 2))
+                        ])
+                }else{
+                    let _ = mydb.update("dataversion", cond: nil, rowInfo: [
+                        "local_last" : "'" + String(cString: sqlite3_column_text(statement, 0)) + "'",
+                        "local_version" : String(cString: sqlite3_column_text(statement, 2))
+                        ])
+                }
+            }
         if let source = source{
             let finish = UIAlertController(title: "下載完成", message: nil, preferredStyle: .alert)
             finish.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
@@ -107,10 +122,31 @@ class localDB: NSObject {
             source.present(finish, animated: true, completion: nil)
         }
     }
-    func update(){
+    func update(_ source: UIViewController?){
         downloadData().getItems("update")
+        db = Session.sharedInstance.db
+        if let mydb = db{
+            let statement = mydb.fetch("dataversion", cond: nil, order: nil)
+            if sqlite3_step(statement) != SQLITE_ROW{
+                let _ = mydb.insert("dataversion", rowInfo: [
+                    "local_last" : "'" + String(cString: sqlite3_column_text(statement, 0)) + "'",
+                    "local_version" : String(cString: sqlite3_column_text(statement, 2))
+                    ])
+            }else{
+                let _ = mydb.update("dataversion", cond: nil, rowInfo: [
+                    "local_last" : "'" + String(cString: sqlite3_column_text(statement, 0)) + "'",
+                    "local_version" : String(cString: sqlite3_column_text(statement, 2))
+                    ])
+            }
+        }
+        if let source = source{
+            let finish = UIAlertController(title: "更新完成", message: nil, preferredStyle: .alert)
+            finish.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
+            }))
+            source.present(finish, animated: true, completion: nil)
+        }
     }
-    func delete(){
+    func delete(_ source: UIViewController?){
         db = Session.sharedInstance.db
         if let mydb = db {
             let _ = mydb.delete("info", cond: nil)
@@ -119,6 +155,16 @@ class localDB: NSObject {
             let _ = mydb.delete("obtain", cond: nil)
             let _ = mydb.delete("consumption", cond: nil)
             let _ = mydb.delete("skill", cond: nil)
+            let _ = mydb.update("dataversion", cond: nil, rowInfo: [
+                "local_last" : "' '",
+                "local_version" : "0"
+                ])
+        }
+        if let source = source{
+            let finish = UIAlertController(title: " 已刪除", message: nil, preferredStyle: .alert)
+            finish.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
+            }))
+            source.present(finish, animated: true, completion: nil)
         }
     }
     func readSettings()->[Bool]{
@@ -335,6 +381,24 @@ class localDB: NSObject {
             }
         }
         self.delegate?.returndData(items: tdolls)
+    }
+    func readVersion(){
+        let verArray = NSMutableArray()
+        db = Session.sharedInstance.db
+        if let mydb = db{
+            let statement = mydb.fetch("dataversion", cond: nil, order: nil)
+            if sqlite3_step(statement) == SQLITE_ROW{
+                let online_last = String(cString: sqlite3_column_text(statement, 0))
+                let local_last = String(cString: sqlite3_column_text(statement, 1))
+                let online_version = String(cString: sqlite3_column_text(statement, 2))
+                let local_version = String(cString: sqlite3_column_text(statement, 3))
+                verArray.add(online_last)
+                verArray.add(local_last)
+                verArray.add(online_version)
+                verArray.add(local_version)
+            }
+        }
+        self.delegate?.returndData(items: verArray)
     }
     
 }

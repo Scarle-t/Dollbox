@@ -41,7 +41,7 @@ class downloadData: NSObject, URLSessionDelegate {
                             "Stars" : "'" + stars + "'"
                             ])
                     }else if action == "update"{
-                        let _ = mydb.update("info", cond: "ID = id ", rowInfo: [
+                        let _ = mydb.update("info", cond: "ID = " + "'" + id + "'", rowInfo: [
                             "Eng_Name" : "'" + Eng_name + "'",
                             "Zh_Name" : "'" + Zh_name + "'",
                             "type" : "'" + type + "'",
@@ -69,7 +69,7 @@ class downloadData: NSObject, URLSessionDelegate {
                             "efficiency" : String(efficiency)
                             ])
                     }else if action == "update"{
-                        let _ = mydb.update("stats", cond: "ID = id ", rowInfo: [
+                        let _ = mydb.update("stats", cond: "ID = " + "'" + id + "'", rowInfo: [
                             "health" : String(health),
                             "attack" : String(attack),
                             "atk_speed" : String(speed),
@@ -112,7 +112,7 @@ class downloadData: NSObject, URLSessionDelegate {
                             "description" : "'" + skill_desc + "'"
                             ])
                     }else if action == "update"{
-                        let _ = mydb.update("skill", cond: "ID = " + id, rowInfo: [
+                        let _ = mydb.update("skill", cond: "ID = " + "'" + id + "'", rowInfo: [
                             "name" : "'" + skill_name + "'",
                             "description" : "'" + skill_desc + "'"
                             ])
@@ -138,7 +138,7 @@ class downloadData: NSObject, URLSessionDelegate {
                             "area9" : String(area9)
                             ])
                     }else if action == "update"{
-                        let _ = mydb.update("buff", cond: "ID = id ", rowInfo: [
+                        let _ = mydb.update("buff", cond: "ID = " + "'" + id + "'", rowInfo: [
                             "effect" : "'" + effect + "'",
                             "position" : String(position),
                             "area1" : String(area1),
@@ -164,7 +164,7 @@ class downloadData: NSObject, URLSessionDelegate {
                             "obtain_method" : "'" + obtain_method + "'"
                             ])
                     }else if action == "update"{
-                        let _ = mydb.update("obtain", cond: "ID = id ", rowInfo: [
+                        let _ = mydb.update("obtain", cond: "ID = " + "'" + id + "'", rowInfo: [
                             "build_time" : "'" + build_time + "'",
                             "obtain_method" : "'" + obtain_method + "'"
                             ])
