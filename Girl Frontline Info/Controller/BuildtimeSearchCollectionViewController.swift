@@ -100,7 +100,6 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
     }
 
     @IBAction func btnTimeSearch(_ sender: UIButton) {
-        
         view.endEditing(true)
         guard var hour = txtHour.text else {return}
         guard var minute = txtMinute.text else {return}
@@ -120,7 +119,6 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
                 searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?hour=\(hour)&minute=\(minute)&second=\(second)"
             searchResult.downloadItems()
         }
-        
     }
     @IBOutlet weak var txtHour: UITextField!
     @IBOutlet weak var txtMinute: UITextField!

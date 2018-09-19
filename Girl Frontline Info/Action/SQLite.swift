@@ -25,7 +25,7 @@ class SQLiteConnect {
     // connect database
     func openDatabase(_ path :String) -> OpaquePointer? {
         var connectdb: OpaquePointer? = nil
-        if sqlite3_open(path, &connectdb) == SQLITE_OK {
+        if sqlite3_open_v2(path, &connectdb, SQLITE_OPEN_CREATE|SQLITE_OPEN_READWRITE|SQLITE_OPEN_FULLMUTEX, nil) == SQLITE_OK {
             print("Successfully opened database \(path)")
             return connectdb!
         } else {

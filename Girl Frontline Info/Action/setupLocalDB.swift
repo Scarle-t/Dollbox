@@ -148,7 +148,6 @@ class localDB: NSObject {
         if let mydb = db {
             let _ = mydb.update("settings", cond: nil, rowInfo: [item : value])
         }
-        print("Updated " + item + " to " + value)
     }
     func search(cond: String){
         db = Session.sharedInstance.db
@@ -159,7 +158,6 @@ class localDB: NSObject {
             while sqlite3_step(statement) == SQLITE_ROW{
                 let tdoll = TDoll()
                 let id = String(cString: sqlite3_column_text(statement, 2))
-                print(id)
                 tdoll.ID = id
                 tdoll.build_time = String(cString: sqlite3_column_text(statement, 0))
                 tdoll.obtain_method = String(cString: sqlite3_column_text(statement, 1))

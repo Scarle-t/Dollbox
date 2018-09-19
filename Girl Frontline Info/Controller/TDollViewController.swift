@@ -132,9 +132,27 @@ class TDollViewController: UIViewController {
             print(sepView.selectedSegmentIndex)
         }
     }
+    func accentColor(){
+        if selectedTDoll?.stars == "2"{
+            setNavBarColor().white(self)
+        }
+        if selectedTDoll?.stars == "3"{
+            setNavBarColor().blue(self)
+        }
+        if selectedTDoll?.stars == "4"{
+            setNavBarColor().green(self)
+        }
+        if selectedTDoll?.stars == "5"{
+            setNavBarColor().gold(self)
+        }
+        if selectedTDoll?.stars == "EXTRA"{
+            setNavBarColor().purple(self)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        accentColor()
         if from == "stats"{
             dismissBtn.isHidden = false
         }
@@ -257,21 +275,7 @@ class TDollViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if selectedTDoll?.stars == "2"{
-            setNavBarColor().white(self)
-        }
-        if selectedTDoll?.stars == "3"{
-            setNavBarColor().blue(self)
-        }
-        if selectedTDoll?.stars == "4"{
-            setNavBarColor().green(self)
-        }
-        if selectedTDoll?.stars == "5"{
-            setNavBarColor().gold(self)
-        }
-        if selectedTDoll?.stars == "EXTRA"{
-            setNavBarColor().purple(self)
-        }
+        accentColor()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
