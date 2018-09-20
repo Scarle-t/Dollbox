@@ -50,6 +50,7 @@
 		A67B510D21487A9600A7D4E1 /* TDoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F2958820A05E0800239089 /* TDoll.swift */; };
 		A69E75B4214EF366001FE25F /* setupLocalDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E75B3214EF366001FE25F /* setupLocalDB.swift */; };
 		A69E75B6214EF545001FE25F /* downloadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E75B5214EF545001FE25F /* downloadData.swift */; };
+		A69ED25F21532CD400BD63BD /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ED25E21532CD400BD63BD /* ParentViewController.swift */; };
 		A6D6B00421398E7700F2C7AD /* small.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D6B00321398E7700F2C7AD /* small.storyboard */; };
 		A6E830082152E04E009337A8 /* selectDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E830072152E04E009337A8 /* selectDevice.swift */; };
 		A6F6071520B887B900097FDC /* Mohave.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6F6071420B887B800097FDC /* Mohave.otf */; };
@@ -96,6 +97,7 @@
 		A67208B020EA3C3B000A58B3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A69E75B3214EF366001FE25F /* setupLocalDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setupLocalDB.swift; sourceTree = "<group>"; };
 		A69E75B5214EF545001FE25F /* downloadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = downloadData.swift; sourceTree = "<group>"; };
+		A69ED25E21532CD400BD63BD /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
 		A6B03C4721484ACB00FAF61A /* DownloadPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadPhoto.swift; sourceTree = "<group>"; };
 		A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTDollViewController.swift; sourceTree = "<group>"; };
 		A6BB3BB120A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildtimeSearchCollectionViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				A655A6F420A1502E00E29E9B /* typeViewController.swift */,
 				A60D464F209FC985003D85D3 /* ViewController.swift */,
 				A61D154121486A54005D7EDE /* allViewController.swift */,
+				A69ED25E21532CD400BD63BD /* ParentViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				A67B510021487A9600A7D4E1 /* SelectTDollViewController.swift in Sources */,
 				A6E830082152E04E009337A8 /* selectDevice.swift in Sources */,
 				A67B510121487A9600A7D4E1 /* SettingsViewController.swift in Sources */,
+				A69ED25F21532CD400BD63BD /* ParentViewController.swift in Sources */,
 				A67B510221487A9600A7D4E1 /* SimulatorsViewController.swift in Sources */,
 				A67B510321487A9600A7D4E1 /* StarSearchViewController.swift in Sources */,
 				A67B510421487A9600A7D4E1 /* TDollViewController.swift in Sources */,

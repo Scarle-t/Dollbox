@@ -12,13 +12,13 @@ class ToolboxTableViewController: UITableViewController, localDBDelegate, Versio
     
     let localSearch = localDB()
     let version = Version()
-    var versions = NSMutableArray()
+    var versions = NSMutableDictionary()
     
     func returndData(items: NSArray) {
-        versions.add("\(items[3])")
+        versions.setValue("\(items[3])", forKey: "local")
     }
     func returnVersion(version: NSMutableArray) {
-        versions.add("\(version[0])")
+        versions.setValue("\(version[0])", forKey: "online")
     }
     
     override func viewDidLoad() {
@@ -26,15 +26,24 @@ class ToolboxTableViewController: UITableViewController, localDBDelegate, Versio
         localSearch.delegate = self
         version.delegate = self
         localDB().setup()
+        versions.addEntries(from: ["online": ""])
+        versions.addEntries(from: ["local" : ""])
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if localDB().readSettings()[0]{
+            print("Getting versions")
+            version.getVersion()
+            localSearch.readVersion()
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setNavBarColor().white(self)
         if localDB().readSettings()[0]{
             version.getVersion()
-            localSearch.readVersion()
-            if (versions.firstObject as! String) != (versions.lastObject as! String){
-                let alert = UIAlertController(title: "離線資料檔有可用的更新", message: "新版本：\(versions[0]), 當前版本：\(versions[1])", preferredStyle: .alert)
+            if (versions.value(forKey: "local") as! String) != (versions.value(forKey: "online") as! String){
+                let alert = UIAlertController(title: "離線資料檔有可用的更新", message: "新版本：\(versions.value(forKey: "online") ?? ""), 當前版本：\(versions.value(forKey: "local") ?? "")", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
                     let storyboard = selectDevice().storyboard()
                     let offlineSettings = storyboard.instantiateViewController(withIdentifier: "offlineSettings")

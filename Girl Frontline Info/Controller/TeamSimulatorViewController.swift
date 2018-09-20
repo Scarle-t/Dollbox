@@ -20,6 +20,7 @@ class TeamSimulatorViewController: UIViewController {
     @IBOutlet var imgTDoll: [UIImageView]!
     @IBOutlet var imgDelete: [UIButton]!
     @IBOutlet var imgDim: [UIView]!
+    @IBOutlet var imgName: [UILabel]!
     @IBOutlet weak var totalEfficiency: UILabel!
     @IBOutlet weak var creditText: UITextView!
     @IBOutlet weak var navBtn: UIBarButtonItem!
@@ -61,6 +62,11 @@ class TeamSimulatorViewController: UIViewController {
         displayTDolls.removeObject(forKey: String(key))
         Session.sharedInstance.selectedTDoll = TDoll()
         imgTDoll[index!].image = #imageLiteral(resourceName: "SelectTDoll")
+        if localDB().readSettings()[0]{
+            imgName[index!].text = ""
+            imgName[index!].isEnabled = false
+            imgName[index!].isHidden = true
+        }
         totalEffi = 0
         for (_, value) in displayTDolls{
             totalEffi += Int((value as! TDoll).efficiency!)!
@@ -72,6 +78,11 @@ class TeamSimulatorViewController: UIViewController {
         let index = Int(from)! - 1
         if let TDoll = selectedTDoll{
             displayTDolls[from] = TDoll
+            if localDB().readSettings()[0]{
+                imgName[index].text = TDoll.Zh_Name
+                imgName[index].isEnabled = true
+                imgName[index].isHidden = false
+            }
             if let image = selectedTDImage{
                 imgTDoll[index].image = image
                 imgTDoll[index].alpha = 1.0
