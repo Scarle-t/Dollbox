@@ -157,11 +157,11 @@ class TDollViewController: UIViewController {
             dismissBtn.isHidden = false
         }
         sepView.setTitleTextAttributes([
-            NSAttributedStringKey.font : UIFont(name: "Mohave", size: 14)!
-            ], for: UIControlState.normal)
+            NSAttributedString.Key.font : UIFont(name: "Mohave", size: 14)!
+            ], for: UIControl.State.normal)
         sepView.setTitleTextAttributes([
-            NSAttributedStringKey.font : UIFont(name: "Mohave", size: 14)!
-            ], for: UIControlState.selected)
+            NSAttributedString.Key.font : UIFont(name: "Mohave", size: 14)!
+            ], for: UIControl.State.selected)
         Zh_name.text = selectedTDoll?.Zh_Name
         Eng_name.text = selectedTDoll?.Eng_Name
         type.text = selectedTDoll?.type

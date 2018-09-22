@@ -162,12 +162,12 @@ class allViewController: UIViewController, UICollectionViewDelegate, UICollectio
         localSearch.delegate = self
         
         navBarStars.setTitleTextAttributes([
-            NSAttributedStringKey.font : UIFont(name: "Mohave", size: 17)!
-            ], for: UIControlState.normal)
+            NSAttributedString.Key.font : UIFont(name: "Mohave", size: 17)!
+            ], for: UIControl.State.normal)
         
         navBarStars.setTitleTextAttributes([
-            NSAttributedStringKey.font : UIFont(name: "Mohave", size: 17)!
-            ], for: UIControlState.selected)
+            NSAttributedString.Key.font : UIFont(name: "Mohave", size: 17)!
+            ], for: UIControl.State.selected)
         
         swipeResult()
         

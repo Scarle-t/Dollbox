@@ -95,7 +95,7 @@ class TeamSimulatorViewController: UIViewController {
         }
     }
     func displayWarning(title: String){
-        let alert = UIAlertController(title: title, message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: title, message: "", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
         }))
         self.present(alert, animated: true, completion: nil)

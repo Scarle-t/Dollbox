@@ -44,28 +44,33 @@ class SettingsViewController: UITableViewController {
         case 1:
             switch indexPath.row{
             case 0:
-                UIApplication.shared.open(URL(string: "https://gf.txwy.tw")!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(URL(string: "https://gf.txwy.tw")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             case 1:
-                UIApplication.shared.open(URL(string: "https://www.facebook.com/gf.txwy.tw")!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(URL(string: "https://www.facebook.com/gf.txwy.tw")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             case 2:
-                UIApplication.shared.open(URL(string: "https://www.facebook.com/Girlsfrontline.fanpage")!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(URL(string: "https://www.facebook.com/Girlsfrontline.fanpage")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             default:
                 break
             }
         case 2:
             switch indexPath.row{
             case 0:
-                UIApplication.shared.open(URL(string: "https://gf.txwy.tw")!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(URL(string: "https://gf.txwy.tw")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             case 1:
-                UIApplication.shared.open(URL(string: "https://zh.moegirl.org/zh-tw/%e5%b0%91%e5%a5%b3%e5%89%8d%e7%ba%bf")!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(URL(string: "https://zh.moegirl.org/zh-tw/%e5%b0%91%e5%a5%b3%e5%89%8d%e7%ba%bf")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             default:
                 break
             }
         case 3:
-            UIApplication.shared.open(URL(string: "https://www.facebook.com/Scarlet.SC2")!, options: [:], completionHandler: nil)
+            UIApplication.shared.open(URL(string: "https://www.facebook.com/Scarlet.SC2")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         default:
             break
         }
         
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
