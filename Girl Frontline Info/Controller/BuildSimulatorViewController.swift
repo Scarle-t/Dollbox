@@ -8,10 +8,11 @@
 
 import UIKit
 
-class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, getSearchProtocol {
+class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, getSearchProtocol, localDBDelegate {
     
     let imgCache = Session.sharedInstance.imgSession
     let searchResult = getSearchResult()
+    let localSearch = localDB()
     
     var counter = 0
     var selectedTDoll: TDoll = TDoll()
@@ -90,6 +91,28 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
             resultView.reloadData()
         }
     }
+    func returndData(items: NSArray) {
+        if items.count != 0{
+            let index = Int(arc4random_uniform(UInt32(items.count - 1)))
+            result = items[index] as! TDoll
+            constructedTDolls.add(result)
+            switch result.stars{
+            case "2":
+                total2Star += 1
+            case "3":
+                total3Star += 1
+            case "4":
+                total4Star += 1
+            case "5":
+                total5Star += 1
+            default:
+                break
+            }
+            counter += 1
+            constructTime += 1
+            resultView.reloadData()
+        }
+    }
 
     @IBOutlet weak var resultView: UICollectionView!
     @IBOutlet weak var sepBuildType: UISegmentedControl!
@@ -138,8 +161,13 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
         totalUsedRation += ration
         totalUsedManPower += manPower
         
-        build(types: pickType().pick(total: total, manPower: manPower, ammo: ammo, ration: ration, parts: parts))
-        selectTDoll()
+        if localDB().readSettings()[0]{
+            selectLocal(types: pickType().pick(total: total, manPower: manPower, ammo: ammo, ration: ration, parts: parts))
+        }else{
+            buildOnline(types: pickType().pick(total: total, manPower: manPower, ammo: ammo, ration: ration, parts: parts))
+            selectTDoll()
+        }
+        
         resultView.isHidden = false
         
     }
@@ -166,6 +194,54 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
         }
     }
     
+    func selectLocal(types: [String]){
+        var sql = "select * from info inner join buff on buff.ID = info.ID inner join consumption on consumption.ID = info.ID inner join obtain on obtain.ID = info.ID inner join skill on skill.ID = info.ID inner join stats on stats.ID = info.ID where ((info.type = 'SMG')"
+        for type in types{
+            
+            switch type{
+                
+            case "HG":
+                sql += " OR (info.type = 'HG')"
+                continue
+            case "5SHG":
+                sql += " OR (info.type = 'HG' AND info.Stars = 5)"
+                continue
+                
+            case "5SSMG":
+                sql += " OR (info.type = 'SMG' AND info.Stars = 5)"
+                continue
+                
+            case "AR":
+                sql += " OR (info.type = 'AR')"
+                continue
+            case "5SAR":
+                sql += " OR (info.type = 'AR' AND info.Stars = 5)"
+                continue
+                
+            case "RF":
+                sql += " OR (info.type = 'RF')"
+                continue
+            case "5SRF":
+                sql += " OR (info.type = 'RF' AND info.Stars = 5)"
+                continue
+                
+            case "MG":
+                sql += " OR (info.type = 'MG')"
+                continue
+            case "5SMG":
+                sql += " OR (info.type = 'MG' AND info.Stars = 5)"
+                continue
+                
+            default:
+                continue
+            }
+        }
+        
+        sql += ") AND obtain.build_time != '00:00:00' "
+        
+        localSearch.search(sql: sql)
+        
+    }
     func selectTDoll(){
         let index = Int(arc4random_uniform(UInt32(downloadStrings.count - 1)))
         let downloadString = downloadStrings[index]
@@ -178,7 +254,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
         rationValue.text = String(ration)
         partsValue.text = String(parts)
     }
-    func build(types: [String]){
+    func buildOnline(types: [String]){
         searchResult.delegate = self
         counter = 0
         downloadStrings.removeAll()
@@ -222,6 +298,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
         super.viewDidLoad()
         resultView.delegate = self
         resultView.dataSource = self
+        localSearch.delegate = self
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

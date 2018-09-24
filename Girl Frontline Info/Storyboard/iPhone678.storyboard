@@ -18,7 +18,7 @@
         <!--Doll View Controller-->
         <scene sceneID="W5X-sJ-94c">
             <objects>
-                <viewController id="bYr-w7-rqP" customClass="TDollViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailVC" id="bYr-w7-rqP" customClass="TDollViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dNl-xt-oqA" userLabel="Main">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -448,7 +448,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="272-og-cCp">
             <objects>
-                <tabBarController storyboardIdentifier="iPhone678TB" automaticallyAdjustsScrollViewInsets="NO" id="udB-g1-YSX" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Main" automaticallyAdjustsScrollViewInsets="NO" id="udB-g1-YSX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ND9-tr-D7d">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -467,7 +467,7 @@
         <!--稀有度-->
         <scene sceneID="iSU-ag-Gtt">
             <objects>
-                <viewController storyboardIdentifier="starSearch678" id="uMV-mN-kus" customClass="StarSearchViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="starSearch" id="uMV-mN-kus" customClass="StarSearchViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Abi-tf-gih">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -580,7 +580,7 @@
         <!--種類-->
         <scene sceneID="UTQ-s9-1WI">
             <objects>
-                <viewController storyboardIdentifier="typeSearch678" id="69h-a2-E6Y" customClass="typeViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="typeSearch" id="69h-a2-E6Y" customClass="typeViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ecQ-6U-lyG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -694,7 +694,7 @@
         <!--Buildtime Search Collection View Controller-->
         <scene sceneID="aSu-Xi-CKz">
             <objects>
-                <viewController storyboardIdentifier="timeSearch678" id="s1Z-9u-yPx" customClass="BuildtimeSearchCollectionViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="timeSearch" id="s1Z-9u-yPx" customClass="BuildtimeSearchCollectionViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SXv-ff-Rew">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1996,6 +1996,78 @@ Available on App Store</string>
                                     <action selector="deleteTDoll:" destination="cp7-bi-ZyT" eventType="touchUpInside" id="1rd-2j-O3a"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Va-RY-RqA">
+                                <rect key="frame" x="17" y="250" width="88" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZE1-sE-eoT">
+                                <rect key="frame" x="136" y="250" width="88" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOO-Hw-O0N">
+                                <rect key="frame" x="256" y="250" width="88" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dp3-vW-yob">
+                                <rect key="frame" x="18" y="408" width="88" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GrD-m1-AKM">
+                                <rect key="frame" x="137" y="408" width="88" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztx-cV-I5z">
+                                <rect key="frame" x="257" y="408" width="88" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHT-5b-Snw">
+                                <rect key="frame" x="17" y="567" width="88" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00D-vH-IOe">
+                                <rect key="frame" x="136" y="567" width="88" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGf-Xe-LAK">
+                                <rect key="frame" x="256" y="567" width="88" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="geG-mQ-KhW"/>
@@ -2039,6 +2111,15 @@ Available on App Store</string>
                         <outletCollection property="imgDim" destination="scq-G4-eai" collectionClass="NSMutableArray" id="Jg1-yh-mlH"/>
                         <outletCollection property="imgDim" destination="BCb-h0-Ii8" collectionClass="NSMutableArray" id="DMx-mu-jy4"/>
                         <outletCollection property="imgDim" destination="ICK-0w-lg0" collectionClass="NSMutableArray" id="BMT-Io-umY"/>
+                        <outletCollection property="imgName" destination="4Va-RY-RqA" collectionClass="NSMutableArray" id="PEA-po-UHh"/>
+                        <outletCollection property="imgName" destination="ZE1-sE-eoT" collectionClass="NSMutableArray" id="MRD-L9-7f1"/>
+                        <outletCollection property="imgName" destination="VOO-Hw-O0N" collectionClass="NSMutableArray" id="ksv-sx-jId"/>
+                        <outletCollection property="imgName" destination="Dp3-vW-yob" collectionClass="NSMutableArray" id="fUh-Oq-oox"/>
+                        <outletCollection property="imgName" destination="GrD-m1-AKM" collectionClass="NSMutableArray" id="lrh-gR-wf6"/>
+                        <outletCollection property="imgName" destination="ztx-cV-I5z" collectionClass="NSMutableArray" id="bgr-gY-aeB"/>
+                        <outletCollection property="imgName" destination="kHT-5b-Snw" collectionClass="NSMutableArray" id="FaL-SA-f9j"/>
+                        <outletCollection property="imgName" destination="00D-vH-IOe" collectionClass="NSMutableArray" id="dOR-HD-gQ4"/>
+                        <outletCollection property="imgName" destination="VGf-Xe-LAK" collectionClass="NSMutableArray" id="qcn-s6-5BA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6SI-oY-ita" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2599,6 +2680,7 @@ Available on App Store</string>
                     </tableView>
                     <navigationItem key="navigationItem" title="資料來源" largeTitleDisplayMode="never" id="ujf-VI-38M"/>
                     <connections>
+                        <outlet property="localCheck" destination="5ZM-CC-abw" id="zB4-lP-q5U"/>
                         <outlet property="localTS" destination="nYD-K7-AiW" id="eug-Pw-FfF"/>
                         <outlet property="localVersion" destination="Q2g-9V-kUw" id="7QF-Ib-Gd8"/>
                         <outlet property="offlineToggle" destination="tNX-w5-BQg" id="amp-Zf-680"/>
@@ -2612,7 +2694,7 @@ Available on App Store</string>
         </scene>
     </scenes>
     <resources>
-        <image name="ImgNotReady" width="404" height="496"/>
+        <image name="ImgNotReady" width="103" height="172"/>
         <image name="SelectTDoll" width="103" height="172"/>
         <image name="arrow_down" width="108" height="78"/>
         <image name="close" width="187.5" height="187.5"/>
@@ -2622,6 +2704,6 @@ Available on App Store</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="32p-mr-FxF"/>
-        <segue reference="Lqa-Gy-T6H"/>
+        <segue reference="ZI1-rL-Jv3"/>
     </inferredMetricsTieBreakers>
 </document>

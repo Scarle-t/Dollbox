@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.700</string>
+	<string>2.1</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -44,14 +44,6 @@
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>tools</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>模擬器</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>net.scarletsc.Girl-Frontline-Info.Simulator</string>
-		</dict>
-		<dict>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeTime</string>
 			<key>UIApplicationShortcutItemTitle</key>
@@ -75,7 +67,17 @@
 			<key>UIApplicationShortcutItemType</key>
 			<string>net.scarletsc.Girl-Frontline-Info.TypeSearch</string>
 		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeBookmark</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>全圖鑑</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>net.scarletsc.Girl-Frontline-Info.AllSearch</string>
+		</dict>
 	</array>
+	<key>UIFileSharingEnabled</key>
+	<false/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -95,7 +97,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UIFileSharingEnabled</key>
-	<false/>
 </dict>
 </plist>

@@ -321,6 +321,57 @@ class localDB: NSObject {
         }
         self.delegate?.returndData(items: tdolls)
     }
+    func search(sql: String){
+        db = Session.sharedInstance.db
+        let tdolls = NSMutableArray()
+        if let mydb = db{
+            let statement = mydb.fetch(sql)
+            while sqlite3_step(statement) == SQLITE_ROW{
+                let tdoll = TDoll()
+                
+                tdoll.ID = String(cString: sqlite3_column_text(statement, 0))
+                tdoll.Eng_Name = String(cString: sqlite3_column_text(statement, 1))
+                tdoll.Zh_Name = String(cString: sqlite3_column_text(statement, 2))
+                tdoll.type = String(cString: sqlite3_column_text(statement, 3))
+                tdoll.stars = String(cString: sqlite3_column_text(statement, 4))
+                tdoll.effect = String(cString: sqlite3_column_text(statement, 5))
+                tdoll.position = String(cString: sqlite3_column_text(statement, 6))
+                tdoll.area1 = String(cString: sqlite3_column_text(statement, 7))
+                tdoll.area2 = String(cString: sqlite3_column_text(statement, 8))
+                tdoll.area3 = String(cString: sqlite3_column_text(statement, 9))
+                tdoll.area4 = String(cString: sqlite3_column_text(statement, 10))
+                tdoll.area5 = String(cString: sqlite3_column_text(statement, 11))
+                tdoll.area6 = String(cString: sqlite3_column_text(statement, 12))
+                tdoll.area7 = String(cString: sqlite3_column_text(statement, 13))
+                tdoll.area8 = String(cString: sqlite3_column_text(statement, 14))
+                tdoll.area9 = String(cString: sqlite3_column_text(statement, 15))
+                
+                tdoll.ammo = String(cString: sqlite3_column_text(statement, 17))
+                tdoll.mre = String(cString: sqlite3_column_text(statement, 18))
+                
+                tdoll.build_time = String(cString: sqlite3_column_text(statement, 20))
+                tdoll.obtain_method = String(cString: sqlite3_column_text(statement, 21))
+                
+                tdoll.skill_name = String(cString: sqlite3_column_text(statement, 23))
+                tdoll.skill_desc = String(cString: sqlite3_column_text(statement, 24))
+                
+                tdoll.health = String(cString: sqlite3_column_text(statement, 26))
+                tdoll.attack = String(cString: sqlite3_column_text(statement, 27))
+                tdoll.speed = String(cString: sqlite3_column_text(statement, 28))
+                tdoll.hit_rate = String(cString: sqlite3_column_text(statement, 29))
+                tdoll.dodge = String(cString: sqlite3_column_text(statement, 30))
+                tdoll.movement = String(cString: sqlite3_column_text(statement, 31))
+                tdoll.critical = String(cString: sqlite3_column_text(statement, 32))
+                tdoll.chain = String(cString: sqlite3_column_text(statement, 33))
+                tdoll.loads = String(cString: sqlite3_column_text(statement, 34))
+                tdoll.shield = String(cString: sqlite3_column_text(statement, 35))
+                tdoll.efficiency = String(cString: sqlite3_column_text(statement, 36))
+                
+                tdolls.add(tdoll)
+            }
+        }
+        self.delegate?.returndData(items: tdolls)
+    }
     func search(){
         db = Session.sharedInstance.db
         let tdolls = NSMutableArray()

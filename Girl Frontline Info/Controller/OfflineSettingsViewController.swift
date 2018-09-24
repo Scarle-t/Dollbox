@@ -15,6 +15,7 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
     @IBOutlet weak var offlineToggle: UITableViewCell!
     @IBOutlet weak var localVersion: UILabel!
     @IBOutlet weak var localTS: UILabel!
+    @IBOutlet weak var localCheck: UILabel!
     
     let ver = Version()
     let switchView = UISwitch(frame: .zero)
@@ -54,6 +55,7 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
                 localDB().writeSettings(item: "isOffline", value: "1")
                 localDB().download(self)
                 self.localSearch.readVersion()
+                self.localCheck.isEnabled = true
             }))
             alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in
                 self.switchView.setOn(false, animated: true)
@@ -64,6 +66,9 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
             alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
                 localDB().writeSettings(item: "isOffline", value: "0")
                 localDB().delete(self)
+                self.localVersion.text = " "
+                self.localTS.text = " "
+                self.localCheck.isEnabled = false
             }))
             alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in
                 self.switchView.setOn(true, animated: true)
@@ -94,6 +99,9 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
         
         if localDB().readSettings()[0]{
             localSearch.readVersion()
+            localCheck.isEnabled = true
+        }else{
+            localCheck.isEnabled = false
         }
         
     }
@@ -126,18 +134,20 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
         case 2:
             switch indexPath.row{
             case 0:
-                localVersion.text = " "
-                localTS.text = " "
-                localSearch.readVersion()
-                let db = Session.sharedInstance.db
-                if let mydb = db{
-                    let statement = mydb.fetch("info", cond: nil, order: nil)
-                    if sqlite3_step(statement) == SQLITE_ROW{
-                        localDB().update(self)
-                        self.localSearch.readVersion()
-                    }else{
-                        localDB().download(self)
-                        self.localSearch.readVersion()
+                if localDB().readSettings()[0]{
+                    localVersion.text = " "
+                    localTS.text = " "
+                    localSearch.readVersion()
+                    let db = Session.sharedInstance.db
+                    if let mydb = db{
+                        let statement = mydb.fetch("info", cond: nil, order: nil)
+                        if sqlite3_step(statement) == SQLITE_ROW{
+                            localDB().update(self)
+                            self.localSearch.readVersion()
+                        }else{
+                            localDB().download(self)
+                            self.localSearch.readVersion()
+                        }
                     }
                 }
             default:

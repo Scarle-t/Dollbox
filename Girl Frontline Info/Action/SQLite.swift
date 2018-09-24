@@ -80,6 +80,14 @@ class SQLiteConnect {
         return statement!
     }
     
+    func fetch(_ sql: String) -> OpaquePointer {
+        var statement :OpaquePointer? = nil
+        
+        sqlite3_prepare_v2(self.db, sql.cString(using: String.Encoding.utf8), -1, &statement, nil)
+        
+        return statement!
+    }
+    
     // update
     func update(_ tableName :String, cond :String?, rowInfo :[String:String]) -> Bool {
         var statement :OpaquePointer? = nil

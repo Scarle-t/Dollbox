@@ -19,6 +19,7 @@ class ToolboxTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setNavBarColor().white(self)
+        localDB().setup()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

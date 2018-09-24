@@ -75,16 +75,22 @@ class allViewController: UIViewController, UICollectionViewDelegate, UICollectio
         switch navBarStars.selectedSegmentIndex {
         case 0:
             star = "2"
+            setNavBarColor().white(self)
         case 1:
             star = "3"
+            setNavBarColor().blue(self)
         case 2:
             star = "4"
+            setNavBarColor().green(self)
         case 3:
             star = "5"
+            setNavBarColor().gold(self)
         case 4:
             star = "EXTRA"
+            setNavBarColor().purple(self)
         case 5:
             star = ""
+            setNavBarColor().white(self)
         default:
             if let string = navBarStars.titleForSegment(
                 at: navBarStars.selectedSegmentIndex){
