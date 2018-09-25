@@ -10,16 +10,30 @@ import UIKit
 
 protocol localDBDelegate: class{
     func returndData(items: NSArray)
+    func showMessage()
 }
 
-class localDB: NSObject {
+extension localDBDelegate{
+    func showMessage(){
+    }
+}
+
+class localDB: NSObject, VersionProtocol {
     
     let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    let ver = Version()
+    
     var db: SQLiteConnect?
     var feedItems = NSArray()
+    var feedVersion = NSArray()
     weak var delegate: localDBDelegate?
     
+    func returnVersion(version: NSMutableArray) {
+        feedVersion = version
+    }
+    
     func setup(){
+        ver.delegate = self
         let sqlitePath = urls[urls.count-1].absoluteString + "sqlite3.db"
         print(sqlitePath)
         Session.sharedInstance.db = SQLiteConnect(path: sqlitePath)
@@ -99,30 +113,30 @@ class localDB: NSObject {
         }
     }
     func download(_ source: UIViewController?){
+        let alert = UIAlertController(title: "下載中。。。", message: nil, preferredStyle: .alert)
+        source?.present(alert, animated: true, completion: nil)
         downloadData().getItems("download")
+        ver.getVersion()
         db = Session.sharedInstance.db
             if let mydb = db{
                 let statement = mydb.fetch("dataversion", cond: nil, order: nil)
                 if sqlite3_step(statement) != SQLITE_ROW{
                     let _ = mydb.insert("dataversion", rowInfo: [
-                        "local_last" : "'" + String(cString: sqlite3_column_text(statement, 0)) + "'",
-                        "local_version" : String(cString: sqlite3_column_text(statement, 2))
+                        "local_last" : "'" + (feedVersion[1] as! String) + "'",
+                        "local_version" : String((feedVersion[0] as! Int))
                         ])
                 }else{
                     let _ = mydb.update("dataversion", cond: nil, rowInfo: [
-                        "local_last" : "'" + String(cString: sqlite3_column_text(statement, 0)) + "'",
-                        "local_version" : String(cString: sqlite3_column_text(statement, 2))
+                        "local_last" : "'" + (feedVersion[1] as! String) + "'",
+                        "local_version" : String((feedVersion[0] as! Int))
                         ])
                 }
             }
-        if let source = source{
-            let finish = UIAlertController(title: "下載完成", message: nil, preferredStyle: .alert)
-            finish.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
-            }))
-            source.present(finish, animated: true, completion: nil)
-        }
+        self.delegate?.showMessage()
     }
     func update(_ source: UIViewController?){
+        let alert = UIAlertController(title: "下載中。。。", message: nil, preferredStyle: .alert)
+        source?.present(alert, animated: true, completion: nil)
         downloadData().getItems("update")
         db = Session.sharedInstance.db
         if let mydb = db{
@@ -139,12 +153,7 @@ class localDB: NSObject {
                     ])
             }
         }
-        if let source = source{
-            let finish = UIAlertController(title: "更新完成", message: nil, preferredStyle: .alert)
-            finish.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
-            }))
-            source.present(finish, animated: true, completion: nil)
-        }
+        self.delegate?.showMessage()
     }
     func delete(_ source: UIViewController?){
         db = Session.sharedInstance.db

@@ -54,33 +54,8 @@
 		A6E830082152E04E009337A8 /* selectDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E830072152E04E009337A8 /* selectDevice.swift */; };
 		A6F6071520B887B900097FDC /* Mohave.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6F6071420B887B800097FDC /* Mohave.otf */; };
 		A6F6071620B887B900097FDC /* Mohave.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6F6071420B887B800097FDC /* Mohave.otf */; };
-		A6FD341F21594B90003C8481 /* GLFL Info Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A661B45520AA26E800F9ED2F /* GLFL Info Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A6FD342321594BD9003C8481 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A661B45A20AA26E800F9ED2F /* TodayViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		A6FD342021594B90003C8481 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A60D4642209FC985003D85D3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A661B45420AA26E800F9ED2F;
-			remoteInfo = "GLFL Info Widget";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		A6FD342221594B90003C8481 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				A6FD341F21594B90003C8481 /* GLFL Info Widget.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A60D464A209FC985003D85D3 /* Girl Frontline Info.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Girl Frontline Info.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -325,12 +300,10 @@
 				A60D4646209FC985003D85D3 /* Sources */,
 				A60D4647209FC985003D85D3 /* Frameworks */,
 				A60D4648209FC985003D85D3 /* Resources */,
-				A6FD342221594B90003C8481 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A6FD342121594B90003C8481 /* PBXTargetDependency */,
 			);
 			name = "Girl Frontline Info";
 			productName = "Girl Frontline Info";
@@ -369,7 +342,7 @@
 						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -482,14 +455,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A6FD342121594B90003C8481 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A661B45420AA26E800F9ED2F /* GLFL Info Widget */;
-			targetProxy = A6FD342021594B90003C8481 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A60D4651209FC985003D85D3 /* Main.storyboard */ = {
@@ -636,9 +601,7 @@
 		A60D465D209FC986003D85D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Girl Frontline Info/Girl Frontline Info.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7WC44F9Y8F;
@@ -660,9 +623,7 @@
 		A60D465E209FC986003D85D3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Girl Frontline Info/Girl Frontline Info.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7WC44F9Y8F;

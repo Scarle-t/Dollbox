@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol localDataDelegate:class{
+    func finish()
+}
+
 class downloadData: NSObject, URLSessionDelegate {
+    
+    let db = Session.sharedInstance.db
     
     var data = Data()
     var urlPath: String = "https://scarletsc.net/girlfrontline/search.php"
-    let db = Session.sharedInstance.db
+    var defaultSession = URLSession()
+    weak var delegate: localDataDelegate?
     
     func parse(_ data:Data, _ action: String) {
         
@@ -173,18 +180,67 @@ class downloadData: NSObject, URLSessionDelegate {
             }
         }
         DispatchQueue.main.async(execute: { () -> Void in
+            self.urlPath = "https://scarletsc.net/girlfrontline/getVersion.php"
+            self.getVersion()
+        })
+    }
+    func parseVersion(_ data:Data) {
+        var jsonResult = NSArray()
+        var jsonElement = NSDictionary()
+        do{
+            jsonResult = try JSONSerialization.jsonObject(with: data, options:JSONSerialization.ReadingOptions.allowFragments) as! NSArray
+        } catch let error as NSError {
+            print(error)
+        }
+        for i in 0 ..< jsonResult.count
+        {
+            jsonElement = jsonResult[i] as! NSDictionary
+            //the following insures none of the JsonElement values are nil through optional binding
+            guard let id = jsonElement["Version_ID"] else {return}
+            guard let last_update = jsonElement["last_update"] else{return}
+            if let mydb = db{
+                let statement = mydb.fetch("dataversion", cond: nil, order: nil)
+                if sqlite3_step(statement) == SQLITE_ROW{
+                    let _ = mydb.update("dataversion", cond: nil, rowInfo: [
+                        "local_version" : String(id as! Int),
+                        "local_last" : "'" + (last_update as! String) + "'"
+                        ])
+                }else{
+                    let _ = mydb.insert("dataversion", rowInfo: [
+                        "local_version" : String(id as! Int),
+                        "local_last" : "'" + (last_update as! String) + "'"
+                        ])
+                }
+            }
+        }
+        DispatchQueue.main.async(execute: { () -> Void in
+            self.delegate?.finish()
         })
     }
     func getItems(_ action: String) {
         let url: URL = URL(string: urlPath)!
-        let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
+        defaultSession = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil )
         let task = defaultSession.dataTask(with: url) {
             (data, response, error) in
             if error != nil {
                 print("Failed to download data")
             }else {
                 print("Data downloaded")
-                    self.parse(data!, action)
+                self.parse(data!, action)
+            }
+        }
+        task.resume()
+    }
+    func getVersion(){
+        let url: URL = URL(string: urlPath)!
+        defaultSession = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil )
+        let task = defaultSession.dataTask(with: url) {
+            (data, response, error) in
+            if error != nil {
+                print("Failed to download data")
+            }else {
+                print("Data downloaded")
+                self.parseVersion(data!)
             }
         }
         task.resume()
