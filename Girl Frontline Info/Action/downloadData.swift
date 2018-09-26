@@ -10,6 +10,7 @@ import UIKit
 
 protocol localDataDelegate:class{
     func finish()
+    func failed()
 }
 
 class downloadData: NSObject, URLSessionDelegate {
@@ -238,6 +239,7 @@ class downloadData: NSObject, URLSessionDelegate {
             (data, response, error) in
             if error != nil {
                 print("Failed to download data")
+                self.delegate?.failed()
             }else {
                 print("Data downloaded")
                 self.parseVersion(data!)

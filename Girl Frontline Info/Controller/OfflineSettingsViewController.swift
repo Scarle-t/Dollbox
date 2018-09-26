@@ -23,10 +23,29 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
     let localData = downloadData()
     let startAlert = UIAlertController(title: "下載中。。。", message: nil, preferredStyle: .alert)
     
+    var type = String()
+    var localVerArray = [String]()
+    var onlineVerArray = NSArray()
+    
     func start(){
+        if type == "update"{
+            if localVerArray.count == 0 || onlineVerArray.count == 0 {
+                ver.localVersion()
+                ver.getVersion()
+            }
+            if localVerArray[0] == String(onlineVerArray[0] as! Int){
+                let alert = UIAlertController(title: "已是最新版本，無需更新", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "確定", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }else{
+                self.present(startAlert, animated: true, completion: nil)
+                self.localData.getItems(type)
+            }
+        }else{
+            self.present(startAlert, animated: true, completion: nil)
+            self.localData.getItems(type)
+        }
         
-        self.present(startAlert, animated: true, completion: nil)
-        self.localData.getItems("download")
         self.localCheck.isEnabled = true
     }
     func finish() {
@@ -36,23 +55,28 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
         self.present(alert, animated: true, completion: nil)
         self.localSearch.readVersion()
     }
-    func showMessage() {
-        let alert = UIAlertController(title: "下載完成", message: nil, preferredStyle: .alert)
+    func failed() {
+        let alert = UIAlertController(title: "下載失敗", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "確定", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "重試", style: .default, handler: { _ in
+            self.localData.getItems(self.type)
+        }))
         self.present(alert, animated: true, completion: nil)
     }
     func returndData(items: NSArray) {
+        localVerArray = items as! [String]
         localVersion.text = " "
         localTS.text = " "
         localVersion.text = items[3] as? String
         localTS.text = items[1] as? String
     }
     func returnLocal(version: [String]) {
+        localVerArray = version
         localVersion.text = "\(version[0])"
         localTS.text = "\(version[1])"
     }
     func returnVersion(version: NSMutableArray) {
-        
+        onlineVerArray = version
         versionLabel.text = "\(version[0])"
         tsLabel.text = "\(version[1])"
         
@@ -74,22 +98,46 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
     }
     func switchAlert(_ state: Bool) {
         if state{
-            let alert = UIAlertController(title: "將會下載資料檔", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
-                localDB().writeSettings(item: "isOffline", value: "1")
-                self.start()
-            }))
-            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in
-                self.switchView.setOn(false, animated: true)
-            }))
-            self.present(alert, animated: true, completion: nil)
+            let db = Session.sharedInstance.db
+            if let mydb = db{
+                let statement = mydb.fetch("info", cond: nil, order: nil)
+                if sqlite3_step(statement) == SQLITE_ROW{
+                    let alert = UIAlertController(title: "更新資料檔", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
+                        localDB().writeSettings(item: "isOffline", value: "1")
+                        self.type = "update"
+                        self.start()
+                    }))
+                    alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in
+                        self.switchView.setOn(false, animated: true)
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                    
+                }else{
+                    let alert = UIAlertController(title: "下載資料檔", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
+                        localDB().writeSettings(item: "isOffline", value: "1")
+                        self.type = "download"
+                        self.start()
+                    }))
+                    alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in
+                        self.switchView.setOn(false, animated: true)
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            
         }else{
-            let alert = UIAlertController(title: "將會刪除離線資料檔", message: nil, preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "刪除離線資料檔", style: .destructive, handler: { _ in
                 localDB().writeSettings(item: "isOffline", value: "0")
                 localDB().delete(self)
                 self.localVersion.text = " "
                 self.localTS.text = " "
+                self.localCheck.isEnabled = false
+            }))
+            alert.addAction(UIAlertAction(title: "保留離線資料檔", style: .default, handler: { _ in
+                localDB().writeSettings(item: "isOffline", value: "0")
                 self.localCheck.isEnabled = false
             }))
             alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in
@@ -127,6 +175,14 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
             localCheck.isEnabled = false
         }
         
+        let db = Session.sharedInstance.db
+        if let mydb = db{
+            let statement = mydb.fetch("info", cond: nil, order: nil)
+            if sqlite3_step(statement) == SQLITE_ROW{
+                ver.localVersion()
+            }
+        }
+        
     }
 
     // MARK: - Table view data source
@@ -160,16 +216,16 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
                 if localDB().readSettings()[0]{
                     localVersion.text = " "
                     localTS.text = " "
-                    localSearch.readVersion()
+                    ver.localVersion()
                     let db = Session.sharedInstance.db
                     if let mydb = db{
                         let statement = mydb.fetch("info", cond: nil, order: nil)
                         if sqlite3_step(statement) == SQLITE_ROW{
-                            localDB().update(self)
-                            self.localSearch.readVersion()
+                            self.type = "update"
+                            self.start()
                         }else{
-                            localDB().download(self)
-                            self.localSearch.readVersion()
+                            self.type = "download"
+                            self.start()
                         }
                     }
                 }

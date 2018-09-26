@@ -2545,7 +2545,7 @@ Available on App Store</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="c1t-0X-6lG" detailTextLabel="biA-OQ-EzC" style="IBUITableViewCellStyleValue1" id="Akv-tR-5Az">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="c1t-0X-6lG" detailTextLabel="biA-OQ-EzC" style="IBUITableViewCellStyleValue1" id="Akv-tR-5Az">
                                         <rect key="frame" x="0.0" y="262.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Akv-tR-5Az" id="5Fw-4W-KID">
@@ -2569,7 +2569,7 @@ Available on App Store</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="VzM-s6-T9m" detailTextLabel="yfm-6p-0yh" style="IBUITableViewCellStyleValue1" id="Fes-Z6-8lz">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="VzM-s6-T9m" detailTextLabel="yfm-6p-0yh" style="IBUITableViewCellStyleValue1" id="Fes-Z6-8lz">
                                         <rect key="frame" x="0.0" y="306.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fes-Z6-8lz" id="vlr-td-Zr8">
@@ -2614,7 +2614,7 @@ Available on App Store</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="r8t-re-z0G" detailTextLabel="UPc-uG-afw" style="IBUITableViewCellStyleValue1" id="bvA-bo-CaK">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="r8t-re-z0G" detailTextLabel="UPc-uG-afw" style="IBUITableViewCellStyleValue1" id="bvA-bo-CaK">
                                         <rect key="frame" x="0.0" y="442.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bvA-bo-CaK" id="lGc-9A-Ts0">
@@ -2638,7 +2638,7 @@ Available on App Store</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="pvA-4S-6mS" detailTextLabel="BCs-gB-som" style="IBUITableViewCellStyleValue1" id="dsf-00-gyP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="pvA-4S-6mS" detailTextLabel="BCs-gB-som" style="IBUITableViewCellStyleValue1" id="dsf-00-gyP">
                                         <rect key="frame" x="0.0" y="486.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dsf-00-gyP" id="9Ie-Hv-yBg">
