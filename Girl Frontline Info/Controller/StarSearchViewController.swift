@@ -14,6 +14,7 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
     let imgCache = Session.sharedInstance.imgSession
     let searchResult = getSearchResult()
     let localSearch = localDB()
+    let noti = UIImpactFeedbackGenerator()
     
     //VAR
     var feedItems: NSArray = NSArray()
@@ -58,10 +59,12 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
     func itemsDownloaded(items: NSArray) {
         feedItems = items
         listResult.reloadData()
+        noti.impactOccurred()
     }
     func returndData(items: NSArray) {
         feedItems = items
         listResult.reloadData()
+        noti.impactOccurred()
     }
     
     //OUTLET

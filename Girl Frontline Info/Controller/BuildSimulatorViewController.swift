@@ -13,6 +13,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
     let imgCache = Session.sharedInstance.imgSession
     let searchResult = getSearchResult()
     let localSearch = localDB()
+    let noti = UIImpactFeedbackGenerator()
     
     var counter = 0
     var selectedTDoll: TDoll = TDoll()
@@ -89,6 +90,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
             counter += 1
             constructTime += 1
             resultView.reloadData()
+            noti.impactOccurred()
         }
     }
     func returndData(items: NSArray) {
@@ -111,6 +113,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
             counter += 1
             constructTime += 1
             resultView.reloadData()
+            noti.impactOccurred()
         }
     }
 

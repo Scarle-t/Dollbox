@@ -22,12 +22,17 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
     let localSearch = localDB()
     let localData = downloadData()
     let startAlert = UIAlertController(title: "下載中。。。", message: nil, preferredStyle: .alert)
+    let prog = UIProgressView(frame: CGRect(x: 10, y: 50, width: 250, height: 0))
+    let noti = UINotificationFeedbackGenerator()
+    let tap = UISelectionFeedbackGenerator()
     
     var type = String()
     var localVerArray = [String]()
     var onlineVerArray = NSArray()
     
     func start(){
+        prog.progressViewStyle = .bar
+        prog.tintColor = UIColor(red: 0.0, green: 122/255, blue: 255/255, alpha: 1.0)
         if type == "update"{
             if localVerArray.count == 0 || onlineVerArray.count == 0 {
                 ver.localVersion()
@@ -37,31 +42,45 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
                 let alert = UIAlertController(title: "已是最新版本，無需更新", message: nil, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "確定", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
+                noti.notificationOccurred(.warning)
             }else{
+                startAlert.view.addSubview(prog)
                 self.present(startAlert, animated: true, completion: nil)
-                self.localData.getItems(type)
+                self.localData.getItems(type, source: self)
             }
         }else{
+            startAlert.view.addSubview(prog)
             self.present(startAlert, animated: true, completion: nil)
-            self.localData.getItems(type)
+            self.localData.getItems(type, source: self)
         }
         
         self.localCheck.isEnabled = true
     }
     func finish() {
+        prog.progress = 1.0
         startAlert.dismiss(animated: true, completion: nil)
         let alert = UIAlertController(title: "下載完成", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "確定", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+        noti.notificationOccurred(.success)
         self.localSearch.readVersion()
     }
     func failed() {
-        let alert = UIAlertController(title: "下載失敗", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "確定", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "重試", style: .default, handler: { _ in
-            self.localData.getItems(self.type)
-        }))
-        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async(execute: {
+            self.startAlert.dismiss(animated: true, completion: {
+                let alert = UIAlertController(title: "下載失敗", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
+                    localDB().writeSettings(item: "isOffline", value: "0")
+                    localDB().delete(self)
+                    self.switchView.setOn(false, animated: true)
+                }))
+                alert.addAction(UIAlertAction(title: "重試", style: .default, handler: { _ in
+                    self.start()
+                }))
+                self.present(alert, animated: true, completion: nil)
+                self.noti.notificationOccurred(.error)
+            })
+        })
     }
     func returndData(items: NSArray) {
         localVerArray = items as! [String]
@@ -76,6 +95,7 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
         localTS.text = "\(version[1])"
     }
     func returnVersion(version: NSMutableArray) {
+        tap.selectionChanged()
         onlineVerArray = version
         versionLabel.text = "\(version[0])"
         tsLabel.text = "\(version[1])"

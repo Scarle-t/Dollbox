@@ -112,49 +112,6 @@ class localDB: NSObject, VersionProtocol {
             }
         }
     }
-    func download(_ source: UIViewController?){
-        let alert = UIAlertController(title: "下載中。。。", message: nil, preferredStyle: .alert)
-        source?.present(alert, animated: true, completion: nil)
-        downloadData().getItems("download")
-        ver.getVersion()
-        db = Session.sharedInstance.db
-            if let mydb = db{
-                let statement = mydb.fetch("dataversion", cond: nil, order: nil)
-                if sqlite3_step(statement) != SQLITE_ROW{
-                    let _ = mydb.insert("dataversion", rowInfo: [
-                        "local_last" : "'" + (feedVersion[1] as! String) + "'",
-                        "local_version" : String((feedVersion[0] as! Int))
-                        ])
-                }else{
-                    let _ = mydb.update("dataversion", cond: nil, rowInfo: [
-                        "local_last" : "'" + (feedVersion[1] as! String) + "'",
-                        "local_version" : String((feedVersion[0] as! Int))
-                        ])
-                }
-            }
-        self.delegate?.showMessage()
-    }
-    func update(_ source: UIViewController?){
-        let alert = UIAlertController(title: "下載中。。。", message: nil, preferredStyle: .alert)
-        source?.present(alert, animated: true, completion: nil)
-        downloadData().getItems("update")
-        db = Session.sharedInstance.db
-        if let mydb = db{
-            let statement = mydb.fetch("dataversion", cond: nil, order: nil)
-            if sqlite3_step(statement) != SQLITE_ROW{
-                let _ = mydb.insert("dataversion", rowInfo: [
-                    "local_last" : "'" + String(cString: sqlite3_column_text(statement, 0)) + "'",
-                    "local_version" : String(cString: sqlite3_column_text(statement, 2))
-                    ])
-            }else{
-                let _ = mydb.update("dataversion", cond: nil, rowInfo: [
-                    "local_last" : "'" + String(cString: sqlite3_column_text(statement, 0)) + "'",
-                    "local_version" : String(cString: sqlite3_column_text(statement, 2))
-                    ])
-            }
-        }
-        self.delegate?.showMessage()
-    }
     func delete(_ source: UIViewController?){
         db = Session.sharedInstance.db
         if let mydb = db {

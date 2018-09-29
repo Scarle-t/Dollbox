@@ -10,6 +10,9 @@ import UIKit
 
 class TeamSimulatorViewController: UIViewController {
     
+    let noti = UINotificationFeedbackGenerator()
+    let edit = UIImpactFeedbackGenerator()
+    
     var selectedTDoll: TDoll?
     var from: String = ""
     var selectedTDImage: UIImage?
@@ -49,6 +52,7 @@ class TeamSimulatorViewController: UIViewController {
     }
     @IBOutlet weak var nav: UINavigationItem!
     @IBAction func imgLongPress(_ sender: UILongPressGestureRecognizer) {
+        edit.impactOccurred()
         for i in 0...(imgDelete.count - 1){
             imgDelete[i].isHidden = false
             imgDim[i].isHidden = false
@@ -96,8 +100,8 @@ class TeamSimulatorViewController: UIViewController {
     }
     func displayWarning(title: String){
         let alert = UIAlertController(title: title, message: "", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-        }))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        noti.notificationOccurred(.warning)
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -115,7 +119,7 @@ class TeamSimulatorViewController: UIViewController {
                         displayWarning(title: "重複人形")
                         return
                     }
-            }
+                }
             }
             addDisplay()
         }

@@ -11,7 +11,6 @@
 		A60D4655209FC986003D85D3 /* Assests.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60D4654209FC986003D85D3 /* Assests.xcassets */; };
 		A60D4658209FC986003D85D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60D4656209FC986003D85D3 /* LaunchScreen.storyboard */; };
 		A610868920C1A595006DF67E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A610868820C1A595006DF67E /* libsqlite3.tbd */; };
-		A6402905215B62C900A2B09B /* GLFL Info Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A661B45520AA26E800F9ED2F /* GLFL Info Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A642306620AA92C9008622B4 /* getSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642306520AA92C9008622B4 /* getSearchResult.swift */; };
 		A642306820AA93D2008622B4 /* TDoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642306720AA93D2008622B4 /* TDoll.swift */; };
 		A642306A20ABA235008622B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A642306920ABA235008622B4 /* Assets.xcassets */; };
@@ -52,6 +51,7 @@
 		A69E75B6214EF545001FE25F /* downloadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E75B5214EF545001FE25F /* downloadData.swift */; };
 		A69ED25F21532CD400BD63BD /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ED25E21532CD400BD63BD /* ParentViewController.swift */; };
 		A6D6B00421398E7700F2C7AD /* small.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D6B00321398E7700F2C7AD /* small.storyboard */; };
+		A6DFF943215FA32900FE5407 /* GLFL Info Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A661B45520AA26E800F9ED2F /* GLFL Info Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A6E830082152E04E009337A8 /* selectDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E830072152E04E009337A8 /* selectDevice.swift */; };
 		A6F6071520B887B900097FDC /* Mohave.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6F6071420B887B800097FDC /* Mohave.otf */; };
 		A6F6071620B887B900097FDC /* Mohave.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6F6071420B887B800097FDC /* Mohave.otf */; };
@@ -59,7 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A6402906215B62C900A2B09B /* PBXContainerItemProxy */ = {
+		A6DFF944215FA32900FE5407 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A60D4642209FC985003D85D3 /* Project object */;
 			proxyType = 1;
@@ -69,13 +69,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A6402908215B62CA00A2B09B /* Embed App Extensions */ = {
+		A6DFF946215FA32900FE5407 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A6402905215B62C900A2B09B /* GLFL Info Widget.appex in Embed App Extensions */,
+				A6DFF943215FA32900FE5407 /* GLFL Info Widget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,12 +325,12 @@
 				A60D4646209FC985003D85D3 /* Sources */,
 				A60D4647209FC985003D85D3 /* Frameworks */,
 				A60D4648209FC985003D85D3 /* Resources */,
-				A6402908215B62CA00A2B09B /* Embed App Extensions */,
+				A6DFF946215FA32900FE5407 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A6402907215B62C900A2B09B /* PBXTargetDependency */,
+				A6DFF945215FA32900FE5407 /* PBXTargetDependency */,
 			);
 			name = "Girl Frontline Info";
 			productName = "Girl Frontline Info";
@@ -484,10 +484,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A6402907215B62C900A2B09B /* PBXTargetDependency */ = {
+		A6DFF945215FA32900FE5407 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A661B45420AA26E800F9ED2F /* GLFL Info Widget */;
-			targetProxy = A6402906215B62C900A2B09B /* PBXContainerItemProxy */;
+			targetProxy = A6DFF944215FA32900FE5407 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

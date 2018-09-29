@@ -22,6 +22,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     func itemsDownloaded(items: NSArray) {
         feedItems = items
         listResult.reloadData()
+        btnOpenApp.isHidden = false
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return feedItems.count
@@ -34,39 +35,37 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         let item: TDoll = feedItems[indexPath.row] as! TDoll
         // Get references to labels of cell
         myCell.textLabel!.text = item.Zh_Name
+        myCell.textLabel!.textAlignment = .center
         return myCell
     }
     
+    @IBOutlet weak var largeView: UIView!
     @IBOutlet weak var btnOpenApp: UIButton!
     @IBOutlet weak var hrBtn: UIButton!
     @IBOutlet weak var minbtn: UIButton!
     @IBOutlet weak var secbtn: UIButton!
     @IBOutlet weak var listResult: UITableView!
     @IBAction func btnSearch(_ sender: UIButton) {
-        
         searchResult.delegate = self
         searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?hour=\(hr)&minute=\(min)&second=\(sec)"
-        
         searchResult.downloadItems()
-         btnOpenApp.isHidden = false
     }
     @IBAction func btnHr(_ sender: UIButton) {
-        hrBtn.tintColor = UIColor.black
-        minbtn.tintColor = originalTint
-        secbtn.tintColor = originalTint
+        hrBtn.tintColor = UIColor(red: 0.0, green: 122/255, blue: 255/255, alpha: 1.0)
+        minbtn.tintColor = UIColor.black
+        secbtn.tintColor = UIColor.black
         selectedBtn = hrBtn
     }
     @IBAction func btnMin(_ sender: UIButton) {
-        minbtn.tintColor = UIColor.black
-        secbtn.tintColor = originalTint
-        hrBtn.tintColor = originalTint
+        minbtn.tintColor = UIColor(red: 0.0, green: 122/255, blue: 255/255, alpha: 1.0)
+        secbtn.tintColor = UIColor.black
+        hrBtn.tintColor = UIColor.black
         selectedBtn = minbtn
     }
     @IBAction func btnSec(_ sender: UIButton) {
-        
-        secbtn.tintColor = UIColor.black
-        minbtn.tintColor = originalTint
-        hrBtn.tintColor = originalTint
+        secbtn.tintColor = UIColor(red: 0.0, green: 122/255, blue: 255/255, alpha: 1.0)
+        minbtn.tintColor = UIColor.black
+        hrBtn.tintColor = UIColor.black
         selectedBtn = secbtn
     }
     @IBAction func btnOpen(_ sender: UIButton) {
@@ -157,14 +156,19 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize){
         if (activeDisplayMode == NCWidgetDisplayMode.compact) {
             self.preferredContentSize = maxSize;
+            UIView.animate(withDuration: 0.3) {
+                self.largeView.alpha = 1
+            }
         }
         else {
-            self.preferredContentSize = CGSize(width: 0, height: 500);
+            self.preferredContentSize = CGSize(width: 0, height: 305);
+            UIView.animate(withDuration: 0.3) {
+                self.largeView.alpha = 0
+            }
         }
     }
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
-        
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData

@@ -14,6 +14,7 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
     let pickerView = UIPickerView()
     let searchResult = getSearchResult()
     let localSearch = localDB()
+    let noti = UIImpactFeedbackGenerator()
     
     var feedItems : NSArray = NSArray()
     var selectedTDoll: TDoll = TDoll()
@@ -93,10 +94,12 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
     func itemsDownloaded(items: NSArray) {
         feedItems = items
         self.collectionResult.reloadData()
+        noti.impactOccurred()
     }
     func returndData(items: NSArray) {
         feedItems = items
         self.collectionResult.reloadData()
+        noti.impactOccurred()
     }
 
     @IBAction func btnTimeSearch(_ sender: UIButton) {

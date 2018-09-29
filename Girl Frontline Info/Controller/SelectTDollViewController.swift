@@ -10,6 +10,10 @@ import UIKit
 
 class SelectTDollViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate, getSearchProtocol, localDBDelegate {
     
+    let imgCache = Session.sharedInstance.loadImgSession()
+    let noti = UIImpactFeedbackGenerator()
+    let tap = UISelectionFeedbackGenerator()
+    
     var from: String = ""
     var feedItems: NSArray = [TDoll()]
     var displayItems: NSMutableArray = [TDoll()]
@@ -18,8 +22,6 @@ class SelectTDollViewController: UIViewController, UICollectionViewDataSource, U
     var selectedRare: String = "ALL"
     var initialTouchPoint = CGPoint.zero
     
-    let imgCache = Session.sharedInstance.loadImgSession()
-    
     func itemsDownloaded(items: NSArray) {
         feedItems = items
         displayItems.removeAllObjects()
@@ -27,6 +29,7 @@ class SelectTDollViewController: UIViewController, UICollectionViewDataSource, U
             displayItems.add(item)
         }
         resultView.reloadData()
+        noti.impactOccurred()
     }
     func returndData(items: NSArray) {
         feedItems = items
@@ -35,6 +38,7 @@ class SelectTDollViewController: UIViewController, UICollectionViewDataSource, U
             displayItems.add(item)
         }
         resultView.reloadData()
+        noti.impactOccurred()
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return displayItems.count
@@ -78,6 +82,7 @@ class SelectTDollViewController: UIViewController, UICollectionViewDataSource, U
         Session.sharedInstance.selectedTDoll = displayItems[indexPath.row] as! TDoll
         let myCell = resultView.cellForItem(at: indexPath) as! ResultCollectionViewCell
         Session.sharedInstance.selectedTDImage = myCell.imgResult.image!
+        tap.selectionChanged()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -104,6 +109,7 @@ class SelectTDollViewController: UIViewController, UICollectionViewDataSource, U
         dimView.isHidden = true
         displayItem()
         resultView.reloadData()
+        noti.impactOccurred()
     }
     @IBAction func openFilter(_ sender: UIButton) {
         switch filterView.isHidden {
@@ -116,6 +122,7 @@ class SelectTDollViewController: UIViewController, UICollectionViewDataSource, U
             displayItem()
         }
         resultView.reloadData()
+        noti.impactOccurred()
     }
     @IBAction func panGestureRecognizerHandler(_ sender: UIPanGestureRecognizer) {
         let touchPoint = sender.location(in: view?.window)

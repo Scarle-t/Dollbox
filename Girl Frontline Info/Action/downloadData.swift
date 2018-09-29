@@ -22,7 +22,13 @@ class downloadData: NSObject, URLSessionDelegate {
     var defaultSession = URLSession()
     weak var delegate: localDataDelegate?
     
-    func parse(_ data:Data, _ action: String) {
+    func parse(_ data:Data, _ action: String, source: UIViewController) {
+        
+        let src = source as! OfflineSettingsViewController
+        
+        DispatchQueue.main.async(flags: .barrier){
+            src.prog.progress = 0/100
+        }
         
         var jsonResult = NSArray()
         var jsonElement = NSDictionary()
@@ -36,7 +42,6 @@ class downloadData: NSObject, URLSessionDelegate {
         for i in 0 ..< jsonResult.count
         {
             jsonElement = jsonResult[i] as! NSDictionary
-            
             if let id = jsonElement["ID"] as? String, let Eng_name = jsonElement["Eng_Name"] as? String, let Zh_name = jsonElement["Zh_Name"] as? String, let type = jsonElement["type"] as? String, let stars = jsonElement["Stars"] as? String
             {
                 if let mydb = db{
@@ -109,6 +114,7 @@ class downloadData: NSObject, URLSessionDelegate {
                             ])
                     }
                 }
+                
             }
             if let id = jsonElement["ID"] as? String, let skill_name = jsonElement["name"] as? String, let skill_desc = jsonElement["description"] as? String
             {
@@ -179,6 +185,12 @@ class downloadData: NSObject, URLSessionDelegate {
                     }
                 }
             }
+            DispatchQueue.global(qos: .background).async{
+//                Thread.sleep(forTimeInterval: 0.25)
+                DispatchQueue.main.async(flags: .barrier){
+                    src.prog.progress += 0.004
+                }
+            }
         }
         DispatchQueue.main.async(execute: { () -> Void in
             self.urlPath = "https://scarletsc.net/girlfrontline/getVersion.php"
@@ -218,16 +230,17 @@ class downloadData: NSObject, URLSessionDelegate {
             self.delegate?.finish()
         })
     }
-    func getItems(_ action: String) {
+    func getItems(_ action: String, source: UIViewController) {
         let url: URL = URL(string: urlPath)!
         defaultSession = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil )
         let task = defaultSession.dataTask(with: url) {
             (data, response, error) in
             if error != nil {
                 print("Failed to download data")
+                self.delegate?.failed()
             }else {
                 print("Data downloaded")
-                self.parse(data!, action)
+                self.parse(data!, action, source: source)
             }
         }
         task.resume()

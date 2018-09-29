@@ -13,6 +13,7 @@ class allViewController: UIViewController, UICollectionViewDelegate, UICollectio
     let imgCache = Session.sharedInstance.imgSession
     let searchResult = getSearchResult()
     let localSearch = localDB()
+    let noti = UIImpactFeedbackGenerator()
     
     var feedItems: NSArray = NSArray()
     var selectedTDoll: TDoll = TDoll()
@@ -20,10 +21,12 @@ class allViewController: UIViewController, UICollectionViewDelegate, UICollectio
     func returndData(items: NSArray) {
         feedItems = items
         listResult.reloadData()
+        noti.impactOccurred()
     }
     func itemsDownloaded(items: NSArray) {
         feedItems = items
         listResult.reloadData()
+        noti.impactOccurred()
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return feedItems.count
