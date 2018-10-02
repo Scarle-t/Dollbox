@@ -1892,19 +1892,19 @@ Available on App Store</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" placeholder="時" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CSJ-B0-HvG">
-                                <rect key="frame" x="16" y="201.33333333333334" width="97" height="30"/>
+                                <rect key="frame" x="16" y="204" width="97" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" placeholder="分" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Api-pF-p7E">
-                                <rect key="frame" x="136" y="201.33333333333334" width="97" height="30"/>
+                                <rect key="frame" x="136" y="204" width="97" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" placeholder="秒" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nm2-uQ-BDg">
-                                <rect key="frame" x="262" y="201.33333333333334" width="97" height="30"/>
+                                <rect key="frame" x="262" y="204" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="JTL-fj-2OO"/>
                                 </constraints>
@@ -1913,19 +1913,19 @@ Available on App Store</string>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25r-hx-7GF">
-                                <rect key="frame" x="241" y="206" width="18" height="21"/>
+                                <rect key="frame" x="241" y="208.66666666666666" width="18" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請輸入時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xq6-5Z-jGU">
-                                <rect key="frame" x="16" y="176" width="85" height="17.333333333333343"/>
+                                <rect key="frame" x="16" y="176" width="85" height="20"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9Z-g8-RoB">
-                                <rect key="frame" x="308" y="239.33333333333337" width="51" height="42"/>
+                                <rect key="frame" x="308" y="242" width="51" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="搜尋"/>
                                 <connections>
@@ -1933,19 +1933,19 @@ Available on App Store</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwK-GG-uFa">
-                                <rect key="frame" x="119" y="207.33333333333334" width="18" height="21"/>
+                                <rect key="frame" x="119" y="209.33333333333334" width="18" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搜尋結果" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B23-k1-HzW">
-                                <rect key="frame" x="16" y="301.33333333333331" width="70" height="21"/>
+                                <rect key="frame" x="16" y="304" width="70" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="k6G-tO-qRo">
-                                <rect key="frame" x="0.0" y="330.33333333333326" width="375" height="447.66666666666674"/>
+                                <rect key="frame" x="0.0" y="333" width="375" height="445"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="D58-W7-b8N">
                                     <size key="itemSize" width="104" height="212"/>
@@ -1968,7 +1968,7 @@ Available on App Store</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5eD-Xx-lt8">
-                                                    <rect key="frame" x="8" y="157" width="88" height="17.333333333333343"/>
+                                                    <rect key="frame" x="8" y="157" width="88" height="20"/>
                                                     <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2380,8 +2380,9 @@ Available on App Store</string>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="ZdT-we-t3f">
-                                <string key="footerTitle">離線瀏覽會下載整個資料庫（不包括圖片），請確定有足夠儲存空間
-建議使用Wi-Fi下載以避免流動數據收費  離線資料檔約150-200KB</string>
+                                <string key="footerTitle">請確定有足夠儲存空間以下載整個資料庫
+建議使用Wi-Fi下載以避免流動數據收費  離線資料檔約150-200KB
+離線圖片約20MB</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="offlineToggle" textLabel="bIj-OD-5Ma" style="IBUITableViewCellStyleDefault" id="fkH-KO-mqn">
                                         <rect key="frame" x="0.0" y="35" width="375" height="44"/>
@@ -2400,12 +2401,29 @@ Available on App Store</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="offlineToggle" textLabel="WhX-eq-zhz" style="IBUITableViewCellStyleDefault" id="JLD-ZN-zrm">
+                                        <rect key="frame" x="0.0" y="79" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JLD-ZN-zrm" id="aRQ-fX-Vbx">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="離線圖片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WhX-eq-zhz">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="資料庫" footerTitle="線上資料庫版本" id="kzU-EP-36m">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="G6G-xq-lJs" style="IBUITableViewCellStyleDefault" id="QWk-5I-Xie">
-                                        <rect key="frame" x="0.0" y="218.66666666666666" width="375" height="43.999999999999972"/>
+                                        <rect key="frame" x="0.0" y="262.33333333333331" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QWk-5I-Xie" id="oCI-I9-dw9">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -2422,7 +2440,7 @@ Available on App Store</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="1ai-qX-71n" detailTextLabel="MdT-FA-YKu" style="IBUITableViewCellStyleValue1" id="bcb-wb-IiV">
-                                        <rect key="frame" x="0.0" y="262.66666666666663" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="306.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bcb-wb-IiV" id="USj-R4-hVn">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -2446,7 +2464,7 @@ Available on App Store</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="RDa-cc-MJ6" detailTextLabel="NAZ-j2-jQ5" style="IBUITableViewCellStyleValue1" id="AsT-fU-HIP">
-                                        <rect key="frame" x="0.0" y="306.66666666666663" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="350.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AsT-fU-HIP" id="fWB-DO-Mrc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -2474,7 +2492,7 @@ Available on App Store</string>
                             <tableViewSection headerTitle="" footerTitle="離線資料庫版本" id="Ekj-sf-5gz">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="QH1-hd-zJy" style="IBUITableViewCellStyleDefault" id="gaQ-Zk-0WK">
-                                        <rect key="frame" x="0.0" y="398.66666666666663" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="442.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gaQ-Zk-0WK" id="5PO-i4-k3b">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -2491,7 +2509,7 @@ Available on App Store</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="EhK-Gf-Z7H" detailTextLabel="eB4-1q-35n" style="IBUITableViewCellStyleValue1" id="kVc-GP-eqt">
-                                        <rect key="frame" x="0.0" y="442.66666666666663" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="486.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kVc-GP-eqt" id="yiz-wg-9Lw">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -2515,7 +2533,7 @@ Available on App Store</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="kg7-CR-43d" detailTextLabel="LON-JW-X0Q" style="IBUITableViewCellStyleValue1" id="SS1-hU-OMJ">
-                                        <rect key="frame" x="0.0" y="486.66666666666663" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="530.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SS1-hU-OMJ" id="6UY-HG-hei">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -2538,23 +2556,6 @@ Available on App Store</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="Inh-ch-RW5" style="IBUITableViewCellStyleDefault" id="Tii-N3-ykY">
-                                        <rect key="frame" x="0.0" y="530.66666666666663" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tii-N3-ykY" id="X6x-ie-FIn">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="離線圖片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Inh-ch-RW5">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.666666666666664"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -2565,7 +2566,7 @@ Available on App Store</string>
                     </tableView>
                     <navigationItem key="navigationItem" title="資料來源" largeTitleDisplayMode="never" id="kiS-0q-QrK"/>
                     <connections>
-                        <outlet property="donwImgToggle" destination="Tii-N3-ykY" id="REh-cg-AMA"/>
+                        <outlet property="donwImgToggle" destination="JLD-ZN-zrm" id="aJD-cr-9Cs"/>
                         <outlet property="localCheck" destination="QH1-hd-zJy" id="nSB-ev-wk8"/>
                         <outlet property="localTS" destination="LON-JW-X0Q" id="ime-Vs-DVc"/>
                         <outlet property="localVersion" destination="eB4-1q-35n" id="25d-O4-WLM"/>
@@ -2730,6 +2731,6 @@ Available on App Store</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Dfc-68-Yr9"/>
-        <segue reference="H8J-Pv-DAR"/>
+        <segue reference="fIL-jH-QbG"/>
     </inferredMetricsTieBreakers>
 </document>

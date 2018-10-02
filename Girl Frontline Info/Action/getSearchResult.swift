@@ -36,8 +36,8 @@ class getSearchResult: NSObject, URLSessionDataDelegate {
             jsonElement = jsonResult[i] as! NSDictionary
             let tdoll = TDoll()
 
-            if let id = jsonElement["ID"] as? Int{
-                tdoll.ID = "\(id)"
+            if let id = jsonElement["ID"] as? String{
+                tdoll.ID = id
             }
             if let Eng_name = jsonElement["Eng_Name"] as? String
             {
