@@ -275,8 +275,8 @@ class localDB: NSObject, VersionProtocol {
                     tdoll.mre = String(cString: sqlite3_column_text(consumption, 1))
                 }
                 if sqlite3_step(obtain) == SQLITE_ROW{
-                    tdoll.build_time = String(cString: sqlite3_column_text(statement, 0))
-                    tdoll.obtain_method = String(cString: sqlite3_column_text(statement, 1))
+                    tdoll.build_time = String(cString: sqlite3_column_text(obtain, 0))
+                    tdoll.obtain_method = String(cString: sqlite3_column_text(obtain, 1))
                 }
                 if sqlite3_step(skill) == SQLITE_ROW{
                     tdoll.skill_name = String(cString: sqlite3_column_text(skill, 0))
@@ -387,8 +387,8 @@ class localDB: NSObject, VersionProtocol {
                     tdoll.mre = String(cString: sqlite3_column_text(consumption, 1))
                 }
                 if sqlite3_step(obtain) == SQLITE_ROW{
-                    tdoll.build_time = String(cString: sqlite3_column_text(statement, 0))
-                    tdoll.obtain_method = String(cString: sqlite3_column_text(statement, 1))
+                    tdoll.build_time = String(cString: sqlite3_column_text(obtain, 0))
+                    tdoll.obtain_method = String(cString: sqlite3_column_text(obtain, 1))
                 }
                 if sqlite3_step(skill) == SQLITE_ROW{
                     tdoll.skill_name = String(cString: sqlite3_column_text(skill, 0))

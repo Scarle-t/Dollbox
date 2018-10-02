@@ -94,10 +94,5 @@ class TDoll: NSObject {
         self.photo_path = photo_path
         
     }
-    
-    override var description: String{
-        return "\(ID), \(Eng_Name), \(Zh_Name), \(type), \(stars), \(health), \(attack), \(speed), \(hit_rate), \(dodge), \(movement), \(critical), \(chain), \(loads), \(shield), \(efficiency), \(ammo), \(mre), \(skill_name), \(skill_desc), \(area1), \(area2), \(area3), \(area4), \(area5), \(area6), \(area7), \(area8), \(area9), \(position), \(effect), \(build_time), \(obtain_method), \(photo_path)"
-    }
-    
 
 }

@@ -97,6 +97,9 @@ class TeamSimulatorViewController: UIViewController {
                 totalEfficiency.text = "\(totalEffi)"
             }
         }
+        if UserDefaults.standard.bool(forKey: "offlineImg"){
+            imgName[index].isHidden = true
+        }
     }
     func displayWarning(title: String){
         let alert = UIAlertController(title: title, message: "", preferredStyle: UIAlertController.Style.alert)

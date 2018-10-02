@@ -23,9 +23,7 @@ class downloadData: NSObject, URLSessionDelegate {
     weak var delegate: localDataDelegate?
     
     func parse(_ data:Data, _ action: String, source: UIViewController) {
-        
         let src = source as! OfflineSettingsViewController
-        
         DispatchQueue.main.async(flags: .barrier){
             src.prog.progress = 0/100
         }
@@ -38,7 +36,6 @@ class downloadData: NSObject, URLSessionDelegate {
         } catch let error as NSError {
             print(error)
         }
-        
         for i in 0 ..< jsonResult.count
         {
             jsonElement = jsonResult[i] as! NSDictionary

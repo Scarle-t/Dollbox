@@ -11,7 +11,9 @@ import UIKit
 class BuildStatsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     let imgCache = Session.sharedInstance.loadImgSession()
+    let localPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     
+    var userDefaults = UserDefaults.standard
     var selectedTDoll: TDoll = TDoll()
     var constructTDoll: NSMutableArray = NSMutableArray()
     var sortedTDoll = NSMutableArray()
@@ -34,25 +36,41 @@ class BuildStatsViewController: UIViewController, UICollectionViewDelegate, UICo
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath as IndexPath) as! ResultCollectionViewCell
   
         let item: TDoll = sortedTDoll[indexPath.row] as! TDoll
-        if let photo_path = item.photo_path{
-            let urlString = URL(string: "https://scarletsc.net/girlfrontline/img/\(photo_path)")
-            let url = URL(string: "https://scarletsc.net/girlfrontline/img/\(photo_path)")
-            if let imageFromCache = self.imgCache.object(forKey: url as AnyObject) as? UIImage{
-                myCell.imgResult.image = imageFromCache
-            }else{
-                DownloadPhoto().get(url: url!) { data, response, error in
-                    guard let imgData = data, error == nil else { return }
-                    print(url!)
-                    print("Download Finished")
-                    DispatchQueue.main.async(execute: { () -> Void in
-                        let imgToCache = UIImage(data: imgData)
-                        if urlString == url{
-                            myCell.imgResult.image = imgToCache
-                        }
-                        if let imginCache = imgToCache{
-                            self.imgCache.setObject(imginCache, forKey: urlString as AnyObject)
-                        }
-                    })
+        if userDefaults.bool(forKey: "offlineImg"){
+            if let id = item.ID{
+                let cover = id + ".jpg"
+                let filePath = self.localPath[self.localPath.count-1].absoluteString + cover
+                let imgData = NSData(contentsOf: URL(string: filePath)!)
+                if let data = imgData{
+                    let img = UIImage(data: data as Data)
+                    myCell.imgResult.image = img
+                }else{
+                    myCell.imgResult.image = UIImage(imageLiteralResourceName: "ImgNotReady")
+                }
+                self.imgCache.setObject(myCell.imgResult.image ?? UIImage(), forKey: id as AnyObject)
+            }
+        }else{
+            if let photo_path = item.photo_path{
+                let urlString = URL(string: "https://scarletsc.net/girlfrontline/img/\(photo_path)")
+                let url = URL(string: "https://scarletsc.net/girlfrontline/img/\(photo_path)")
+                
+                if let imageFromCache = self.imgCache.object(forKey: url as AnyObject) as? UIImage{
+                    myCell.imgResult.image = imageFromCache
+                }else{
+                    DownloadPhoto().get(url: url!) { data, response, error in
+                        guard let imgData = data, error == nil else { return }
+                        print(url!)
+                        print("Download Finished")
+                        DispatchQueue.main.async(execute: { () -> Void in
+                            let imgToCache = UIImage(data: imgData)
+                            if urlString == url{
+                                myCell.imgResult.image = imgToCache
+                            }
+                            if let imginCache = imgToCache{
+                                self.imgCache.setObject(imginCache, forKey: urlString as AnyObject)
+                            }
+                        })
+                    }
                 }
             }
         }
@@ -133,6 +151,12 @@ class BuildStatsViewController: UIViewController, UICollectionViewDelegate, UICo
         detailVC.selectedTDoll = self.selectedTDoll
         if let imgPath = self.selectedTDoll.photo_path{
             detailVC.selectedImg = imgCache.object(forKey: URL(string: "https://scarletsc.net/girlfrontline/img/\(imgPath)") as AnyObject) as? UIImage
+        }
+        if userDefaults.bool(forKey: "offlineImg"){
+            if let id = self.selectedTDoll.ID{
+                detailVC.selectedImg = imgCache.object(forKey: id as AnyObject) as? UIImage
+            }
+            
         }
         detailVC.from = "stats"
     }

@@ -16,16 +16,22 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
     @IBOutlet weak var localVersion: UILabel!
     @IBOutlet weak var localTS: UILabel!
     @IBOutlet weak var localCheck: UILabel!
+    @IBOutlet weak var donwImgToggle: UITableViewCell!
     
     let ver = Version()
     let switchView = UISwitch(frame: .zero)
+    let downImgSwitch = UISwitch(frame: .zero)
     let localSearch = localDB()
     let localData = downloadData()
     let startAlert = UIAlertController(title: "下載中。。。", message: nil, preferredStyle: .alert)
     let prog = UIProgressView(frame: CGRect(x: 10, y: 50, width: 250, height: 0))
     let noti = UINotificationFeedbackGenerator()
     let tap = UISelectionFeedbackGenerator()
+    let localPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    let imgAlert = UIAlertController(title: "下載圖片", message: "這需要一分鐘至數分鐘時間，建議使用Wi-Fi網絡下載以避免流動數據收費。", preferredStyle: .alert)
+    let delImgAlert = UIAlertController(title: "將刪除已下載圖片", message: nil, preferredStyle: .alert)
     
+    var userDefaults = UserDefaults.standard
     var type = String()
     var localVerArray = [String]()
     var onlineVerArray = NSArray()
@@ -43,6 +49,7 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
                 alert.addAction(UIAlertAction(title: "確定", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 noti.notificationOccurred(.warning)
+                downImgSwitch.isEnabled = true
             }else{
                 startAlert.view.addSubview(prog)
                 self.present(startAlert, animated: true, completion: nil)
@@ -53,16 +60,17 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
             self.present(startAlert, animated: true, completion: nil)
             self.localData.getItems(type, source: self)
         }
-        
         self.localCheck.isEnabled = true
     }
     func finish() {
         prog.progress = 1.0
-        startAlert.dismiss(animated: true, completion: nil)
-        let alert = UIAlertController(title: "下載完成", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "確定", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        startAlert.dismiss(animated: true, completion: {
+            let alert = UIAlertController(title: "下載完成", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "確定", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        })
         noti.notificationOccurred(.success)
+        downImgSwitch.isEnabled = true
         self.localSearch.readVersion()
     }
     func failed() {
@@ -149,35 +157,133 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
             
         }else{
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "刪除離線資料檔", style: .destructive, handler: { _ in
+            alert.addAction(UIAlertAction(title: "刪除離線資料檔（包括已下載圖片）", style: .destructive, handler: { _ in
                 localDB().writeSettings(item: "isOffline", value: "0")
                 localDB().delete(self)
+                self.removeImg()
                 self.localVersion.text = " "
                 self.localTS.text = " "
+                self.userDefaults.set(false, forKey: "offlineImg")
+                self.downImgSwitch.setOn(false, animated: true)
                 self.localCheck.isEnabled = false
+                self.downImgSwitch.isEnabled = false
             }))
-            alert.addAction(UIAlertAction(title: "保留離線資料檔", style: .default, handler: { _ in
+            alert.addAction(UIAlertAction(title: "保留離線資料檔（將刪除已下載圖片）", style: .default, handler: { _ in
                 localDB().writeSettings(item: "isOffline", value: "0")
+                self.userDefaults.set(false, forKey: "offlineImg")
+                self.downImgSwitch.setOn(false, animated: true)
+                self.removeImg()
                 self.localCheck.isEnabled = false
+                self.downImgSwitch.isEnabled = false
             }))
             alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in
                 self.switchView.setOn(true, animated: true)
             }))
             self.present(alert, animated: true, completion: nil)
         }
-        
+    }
+    func donwloadImg(){
+        imgAlert.dismiss(animated: true, completion: nil)
+        prog.progress = 0.0
+        prog.progressViewStyle = .bar
+        prog.tintColor = UIColor(red: 0.0, green: 122/255, blue: 255/255, alpha: 1.0)
+        startAlert.view.addSubview(prog)
+        self.present(startAlert, animated: true, completion: nil)
+        let db = Session.sharedInstance.db
+        if let mydb = db{
+            let statement = mydb.fetch("info", cond: nil, order: nil)
+            while sqlite3_step(statement) == SQLITE_ROW{
+                let cover = String(cString: sqlite3_column_text(statement, 0)) + ".jpg"
+                let url = URL(string: "https://scarletsc.net/girlfrontline/img/" + cover)
+                let filePath = self.localPath[self.localPath.count-1].absoluteString + cover
+                DownloadPhoto().get(url: url!) { data, response, error in
+                    guard let imgData = data, error == nil else { return }
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        let img = UIImage(data: imgData)?.jpegData(compressionQuality: 1.0)
+                        do{
+                            try img?.write(to: URL(string: filePath)!)
+                            self.prog.progress += 0.04
+                        }catch{
+                            print(error)
+                        }
+                    })
+                }
+            }
+        }
+        startAlert.dismiss(animated: true, completion: {
+            let alert = UIAlertController(title: "下載完成", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "確定", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        })
+        userDefaults.set(true, forKey: "offlineImg")
+        noti.notificationOccurred(.success)
+    }
+    func removeImg(){
+        delImgAlert.dismiss(animated: true, completion: nil)
+        let db = Session.sharedInstance.db
+        if let mydb = db{
+            let statement = mydb.fetch("info", cond: nil, order: nil)
+            while sqlite3_step(statement) == SQLITE_ROW{
+                let cover = String(cString: sqlite3_column_text(statement, 0)) + ".jpg"
+                let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask,true)[0] as NSString
+                let destinationPath = documentsPath.appendingPathComponent(cover)
+//                let filePath = self.localPath[self.localPath.count-1].absoluteString + cover
+                print(destinationPath)
+                do{
+                    try FileManager.default.removeItem(atPath: destinationPath)
+                }catch{
+                    print(error)
+                }
+            }
+        }
+        self.userDefaults.set(false, forKey: "offlineImg")
+        let alert = UIAlertController(title: "已刪除", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "確定", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        noti.notificationOccurred(.success)
+    }
+    func imgToggles(_ state: Bool){
+        if state{
+            self.present(imgAlert, animated: true, completion: nil)
+        }else{
+            self.present(delImgAlert, animated: true, completion: nil)
+        }
     }
     @objc func switchChanged(_ sender : UISwitch!){
         switchAlert(sender.isOn)
+    }
+    @objc func imgSwitch(_ sender: UISwitch!){
+        imgToggles(sender.isOn)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imgAlert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
+            self.donwloadImg()
+        }))
+        imgAlert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: {_ in
+            self.downImgSwitch.setOn(false, animated: true)
+        }))
+        delImgAlert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
+            self.removeImg()
+        }))
+        delImgAlert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: {_ in
+            self.downImgSwitch.setOn(true, animated: true)
+        }))
+        
+        if userDefaults.object(forKey: "offlineImg") != nil{
+        }else{
+            userDefaults.set(false, forKey: "offlineImg")
+        }
+        
         switchView.setOn(localDB().readSettings()[0], animated: true)
         switchView.tag = 1 // for detect which row switch Changed
         switchView.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
         offlineToggle.accessoryView = switchView
+        downImgSwitch.setOn(userDefaults.bool(forKey: "offlineImg"), animated: true)
+        downImgSwitch.addTarget(self, action: #selector(self.imgSwitch(_:)), for: .valueChanged)
+        donwImgToggle.accessoryView = downImgSwitch
         
         versionLabel.text = " "
         tsLabel.text = " "
@@ -191,8 +297,10 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
         if localDB().readSettings()[0]{
             ver.localVersion()
             localCheck.isEnabled = true
+            downImgSwitch.isEnabled = true
         }else{
             localCheck.isEnabled = false
+            downImgSwitch.isEnabled = false
         }
         
         let db = Session.sharedInstance.db
@@ -213,8 +321,10 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
         switch section {
         case 0:
             return 1
-        case 1, 2:
+        case 1:
             return 3
+        case 2:
+            return 4
         default:
             return 0
         }
