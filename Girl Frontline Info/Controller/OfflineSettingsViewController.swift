@@ -158,15 +158,14 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
             alert.addAction(UIAlertAction(title: "刪除離線資料檔", style: .destructive, handler: { _ in
                 localDB().writeSettings(item: "isOffline", value: "0")
                 localDB().delete(self)
-                self.removeImg()
                 self.localVersion.text = " "
                 self.localTS.text = " "
                 self.localCheck.isEnabled = false
             }))
             alert.addAction(UIAlertAction(title: "保留離線資料檔", style: .default, handler: { _ in
                 localDB().writeSettings(item: "isOffline", value: "0")
-                self.removeImg()
                 self.localCheck.isEnabled = false
+                self.noti.notificationOccurred(.success)
             }))
             alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in
                 self.switchView.setOn(true, animated: true)
@@ -194,7 +193,7 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
                 DownloadPhoto().get(url: url!) { data, response, error in
                     guard let imgData = data, error == nil else { return }
                     DispatchQueue.main.async(execute: { () -> Void in
-                        let img = UIImage(data: imgData)?.jpegData(compressionQuality: 1.0)
+                        let img = UIImage(data: imgData)?.jpegData(compressionQuality: 0.1)
                         do{
                             try img?.write(to: URL(string: filePath)!)
                             self.prog.progress += 0.04
@@ -233,7 +232,7 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
                     DownloadPhoto().get(url: url!) { data, response, error in
                         guard let imgData = data, error == nil else { return }
                         DispatchQueue.main.async(execute: { () -> Void in
-                            let img = UIImage(data: imgData)?.jpegData(compressionQuality: 1.0)
+                            let img = UIImage(data: imgData)?.jpegData(compressionQuality: 0.1)
                             do{
                                 try img?.write(to: URL(string: filePath)!)
                                 self.prog.progress += 0.04

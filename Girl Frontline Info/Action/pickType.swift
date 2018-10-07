@@ -44,5 +44,9 @@ class pickType: NSObject {
         }
         return appearType
     }
+    
+    func randomize(list: [String]){
+        
+    }
 
 }

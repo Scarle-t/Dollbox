@@ -9,9 +9,14 @@
 import UIKit
 
 class SettingsViewController: UITableViewController {
-
+    
+    @IBOutlet weak var appVersion: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        appVersion.text = "版本" + ((Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String)!)
+        
     }
 
     // MARK: - Table view data source
@@ -26,10 +31,8 @@ class SettingsViewController: UITableViewController {
             return 1
         case 1:
             return 3
-        case 2:
+        case 2, 3:
             return 2
-        case 3:
-            return 1
         default:
             return 0
         }
@@ -58,7 +61,14 @@ class SettingsViewController: UITableViewController {
                 break
             }
         case 3:
-            UIApplication.shared.open(URL(string: "https://www.facebook.com/Scarlet.SC2")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+            switch indexPath.row{
+            case 0:
+                UIApplication.shared.open(URL(string: "https://www.facebook.com/Scarlet.SC2")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+            case 1:
+                UIApplication.shared.open(URL(string: "https://scarletsc.net")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+            default:
+                break
+            }
         default:
             break
         }
