@@ -90,8 +90,8 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
     }
     func itemsDownloaded(items: NSArray) {
         if items.count != 0{
-            let index = Int(arc4random_uniform(UInt32(items.count - 1)))
-            result = items[index] as! TDoll
+            let index = Int.random(in: 0..<items.count)
+            result = items.shuffled()[index] as! TDoll
             constructedTDolls.add(result)
             switch result.stars{
             case "2":
@@ -113,8 +113,8 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
     }
     func returndData(items: NSArray) {
         if items.count != 0{
-            let index = Int(arc4random_uniform(UInt32(items.count - 1)))
-            result = items[index] as! TDoll
+            let index = Int.random(in: 0..<items.count)
+            result = items.shuffled()[index] as! TDoll
             constructedTDolls.add(result)
             switch result.stars{
             case "2":
@@ -218,54 +218,44 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
     func selectLocal(types: [String]){
         var sql = "select * from info inner join buff on buff.ID = info.ID inner join consumption on consumption.ID = info.ID inner join obtain on obtain.ID = info.ID inner join skill on skill.ID = info.ID inner join stats on stats.ID = info.ID where ((info.type = 'SMG')"
         for type in types{
-            
             switch type{
-                
-            case "HG":
-                sql += " OR (info.type = 'HG')"
-                continue
-            case "5SHG":
-                sql += " OR (info.type = 'HG' AND info.Stars = 5)"
-                continue
-                
-            case "5SSMG":
-                sql += " OR (info.type = 'SMG' AND info.Stars = 5)"
-                continue
-                
-            case "AR":
-                sql += " OR (info.type = 'AR')"
-                continue
-            case "5SAR":
-                sql += " OR (info.type = 'AR' AND info.Stars = 5)"
-                continue
-                
-            case "RF":
-                sql += " OR (info.type = 'RF')"
-                continue
-            case "5SRF":
-                sql += " OR (info.type = 'RF' AND info.Stars = 5)"
-                continue
-                
-            case "MG":
-                sql += " OR (info.type = 'MG')"
-                continue
-            case "5SMG":
-                sql += " OR (info.type = 'MG' AND info.Stars = 5)"
-                continue
-                
-            default:
-                continue
+                case "HG":
+                    sql += " OR (info.type = 'HG')"
+                    continue
+                case "5SHG":
+                    sql += " OR (info.type = 'HG' AND info.Stars = 5)"
+                    continue
+                case "5SSMG":
+                    sql += " OR (info.type = 'SMG' AND info.Stars = 5)"
+                    continue
+                case "AR":
+                    sql += " OR (info.type = 'AR')"
+                    continue
+                case "5SAR":
+                    sql += " OR (info.type = 'AR' AND info.Stars = 5)"
+                    continue
+                case "RF":
+                    sql += " OR (info.type = 'RF')"
+                    continue
+                case "5SRF":
+                    sql += " OR (info.type = 'RF' AND info.Stars = 5)"
+                    continue
+                case "MG":
+                    sql += " OR (info.type = 'MG')"
+                    continue
+                case "5SMG":
+                    sql += " OR (info.type = 'MG' AND info.Stars = 5)"
+                    continue
+                default:
+                    continue
             }
         }
-        
         sql += ") AND obtain.build_time != '00:00:00' AND obtain.obtain_method NOT LIKE '%重型人形製造限定%' "
-        
         localSearch.search(sql: sql)
-        
     }
     func selectTDoll(){
-        let index = Int(arc4random_uniform(UInt32(downloadStrings.count - 1)))
-        let downloadString = downloadStrings[index]
+        let index = Int.random(in: 0..<downloadStrings.count)
+        let downloadString = downloadStrings.shuffled()[index]
         searchResult.urlPath = downloadString
         searchResult.downloadItems()
     }
