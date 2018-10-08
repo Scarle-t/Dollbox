@@ -1523,7 +1523,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="問題回報" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aww-bM-ThW">
-                                                    <rect key="frame" x="16" y="0.0" width="288" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1540,7 +1540,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="開發者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CPC-xi-7uz">
-                                                    <rect key="frame" x="16" y="0.0" width="288" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -2235,7 +2235,7 @@ Available on App Store</string>
             </objects>
             <point key="canvasLocation" x="2891.25" y="3685.5633802816901"/>
         </scene>
-        <!--少前工具箱-->
+        <!--人形工具箱-->
         <scene sceneID="HE7-X9-bec">
             <objects>
                 <tableViewController id="hjz-cc-F8X" customClass="ToolboxTableViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
@@ -2382,7 +2382,7 @@ Available on App Store</string>
                             <outlet property="delegate" destination="hjz-cc-F8X" id="bC6-PK-W2H"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="少前工具箱" id="dha-v4-Uc1"/>
+                    <navigationItem key="navigationItem" title="人形工具箱" id="dha-v4-Uc1"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QuH-Be-DRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -2243,7 +2243,7 @@ Available on App Store</string>
             </objects>
             <point key="canvasLocation" x="2892" y="3686"/>
         </scene>
-        <!--少前工具箱-->
+        <!--人形工具箱-->
         <scene sceneID="HE7-X9-bec">
             <objects>
                 <tableViewController id="hjz-cc-F8X" customClass="ToolboxTableViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
@@ -2390,7 +2390,7 @@ Available on App Store</string>
                             <outlet property="delegate" destination="hjz-cc-F8X" id="bC6-PK-W2H"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="少前工具箱" id="dha-v4-Uc1"/>
+                    <navigationItem key="navigationItem" title="人形工具箱" id="dha-v4-Uc1"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QuH-Be-DRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

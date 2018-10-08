@@ -1968,7 +1968,7 @@ Available on App Store</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5eD-Xx-lt8">
-                                                    <rect key="frame" x="8" y="157" width="88" height="17.333333333333343"/>
+                                                    <rect key="frame" x="8" y="157" width="88" height="20"/>
                                                     <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2039,7 +2039,7 @@ Available on App Store</string>
             </objects>
             <point key="canvasLocation" x="2892" y="111"/>
         </scene>
-        <!--少前工具箱-->
+        <!--人形工具箱-->
         <scene sceneID="PPl-be-vqT">
             <objects>
                 <tableViewController id="MHu-8q-GPw" customClass="ToolboxTableViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
@@ -2186,7 +2186,7 @@ Available on App Store</string>
                             <outlet property="delegate" destination="MHu-8q-GPw" id="zdM-Az-DVN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="少前工具箱" largeTitleDisplayMode="always" id="uYV-xA-kCf"/>
+                    <navigationItem key="navigationItem" title="人形工具箱" largeTitleDisplayMode="always" id="uYV-xA-kCf"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7r-s3-DK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
