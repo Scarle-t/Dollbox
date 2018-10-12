@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="63f-HN-DVO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LfL-d5-TcH">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,31 +24,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="LABEL" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KdX-MD-Rpn">
-                                <rect key="frame" x="176" y="211" width="175" height="17.333333333333343"/>
+                                <rect key="frame" x="176" y="159" width="175" height="17.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="類別: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kD8-uA-8jq">
-                                <rect key="frame" x="176" y="257" width="40.333333333333343" height="17.333333333333314"/>
+                                <rect key="frame" x="176" y="205" width="40.333333333333343" height="17.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LABEL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfq-UP-DMh">
-                                <rect key="frame" x="224" y="258" width="61" height="17.333333333333314"/>
+                                <rect key="frame" x="224" y="206" width="61" height="17.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="作戰效能" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMy-pQ-jJ2">
-                                <rect key="frame" x="176" y="319" width="68" height="17.333333333333314"/>
+                                <rect key="frame" x="176" y="267" width="68" height="17.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8fq-iW-Zzo">
-                                <rect key="frame" x="16" y="147" width="343" height="29"/>
+                                <rect key="frame" x="16" y="95" width="343" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="0xQ-hU-vUH"/>
                                 </constraints>
@@ -64,13 +64,13 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LABEL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uUA-cM-dcL">
-                                <rect key="frame" x="176" y="187" width="175" height="23"/>
+                                <rect key="frame" x="176" y="135" width="175" height="23"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUl-oA-bvN" userLabel="入手方法">
-                                <rect key="frame" x="0.0" y="382" width="375" height="299"/>
+                                <rect key="frame" x="0.0" y="330" width="375" height="400"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="製造時間: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfc-FR-290">
                                         <rect key="frame" x="30.999999999999993" y="35" width="74.333333333333314" height="17.333333333333329"/>
@@ -79,7 +79,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TRO-WG-os6">
-                                        <rect key="frame" x="31" y="60" width="302" height="231"/>
+                                        <rect key="frame" x="31" y="60" width="302" height="332"/>
                                         <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
@@ -107,7 +107,7 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5S-pm-sc7" userLabel="增益">
-                                <rect key="frame" x="0.0" y="382" width="375" height="299"/>
+                                <rect key="frame" x="0.0" y="330" width="375" height="400"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g6O-Dq-RIu">
                                         <rect key="frame" x="67" y="54" width="60" height="60"/>
@@ -146,7 +146,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hlj-dH-CIe">
-                                        <rect key="frame" x="195" y="30" width="172" height="229"/>
+                                        <rect key="frame" x="195" y="30" width="172" height="330"/>
                                         <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
@@ -162,7 +162,7 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qV1-t4-ZZp" userLabel="技能">
-                                <rect key="frame" x="0.0" y="382" width="375" height="299"/>
+                                <rect key="frame" x="0.0" y="330" width="375" height="400"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="技能: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t72-Ud-ig1">
                                         <rect key="frame" x="31.000000000000004" y="7.9999999999999982" width="40.333333333333343" height="17.333333333333329"/>
@@ -177,7 +177,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0Vg-Cw-6WL">
-                                        <rect key="frame" x="36" y="33" width="302" height="231"/>
+                                        <rect key="frame" x="36" y="33" width="302" height="332"/>
                                         <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
@@ -199,7 +199,7 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63z-gd-w3p" userLabel="消耗">
-                                <rect key="frame" x="0.0" y="382" width="375" height="299"/>
+                                <rect key="frame" x="0.0" y="330" width="375" height="400"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="彈藥: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ant-cn-h4G">
                                         <rect key="frame" x="31.000000000000004" y="35" width="40.333333333333343" height="17.333333333333329"/>
@@ -243,7 +243,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phm-Tb-AJn" userLabel="人形資料">
-                                <rect key="frame" x="0.0" y="382" width="375" height="299"/>
+                                <rect key="frame" x="0.0" y="330" width="375" height="400"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="生命: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pj0-hZ-Kgb">
                                         <rect key="frame" x="31" y="35" width="40" height="17"/>
@@ -389,20 +389,20 @@
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7p-gE-gb5">
-                                <rect key="frame" x="176" y="344" width="158" height="17.333333333333314"/>
+                                <rect key="frame" x="176" y="292" width="158" height="17.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImgNotReady" translatesAutoresizingMaskIntoConstraints="NO" id="GqS-SJ-dVb">
-                                <rect key="frame" x="43" y="187" width="118" height="172"/>
+                                <rect key="frame" x="43" y="135" width="118" height="172"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="XaB-Xb-foy" appends="YES" id="k0M-YS-N4O"/>
                                 </connections>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E51-eU-gkX">
-                                <rect key="frame" x="7" y="187" width="35" height="32"/>
+                                <rect key="frame" x="7" y="135" width="35" height="32"/>
                                 <state key="normal" image="arrow_down"/>
                                 <connections>
                                     <action selector="dismiss:" destination="DZC-H6-8ig" eventType="touchUpInside" id="VG2-3z-WDY"/>
@@ -530,7 +530,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3920.8000000000002" y="817.98029556650249"/>
+            <point key="canvasLocation" x="4714" y="818"/>
         </scene>
         <!--Parent View Controller-->
         <scene sceneID="JYQ-ve-6XI">
@@ -551,23 +551,36 @@
             </objects>
             <point key="canvasLocation" x="249" y="1475"/>
         </scene>
+        <!--Split View Controller-->
+        <scene sceneID="yhN-mY-G0Y">
+            <objects>
+                <splitViewController id="LfL-d5-TcH" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="63f-HN-DVO" kind="relationship" relationship="masterViewController" id="uch-ly-5IS"/>
+                        <segue destination="a4e-JH-bF2" kind="relationship" relationship="detailViewController" id="GhJ-2W-R2t"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gb4-fy-f5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="988" y="734"/>
+        </scene>
         <!--Notice Detail View Controller-->
         <scene sceneID="OcT-Fw-z7O">
             <objects>
-                <viewController id="0WR-7X-JgQ" customClass="noticeDetailViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="notice" id="0WR-7X-JgQ" customClass="noticeDetailViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IU5-4R-ZwV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rTG-ST-QzG">
-                                <rect key="frame" x="0.0" y="88" width="375" height="256"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="349"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="HD2-XR-rkG" appends="YES" id="1dS-29-ODA"/>
                                 </connections>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cZs-R5-BM8">
-                                <rect key="frame" x="16" y="352" width="343" height="230"/>
+                                <rect key="frame" x="16" y="401" width="343" height="230"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="230" id="bhI-zR-09N"/>
                                 </constraints>
@@ -576,19 +589,19 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動時間: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ehb-YC-kbk">
-                                <rect key="frame" x="16" y="610.66666666666663" width="74.333333333333329" height="17.333333333333371"/>
+                                <rect key="frame" x="16" y="659.66666666666663" width="74.333333333333329" height="17.333333333333371"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BV-No-Njq">
-                                <rect key="frame" x="98.333333333333343" y="610.66666666666663" width="260.66666666666663" height="17.333333333333371"/>
+                                <rect key="frame" x="98.333333333333343" y="659.66666666666663" width="260.66666666666663" height="17.333333333333371"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1J-7B-T3p">
-                                <rect key="frame" x="281" y="636" width="78" height="30"/>
+                                <rect key="frame" x="281" y="685" width="78" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="...查看更多">
                                     <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -637,18 +650,18 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1972" y="817.98029556650249"/>
+            <point key="canvasLocation" x="3825" y="-565"/>
         </scene>
         <!--稀有度-->
         <scene sceneID="HVY-uf-qfy">
             <objects>
-                <viewController storyboardIdentifier="starSearch" id="IuS-Gc-L4i" customClass="StarSearchViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="IuS-Gc-L4i" customClass="StarSearchViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MV5-yU-szP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4C7-Ej-Tzw">
-                                <rect key="frame" x="0.0" y="140" width="375" height="589"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GIy-TK-EUI">
                                     <size key="itemSize" width="104" height="212"/>
@@ -719,7 +732,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="稀有度" id="EEV-nD-SgO">
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="NbF-3Y-nFq">
-                            <rect key="frame" x="50" y="7.6666666666666679" width="284" height="29.000000000000004"/>
+                            <rect key="frame" x="45.666666666666657" y="7.6666666666666679" width="284" height="29.000000000000004"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="2☆"/>
@@ -750,18 +763,18 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2892" y="818"/>
+            <point key="canvasLocation" x="3826" y="817"/>
         </scene>
         <!--種類-->
         <scene sceneID="LiU-Y9-nSv">
             <objects>
-                <viewController storyboardIdentifier="typeSearch" id="hEM-iF-jNv" customClass="typeViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hEM-iF-jNv" customClass="typeViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9H9-ur-TYE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tXy-4s-1Pk">
-                                <rect key="frame" x="0.0" y="140" width="375" height="589"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7E7-5a-0Vh">
                                     <size key="itemSize" width="104" height="212"/>
@@ -864,7 +877,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2892" y="1475"/>
+            <point key="canvasLocation" x="3825" y="1475"/>
         </scene>
         <!--Build Simulator View Controller-->
         <scene sceneID="ogB-sK-6mQ">
@@ -875,7 +888,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hzM-Xz-zWp">
-                                <rect key="frame" x="0.0" y="478" width="375" height="251"/>
+                                <rect key="frame" x="0.0" y="478" width="375" height="300"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gNv-ij-vI1">
                                     <size key="itemSize" width="368" height="191"/>
@@ -1199,7 +1212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2A-5W-kt2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2892" y="2768.7192118226603"/>
+            <point key="canvasLocation" x="3826" y="2768"/>
         </scene>
         <!--Build Stats View Controller-->
         <scene sceneID="Cwx-7J-mqV">
@@ -1503,7 +1516,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3920.8000000000002" y="2768.7192118226603"/>
+            <point key="canvasLocation" x="4713" y="2769"/>
         </scene>
         <!--Team Simulator View Controller-->
         <scene sceneID="Jg8-3G-hDd">
@@ -1514,7 +1527,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView autoresizesSubviews="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectTDoll" translatesAutoresizingMaskIntoConstraints="NO" id="Uz1-58-fr9">
-                                <rect key="frame" x="16" y="191" width="103" height="172"/>
+                                <rect key="frame" x="16" y="240" width="103" height="172"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="9od-NJ-kor" appends="YES" id="0Is-Yw-Bal"/>
@@ -1522,7 +1535,7 @@
                                 </connections>
                             </imageView>
                             <imageView autoresizesSubviews="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectTDoll" translatesAutoresizingMaskIntoConstraints="NO" id="vQ2-vD-wlc">
-                                <rect key="frame" x="136" y="191" width="103" height="172"/>
+                                <rect key="frame" x="136" y="240" width="103" height="172"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Xco-fr-Sq8" appends="YES" id="M3l-K2-ybD"/>
@@ -1530,7 +1543,7 @@
                                 </connections>
                             </imageView>
                             <imageView autoresizesSubviews="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectTDoll" translatesAutoresizingMaskIntoConstraints="NO" id="I7E-JF-2aE">
-                                <rect key="frame" x="256" y="191" width="103" height="172"/>
+                                <rect key="frame" x="256" y="240" width="103" height="172"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="dRH-h3-iJO" appends="YES" id="mPm-KO-PVy"/>
@@ -1538,7 +1551,7 @@
                                 </connections>
                             </imageView>
                             <imageView autoresizesSubviews="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectTDoll" translatesAutoresizingMaskIntoConstraints="NO" id="12D-wu-RXQ">
-                                <rect key="frame" x="16" y="371" width="103" height="172"/>
+                                <rect key="frame" x="16" y="420" width="103" height="172"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="0G7-Ng-ZYW" appends="YES" id="Zyl-vi-9cY"/>
@@ -1546,7 +1559,7 @@
                                 </connections>
                             </imageView>
                             <imageView autoresizesSubviews="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectTDoll" translatesAutoresizingMaskIntoConstraints="NO" id="UMi-Qg-8yj">
-                                <rect key="frame" x="136" y="371" width="103" height="172"/>
+                                <rect key="frame" x="136" y="420" width="103" height="172"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="dSG-tX-O0c" appends="YES" id="uf2-TU-FTa"/>
@@ -1554,7 +1567,7 @@
                                 </connections>
                             </imageView>
                             <imageView autoresizesSubviews="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectTDoll" translatesAutoresizingMaskIntoConstraints="NO" id="B18-fZ-0Cz">
-                                <rect key="frame" x="256" y="371" width="103" height="172"/>
+                                <rect key="frame" x="256" y="420" width="103" height="172"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="qCZ-57-uDJ" appends="YES" id="Jf2-Pl-edM"/>
@@ -1562,7 +1575,7 @@
                                 </connections>
                             </imageView>
                             <imageView autoresizesSubviews="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectTDoll" translatesAutoresizingMaskIntoConstraints="NO" id="QFJ-7S-Gh7">
-                                <rect key="frame" x="16" y="551" width="103" height="172"/>
+                                <rect key="frame" x="16" y="600" width="103" height="172"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="TLj-fp-Lhh" appends="YES" id="doP-XR-tER"/>
@@ -1570,7 +1583,7 @@
                                 </connections>
                             </imageView>
                             <imageView autoresizesSubviews="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectTDoll" translatesAutoresizingMaskIntoConstraints="NO" id="CFZ-5q-k2g">
-                                <rect key="frame" x="136" y="551" width="103" height="172"/>
+                                <rect key="frame" x="136" y="600" width="103" height="172"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="VGm-7h-BQj" appends="YES" id="aej-Hv-9D0"/>
@@ -1578,7 +1591,7 @@
                                 </connections>
                             </imageView>
                             <imageView autoresizesSubviews="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectTDoll" translatesAutoresizingMaskIntoConstraints="NO" id="P8E-Jy-YXU">
-                                <rect key="frame" x="256" y="551" width="103" height="172"/>
+                                <rect key="frame" x="256" y="600" width="103" height="172"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="pBF-uz-Xdf" appends="YES" id="vCb-mV-FgO"/>
@@ -1796,7 +1809,7 @@ Available on App Store</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvY-Jj-Rly">
-                                <rect key="frame" x="53" y="124" width="269.66666666666669" height="66.333333333333314"/>
+                                <rect key="frame" x="53" y="124" width="269.66666666666669" height="115.33333333333331"/>
                                 <string key="text">此數據只作參考
 實際數字按等級/ 裝備/ 妖精加乘有所變更
 請參閱遊戲內指引</string>
@@ -1985,7 +1998,7 @@ Available on App Store</string>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2892" y="3446.305418719212"/>
+            <point key="canvasLocation" x="3826" y="3446"/>
         </scene>
         <!--SelectT Doll View Controller-->
         <scene sceneID="Fez-MX-x4c">
@@ -2206,7 +2219,7 @@ Available on App Store</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3921" y="3447"/>
+            <point key="canvasLocation" x="4713" y="3446"/>
         </scene>
         <!--Notice Enlarge View Controller-->
         <scene sceneID="edo-9H-mbQ">
@@ -2260,18 +2273,34 @@ Available on App Store</string>
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1972" y="110.83743842364532"/>
+            <point key="canvasLocation" x="4713" y="109"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AAc-7z-PN6">
+            <objects>
+                <navigationController storyboardIdentifier="timeSearch" id="a4e-JH-bF2" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ajt-aj-IPo">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="yn7-Fx-9da" kind="relationship" relationship="rootViewController" id="gCK-R5-a4G"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gVt-Fg-zxT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2881" y="109"/>
         </scene>
         <!--Buildtime Search Collection View Controller-->
         <scene sceneID="48g-bi-OYS">
             <objects>
-                <viewController storyboardIdentifier="timeSearch" id="yn7-Fx-9da" customClass="BuildtimeSearchCollectionViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yn7-Fx-9da" customClass="BuildtimeSearchCollectionViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V3y-Rc-JJF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" placeholder="分" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Api-pF-p7E">
-                                <rect key="frame" x="198.33333333333334" y="201" width="100.66666666666666" height="30"/>
+                                <rect key="frame" x="197.33333333333334" y="149" width="101.66666666666666" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
@@ -2291,13 +2320,13 @@ Available on App Store</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請輸入時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xq6-5Z-jGU">
-                                <rect key="frame" x="16" y="176" width="85" height="17.333333333333343"/>
+                                <rect key="frame" x="16" y="123.99999999999999" width="85" height="17.333333333333329"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9Z-g8-RoB">
-                                <rect key="frame" x="308" y="240" width="51" height="42"/>
+                                <rect key="frame" x="308" y="188" width="51" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="搜尋"/>
                                 <connections>
@@ -2305,19 +2334,19 @@ Available on App Store</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwK-GG-uFa">
-                                <rect key="frame" x="184.66666666666666" y="201" width="5.6666666666666572" height="23.333333333333343"/>
+                                <rect key="frame" x="185.66666666666666" y="149" width="3.6666666666666572" height="20"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搜尋結果" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="B23-k1-HzW">
-                                <rect key="frame" x="16" y="301.33333333333331" width="70" height="21"/>
+                                <rect key="frame" x="16" y="249.33333333333337" width="70" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="k6G-tO-qRo">
-                                <rect key="frame" x="0.0" y="330.33333333333326" width="375" height="447.66666666666674"/>
+                                <rect key="frame" x="0.0" y="278.33333333333331" width="375" height="548.66666666666674"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="D58-W7-b8N">
                                     <size key="itemSize" width="104" height="212"/>
@@ -2334,7 +2363,7 @@ Available on App Store</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5eD-Xx-lt8">
-                                                    <rect key="frame" x="8" y="174" width="88" height="20"/>
+                                                    <rect key="frame" x="8" y="174" width="88" height="17.333333333333343"/>
                                                     <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2370,10 +2399,10 @@ Available on App Store</string>
                                 </connections>
                             </collectionView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ngf-dc-CO6">
-                                <rect key="frame" x="92" y="303" width="20" height="20"/>
+                                <rect key="frame" x="92" y="251" width="20" height="20"/>
                             </activityIndicatorView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" placeholder="時" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CSJ-B0-HvG">
-                                <rect key="frame" x="78" y="201" width="97.666666666666686" height="30"/>
+                                <rect key="frame" x="78" y="149" width="98.666666666666686" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
@@ -2409,6 +2438,7 @@ Available on App Store</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HzI-Ju-5X0"/>
                     </view>
+                    <navigationItem key="navigationItem" id="4KT-bN-zzh"/>
                     <connections>
                         <outlet property="collectionResult" destination="k6G-tO-qRo" id="sRU-JR-AGd"/>
                         <outlet property="loadingWheel" destination="Ngf-dc-CO6" id="WhR-le-J9e"/>
@@ -2419,7 +2449,7 @@ Available on App Store</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65n-t2-yg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2892" y="110.83743842364532"/>
+            <point key="canvasLocation" x="3826" y="110"/>
         </scene>
         <!--人形工具箱-->
         <scene sceneID="PPl-be-vqT">
@@ -2460,7 +2490,6 @@ Available on App Store</string>
                                     </constraints>
                                     <connections>
                                         <outlet property="cover" destination="Sre-11-JrL" id="lSS-QS-wZu"/>
-                                        <segue destination="0WR-7X-JgQ" kind="show" identifier="noticeSegue" id="2lw-mt-lTn"/>
                                     </connections>
                                 </collectionViewCell>
                             </cells>
@@ -2484,9 +2513,6 @@ Available on App Store</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="yn7-Fx-9da" kind="show" id="cW7-eX-Zms"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -2508,9 +2534,6 @@ Available on App Store</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="IuS-Gc-L4i" kind="show" id="rnV-Hg-ejU"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="52f-80-Pdu" style="IBUITableViewCellStyleDefault" id="d0V-a1-rlX">
                                         <rect key="frame" x="0.0" y="398.33333333333337" width="375" height="44"/>
@@ -2528,9 +2551,6 @@ Available on App Store</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="hEM-iF-jNv" kind="show" id="DHQ-Sr-LUh"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="kCd-KG-qIJ" style="IBUITableViewCellStyleDefault" id="JNp-3v-5iy">
                                         <rect key="frame" x="0.0" y="442.33333333333337" width="375" height="44"/>
@@ -2548,9 +2568,6 @@ Available on App Store</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Eqz-Iz-7eM" kind="show" id="Aao-yl-x0P"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -2572,9 +2589,6 @@ Available on App Store</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="UgS-g8-kjT" kind="show" id="wbk-69-gQ9"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="azq-Ah-sat" style="IBUITableViewCellStyleDefault" id="oOu-ra-6dr">
                                         <rect key="frame" x="0.0" y="586.33333333333337" width="375" height="44"/>
@@ -2592,9 +2606,6 @@ Available on App Store</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Peq-bT-Ewa" kind="show" id="v0y-Qx-YBw"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -2617,7 +2628,7 @@ Available on App Store</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7r-s3-DK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1972" y="1474.8768472906404"/>
+            <point key="canvasLocation" x="1823" y="1473"/>
         </scene>
         <!--更多-->
         <scene sceneID="ayM-UB-7VE">
@@ -3037,7 +3048,7 @@ Available on App Store</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iX1-Sk-dPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1972" y="2517"/>
+            <point key="canvasLocation" x="1822" y="2517"/>
         </scene>
         <!--Disclaimer View Controller-->
         <scene sceneID="ice-VV-u8e">
@@ -3109,7 +3120,7 @@ Available on App Store</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VY2-Dy-8vK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1972" y="3258.6206896551726"/>
+            <point key="canvasLocation" x="988" y="3253"/>
         </scene>
         <!--工具-->
         <scene sceneID="BA7-QF-aCz">
@@ -3133,13 +3144,13 @@ Available on App Store</string>
         <!--全圖鑑-->
         <scene sceneID="CXS-TV-dha">
             <objects>
-                <viewController storyboardIdentifier="allSearch" id="Eqz-Iz-7eM" customClass="allViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Eqz-Iz-7eM" customClass="allViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zfk-JX-Zpw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WSH-bd-yaV">
-                                <rect key="frame" x="0.0" y="167" width="375" height="562"/>
+                                <rect key="frame" x="0.0" y="167" width="375" height="611"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FnN-Zi-Ly5">
                                     <size key="itemSize" width="105" height="232"/>
@@ -3260,7 +3271,87 @@ Available on App Store</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WF9-26-Nad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2892" y="2124.384236453202"/>
+            <point key="canvasLocation" x="3826" y="2124"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MJo-F8-hnC">
+            <objects>
+                <navigationController storyboardIdentifier="starSearch" id="3Co-jz-Bsa" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xR4-Jb-70E">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="IuS-Gc-L4i" kind="relationship" relationship="rootViewController" id="iHu-Hj-pDZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K66-lb-UiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2881" y="818"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bRX-d5-dHv">
+            <objects>
+                <navigationController storyboardIdentifier="typeSearch" id="vvs-3b-3DG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zg7-Mi-fjA">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hEM-iF-jNv" kind="relationship" relationship="rootViewController" id="QF9-Fn-x4u"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s9v-b4-IsR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2881" y="1475"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dAb-wI-cL5">
+            <objects>
+                <navigationController storyboardIdentifier="allSearch" id="pJE-ot-DEL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Y1j-Vi-KhZ">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Eqz-Iz-7eM" kind="relationship" relationship="rootViewController" id="mup-c7-xLl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uh4-zJ-DhT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2881" y="2124"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0xH-aU-Y54">
+            <objects>
+                <navigationController storyboardIdentifier="buildSim" id="Yhw-FD-IP5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Trq-qs-aOj">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="UgS-g8-kjT" kind="relationship" relationship="rootViewController" id="m2O-xX-BOr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Wl-nY-YPh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2881" y="2769"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6W6-HO-8ET">
+            <objects>
+                <navigationController storyboardIdentifier="teamSim" id="9Xx-sI-TDO" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hCP-8O-D2g">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Peq-bT-Ewa" kind="relationship" relationship="rootViewController" id="n8e-hs-cPa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tiq-c8-BeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2881" y="3446"/>
         </scene>
     </scenes>
     <resources>
@@ -3276,6 +3367,6 @@ Available on App Store</string>
         <segue reference="S9S-9v-H1I"/>
         <segue reference="MO0-eT-4JV"/>
         <segue reference="Dfc-68-Yr9"/>
-        <segue reference="opG-Rg-cEJ"/>
+        <segue reference="H8J-Pv-DAR"/>
     </inferredMetricsTieBreakers>
 </document>

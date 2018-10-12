@@ -12,6 +12,7 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
     
     let notice = getNotice()
     let imgCache = Session.sharedInstance.imgSession
+    let detailVCs = NSMutableArray()
     
     var feedItems = NSArray()
     
@@ -28,6 +29,26 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         localDB().setup()
+        
+        self.splitViewController?.preferredDisplayMode = .allVisible
+        
+        let ts = self.storyboard?.instantiateViewController(withIdentifier: "timeSearch") as! UINavigationController
+        let ss = self.storyboard?.instantiateViewController(withIdentifier: "starSearch") as! UINavigationController
+        let tps = self.storyboard?.instantiateViewController(withIdentifier: "typeSearch") as! UINavigationController
+        let all = self.storyboard?.instantiateViewController(withIdentifier: "allSearch") as! UINavigationController
+        let bs = self.storyboard?.instantiateViewController(withIdentifier: "buildSim") as! UINavigationController
+        let fs = self.storyboard?.instantiateViewController(withIdentifier: "teamSim") as! UINavigationController
+        let no = self.storyboard?.instantiateViewController(withIdentifier: "notice") as! noticeDetailViewController
+        
+        detailVCs.add(no)
+        detailVCs.add(ts)
+        detailVCs.add(ss)
+        detailVCs.add(tps)
+        detailVCs.add(all)
+        detailVCs.add(bs)
+        detailVCs.add(fs)
+        
+        self.splitViewController?.viewControllers[1] = detailVCs[1] as! UIViewController
         
         noticeList.delegate = self
         noticeList.dataSource = self
@@ -62,6 +83,7 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
             if let imgPath = selectedNotice.cover{
                 detailVC.selectedImg = imgCache.object(forKey: URL(string: "https://scarletsc.net/girlfrontline/img/notice/\(imgPath)") as AnyObject) as? UIImage
             }
+            self.splitViewController?.viewControllers[1] = detailVCs[0] as! UIViewController
         }
         
     }
@@ -79,12 +101,23 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
             return 2
         }
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            self.splitViewController?.viewControllers[1] = detailVCs[indexPath.row + 1] as! UINavigationController
+        case 1:
+            self.splitViewController?.viewControllers[1] = detailVCs[indexPath.row + 2] as! UINavigationController
+        case 2:
+            self.splitViewController?.viewControllers[1] = detailVCs[indexPath.row + 5] as! UINavigationController
+        default:
+            break
+        }
+    }
     
     // MARK: - Collection view data source
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return feedItems.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellIdentifier = "noticeCell"
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! noticeCollectionViewCell
@@ -117,6 +150,19 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
         myCell.cover.layer.cornerRadius = 15.0
         
         return myCell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = detailVCs[0] as! noticeDetailViewController
+        
+        var selectedNotice = Notice()
+        selectedNotice = feedItems[indexPath.row] as! Notice
+        
+        detailVC.selectedNotice = selectedNotice
+        if let imgPath = selectedNotice.cover{
+            detailVC.selectedImg = imgCache.object(forKey: URL(string: "https://scarletsc.net/girlfrontline/img/notice/\(imgPath)") as AnyObject) as? UIImage
+        }
+        self.splitViewController?.viewControllers[1] = detailVC
+        
     }
 
 }
