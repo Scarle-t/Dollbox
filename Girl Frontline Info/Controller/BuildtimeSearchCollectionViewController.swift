@@ -11,7 +11,7 @@ import UIKit
 class BuildtimeSearchCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate ,getSearchProtocol, localDBDelegate {
 
     let imgCache = Session.sharedInstance.imgSession
-    let pickerView = UIPickerView()
+    var pickerView = UIPickerView()
     let searchResult = getSearchResult()
     let localSearch = localDB()
     let noti = UIImpactFeedbackGenerator()
@@ -23,7 +23,7 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 3
+        return 2
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 
@@ -42,7 +42,12 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
             pickerLabel?.font = UIFont(name: "Mohave", size: 35)
             pickerLabel?.textAlignment = .center
         }
-        pickerLabel?.text = String(row)
+        if row < 10 {
+            pickerLabel?.text = "0" + String(row)
+        }else{
+            pickerLabel?.text = String(row)
+        }
+        
         pickerLabel?.textColor = UIColor.black
         
         return pickerLabel!
@@ -58,6 +63,9 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
         default:
             break
         }
+    }
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 50.0
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return feedItems.count
@@ -112,15 +120,17 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
     func itemsDownloaded(items: NSArray) {
         feedItems = items
         self.collectionResult.reloadData()
+        loadingWheel.stopAnimating()
         noti.impactOccurred()
     }
     func returndData(items: NSArray) {
         feedItems = items
         self.collectionResult.reloadData()
+        loadingWheel.stopAnimating()
         noti.impactOccurred()
     }
 
-    @IBAction func btnTimeSearch(_ sender: UIButton) {
+    @IBAction func btnTimeSearch(_ sender: Any) {
         view.endEditing(true)
         guard var hour = txtHour.text else {return}
         guard var minute = txtMinute.text else {return}
@@ -134,6 +144,7 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
         if second.count < 2{
             second = "0" + second
         }
+        loadingWheel.startAnimating()
         if localDB().readSettings()[0] {
             localSearch.search(cond: "build_time = '" + hour + ":" + minute + ":" + second + "'")
         }else{
@@ -145,11 +156,31 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
     @IBOutlet weak var txtMinute: UITextField!
     @IBOutlet weak var txtSecond: UITextField!
     @IBOutlet weak var collectionResult: UICollectionView!
-
+    @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
+    
+    @objc func dismissPicker(){
+        view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        let toolBar = UIToolbar()
+        let doneButton = UIBarButtonItem(title: "完成", style: .plain, target: self, action: #selector(btnTimeSearch(_:)))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(dismissPicker))
+        
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        txtHour.inputAccessoryView = toolBar
+        txtMinute.inputAccessoryView = toolBar
+        
+        pickerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/1.8)
         
         pickerView.delegate = self
         pickerView.dataSource = self

@@ -15,8 +15,20 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        appVersion.text = "版本" + ((Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String)!)
+        appVersion.text = "版本 " + ((Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String)!)
         
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "dis"{
+            let dest = segue.destination as! DisclaimerViewController
+            dest.urlString = "https://scarletsc.net/disclaimer_glflInfo.cshtml"
+            dest.title = "Disclaimer"
+        }
+        if segue.identifier == "pp"{
+            let dest = segue.destination as! DisclaimerViewController
+            dest.urlString = "https://scarletsc.net/privacy_glflInfo.cshtml"
+            dest.title = "Privacy Policy"
+        }
     }
 
     // MARK: - Table view data source
@@ -52,15 +64,6 @@ class SettingsViewController: UITableViewController {
                 break
             }
         case 2:
-            switch indexPath.row{
-            case 0:
-                UIApplication.shared.open(URL(string: "https://gf.txwy.tw")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-            case 1:
-                UIApplication.shared.open(URL(string: "https://zh.moegirl.org/zh-tw/%e5%b0%91%e5%a5%b3%e5%89%8d%e7%ba%bf")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-            default:
-                break
-            }
-        case 3:
             switch indexPath.row{
             case 0:
                 UIApplication.shared.open(URL(string: "https://www.facebook.com/Scarlet.SC2")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)

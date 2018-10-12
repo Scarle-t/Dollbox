@@ -108,6 +108,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
             counter += 1
             constructTime += 1
             resultView.reloadData()
+            loadingWheel.stopAnimating()
             noti.impactOccurred()
         }
     }
@@ -131,12 +132,12 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
             counter += 1
             constructTime += 1
             resultView.reloadData()
+            loadingWheel.stopAnimating()
             noti.impactOccurred()
         }
     }
 
     @IBOutlet weak var resultView: UICollectionView!
-    @IBOutlet weak var sepBuildType: UISegmentedControl!
     @IBOutlet weak var mpValue: UILabel!
     @IBOutlet weak var ammoValue: UILabel!
     @IBOutlet weak var rationValue: UILabel!
@@ -149,6 +150,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
     @IBOutlet weak var ammoStep: UIStepper!
     @IBOutlet weak var rationStep: UIStepper!
     @IBOutlet weak var partsSetp: UIStepper!
+    @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
     @IBAction func slideChange(_ sender: UISlider) {
         switch sender.tag{
         case 0:
@@ -181,7 +183,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
         totalUsedParts += parts
         totalUsedRation += ration
         totalUsedManPower += manPower
-        
+        loadingWheel.startAnimating()
         if localDB().readSettings()[0]{
             selectLocal(types: pickType().pick(total: total, manPower: manPower, ammo: ammo, ration: ration, parts: parts))
         }else{

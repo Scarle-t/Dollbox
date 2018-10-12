@@ -7,16 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A602FBD3216D91B500512D7D /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602FBD2216D91B500512D7D /* Notice.swift */; };
+		A602FBD5216D924900512D7D /* getNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602FBD4216D924900512D7D /* getNotice.swift */; };
+		A602FBD7216D97D600512D7D /* noticeCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A602FBD6216D97D600512D7D /* noticeCellCollectionViewCell.swift */; };
 		A60D4653209FC985003D85D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60D4651209FC985003D85D3 /* Main.storyboard */; };
 		A60D4655209FC986003D85D3 /* Assests.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60D4654209FC986003D85D3 /* Assests.xcassets */; };
 		A60D4658209FC986003D85D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60D4656209FC986003D85D3 /* LaunchScreen.storyboard */; };
 		A610868920C1A595006DF67E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A610868820C1A595006DF67E /* libsqlite3.tbd */; };
+		A61CA2CD216DC4BF0013F95B /* noticeEnlargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61CA2CC216DC4BF0013F95B /* noticeEnlargeViewController.swift */; };
 		A642306620AA92C9008622B4 /* getSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642306520AA92C9008622B4 /* getSearchResult.swift */; };
 		A642306820AA93D2008622B4 /* TDoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642306720AA93D2008622B4 /* TDoll.swift */; };
 		A642306A20ABA235008622B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A642306920ABA235008622B4 /* Assets.xcassets */; };
 		A65B259520A658660036BC39 /* iPhone678.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A65B259420A658660036BC39 /* iPhone678.storyboard */; };
 		A661B45820AA26E800F9ED2F /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A661B45720AA26E800F9ED2F /* NotificationCenter.framework */; };
 		A661B45E20AA26E800F9ED2F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A661B45C20AA26E800F9ED2F /* MainInterface.storyboard */; };
+		A6683E84216F388300310DB5 /* DisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6683E83216F388300310DB5 /* DisclaimerViewController.swift */; };
 		A67B50EF21487A8800A7D4E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D464D209FC985003D85D3 /* AppDelegate.swift */; };
 		A67B50F021487A8B00A7D4E1 /* sqlite.h in Sources */ = {isa = PBXBuildFile; fileRef = A610868A20C1A608006DF67E /* sqlite.h */; };
 		A67B50F121487A9600A7D4E1 /* SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610868B20C1A7E4006DF67E /* SQLite.swift */; };
@@ -50,6 +55,7 @@
 		A69E75B4214EF366001FE25F /* setupLocalDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E75B3214EF366001FE25F /* setupLocalDB.swift */; };
 		A69E75B6214EF545001FE25F /* downloadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E75B5214EF545001FE25F /* downloadData.swift */; };
 		A69ED25F21532CD400BD63BD /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ED25E21532CD400BD63BD /* ParentViewController.swift */; };
+		A6C1C840216DA51300E6B548 /* noticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C83F216DA51300E6B548 /* noticeDetailViewController.swift */; };
 		A6D6B00421398E7700F2C7AD /* small.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D6B00321398E7700F2C7AD /* small.storyboard */; };
 		A6DFF943215FA32900FE5407 /* GLFL Info Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A661B45520AA26E800F9ED2F /* GLFL Info Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A6E830082152E04E009337A8 /* selectDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E830072152E04E009337A8 /* selectDevice.swift */; };
@@ -83,6 +89,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A602FBD2216D91B500512D7D /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
+		A602FBD4216D924900512D7D /* getNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getNotice.swift; sourceTree = "<group>"; };
+		A602FBD6216D97D600512D7D /* noticeCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noticeCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		A60D464A209FC985003D85D3 /* Girl Frontline Info.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Girl Frontline Info.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60D464D209FC985003D85D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A60D464F209FC985003D85D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +105,7 @@
 		A610868B20C1A7E4006DF67E /* SQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLite.swift; sourceTree = "<group>"; };
 		A6185FB820B9C82800A5D83B /* BuildSimulatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildSimulatorViewController.swift; sourceTree = "<group>"; };
 		A6185FBA20B9C84400A5D83B /* TeamSimulatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSimulatorViewController.swift; sourceTree = "<group>"; };
+		A61CA2CC216DC4BF0013F95B /* noticeEnlargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noticeEnlargeViewController.swift; sourceTree = "<group>"; };
 		A61D153D21484FBA005D7EDE /* setNavBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setNavBarColor.swift; sourceTree = "<group>"; };
 		A61D153F214861A9005D7EDE /* pickType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickType.swift; sourceTree = "<group>"; };
 		A61D154121486A54005D7EDE /* allViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +126,7 @@
 		A661B45D20AA26E800F9ED2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		A661B45F20AA26E800F9ED2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A661B46720AA270000F9ED2F /* GLFL Info Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GLFL Info Widget.entitlements"; sourceTree = "<group>"; };
+		A6683E83216F388300310DB5 /* DisclaimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerViewController.swift; sourceTree = "<group>"; };
 		A66D426B20FCCD8E002CDC54 /* Plist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
 		A66D426D20FCD8FB002CDC54 /* Testing.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Testing.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A67208B020EA3C3B000A58B3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +137,7 @@
 		A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTDollViewController.swift; sourceTree = "<group>"; };
 		A6BB3BB120A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildtimeSearchCollectionViewController.swift; sourceTree = "<group>"; };
 		A6BB3BB320A3B6E40094C06C /* ResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		A6C1C83F216DA51300E6B548 /* noticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noticeDetailViewController.swift; sourceTree = "<group>"; };
 		A6D6B00321398E7700F2C7AD /* small.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = small.storyboard; sourceTree = "<group>"; };
 		A6E5BEE020C1895D00B1D01E /* TutorialPagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPagesViewController.swift; sourceTree = "<group>"; };
 		A6E5BEE220C19CE500B1D01E /* TutorialEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEndViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +266,9 @@
 				A60D464F209FC985003D85D3 /* ViewController.swift */,
 				A61D154121486A54005D7EDE /* allViewController.swift */,
 				A69ED25E21532CD400BD63BD /* ParentViewController.swift */,
+				A6C1C83F216DA51300E6B548 /* noticeDetailViewController.swift */,
+				A61CA2CC216DC4BF0013F95B /* noticeEnlargeViewController.swift */,
+				A6683E83216F388300310DB5 /* DisclaimerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -270,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				A6F2958820A05E0800239089 /* TDoll.swift */,
+				A602FBD2216D91B500512D7D /* Notice.swift */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -278,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				A6BB3BB320A3B6E40094C06C /* ResultCollectionViewCell.swift */,
+				A602FBD6216D97D600512D7D /* noticeCellCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -295,6 +312,7 @@
 				A69E75B3214EF366001FE25F /* setupLocalDB.swift */,
 				A69E75B5214EF545001FE25F /* downloadData.swift */,
 				A6E830072152E04E009337A8 /* selectDevice.swift */,
+				A602FBD4216D924900512D7D /* getNotice.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -438,14 +456,20 @@
 				A67B50F221487A9600A7D4E1 /* Plist.swift in Sources */,
 				A67B50F321487A9600A7D4E1 /* Version.swift in Sources */,
 				A67B50F421487A9600A7D4E1 /* getSearchResult.swift in Sources */,
+				A6C1C840216DA51300E6B548 /* noticeDetailViewController.swift in Sources */,
 				A67B50F521487A9600A7D4E1 /* DownloadPhoto.swift in Sources */,
 				A67B50F621487A9600A7D4E1 /* setNavBarColor.swift in Sources */,
 				A67B50F721487A9600A7D4E1 /* pickType.swift in Sources */,
 				A67B50F921487A9600A7D4E1 /* ResultCollectionViewCell.swift in Sources */,
 				A67B50FA21487A9600A7D4E1 /* Session.swift in Sources */,
 				A67B50FB21487A9600A7D4E1 /* BuildSimulatorViewController.swift in Sources */,
+				A602FBD3216D91B500512D7D /* Notice.swift in Sources */,
 				A67B50FC21487A9600A7D4E1 /* BuildStatsViewController.swift in Sources */,
+				A6683E84216F388300310DB5 /* DisclaimerViewController.swift in Sources */,
+				A602FBD5216D924900512D7D /* getNotice.swift in Sources */,
+				A61CA2CD216DC4BF0013F95B /* noticeEnlargeViewController.swift in Sources */,
 				A67B50FD21487A9600A7D4E1 /* BuildtimeSearchCollectionViewController.swift in Sources */,
+				A602FBD7216D97D600512D7D /* noticeCellCollectionViewCell.swift in Sources */,
 				A67B50FE21487A9600A7D4E1 /* CategoryViewController.swift in Sources */,
 				A67B50FF21487A9600A7D4E1 /* OfflineSettingsViewController.swift in Sources */,
 				A69E75B4214EF366001FE25F /* setupLocalDB.swift in Sources */,
@@ -653,7 +677,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Girl Frontline Info/sqlite.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -677,7 +701,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Girl Frontline Info/sqlite.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
