@@ -572,14 +572,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rTG-ST-QzG">
+                            <imageView hidden="YES" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rTG-ST-QzG">
                                 <rect key="frame" x="0.0" y="44" width="375" height="349"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="HD2-XR-rkG" appends="YES" id="1dS-29-ODA"/>
                                 </connections>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cZs-R5-BM8">
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cZs-R5-BM8">
                                 <rect key="frame" x="16" y="401" width="343" height="230"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="230" id="bhI-zR-09N"/>
@@ -588,19 +588,19 @@
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動時間: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ehb-YC-kbk">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動時間: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ehb-YC-kbk">
                                 <rect key="frame" x="16" y="659.66666666666663" width="74.333333333333329" height="17.333333333333371"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BV-No-Njq">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BV-No-Njq">
                                 <rect key="frame" x="98.333333333333343" y="659.66666666666663" width="260.66666666666663" height="17.333333333333371"/>
                                 <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1J-7B-T3p">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1J-7B-T3p">
                                 <rect key="frame" x="281" y="685" width="78" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="...查看更多">
@@ -646,7 +646,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NG1-eg-RIJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="HD2-XR-rkG">
                     <connections>
-                        <segue destination="t7J-nI-TEo" kind="showDetail" id="MO0-eT-4JV"/>
+                        <action selector="imgTap:" destination="0WR-7X-JgQ" id="gBa-fh-lX6"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -655,7 +655,7 @@
         <!--稀有度-->
         <scene sceneID="HVY-uf-qfy">
             <objects>
-                <viewController id="IuS-Gc-L4i" customClass="StarSearchViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="starSearchV" id="IuS-Gc-L4i" customClass="StarSearchViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MV5-yU-szP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -768,7 +768,7 @@
         <!--種類-->
         <scene sceneID="LiU-Y9-nSv">
             <objects>
-                <viewController id="hEM-iF-jNv" customClass="typeViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="typeSearchV" id="hEM-iF-jNv" customClass="typeViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9H9-ur-TYE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -882,7 +882,7 @@
         <!--Build Simulator View Controller-->
         <scene sceneID="ogB-sK-6mQ">
             <objects>
-                <viewController id="UgS-g8-kjT" customClass="BuildSimulatorViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="buildSimV" id="UgS-g8-kjT" customClass="BuildSimulatorViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DPr-27-eUh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1521,7 +1521,7 @@
         <!--Team Simulator View Controller-->
         <scene sceneID="Jg8-3G-hDd">
             <objects>
-                <viewController id="Peq-bT-Ewa" customClass="TeamSimulatorViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="teamSimV" id="Peq-bT-Ewa" customClass="TeamSimulatorViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MPg-UB-H4R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2224,7 +2224,7 @@ Available on App Store</string>
         <!--Notice Enlarge View Controller-->
         <scene sceneID="edo-9H-mbQ">
             <objects>
-                <viewController wantsFullScreenLayout="YES" hidesBottomBarWhenPushed="YES" id="t7J-nI-TEo" customClass="noticeEnlargeViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="imgView" wantsFullScreenLayout="YES" hidesBottomBarWhenPushed="YES" id="t7J-nI-TEo" customClass="noticeEnlargeViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jwZ-o5-Px5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2294,7 +2294,7 @@ Available on App Store</string>
         <!--Buildtime Search Collection View Controller-->
         <scene sceneID="48g-bi-OYS">
             <objects>
-                <viewController id="yn7-Fx-9da" customClass="BuildtimeSearchCollectionViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="timeSearchV" id="yn7-Fx-9da" customClass="BuildtimeSearchCollectionViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V3y-Rc-JJF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2363,7 +2363,7 @@ Available on App Store</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5eD-Xx-lt8">
-                                                    <rect key="frame" x="8" y="174" width="88" height="17.333333333333343"/>
+                                                    <rect key="frame" x="8" y="174" width="88" height="20"/>
                                                     <fontDescription key="fontDescription" name="Mohave" family="Mohave" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2412,7 +2412,6 @@ Available on App Store</string>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="k6G-tO-qRo" firstAttribute="bottom" secondItem="HzI-Ju-5X0" secondAttribute="bottom" constant="49" id="2M3-MP-qqd"/>
-                            <constraint firstItem="D9Z-g8-RoB" firstAttribute="leading" secondItem="HzI-Ju-5X0" secondAttribute="leading" constant="308" id="2rK-n2-KPr"/>
                             <constraint firstItem="EwK-GG-uFa" firstAttribute="centerX" secondItem="V3y-Rc-JJF" secondAttribute="centerX" id="5yg-7q-gZR"/>
                             <constraint firstItem="EwK-GG-uFa" firstAttribute="top" secondItem="HzI-Ju-5X0" secondAttribute="top" constant="61" id="6rv-np-FFM"/>
                             <constraint firstItem="k6G-tO-qRo" firstAttribute="top" secondItem="B23-k1-HzW" secondAttribute="bottom" constant="7.9999999999999432" id="776-TT-Rtq"/>
@@ -2422,12 +2421,10 @@ Available on App Store</string>
                             <constraint firstItem="D9Z-g8-RoB" firstAttribute="top" secondItem="Api-pF-p7E" secondAttribute="bottom" constant="9" id="DOb-ww-Bl8"/>
                             <constraint firstItem="CSJ-B0-HvG" firstAttribute="leading" secondItem="HzI-Ju-5X0" secondAttribute="leading" constant="78" id="GxS-bc-nXN"/>
                             <constraint firstItem="CSJ-B0-HvG" firstAttribute="top" secondItem="xq6-5Z-jGU" secondAttribute="bottom" constant="7.6666666666666572" id="Ima-v7-c3U"/>
-                            <constraint firstItem="HzI-Ju-5X0" firstAttribute="trailing" secondItem="xq6-5Z-jGU" secondAttribute="trailing" constant="274" id="K8a-6y-1vT"/>
                             <constraint firstItem="Api-pF-p7E" firstAttribute="leading" secondItem="EwK-GG-uFa" secondAttribute="trailing" constant="8" id="T8i-s4-1v0"/>
                             <constraint firstItem="Ngf-dc-CO6" firstAttribute="top" secondItem="D9Z-g8-RoB" secondAttribute="bottom" constant="21" id="Tsi-fc-zOW"/>
                             <constraint firstItem="HzI-Ju-5X0" firstAttribute="trailing" secondItem="D9Z-g8-RoB" secondAttribute="trailing" constant="16" id="V0q-ug-oco"/>
                             <constraint firstItem="HzI-Ju-5X0" firstAttribute="trailing" secondItem="k6G-tO-qRo" secondAttribute="trailing" id="VdR-zI-VM7"/>
-                            <constraint firstItem="HzI-Ju-5X0" firstAttribute="trailing" secondItem="Ngf-dc-CO6" secondAttribute="trailing" constant="263" id="cuY-V0-W4u"/>
                             <constraint firstItem="xq6-5Z-jGU" firstAttribute="leading" secondItem="HzI-Ju-5X0" secondAttribute="leading" constant="16" id="ha2-d6-r8F"/>
                             <constraint firstItem="k6G-tO-qRo" firstAttribute="top" secondItem="HzI-Ju-5X0" secondAttribute="top" constant="190.33333333333326" id="jPD-3Z-X0q"/>
                             <constraint firstItem="EwK-GG-uFa" firstAttribute="leading" secondItem="CSJ-B0-HvG" secondAttribute="trailing" constant="9" id="jhl-it-ZNn"/>
@@ -3144,7 +3141,7 @@ Available on App Store</string>
         <!--全圖鑑-->
         <scene sceneID="CXS-TV-dha">
             <objects>
-                <viewController id="Eqz-Iz-7eM" customClass="allViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="allSearchV" id="Eqz-Iz-7eM" customClass="allViewController" customModule="Girl_Frontline_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zfk-JX-Zpw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3365,8 +3362,7 @@ Available on App Store</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="S9S-9v-H1I"/>
-        <segue reference="MO0-eT-4JV"/>
         <segue reference="Dfc-68-Yr9"/>
-        <segue reference="H8J-Pv-DAR"/>
+        <segue reference="Ztd-Uf-13x"/>
     </inferredMetricsTieBreakers>
 </document>

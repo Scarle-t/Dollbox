@@ -12,6 +12,7 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
     
     let notice = getNotice()
     let imgCache = Session.sharedInstance.imgSession
+    let detailNCs = NSMutableArray()
     let detailVCs = NSMutableArray()
     
     var feedItems = NSArray()
@@ -40,15 +41,32 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
         let fs = self.storyboard?.instantiateViewController(withIdentifier: "teamSim") as! UINavigationController
         let no = self.storyboard?.instantiateViewController(withIdentifier: "notice") as! noticeDetailViewController
         
-        detailVCs.add(no)
-        detailVCs.add(ts)
-        detailVCs.add(ss)
-        detailVCs.add(tps)
-        detailVCs.add(all)
-        detailVCs.add(bs)
-        detailVCs.add(fs)
+        let tsv = self.storyboard?.instantiateViewController(withIdentifier: "timeSearchV") as! BuildtimeSearchCollectionViewController
+        let ssv = self.storyboard?.instantiateViewController(withIdentifier: "starSearchV") as! StarSearchViewController
+        let tpsv = self.storyboard?.instantiateViewController(withIdentifier: "typeSearchV") as! typeViewController
+        let allv = self.storyboard?.instantiateViewController(withIdentifier: "allSearchV") as! allViewController
+        let bsv = self.storyboard?.instantiateViewController(withIdentifier: "buildSimV") as! BuildSimulatorViewController
+        let fsv = self.storyboard?.instantiateViewController(withIdentifier: "teamSimV") as! TeamSimulatorViewController
         
-        self.splitViewController?.viewControllers[1] = detailVCs[1] as! UIViewController
+        detailNCs.add(no)
+        detailNCs.add(ts)
+        detailNCs.add(ss)
+        detailNCs.add(tps)
+        detailNCs.add(all)
+        detailNCs.add(bs)
+        detailNCs.add(fs)
+        
+        detailVCs.add(no)
+        detailVCs.add(tsv)
+        detailVCs.add(ssv)
+        detailVCs.add(tpsv)
+        detailVCs.add(allv)
+        detailVCs.add(bsv)
+        detailVCs.add(fsv)
+        
+        if (self.splitViewController?.viewControllers.count)! > 1 {
+            self.splitViewController?.viewControllers[1] = detailNCs[1] as! UIViewController
+        }
         
         noticeList.delegate = self
         noticeList.dataSource = self
@@ -68,25 +86,6 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "noticeSegue"{
-            var selectedNotice = Notice()
-            
-            let detailVC  = segue.destination as! noticeDetailViewController
-            if let sender = sender as? UICollectionViewCell{
-                let indexPath = self.noticeList.indexPath(for: sender)
-                selectedNotice = feedItems[(indexPath?.row)!] as! Notice
-            }
-            
-            detailVC.selectedNotice = selectedNotice
-            if let imgPath = selectedNotice.cover{
-                detailVC.selectedImg = imgCache.object(forKey: URL(string: "https://scarletsc.net/girlfrontline/img/notice/\(imgPath)") as AnyObject) as? UIImage
-            }
-            self.splitViewController?.viewControllers[1] = detailVCs[0] as! UIViewController
-        }
-        
-    }
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -102,16 +101,24 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
         }
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var item = 0
         switch indexPath.section {
         case 0:
-            self.splitViewController?.viewControllers[1] = detailVCs[indexPath.row + 1] as! UINavigationController
+            item = indexPath.row + 1
         case 1:
-            self.splitViewController?.viewControllers[1] = detailVCs[indexPath.row + 2] as! UINavigationController
+            item = indexPath.row + 2
         case 2:
-            self.splitViewController?.viewControllers[1] = detailVCs[indexPath.row + 5] as! UINavigationController
+            item = indexPath.row + 5
         default:
             break
         }
+        
+        if (self.splitViewController?.viewControllers.count)! > 1{
+            self.splitViewController?.viewControllers[1] = detailNCs[item] as! UINavigationController
+        }else{
+            self.navigationController?.pushViewController(detailVCs[item] as! UIViewController, animated: true)
+        }
+        
     }
     
     // MARK: - Collection view data source
@@ -152,17 +159,21 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
         return myCell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailVC = detailVCs[0] as! noticeDetailViewController
+        let detailVC = detailNCs[0] as! noticeDetailViewController
         
         var selectedNotice = Notice()
         selectedNotice = feedItems[indexPath.row] as! Notice
         
-        detailVC.selectedNotice = selectedNotice
+        Session.sharedInstance.selectedNotice = selectedNotice
         if let imgPath = selectedNotice.cover{
-            detailVC.selectedImg = imgCache.object(forKey: URL(string: "https://scarletsc.net/girlfrontline/img/notice/\(imgPath)") as AnyObject) as? UIImage
+            Session.sharedInstance.selectedNoticeImg = imgCache.object(forKey: URL(string: "https://scarletsc.net/girlfrontline/img/notice/\(imgPath)") as AnyObject) as! UIImage
         }
-        self.splitViewController?.viewControllers[1] = detailVC
-        
+        if (self.splitViewController?.viewControllers.count)! > 1{
+            self.splitViewController?.viewControllers[1] = detailVC
+            detailVC.viewDidAppear(true)
+        }else{
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
     }
 
 }

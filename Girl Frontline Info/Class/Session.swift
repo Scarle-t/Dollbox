@@ -13,13 +13,11 @@ class Session {
     static let sharedInstance = Session()
     
     var imgSession = NSCache<AnyObject, AnyObject>()
-    
     var selectedTDoll = TDoll()
-    
     var selectedTDImage = UIImage()
-    
     var selected: Bool = false
-    
+    var selectedNotice = Notice()
+    var selectedNoticeImg = UIImage()
     var db: SQLiteConnect?
     
     func loadImgSession() -> NSCache<AnyObject, AnyObject>{
