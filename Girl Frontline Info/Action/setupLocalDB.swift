@@ -451,7 +451,24 @@ class localDB: NSObject, VersionProtocol {
         self.delegate?.returndData(items: equips)
     }
     func search_e(sql: String){
-        
+        db = Session.sharedInstance.db
+        let equips = NSMutableArray()
+        if let mydb = db{
+            let statement = mydb.fetch(sql)
+            while sqlite3_step(statement) == SQLITE_ROW{
+                let equip = Equipment()
+                equip.name = String(cString: sqlite3_column_text(statement, 0))
+                equip.type = String(cString: sqlite3_column_text(statement, 1))
+                equip.star = Int(sqlite3_column_int(statement, 2))
+                equip.build_time = String(cString: sqlite3_column_text(statement, 3))
+                equip.stat = String(cString: sqlite3_column_text(statement, 4))
+                equip.obtain_method = String(cString: sqlite3_column_text(statement, 5))
+                equip.cover = String(cString: sqlite3_column_text(statement, 6))
+                equip.EID = Int(sqlite3_column_int(statement, 7))
+                equips.add(equip)
+            }
+        }
+        self.delegate?.returndData(items: equips)
     }
     func readVersion(){
         let verArray = NSMutableArray()

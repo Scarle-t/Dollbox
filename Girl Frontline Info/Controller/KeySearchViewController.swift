@@ -198,9 +198,19 @@ class KeySearchViewController: UIViewController, UISearchBarDelegate, UICollecti
             default:
                 break
             }
-            let value = searchBar.text!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-            searchTDoll.urlPath = "https://dollbox.scarletsc.net/search?field=\(field)&value=\(value)&s"
-            searchTDoll.downloadItems()
+            
+            if localSearch.readSettings()[0]{
+                let value = "'%" + searchBar.text! + "%'"
+                let sql = "select * from info inner join buff on buff.ID = info.ID inner join consumption on consumption.ID = info.ID inner join obtain on obtain.ID = info.ID inner join skill on skill.ID = info.ID inner join stats on stats.ID = info.ID where \(field) LIKE \(value)"
+                print(sql)
+                localSearch.search(sql: sql)
+            }else{
+                let value = searchBar.text!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+                searchTDoll.urlPath = "https://dollbox.scarletsc.net/search?field=\(field)&value=\(value)&s"
+                searchTDoll.downloadItems()
+            }
+            
+            
         case 1:
             switch searchBar.selectedScopeButtonIndex{
             case 0:
@@ -216,7 +226,10 @@ class KeySearchViewController: UIViewController, UISearchBarDelegate, UICollecti
             }
             
             if localSearch.readSettings()[0]{
-                
+                let value = "'%" + searchBar.text! + "%'"
+                let sql = "SELECT * from info_e where \(field) LIKE \(value)"
+                print(sql)
+                localSearch.search_e(sql: sql)
             }else{
                 let value = searchBar.text!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
                 searchEquip.urlPath = "https://dollbox.scarletsc.net/search_e?field=\(field)&value=\(value)&s"
