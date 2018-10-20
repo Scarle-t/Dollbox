@@ -20,7 +20,7 @@ class Version: NSObject, URLSessionDataDelegate {
     
     var delegate: VersionProtocol!
     var data = Data()
-    var urlPath: String = "https://scarletsc.net/girlfrontline/getVersion.php"
+    var urlPath: String = "https://dollbox.scarletsc.net/getVersion.php"
     var defaultSession = URLSession()
     
     func parseJSON(_ data:Data) {

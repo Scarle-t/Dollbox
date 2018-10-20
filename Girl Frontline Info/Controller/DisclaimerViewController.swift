@@ -35,11 +35,19 @@ class DisclaimerViewController: UIViewController, WKNavigationDelegate {
 
         // Do any additional setup after loading the view.
         webView.navigationDelegate = self
-        webView.load(URLRequest(url: URL(string: urlString!)!))
         webView.allowsBackForwardNavigationGestures = true
         bkwdBtn.isEnabled = false
         fwdBtn.isEnabled = false
         refreshBtn.isEnabled = false
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        webView.isHidden = false
+        webView.load(URLRequest(url: URL(string: urlString!)!))
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        webView.isHidden = true
     }
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         refreshBtn.isEnabled = false

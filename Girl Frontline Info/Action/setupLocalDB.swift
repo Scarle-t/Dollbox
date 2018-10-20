@@ -96,6 +96,16 @@ class localDB: NSObject, VersionProtocol {
                 "efficiency integer",
                 "ID text primary key"
                 ])
+            let _ = mydb.createTable("info_e", columnsInfo: [
+                "Name text",
+                "Type text",
+                "Star integer",
+                "Build_Time text",
+                "Stat text",
+                "Obtain_Method text",
+                "cover text",
+                "EID integer"
+                ])
             let _ = mydb.createTable("settings", columnsInfo: [
                 "isOffline integer",
                 "isFirstTime integer"
@@ -121,6 +131,7 @@ class localDB: NSObject, VersionProtocol {
             let _ = mydb.delete("obtain", cond: nil)
             let _ = mydb.delete("consumption", cond: nil)
             let _ = mydb.delete("skill", cond: nil)
+            let _ = mydb.delete("info_e", cond: nil)
             let _ = mydb.update("dataversion", cond: nil, rowInfo: [
                 "local_last" : "' '",
                 "local_version" : "0"
@@ -398,6 +409,49 @@ class localDB: NSObject, VersionProtocol {
             }
         }
         self.delegate?.returndData(items: tdolls)
+    }
+    func search_e(star: String){
+        db = Session.sharedInstance.db
+        let equips = NSMutableArray()
+        if let mydb = db{
+            let statement = mydb.fetch("info_e", cond: "Star = " + star, order: nil)
+            while sqlite3_step(statement) == SQLITE_ROW{
+                let equip = Equipment()
+                equip.name = String(cString: sqlite3_column_text(statement, 0))
+                equip.type = String(cString: sqlite3_column_text(statement, 1))
+                equip.star = Int(sqlite3_column_int(statement, 2))
+                equip.build_time = String(cString: sqlite3_column_text(statement, 3))
+                equip.stat = String(cString: sqlite3_column_text(statement, 4))
+                equip.obtain_method = String(cString: sqlite3_column_text(statement, 5))
+                equip.cover = String(cString: sqlite3_column_text(statement, 6))
+                equip.EID = Int(sqlite3_column_int(statement, 7))
+                equips.add(equip)
+            }
+        }
+        self.delegate?.returndData(items: equips)
+    }
+    func search_e(time: String){
+        db = Session.sharedInstance.db
+        let equips = NSMutableArray()
+        if let mydb = db{
+            let statement = mydb.fetch("info_e", cond: "Build_Time = " + time, order: nil)
+            while sqlite3_step(statement) == SQLITE_ROW{
+                let equip = Equipment()
+                equip.name = String(cString: sqlite3_column_text(statement, 0))
+                equip.type = String(cString: sqlite3_column_text(statement, 1))
+                equip.star = Int(sqlite3_column_int(statement, 2))
+                equip.build_time = String(cString: sqlite3_column_text(statement, 3))
+                equip.stat = String(cString: sqlite3_column_text(statement, 4))
+                equip.obtain_method = String(cString: sqlite3_column_text(statement, 5))
+                equip.cover = String(cString: sqlite3_column_text(statement, 6))
+                equip.EID = Int(sqlite3_column_int(statement, 7))
+                equips.add(equip)
+            }
+        }
+        self.delegate?.returndData(items: equips)
+    }
+    func search_e(sql: String){
+        
     }
     func readVersion(){
         let verArray = NSMutableArray()

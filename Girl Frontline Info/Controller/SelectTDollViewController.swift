@@ -67,8 +67,8 @@ class SelectTDollViewController: UIViewController, UICollectionViewDataSource, U
             }
         }else{
             if let photo_path = item.photo_path{
-                let urlString = URL(string: "https://scarletsc.net/girlfrontline/img/\(photo_path)")
-                let url = URL(string: "https://scarletsc.net/girlfrontline/img/\(photo_path)")
+                let urlString = URL(string: "https://dollbox.scarletsc.net/img/\(photo_path)")
+                let url = URL(string: "https://dollbox.scarletsc.net/img/\(photo_path)")
                 
                 if let imageFromCache = self.imgCache.object(forKey: url as AnyObject) as? UIImage{
                     myCell.imgResult.image = imageFromCache
@@ -480,7 +480,7 @@ class SelectTDollViewController: UIViewController, UICollectionViewDataSource, U
         if localDB().readSettings()[0] {
             localSearch.search()
         }else{
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/allTDoll.php"
+            searchResult.urlPath = "https://dollbox.scarletsc.net/allTDoll.php"
             searchResult.downloadItems()
         }
         lpgr.minimumPressDuration = 0.3

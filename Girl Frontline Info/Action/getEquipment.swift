@@ -1,64 +1,67 @@
 //
-//  getNotice.swift
+//  getEquipment.swift
 //  Girl Frontline Info
 //
-//  Created by Scarlet on 10/10/2018.
+//  Created by Scarlet on 15/10/2018.
 //  Copyright © 2018 Scarlet. All rights reserved.
 //
 
 import UIKit
 
-protocol noticeDelegate: class{
-    func returnItems(items: NSArray)
+protocol getEquipmentDelegate: class{
+    func itemsDownloaded(items: NSArray)
 }
 
-class getNotice: NSObject {
+class getEquipment: NSObject {
     
-    weak var delegate: noticeDelegate!
+    weak var delegate: getEquipmentDelegate!
     var data = Data()
-    var urlPath: String = "https://dollbox.scarletsc.net/getNotice.php"
+    var urlPath: String = ""
     
     func parseJSON(_ data:Data) {
-        let notices = NSMutableArray()
         
         var jsonResult = NSArray()
         var jsonElement = NSDictionary()
+        let Equipments = NSMutableArray()
         
         do{
             jsonResult = try JSONSerialization.jsonObject(with: data, options:JSONSerialization.ReadingOptions.allowFragments) as! NSArray
         } catch let error as NSError {
             print(error)
         }
+        
         for i in 0 ..< jsonResult.count
         {
-            let notice = Notice()
             jsonElement = jsonResult[i] as! NSDictionary
-            //the following insures none of the JsonElement values are nil through optional binding
-            if let title = jsonElement["Title"] as? String{
-                notice.title = title
+            let equipment = Equipment()
+            if let name = jsonElement["Name"] as? String{
+                equipment.name = name
             }
-            if let content = jsonElement["Content"] as? String{
-                notice.content = content
+            if let type = jsonElement["Type"] as? String{
+                equipment.type = type
             }
-            if let st = jsonElement["Start_time"] as? String{
-                notice.start_time = st
+            if let star = jsonElement["Star"] as? Int{
+                equipment.star = star
             }
-            if let et = jsonElement["End_time"] as? String{
-                notice.end_time = et
+            if let build_time = jsonElement["Build_Time"] as? String{
+                equipment.build_time = build_time
+            }
+            if let obtain_method = jsonElement["Obtain_Method"] as? String{
+                equipment.obtain_method = obtain_method
+            }
+            if let stat = jsonElement["Stat"] as? String{
+                equipment.stat = stat
             }
             if let cover = jsonElement["cover"] as? String{
-                notice.cover = cover
+                equipment.cover = cover
             }
-            if let link = jsonElement["link"] as? String{
-                notice.link = link
+            if let eid = jsonElement["EID"] as? Int{
+                equipment.EID = eid
             }
-            if let nid = jsonElement["NID"] as? Int{
-                notice.NID = nid
-            }
-            notices.add(notice)
+            Equipments.add(equipment)
         }
         DispatchQueue.main.async(execute: { () -> Void in
-            self.delegate.returnItems(items: notices)
+            self.delegate.itemsDownloaded(items: Equipments)
         })
     }
     func downloadItems() {

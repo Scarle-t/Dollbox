@@ -47,7 +47,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     @IBOutlet weak var listResult: UITableView!
     @IBAction func btnSearch(_ sender: UIButton) {
         searchResult.delegate = self
-        searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?hour=\(hr)&minute=\(min)&second=\(sec)"
+        searchResult.urlPath = "https://dollbox.scarletsc.net/search.php?hour=\(hr)&minute=\(min)&second=\(sec)"
         searchResult.downloadItems()
     }
     @IBAction func btnHr(_ sender: UIButton) {

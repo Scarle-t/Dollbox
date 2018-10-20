@@ -34,33 +34,33 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
         self.splitViewController?.preferredDisplayMode = .allVisible
         
         let ts = self.storyboard?.instantiateViewController(withIdentifier: "timeSearch") as! UINavigationController
+        let ks = self.storyboard?.instantiateViewController(withIdentifier: "keySearch") as! UINavigationController
         let ss = self.storyboard?.instantiateViewController(withIdentifier: "starSearch") as! UINavigationController
-        let tps = self.storyboard?.instantiateViewController(withIdentifier: "typeSearch") as! UINavigationController
         let all = self.storyboard?.instantiateViewController(withIdentifier: "allSearch") as! UINavigationController
         let bs = self.storyboard?.instantiateViewController(withIdentifier: "buildSim") as! UINavigationController
         let fs = self.storyboard?.instantiateViewController(withIdentifier: "teamSim") as! UINavigationController
         let no = self.storyboard?.instantiateViewController(withIdentifier: "notice") as! noticeDetailViewController
         
         let tsv = self.storyboard?.instantiateViewController(withIdentifier: "timeSearchV") as! BuildtimeSearchCollectionViewController
-        let ssv = self.storyboard?.instantiateViewController(withIdentifier: "starSearchV") as! StarSearchViewController
-        let tpsv = self.storyboard?.instantiateViewController(withIdentifier: "typeSearchV") as! typeViewController
+        let ksv = self.storyboard?.instantiateViewController(withIdentifier: "keySearchV") as! KeySearchViewController
+        let sv = self.storyboard?.instantiateViewController(withIdentifier: "starSearchV") as! StarSearchViewController
         let allv = self.storyboard?.instantiateViewController(withIdentifier: "allSearchV") as! allViewController
         let bsv = self.storyboard?.instantiateViewController(withIdentifier: "buildSimV") as! BuildSimulatorViewController
         let fsv = self.storyboard?.instantiateViewController(withIdentifier: "teamSimV") as! TeamSimulatorViewController
         
         detailNCs.add(no)
         detailNCs.add(ts)
-        detailNCs.add(ss)
-        detailNCs.add(tps)
+        detailNCs.add(ks)
         detailNCs.add(all)
+        detailNCs.add(ss)
         detailNCs.add(bs)
         detailNCs.add(fs)
         
         detailVCs.add(no)
         detailVCs.add(tsv)
-        detailVCs.add(ssv)
-        detailVCs.add(tpsv)
+        detailVCs.add(ksv)
         detailVCs.add(allv)
+        detailVCs.add(sv)
         detailVCs.add(bsv)
         detailVCs.add(fsv)
         
@@ -92,13 +92,7 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
         return 3
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
-            return 1
-        }else if section == 1{
-            return 3
-        }else{
-            return 2
-        }
+        return 2
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var item = 0
@@ -106,7 +100,7 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
         case 0:
             item = indexPath.row + 1
         case 1:
-            item = indexPath.row + 2
+            item = indexPath.row + 3
         case 2:
             item = indexPath.row + 5
         default:
@@ -131,8 +125,8 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
         let item = feedItems[indexPath.row] as! Notice
         
         if let photo_path = item.cover{
-            let urlString = URL(string: "https://scarletsc.net/girlfrontline/img/notice/\(photo_path)")
-            let url = URL(string: "https://scarletsc.net/girlfrontline/img/notice/\(photo_path)")
+            let urlString = URL(string: "https://dollbox.scarletsc.net/img/notice/\(photo_path)")
+            let url = URL(string: "https://dollbox.scarletsc.net/img/notice/\(photo_path)")
             
             if let imageFromCache = self.imgCache.object(forKey: url as AnyObject) as? UIImage{
                 myCell.cover.image = imageFromCache
@@ -166,7 +160,7 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
         
         Session.sharedInstance.selectedNotice = selectedNotice
         if let imgPath = selectedNotice.cover{
-            Session.sharedInstance.selectedNoticeImg = imgCache.object(forKey: URL(string: "https://scarletsc.net/girlfrontline/img/notice/\(imgPath)") as AnyObject) as! UIImage
+            Session.sharedInstance.selectedNoticeImg = imgCache.object(forKey: URL(string: "https://dollbox.scarletsc.net/img/notice/\(imgPath)") as AnyObject) as! UIImage
         }
         if (self.splitViewController?.viewControllers.count)! > 1{
             self.splitViewController?.viewControllers[1] = detailVC

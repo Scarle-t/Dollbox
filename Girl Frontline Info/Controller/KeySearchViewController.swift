@@ -1,81 +1,43 @@
 //
-//  BuildtimeSearchCollectionViewController.swift
+//  KeySearchViewController.swift
 //  Girl Frontline Info
 //
-//  Created by Scarlet on 10/5/2018.
+//  Created by Scarlet on 15/10/2018.
 //  Copyright © 2018 Scarlet. All rights reserved.
 //
 
 import UIKit
 
-class BuildtimeSearchCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate ,getSearchProtocol, getEquipmentDelegate, localDBDelegate {
-
+class KeySearchViewController: UIViewController, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource, getSearchProtocol, getEquipmentDelegate {
+    
+    let searchTDoll = getSearchResult()
+    let searchEquip = getEquipment()
     let imgCache = Session.sharedInstance.imgSession
-    var pickerView = UIPickerView()
-    let searchResult = getSearchResult()
-    let searchE = getEquipment()
     let localSearch = localDB()
     let noti = UIImpactFeedbackGenerator()
     let localPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     
     var userDefaults = UserDefaults.standard
-    var feedItems : NSArray = NSArray()
-    var selectedTDoll: TDoll = TDoll()
-    var selectedEquip: Equipment = Equipment()
+    var feedItems = NSArray()
+    var selectedTDoll = TDoll()
+    var selectedEquip = Equipment()
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 2
+    func itemsDownloaded(items: NSArray) {
+        feedItems = items
+        resultList.reloadData()
     }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-
-        if component == 0{
-            return 24
-        }
-        return 60
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(row)
-    }
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        var pickerLabel: UILabel? = (view as? UILabel)
-        if pickerLabel == nil {
-            pickerLabel = UILabel()
-            pickerLabel?.font = UIFont(name: "Mohave", size: 35)
-            pickerLabel?.textAlignment = .center
-        }
-        if row < 10 {
-            pickerLabel?.text = "0" + String(row)
-        }else{
-            pickerLabel?.text = String(row)
-        }
-        
-        pickerLabel?.textColor = UIColor.black
-        
-        return pickerLabel!
-    }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch component {
-        case 0:
-            txtHour.text = String(row)
-        case 1:
-            txtMinute.text = String(row)
-        default:
-            break
-        }
-    }
-    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 50.0
-    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return feedItems.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cellIdentifier: String = "BasicCell"
-        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath as IndexPath) as! ResultCollectionViewCell
+        
+        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BasicCell", for: indexPath) as! ResultCollectionViewCell
         
         switch typeSwitch.selectedSegmentIndex{
         case 0:
-            let item: TDoll = feedItems[indexPath.row] as! TDoll
+            let item = feedItems[indexPath.row] as! TDoll
             
             if userDefaults.bool(forKey: "offlineImg"){
                 if let id = item.ID{
@@ -115,8 +77,12 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
                     }
                 }
             }
+            
             myCell.imgResult.backgroundColor = UIColor.clear
             myCell.lblResult.text = item.Zh_Name
+            
+            return myCell
+            
         case 1:
             let item: Equipment = feedItems[indexPath.row] as! Equipment
             if var photo_path = item.cover{
@@ -156,11 +122,14 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
                 myCell.imgResult.backgroundColor = UIColor.clear
             }
             myCell.lblResult.text = item.name
+            
+            return myCell
+            
         default:
             break
         }
         
-        return myCell
+        return UICollectionViewCell()
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch typeSwitch.selectedSegmentIndex{
@@ -196,129 +165,124 @@ class BuildtimeSearchCollectionViewController: UIViewController, UICollectionVie
             break
         }
     }
-    func itemsDownloaded(items: NSArray) {
-        feedItems = items
-        self.collectionResult.reloadData()
-        loadingWheel.stopAnimating()
-        noti.impactOccurred()
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.showsScopeBar = true
+        searchBar.sizeToFit()
+        searchBar.setShowsCancelButton(true, animated: true)
+        dimView.isHidden = false
+        return true
     }
-    func returndData(items: NSArray) {
-        feedItems = items
-        self.collectionResult.reloadData()
-        loadingWheel.stopAnimating()
-        noti.impactOccurred()
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.showsScopeBar = false
+        searchBar.sizeToFit()
+        searchBar.setShowsCancelButton(false, animated: true)
+        dimView.isHidden = true
+        return true
     }
-
-    @IBAction func btnTimeSearch(_ sender: Any) {
-        view.endEditing(true)
-        guard var hour = txtHour.text else {return}
-        guard var minute = txtMinute.text else {return}
-        if hour.count < 2{
-            hour = "0" + hour
-        }
-        if minute.count < 2{
-            minute = "0" + minute
-        }
-        loadingWheel.startAnimating()
-        if localDB().readSettings()[0] {
-            switch typeSwitch.selectedSegmentIndex{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        
+        var field = String()
+        
+        switch typeSwitch.selectedSegmentIndex{
+        case 0:
+            switch searchBar.selectedScopeButtonIndex{
             case 0:
-                localSearch.search(cond: "build_time = '" + hour + ":" + minute + ":00'")
+                field = "info.ID"
             case 1:
-                localSearch.search_e(time: "'" + hour + ":" + minute + ":00'")
+                field = "info.Zh_Name"
+            case 2:
+                field = "skill.name"
+            case 3:
+                field = "obtain.obtain_method"
             default:
                 break
             }
-        }else{
-            switch typeSwitch.selectedSegmentIndex{
+            let value = searchBar.text!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+            searchTDoll.urlPath = "https://dollbox.scarletsc.net/search?field=\(field)&value=\(value)&s"
+            searchTDoll.downloadItems()
+        case 1:
+            switch searchBar.selectedScopeButtonIndex{
             case 0:
-                searchResult.urlPath = "https://dollbox.scarletsc.net/search.php?hour=\(hour)&minute=\(minute)&second=00"
-                searchResult.downloadItems()
+                field = "EID"
             case 1:
-                searchE.urlPath = "https://dollbox.scarletsc.net/search_e.php?hour=\(hour)&minute=\(minute)&second=00"
-                searchE.downloadItems()
+                field = "Name"
+            case 2:
+                field = "Type"
+            case 3:
+                field = "Obtain_method"
             default:
                 break
             }
+            
+            if localSearch.readSettings()[0]{
+                
+            }else{
+                let value = searchBar.text!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+                searchEquip.urlPath = "https://dollbox.scarletsc.net/search_e?field=\(field)&value=\(value)&s"
+                searchEquip.downloadItems()
+            }
+            
+            
+        default:
+            break
         }
+        
     }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    @IBOutlet weak var dimView: UIView!
+    @IBOutlet weak var typeSwitch: UISegmentedControl!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var resultList: UICollectionView!
     @IBAction func typeChange(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex{
         case 0:
-            sender.tintColor = UIColor.init(red: 94/255, green: 155/255, blue: 77/255, alpha: 1.0)
-            btnTimeSearch(sender)
+            sender.tintColor = UIColor(red: 94/255, green: 155/255, blue: 77/255, alpha: 1.0)
+            searchBar.tintColor = UIColor(red: 94/255, green: 155/255, blue: 77/255, alpha: 1.0)
+            searchBar.scopeButtonTitles = ["ID", "名稱", "技能", "獲得方法"]
+            
         case 1:
-            sender.tintColor = UIColor.init(red: 94/255, green: 155/255, blue: 255/255, alpha: 1.0)
-            btnTimeSearch(sender)
+            sender.tintColor = UIColor(red: 94/255, green: 155/255, blue: 255/255, alpha: 1.0)
+            searchBar.tintColor = UIColor(red: 94/255, green: 155/255, blue: 255/255, alpha: 1.0)
+            searchBar.scopeButtonTitles = ["ID", "名稱", "種類", "獲得方法"]
+            
         default:
             break
         }
     }
-    @IBOutlet weak var txtHour: UITextField!
-    @IBOutlet weak var txtMinute: UITextField!
-    @IBOutlet weak var collectionResult: UICollectionView!
-    @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
-    @IBOutlet weak var typeSwitch: UISegmentedControl!
-    
-    @objc func dismissPicker(){
-        view.endEditing(true)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
-        let toolBar = UIToolbar()
-        let doneButton = UIBarButtonItem(title: "完成", style: .plain, target: self, action: #selector(btnTimeSearch(_:)))
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(dismissPicker))
-        
-        toolBar.barStyle = .default
-        toolBar.isTranslucent = true
-        toolBar.sizeToFit()
-        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-        
-        txtHour.inputAccessoryView = toolBar
-        txtMinute.inputAccessoryView = toolBar
-        
-        pickerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/1.8)
-        
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        collectionResult.delegate = self
-        collectionResult.dataSource = self
-        searchResult.delegate = self
-        searchE.delegate = self
-        localSearch.delegate = self
-        
-        txtMinute.inputView = pickerView
-        txtHour.inputView = pickerView
-        
-        self.title = "製造時間搜尋"
-        
-        setNavBarColor().white(self)
-        tabBarController?.tabBar.barTintColor = UIColor.white
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        resultList.delegate = self
+        resultList.dataSource = self
+        searchEquip.delegate = self
+        searchTDoll.delegate = self
+        searchBar.delegate = self
+        searchBar.showsScopeBar = false
+        searchBar.scopeBarBackgroundImage = UIImage.imageWithColor(color: UIColor.white)
     }
     override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewDidAppear(animated)
+        
         setNavBarColor().white(self)
-    }
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        switch typeSwitch.selectedSegmentIndex{
-        case 0:
-            return true
-        case 1:
-            return false
-        default:
-            return false
-        }
+        
     }
 
+}
+
+extension UIImage {
+    class func imageWithColor(color: UIColor) -> UIImage {
+        let rect: CGRect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 1, height: 1), false, 0)
+        color.setFill()
+        UIRectFill(rect)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
+    }
 }

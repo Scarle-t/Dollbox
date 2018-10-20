@@ -81,6 +81,11 @@ class TDollViewController: UIViewController {
             }
         }
     }
+    @IBAction func imgTap(_ sender: UITapGestureRecognizer) {
+        let detailVC  = self.storyboard?.instantiateViewController(withIdentifier: "imgView") as! noticeEnlargeViewController
+        detailVC.selectedImg = selectedImg
+        self.present(detailVC, animated: true, completion: nil)
+    }
     @IBOutlet weak var sepView: UISegmentedControl!
     @IBOutlet weak var info: UIView!
     @IBOutlet weak var consum: UIView!

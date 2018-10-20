@@ -12,10 +12,28 @@ class SettingsViewController: UITableViewController {
     
     @IBOutlet weak var appVersion: UILabel!
     
+    let detailNCs = NSMutableArray()
+    let detailVCs = NSMutableArray()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         appVersion.text = "版本 " + ((Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String)!)
+        
+        let wv = self.storyboard?.instantiateViewController(withIdentifier: "webView") as! UINavigationController
+        let sv = self.storyboard?.instantiateViewController(withIdentifier: "settings") as! UINavigationController
+        
+        
+        let wvc = self.storyboard?.instantiateViewController(withIdentifier: "webVC") as! DisclaimerViewController
+        let osv = self.storyboard?.instantiateViewController(withIdentifier: "offlineSettings") as! OfflineSettingsViewController
+        
+        wv.addChild(wvc)
+        
+        detailNCs.add(sv)
+        detailNCs.add(wv)
+        
+        detailVCs.add(osv)
+        detailVCs.add(wvc)
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -29,6 +47,11 @@ class SettingsViewController: UITableViewController {
             dest.urlString = "https://scarletsc.net/privacy_glflInfo.cshtml"
             dest.title = "Privacy Policy"
         }
+        if segue.identifier == "license"{
+            let dest = segue.destination as! DisclaimerViewController
+            dest.urlString = "https://dollbox.scarletsc.net/external_lib.html"
+            dest.title = "License"
+        }
     }
 
     // MARK: - Table view data source
@@ -41,9 +64,9 @@ class SettingsViewController: UITableViewController {
         switch section{
         case 0:
             return 1
-        case 1:
+        case 1, 3:
             return 3
-        case 2, 3:
+        case 2:
             return 2
         default:
             return 0
@@ -52,6 +75,12 @@ class SettingsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section{
+        case 0:
+            if (self.splitViewController?.viewControllers.count)! > 1{
+                self.splitViewController?.viewControllers[1] = detailNCs[0] as! UINavigationController
+            }else{
+                self.navigationController?.pushViewController(detailVCs[0] as! UIViewController, animated: true)
+            }
         case 1:
             switch indexPath.row{
             case 0:
@@ -71,6 +100,27 @@ class SettingsViewController: UITableViewController {
                 UIApplication.shared.open(URL(string: "https://scarletsc.net")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             default:
                 break
+            }
+        case 3:
+            let dest = detailVCs[1] as! DisclaimerViewController
+            switch indexPath.row{
+            case 0:
+                dest.urlString = "https://scarletsc.net/disclaimer_glflInfo.cshtml"
+                dest.title = "Disclaimer"
+            case 1:
+                dest.urlString = "https://scarletsc.net/privacy_glflInfo.cshtml"
+                dest.title = "Privacy Policy"
+            case 2:
+                dest.urlString = "https://dollbox.scarletsc.net/external_lib.html"
+                dest.title = "License"
+            default:
+                break
+            }
+            if (self.splitViewController?.viewControllers.count)! > 1{
+                self.splitViewController?.viewControllers[1] = dest
+                dest.viewDidAppear(true)
+            }else{
+                self.navigationController?.pushViewController(detailVCs[1] as! UIViewController, animated: true)
             }
         default:
             break

@@ -54,8 +54,8 @@ class allViewController: UIViewController, UICollectionViewDelegate, UICollectio
             }
         }else{
             if let photo_path = item.photo_path{
-                let urlString = URL(string: "https://scarletsc.net/girlfrontline/img/\(photo_path)")
-                let url = URL(string: "https://scarletsc.net/girlfrontline/img/\(photo_path)")
+                let urlString = URL(string: "https://dollbox.scarletsc.net/img/\(photo_path)")
+                let url = URL(string: "https://dollbox.scarletsc.net/img/\(photo_path)")
                 
                 if let imageFromCache = self.imgCache.object(forKey: url as AnyObject) as? UIImage{
                     myCell.imgResult.image = imageFromCache
@@ -156,7 +156,7 @@ class allViewController: UIViewController, UICollectionViewDelegate, UICollectio
                 localSearch.search(col: ["Stars", "type"], value: [star, type], both: true)
             }
         }else{
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php\(all)"
+            searchResult.urlPath = "https://dollbox.scarletsc.net/search.php\(all)"
             searchResult.downloadItems()
         }
         listResult.reloadData()
@@ -170,7 +170,7 @@ class allViewController: UIViewController, UICollectionViewDelegate, UICollectio
         }
         detailVC.selectedTDoll = self.selectedTDoll
         if let imgPath = self.selectedTDoll.photo_path{
-            detailVC.selectedImg = imgCache.object(forKey: URL(string: "https://scarletsc.net/girlfrontline/img/\(imgPath)") as AnyObject) as? UIImage
+            detailVC.selectedImg = imgCache.object(forKey: URL(string: "https://dollbox.scarletsc.net/img/\(imgPath)") as AnyObject) as? UIImage
         }
         if userDefaults.bool(forKey: "offlineImg"){
             if let id = self.selectedTDoll.ID{
@@ -181,8 +181,7 @@ class allViewController: UIViewController, UICollectionViewDelegate, UICollectio
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNavBarColor().white(self)
-        listResult.reloadData()
+        swipeResult()
     }
     override func viewDidLoad() {
         super.viewDidLoad()

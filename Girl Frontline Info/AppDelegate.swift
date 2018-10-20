@@ -13,13 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-//        let storyboard = selectDevice().storyboard()
-//        let tabVc = storyboard.instantiateViewController(withIdentifier: "Main") as! UITabBarController
-//        self.window?.rootViewController = tabVc
         return true
     }
 
@@ -47,38 +42,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         
-        let storyboard = selectDevice().storyboard()
-        let tabVc = self.window?.rootViewController as! UITabBarController
-        let toolsNC = storyboard.instantiateViewController(withIdentifier: "toolsNC") as! UINavigationController
-        let moreNC = storyboard.instantiateViewController(withIdentifier: "moreNC") as! UINavigationController
-        let typeSearch = storyboard.instantiateViewController(withIdentifier: "typeSearch")
-        let starSearch = storyboard.instantiateViewController(withIdentifier: "starSearch")
-        let timeSearch = storyboard.instantiateViewController(withIdentifier: "timeSearch")
-        let allSearch = storyboard.instantiateViewController(withIdentifier: "allSearch")
-        
-        tabVc.viewControllers = [toolsNC, moreNC]
-        tabVc.selectedViewController = toolsNC
-        
-        if shortcutItem.type == "net.scarletsc.Girl-Frontline-Info.TimeSearch"{
-            toolsNC.navigationController?.pushViewController(timeSearch, animated: true)
-            toolsNC.show(timeSearch, sender: self)
-            self.window?.makeKeyAndVisible()
-        }
-        if shortcutItem.type == "net.scarletsc.Girl-Frontline-Info.StarSearch"{
-            tabVc.navigationController?.pushViewController(starSearch, animated: true)
-            toolsNC.show(starSearch, sender: self)
-            self.window?.makeKeyAndVisible()
-        }
-        if shortcutItem.type == "net.scarletsc.Girl-Frontline-Info.TypeSearch"{
-            tabVc.navigationController?.pushViewController(typeSearch, animated: true)
-            toolsNC.show(typeSearch, sender: self)
-            self.window?.makeKeyAndVisible()
-        }
-        if shortcutItem.type == "net.scarletsc.Girl-Frontline-Info.AllSearch"{
-            tabVc.navigationController?.pushViewController(allSearch, animated: true)
-            toolsNC.show(allSearch, sender: self)
-            self.window?.makeKeyAndVisible()
-        }
+//        let storyboard = selectDevice().storyboard()
+//        let tabVc = self.window?.rootViewController as! UITabBarController
+//        let toolsNC = storyboard.instantiateViewController(withIdentifier: "toolsNC") as! UINavigationController
+//        let moreNC = storyboard.instantiateViewController(withIdentifier: "moreNC") as! UINavigationController
+//        let typeSearch = storyboard.instantiateViewController(withIdentifier: "typeSearch")
+//        let starSearch = storyboard.instantiateViewController(withIdentifier: "starSearch")
+//        let timeSearch = storyboard.instantiateViewController(withIdentifier: "timeSearch")
+//        let allSearch = storyboard.instantiateViewController(withIdentifier: "allSearch")
+//
+//        tabVc.viewControllers = [toolsNC, moreNC]
+//        tabVc.selectedViewController = toolsNC
+//
+//        if shortcutItem.type == "net.scarletsc.Girl-Frontline-Info.TimeSearch"{
+//            toolsNC.navigationController?.pushViewController(timeSearch, animated: true)
+//            toolsNC.show(timeSearch, sender: self)
+//            self.window?.makeKeyAndVisible()
+//        }
+//        if shortcutItem.type == "net.scarletsc.Girl-Frontline-Info.StarSearch"{
+//            tabVc.navigationController?.pushViewController(starSearch, animated: true)
+//            toolsNC.show(starSearch, sender: self)
+//            self.window?.makeKeyAndVisible()
+//        }
+//        if shortcutItem.type == "net.scarletsc.Girl-Frontline-Info.TypeSearch"{
+//            tabVc.navigationController?.pushViewController(typeSearch, animated: true)
+//            toolsNC.show(typeSearch, sender: self)
+//            self.window?.makeKeyAndVisible()
+//        }
+//        if shortcutItem.type == "net.scarletsc.Girl-Frontline-Info.AllSearch"{
+//            tabVc.navigationController?.pushViewController(allSearch, animated: true)
+//            toolsNC.show(allSearch, sender: self)
+//            self.window?.makeKeyAndVisible()
+//        }
     }
     
     var orientationLock = UIInterfaceOrientationMask.portrait

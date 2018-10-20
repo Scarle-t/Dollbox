@@ -18,6 +18,7 @@ class Session {
     var selected: Bool = false
     var selectedNotice = Notice()
     var selectedNoticeImg = UIImage()
+    var selectedLink = String()
     var db: SQLiteConnect?
     
     func loadImgSession() -> NSCache<AnyObject, AnyObject>{

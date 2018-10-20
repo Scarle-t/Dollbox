@@ -8,11 +8,11 @@
 
 import UIKit
 
-class StarSearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, getSearchProtocol, localDBDelegate {
+class StarSearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, getEquipmentDelegate, localDBDelegate {
     
     //LET
     let imgCache = Session.sharedInstance.imgSession
-    let searchResult = getSearchResult()
+    let searchResult = getEquipment()
     let localSearch = localDB()
     let noti = UIImpactFeedbackGenerator()
     let localPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -20,7 +20,7 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
     //VAR
     var userDefaults = UserDefaults.standard
     var feedItems: NSArray = NSArray()
-    var selectedTDoll: TDoll = TDoll()
+    var selectedEquip: Equipment = Equipment()
     
     //DELEGATE
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -30,12 +30,11 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
 
         let cellIdentifier: String = "BasicCell"
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath as IndexPath) as! ResultCollectionViewCell
-        let item: TDoll = feedItems[indexPath.row] as! TDoll
-        
+        let item: Equipment = feedItems[indexPath.row] as! Equipment
         if userDefaults.bool(forKey: "offlineImg"){
-            if let id = item.ID{
-                let cover = id + ".jpg"
-                let filePath = self.localPath[self.localPath.count-1].absoluteString + cover
+            if let id = item.cover{
+                let cover = id.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+                let filePath = self.localPath[self.localPath.count-1].absoluteString + cover + ".png"
                 let imgData = NSData(contentsOf: URL(string: filePath)!)
                 if let data = imgData{
                     let img = UIImage(data: data as Data)
@@ -46,9 +45,10 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
                 self.imgCache.setObject(myCell.imgResult.image ?? UIImage(), forKey: id as AnyObject)
             }
         }else{
-            if let photo_path = item.photo_path{
-                let urlString = URL(string: "https://scarletsc.net/girlfrontline/img/\(photo_path)")
-                let url = URL(string: "https://scarletsc.net/girlfrontline/img/\(photo_path)")
+            if var photo_path = item.cover{
+                photo_path = photo_path.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+                let urlString = URL(string: "https://dollbox.scarletsc.net/img/\(photo_path).png")
+                let url = URL(string: "https://dollbox.scarletsc.net/img/\(photo_path).png")
                 
                 if let imageFromCache = self.imgCache.object(forKey: url as AnyObject) as? UIImage{
                     myCell.imgResult.image = imageFromCache
@@ -70,8 +70,7 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
                 }
             }
         }
-        
-        myCell.lblResult.text = item.Zh_Name
+        myCell.lblResult.text = item.name
         return myCell
     }
     func itemsDownloaded(items: NSArray) {
@@ -120,9 +119,6 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
         case 3:
             setNavBarColor().gold(self)
             star = "5"
-        case 4:
-            setNavBarColor().purple(self)
-            star = "EXTRA"
         default:
             if let string = navBarStars.titleForSegment(
                 at: navBarStars.selectedSegmentIndex){
@@ -130,12 +126,9 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
             }
         }
         if localDB().readSettings()[0] {
-            if star == "EXTRA"{
-                star = "'EXTRA'"
-            }
-            localSearch.search(col: ["Stars"], value: [star], both: false)
+            localSearch.search_e(star: star)
         }else{
-            searchResult.urlPath = "https://scarletsc.net/girlfrontline/search.php?star=\(star)"
+            searchResult.urlPath = "https://dollbox.scarletsc.net/search_e.php?star=\(star)"
             searchResult.downloadItems()
         }
         
@@ -144,23 +137,21 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
     //VIEW CONTROLLER
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let detailVC  = segue.destination as! TDollViewController
+        let detailVC  = segue.destination as! EquipmentDetailViewController
         if let sender = sender as? UICollectionViewCell{
             let indexPath = self.listResult.indexPath(for: sender)
-            selectedTDoll = feedItems[(indexPath?.row)!] as! TDoll
+            selectedEquip = feedItems[(indexPath?.row)!] as! Equipment
         }
         
-        detailVC.selectedTDoll = self.selectedTDoll
-        if let imgPath = self.selectedTDoll.photo_path{
-            detailVC.selectedImg = imgCache.object(forKey: URL(string: "https://scarletsc.net/girlfrontline/img/\(imgPath)") as AnyObject) as? UIImage
-        }
-        if userDefaults.bool(forKey: "offlineImg"){
-            if let id = self.selectedTDoll.ID{
-                detailVC.selectedImg = imgCache.object(forKey: id as AnyObject) as? UIImage
+        detailVC.selectedEquip = self.selectedEquip
+        if var imgPath = self.selectedEquip.cover{
+            if userDefaults.bool(forKey: "offlineImg"){
+                detailVC.selectedImg = imgCache.object(forKey: imgPath as AnyObject) as? UIImage
+            }else{
+                imgPath = imgPath.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+                detailVC.selectedImg = imgCache.object(forKey: URL(string: "https://dollbox.scarletsc.net/img/\(imgPath).png") as AnyObject) as? UIImage
             }
-            
         }
-        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,6 +169,10 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
             NSAttributedString.Key.font : UIFont(name: "Mohave", size: 17)!
             ], for: UIControl.State.selected)
         
+        swipeResult()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         swipeResult()
     }
     override func didReceiveMemoryWarning() {

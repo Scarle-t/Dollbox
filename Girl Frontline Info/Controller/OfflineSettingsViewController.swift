@@ -154,7 +154,7 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
             }
             
         }else{
-            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: (self.splitViewController?.viewControllers.count)! > 1 ? .alert : .actionSheet)
             alert.addAction(UIAlertAction(title: "刪除離線資料檔", style: .destructive, handler: { _ in
                 localDB().writeSettings(item: "isOffline", value: "0")
                 localDB().delete(self)
@@ -185,32 +185,60 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
         {
             jsonElement = jsonResult[i] as! NSDictionary
             
-            guard let id = jsonElement["ID"] else {return}
-            let cover = id as! String + ".jpg"
-            if mode == "download"{
-                let url = URL(string: "https://scarletsc.net/girlfrontline/img/" + cover)
-                let filePath = self.localPath[self.localPath.count-1].absoluteString + cover
-                DownloadPhoto().get(url: url!) { data, response, error in
-                    guard let imgData = data, error == nil else { return }
-                    DispatchQueue.main.async(execute: { () -> Void in
-                        let img = UIImage(data: imgData)?.jpegData(compressionQuality: 0.1)
-                        do{
-                            try img?.write(to: URL(string: filePath)!)
-                            self.prog.progress += 0.04
-                        }catch{
-                            print(error)
-                        }
-                    })
+            if let id = jsonElement["ID"] as? String {
+                let cover = id + ".jpg"
+                if mode == "download"{
+                    let url = URL(string: "https://dollbox.scarletsc.net/img/" + cover)
+                    let filePath = self.localPath[self.localPath.count-1].absoluteString + cover
+                    DownloadPhoto().get(url: url!) { data, response, error in
+                        guard let imgData = data, error == nil else { return }
+                        DispatchQueue.main.async(execute: { () -> Void in
+                            let img = UIImage(data: imgData)?.jpegData(compressionQuality: 0.1)
+                            do{
+                                try img?.write(to: URL(string: filePath)!)
+                                self.prog.progress += 0.04
+                            }catch{
+                                print(error)
+                            }
+                        })
+                    }
+                }else if mode == "delete"{
+                    let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask,true)[0] as NSString
+                    let destinationPath = documentsPath.appendingPathComponent(cover)
+                    do{
+                        try FileManager.default.removeItem(atPath: destinationPath)
+                    }catch{
+                        print(error)
+                    }
                 }
-            }else if mode == "delete"{
-                let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask,true)[0] as NSString
-                let destinationPath = documentsPath.appendingPathComponent(cover)
-                do{
-                    try FileManager.default.removeItem(atPath: destinationPath)
-                }catch{
-                    print(error)
+            }else if let id = jsonElement["cover"] as? String{
+                let cover = id.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! + ".png"
+                if mode == "download"{
+                    let url = URL(string: "https://dollbox.scarletsc.net/img/" + cover)
+                    let filePath = self.localPath[self.localPath.count-1].absoluteString + cover
+                    DownloadPhoto().get(url: url!) { data, response, error in
+                        guard let imgData = data, error == nil else { return }
+                        DispatchQueue.main.async(execute: { () -> Void in
+                            let img = UIImage(data: imgData)?.pngData()
+                            do{
+                                try img?.write(to: URL(string: filePath)!)
+                                self.prog.progress += 0.04
+                            }catch{
+                                print(error)
+                            }
+                        })
+                    }
+                }else if mode == "delete"{
+                    let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask,true)[0] as NSString
+                    let destinationPath = documentsPath.appendingPathComponent(id + ".png")
+                    do{
+                        try FileManager.default.removeItem(atPath: destinationPath)
+                    }catch{
+                        print(error)
+                    }
                 }
             }
+            
             
         }
     }
@@ -227,7 +255,7 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
                 let statement = mydb.fetch("info", cond: nil, order: nil)
                 while sqlite3_step(statement) == SQLITE_ROW{
                     let cover = String(cString: sqlite3_column_text(statement, 0)) + ".jpg"
-                    let url = URL(string: "https://scarletsc.net/girlfrontline/img/" + cover)
+                    let url = URL(string: "https://dollbox.scarletsc.net/img/" + cover)
                     let filePath = self.localPath[self.localPath.count-1].absoluteString + cover
                     DownloadPhoto().get(url: url!) { data, response, error in
                         guard let imgData = data, error == nil else { return }
@@ -242,9 +270,30 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
                         })
                     }
                 }
+                
+                let statement2 = mydb.fetch("info_e", cond: nil, order: nil)
+                while sqlite3_step(statement2) == SQLITE_ROW{
+                    let cover = String(cString: sqlite3_column_text(statement2, 6))
+                    let coverC = cover.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+                    let url = URL(string: "https://dollbox.scarletsc.net/img/" + coverC + ".png")
+                    let filePath = self.localPath[self.localPath.count-1].absoluteString + coverC + ".png"
+                    DownloadPhoto().get(url: url!) { data, response, error in
+                        guard let imgData = data, error == nil else { return }
+                        DispatchQueue.main.async(execute: { () -> Void in
+                            let img = UIImage(data: imgData)?.pngData()
+                            do{
+                                try img?.write(to: URL(string: filePath)!)
+                                self.prog.progress += 0.04
+                            }catch{
+                                print(error)
+                            }
+                        })
+                    }
+                }
+                
             }
         }else{
-            let url: URL = URL(string: "https://scarletsc.net/girlfrontline/search.php")!
+            var url: URL = URL(string: "https://dollbox.scarletsc.net/search.php")!
             let defaultSession = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil )
             let task = defaultSession.dataTask(with: url) {
                 (data, response, error) in
@@ -256,6 +305,19 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
                 }
             }
             task.resume()
+            
+            url = URL(string: "https://dollbox.scarletsc.net/search_e.php")!
+            
+            let task2 = defaultSession.dataTask(with: url) {
+                (data, response, error) in
+                if error != nil {
+                    print("Failed to download data")
+                }else {
+                    print("Data downloaded")
+                    self.parseImg(data!, mode: "download")
+                }
+            }
+            task2.resume()
         }
         
         startAlert.dismiss(animated: true, completion: {
@@ -283,9 +345,21 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
                         print(error)
                     }
                 }
+                
+                let statement2 = mydb.fetch("info_e", cond: nil, order: nil)
+                while sqlite3_step(statement2) == SQLITE_ROW{
+                    let cover = String(cString: sqlite3_column_text(statement2, 6)) + ".png"
+                    let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask,true)[0] as NSString
+                    let destinationPath = documentsPath.appendingPathComponent(cover)
+                    do{
+                        try FileManager.default.removeItem(atPath: destinationPath)
+                    }catch{
+                        print(error)
+                    }
+                }
             }
         }else{
-            let url: URL = URL(string: "https://scarletsc.net/girlfrontline/search.php")!
+            var url: URL = URL(string: "https://dollbox.scarletsc.net/search.php")!
             let defaultSession = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil )
             let task = defaultSession.dataTask(with: url) {
                 (data, response, error) in
@@ -297,6 +371,20 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
                 }
             }
             task.resume()
+            
+            url = URL(string: "https://dollbox.scarletsc.net/search_e.php")!
+            
+            let task2 = defaultSession.dataTask(with: url) {
+                (data, response, error) in
+                if error != nil {
+                    print("Failed to download data")
+                }else {
+                    print("Data downloaded")
+                    self.parseImg(data!, mode: "delete")
+                }
+            }
+            task2.resume()
+            
         }
         
         self.userDefaults.set(false, forKey: "offlineImg")
