@@ -87,17 +87,18 @@ class TDollViewController: UIViewController {
         self.present(detailVC, animated: true, completion: nil)
     }
     @IBOutlet weak var sepView: UISegmentedControl!
-    @IBOutlet weak var info: UIView!
-    @IBOutlet weak var consum: UIView!
-    @IBOutlet weak var skillInfo: UIView!
-    @IBOutlet weak var buffInfo: UIView!
-    @IBOutlet weak var method: UIView!
+    @IBOutlet weak var sepView2: UISegmentedControl!
+    @IBOutlet weak var info: UIScrollView!
+    @IBOutlet weak var consum: UIScrollView!
+    @IBOutlet weak var skillInfo: UIScrollView!
+    @IBOutlet weak var buffInfo: UIScrollView!
+    @IBOutlet weak var method: UIScrollView!
     @IBAction func sepInfo(_ sender: UISegmentedControl) {
-        swipeView()
+        swipeView(sender)
     }
     
-    func swipeView(){
-        switch sepView.selectedSegmentIndex{
+    func swipeView(_ sender: UISegmentedControl){
+        switch sender.selectedSegmentIndex{
         case 0:
             info.isHidden = false
             consum.isHidden = true
@@ -160,6 +161,7 @@ class TDollViewController: UIViewController {
         accentColor()
         if from == "stats"{
             dismissBtn.isHidden = false
+            sepView2.isHidden = false
         }
         sepView.setTitleTextAttributes([
             NSAttributedString.Key.font : UIFont(name: "Mohave", size: 14)!
@@ -167,9 +169,20 @@ class TDollViewController: UIViewController {
         sepView.setTitleTextAttributes([
             NSAttributedString.Key.font : UIFont(name: "Mohave", size: 14)!
             ], for: UIControl.State.selected)
+        sepView2.setTitleTextAttributes([
+            NSAttributedString.Key.font : UIFont(name: "Mohave", size: 14)!
+            ], for: UIControl.State.normal)
+        sepView2.setTitleTextAttributes([
+            NSAttributedString.Key.font : UIFont(name: "Mohave", size: 14)!
+            ], for: UIControl.State.selected)
         Zh_name.text = selectedTDoll?.Zh_Name
         Eng_name.text = selectedTDoll?.Eng_Name
-        type.text = selectedTDoll?.type
+        if selectedTDoll?.stars != "EXTRA"{
+            type.text = (selectedTDoll?.stars)! + "星" + (selectedTDoll?.type)!
+        }else{
+            type.text = "特典" + (selectedTDoll?.type)!
+        }
+        
         efficiency.text = selectedTDoll?.efficiency
         health.text = selectedTDoll?.health
         attack.text = selectedTDoll?.attack

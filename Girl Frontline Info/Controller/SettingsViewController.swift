@@ -18,7 +18,7 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        appVersion.text = "版本 " + ((Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String)!)
+        appVersion.text = "版本 " + ((Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String)!) + " (" + ((Bundle.main.infoDictionary!["CFBundleVersion"] as? String)!) + ")"
         
         let wv = self.storyboard?.instantiateViewController(withIdentifier: "webView") as! UINavigationController
         let sv = self.storyboard?.instantiateViewController(withIdentifier: "settings") as! UINavigationController

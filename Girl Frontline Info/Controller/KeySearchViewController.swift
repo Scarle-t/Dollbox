@@ -8,7 +8,9 @@
 
 import UIKit
 
-class KeySearchViewController: UIViewController, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource, getSearchProtocol, getEquipmentDelegate {
+class KeySearchViewController: UIViewController, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource, getSearchProtocol, getEquipmentDelegate, localDBDelegate {
+    
+    
     
     let searchTDoll = getSearchResult()
     let searchEquip = getEquipment()
@@ -26,11 +28,13 @@ class KeySearchViewController: UIViewController, UISearchBarDelegate, UICollecti
         feedItems = items
         resultList.reloadData()
     }
-    
+    func returndData(items: NSArray) {
+        feedItems = items
+        resultList.reloadData()
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return feedItems.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BasicCell", for: indexPath) as! ResultCollectionViewCell
@@ -169,14 +173,11 @@ class KeySearchViewController: UIViewController, UISearchBarDelegate, UICollecti
         searchBar.showsScopeBar = true
         searchBar.sizeToFit()
         searchBar.setShowsCancelButton(true, animated: true)
-        dimView.isHidden = false
         return true
     }
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        searchBar.showsScopeBar = false
         searchBar.sizeToFit()
         searchBar.setShowsCancelButton(false, animated: true)
-        dimView.isHidden = true
         return true
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -202,7 +203,6 @@ class KeySearchViewController: UIViewController, UISearchBarDelegate, UICollecti
             if localSearch.readSettings()[0]{
                 let value = "'%" + searchBar.text! + "%'"
                 let sql = "select * from info inner join buff on buff.ID = info.ID inner join consumption on consumption.ID = info.ID inner join obtain on obtain.ID = info.ID inner join skill on skill.ID = info.ID inner join stats on stats.ID = info.ID where \(field) LIKE \(value)"
-                print(sql)
                 localSearch.search(sql: sql)
             }else{
                 let value = searchBar.text!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
@@ -236,17 +236,24 @@ class KeySearchViewController: UIViewController, UISearchBarDelegate, UICollecti
                 searchEquip.downloadItems()
             }
             
-            
         default:
             break
         }
-        
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
-    
-    @IBOutlet weak var dimView: UIView!
+    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
+        if searchBar.showsScopeBar{
+            searchBar.showsScopeBar = false
+        }else{
+            searchBar.showsScopeBar = true
+        }
+    }
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        searchBarSearchButtonClicked(searchBar)
+    }
+
     @IBOutlet weak var typeSwitch: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var resultList: UICollectionView!
@@ -275,6 +282,7 @@ class KeySearchViewController: UIViewController, UISearchBarDelegate, UICollecti
         resultList.dataSource = self
         searchEquip.delegate = self
         searchTDoll.delegate = self
+        localSearch.delegate = self
         searchBar.delegate = self
         searchBar.showsScopeBar = false
         searchBar.scopeBarBackgroundImage = UIImage.imageWithColor(color: UIColor.white)
