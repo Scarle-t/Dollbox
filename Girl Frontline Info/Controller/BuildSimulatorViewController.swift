@@ -138,6 +138,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
     }
 
     @IBOutlet weak var resultView: UICollectionView!
+    @IBOutlet weak var resultBg: UIView!
     @IBOutlet weak var mpValue: UILabel!
     @IBOutlet weak var ammoValue: UILabel!
     @IBOutlet weak var rationValue: UILabel!
@@ -151,6 +152,9 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
     @IBOutlet weak var rationStep: UIStepper!
     @IBOutlet weak var partsSetp: UIStepper!
     @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
+    @IBAction func collapseResult(_ sender: UIButton) {
+        resultBg.isHidden = true
+    }
     @IBAction func slideChange(_ sender: UISlider) {
         switch sender.tag{
         case 0:
@@ -176,6 +180,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
     @IBAction func finishButton(_ sender: UIButton) {
         
         self.resultView.isHidden = true
+        self.resultBg.isHidden = true
         appearType.removeAll()
         appearType.append("SMG")
         let total = manPower + ammo + ration + parts
@@ -192,6 +197,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
         }
         
         resultView.isHidden = false
+        resultBg.isHidden = false
         
     }
     @IBAction func stepperChange(_ sender: UIStepper) {
