@@ -10,4 +10,8 @@ import UIKit
 
 class noticeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cover: UIImageView!
+    
+    deinit {
+        print("Deinit noticeCollectionViewCell")
+    }
 }

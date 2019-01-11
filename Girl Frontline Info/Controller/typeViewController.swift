@@ -10,6 +10,10 @@ import UIKit
 
 class typeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, getSearchProtocol, localDBDelegate {
     
+    deinit {
+        print("Deinit typeViewController")
+    }
+    
     let imgCache = Session.sharedInstance.imgSession
     let searchResult = getSearchResult()
     let localSearch = localDB()

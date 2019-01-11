@@ -10,11 +10,16 @@ import UIKit
 
 class TDollViewController: UIViewController {
     
+    deinit {
+        print("Deinit TDollViewController")
+    }
+    
     var selectedTDoll: TDoll?
     var selectedImg: UIImage?
     var from = ""
     var imgCache = Session.sharedInstance.imgSession
     var initialTouchPoint = CGPoint.zero
+    var TDollQ = UIImage()
     
     @IBOutlet weak var Zh_name: UILabel!
     @IBOutlet weak var Eng_name: UILabel!
@@ -34,6 +39,7 @@ class TDollViewController: UIViewController {
     @IBOutlet weak var chainLabel: UILabel!
     @IBOutlet weak var loadLabel: UILabel!
     @IBOutlet weak var shieldLabel: UILabel!
+    @IBOutlet weak var cvName: UILabel!
     @IBOutlet weak var cover: UIImageView!
     @IBOutlet weak var ammo: UILabel!
     @IBOutlet weak var mre: UILabel!
@@ -159,6 +165,31 @@ class TDollViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         accentColor()
+        
+        if let photo_path = selectedTDoll?.ID{
+            let urlString = URL(string: "https://dollbox.scarletsc.net/img/Q/\(photo_path).png")
+            let url = URL(string: "https://dollbox.scarletsc.net/img/Q/\(photo_path).png")
+            
+            if let imageFromCache = self.imgCache.object(forKey: url as AnyObject) as? UIImage{
+                TDollQ = imageFromCache
+            }else{
+                DownloadPhoto().get(url: url!) { data, response, error in
+                    guard let imgData = data, error == nil else { return }
+                    print(url!)
+                    print("Download Finished")
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        let imgToCache = UIImage(data: imgData)
+                        if urlString == url{
+                            self.TDollQ = imgToCache ?? #imageLiteral(resourceName: "position")
+                        }
+                        if let imginCache = imgToCache{
+                            self.imgCache.setObject(imginCache, forKey: urlString as AnyObject)
+                        }
+                    })
+                }
+            }
+        }
+        
         if from == "stats"{
             dismissBtn.isHidden = false
             sepView2.isHidden = false
@@ -190,6 +221,7 @@ class TDollViewController: UIViewController {
         hitrate.text = selectedTDoll?.hit_rate
         dodge.text = selectedTDoll?.dodge
         movement_Speed.text = selectedTDoll?.movement
+        cvName.text = selectedTDoll?.cv
         if let critRate = selectedTDoll?.critical{
             if critRate == "0"{
                 critLabel.isHidden = true
@@ -237,28 +269,6 @@ class TDollViewController: UIViewController {
         }
         obtain_method.text = selectedTDoll?.obtain_method
         cover.image = selectedImg
-        switch selectedTDoll?.position{
-        case "1":
-            area1.image = #imageLiteral(resourceName: "position")
-        case "2":
-            area2.image = #imageLiteral(resourceName: "position")
-        case "3":
-            area3.image = #imageLiteral(resourceName: "position")
-        case "4":
-            area4.image = #imageLiteral(resourceName: "position")
-        case "5":
-            area5.image = #imageLiteral(resourceName: "position")
-        case "6":
-            area6.image = #imageLiteral(resourceName: "position")
-        case "7":
-            area7.image = #imageLiteral(resourceName: "position")
-        case "8":
-            area8.image = #imageLiteral(resourceName: "position")
-        case "9":
-            area9.image = #imageLiteral(resourceName: "position")
-        default:
-            break
-        }
         
         if selectedTDoll?.area1 == "1"{
             area1.image = #imageLiteral(resourceName: "area")
@@ -294,6 +304,30 @@ class TDollViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         accentColor()
+        
+        switch selectedTDoll?.position{
+        case "1":
+            area1.image = TDollQ
+        case "2":
+            area2.image = TDollQ
+        case "3":
+            area3.image = TDollQ
+        case "4":
+            area4.image = TDollQ
+        case "5":
+            area5.image = TDollQ
+        case "6":
+            area6.image = TDollQ
+        case "7":
+            area7.image = TDollQ
+        case "8":
+            area8.image = TDollQ
+        case "9":
+            area9.image = TDollQ
+        default:
+            break
+        }
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

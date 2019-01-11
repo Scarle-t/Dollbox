@@ -10,7 +10,9 @@ import UIKit
 
 class KeySearchViewController: UIViewController, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource, getSearchProtocol, getEquipmentDelegate, localDBDelegate {
     
-    
+    deinit {
+        print("Deinit KeySearchViewController")
+    }
     
     let searchTDoll = getSearchResult()
     let searchEquip = getEquipment()
@@ -181,7 +183,6 @@ class KeySearchViewController: UIViewController, UISearchBarDelegate, UICollecti
         return true
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
         
         var field = String()
         
@@ -196,6 +197,8 @@ class KeySearchViewController: UIViewController, UISearchBarDelegate, UICollecti
                 field = "skill.name"
             case 3:
                 field = "obtain.obtain_method"
+            case 4:
+                field = "cv.cv"
             default:
                 break
             }
@@ -262,13 +265,13 @@ class KeySearchViewController: UIViewController, UISearchBarDelegate, UICollecti
         case 0:
             sender.tintColor = UIColor(red: 94/255, green: 155/255, blue: 77/255, alpha: 1.0)
             searchBar.tintColor = UIColor(red: 94/255, green: 155/255, blue: 77/255, alpha: 1.0)
-            searchBar.scopeButtonTitles = ["ID", "名稱", "技能", "獲得方法"]
-            
+            searchBar.scopeButtonTitles = ["ID", "名稱", "技能", "獲得方法", "聲優"]
+            searchBar.selectedScopeButtonIndex = 0
         case 1:
             sender.tintColor = UIColor(red: 94/255, green: 155/255, blue: 255/255, alpha: 1.0)
             searchBar.tintColor = UIColor(red: 94/255, green: 155/255, blue: 255/255, alpha: 1.0)
             searchBar.scopeButtonTitles = ["ID", "名稱", "種類", "獲得方法"]
-            
+            searchBar.selectedScopeButtonIndex = 0
         default:
             break
         }

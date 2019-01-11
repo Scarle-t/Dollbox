@@ -9,7 +9,11 @@
 import UIKit
 
 class BuildtimeSearchCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate ,getSearchProtocol, getEquipmentDelegate, localDBDelegate {
-
+    
+    deinit {
+        print("Deinit BuildtimeSearchCollectionViewController")
+    }
+    
     let imgCache = Session.sharedInstance.imgSession
     var pickerView = UIPickerView()
     let searchResult = getSearchResult()

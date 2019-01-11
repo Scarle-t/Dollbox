@@ -10,6 +10,10 @@ import UIKit
 
 class setNavBarColor: NSObject {
     
+    deinit {
+        print("Deinit setNavBarColor, setNavBarColor.swift")
+    }
+    
     func set(_ view: UIViewController, r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat){
         view.navigationController?.navigationBar.barTintColor = UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: a)
     }

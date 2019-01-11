@@ -10,6 +10,10 @@ import UIKit
 
 class selectDevice: NSObject {
     
+    deinit {
+        print("Deinit selectDevice, selectDevice.swift")
+    }
+    
     func storyboard()->UIStoryboard{
         let modelName = UIDevice.current.modelName
         

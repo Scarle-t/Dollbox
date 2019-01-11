@@ -9,6 +9,10 @@
 import UIKit
 
 class SimulatorsViewController: UIViewController {
+    
+    deinit {
+        print("Deinit SimulatorsViewController")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

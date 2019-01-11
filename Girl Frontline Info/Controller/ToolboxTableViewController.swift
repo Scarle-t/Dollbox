@@ -10,6 +10,10 @@ import UIKit
 
 class ToolboxTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource, noticeDelegate {
     
+    deinit {
+        print("Deinit ToolboxTableViewController")
+    }
+    
     let notice = getNotice()
     let imgCache = Session.sharedInstance.imgSession
     let detailNCs = NSMutableArray()
@@ -30,6 +34,14 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         localDB().setup()
+        
+        localDB().writeSettings(item: "isOffline", value: "0")
+        UserDefaults.standard.set(false, forKey: "offlineImg")
+        
+        let alert = UIAlertController(title: "警告", message: "此beta版本已停用離線功能", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "我知道了", style: .default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
         
         self.splitViewController?.preferredDisplayMode = .allVisible
         
@@ -80,10 +92,10 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setNavBarColor().white(self)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setNavBarColor().white(self)
         notice.downloadItems()
     }
     override func didReceiveMemoryWarning() {

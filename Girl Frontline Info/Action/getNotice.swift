@@ -18,6 +18,10 @@ class getNotice: NSObject {
     var data = Data()
     var urlPath: String = "https://dollbox.scarletsc.net/getNotice.php"
     
+    deinit {
+        print("Deinit getNotice, getNotice.swift")
+    }
+    
     func parseJSON(_ data:Data) {
         let notices = NSMutableArray()
         

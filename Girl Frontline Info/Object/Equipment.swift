@@ -10,6 +10,10 @@ import UIKit
 
 class Equipment: NSObject {
     
+    deinit {
+        print("Deinit Object Equipment")
+    }
+    
     var name: String?
     var type: String?
     var star: Int?

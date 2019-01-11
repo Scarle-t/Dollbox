@@ -11,6 +11,10 @@ import WebKit
 
 class DisclaimerViewController: UIViewController, WKNavigationDelegate {
     
+    deinit {
+        print("Deinit DisclaimerViewController")
+    }
+    
     var urlString: String?
     
     @IBOutlet weak var webView: WKWebView!

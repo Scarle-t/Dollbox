@@ -10,6 +10,10 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
+    deinit {
+        print("Deinit CategoryViewController")
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         

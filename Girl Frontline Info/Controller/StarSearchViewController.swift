@@ -10,6 +10,10 @@ import UIKit
 
 class StarSearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, getEquipmentDelegate, localDBDelegate {
     
+    deinit {
+        print("Deinit StarSearchViewController")
+    }
+    
     //LET
     let imgCache = Session.sharedInstance.imgSession
     let searchResult = getEquipment()
@@ -171,8 +175,8 @@ class StarSearchViewController: UIViewController, UICollectionViewDataSource, UI
         
         swipeResult()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         swipeResult()
     }
     override func didReceiveMemoryWarning() {

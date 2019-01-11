@@ -10,6 +10,10 @@ import UIKit
 
 class EquipmentDetailViewController: UIViewController {
     
+    deinit {
+        print("Deinit EquipmentDetailViewController")
+    }
+    
     var selectedEquip: Equipment?
     var selectedImg: UIImage?
     

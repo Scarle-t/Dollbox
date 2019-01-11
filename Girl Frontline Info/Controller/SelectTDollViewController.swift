@@ -10,6 +10,10 @@ import UIKit
 
 class SelectTDollViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate, getSearchProtocol, localDBDelegate {
     
+    deinit {
+        print("Deinit SelectTDollViewController")
+    }
+    
     let imgCache = Session.sharedInstance.loadImgSession()
     let noti = UIImpactFeedbackGenerator()
     let tap = UISelectionFeedbackGenerator()
@@ -66,9 +70,9 @@ class SelectTDollViewController: UIViewController, UICollectionViewDataSource, U
                 self.imgCache.setObject(myCell.imgResult.image ?? UIImage(), forKey: id as AnyObject)
             }
         }else{
-            if let photo_path = item.photo_path{
-                let urlString = URL(string: "https://dollbox.scarletsc.net/img/\(photo_path)")
-                let url = URL(string: "https://dollbox.scarletsc.net/img/\(photo_path)")
+            if let photo_path = item.ID{
+                let urlString = URL(string: "https://dollbox.scarletsc.net/img/\(photo_path).jpg")
+                let url = URL(string: "https://dollbox.scarletsc.net/img/\(photo_path).jpg")
                 
                 if let imageFromCache = self.imgCache.object(forKey: url as AnyObject) as? UIImage{
                     myCell.imgResult.image = imageFromCache
@@ -99,7 +103,7 @@ class SelectTDollViewController: UIViewController, UICollectionViewDataSource, U
         Session.sharedInstance.selected = true
         Session.sharedInstance.selectedTDoll = displayItems[indexPath.row] as! TDoll
         let myCell = resultView.cellForItem(at: indexPath) as! ResultCollectionViewCell
-        Session.sharedInstance.selectedTDImage = myCell.imgResult.image!
+        Session.sharedInstance.selectedTDImage = myCell.imgResult.image ?? UIImage()
         tap.selectionChanged()
         self.dismiss(animated: true, completion: nil)
     }

@@ -10,6 +10,10 @@ import UIKit
 
 class noticeEnlargeViewController: UIViewController, UIScrollViewDelegate {
     
+    deinit {
+        print("Deinit noticeEnlargeViewController")
+    }
+    
     var selectedImg: UIImage?
     var initialTouchPoint = CGPoint.zero
     

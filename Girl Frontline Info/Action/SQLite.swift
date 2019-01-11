@@ -22,6 +22,10 @@ class SQLiteConnect {
         }
     }
     
+    deinit {
+        print("Deinit SQLiteConnect, SQLite.swift")
+    }
+    
     // connect database
     func openDatabase(_ path :String) -> OpaquePointer? {
         var connectdb: OpaquePointer? = nil

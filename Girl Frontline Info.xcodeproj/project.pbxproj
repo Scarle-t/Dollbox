@@ -18,10 +18,13 @@
 		A642306620AA92C9008622B4 /* getSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642306520AA92C9008622B4 /* getSearchResult.swift */; };
 		A642306820AA93D2008622B4 /* TDoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642306720AA93D2008622B4 /* TDoll.swift */; };
 		A642306A20ABA235008622B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A642306920ABA235008622B4 /* Assets.xcassets */; };
+		A64684EC21E488C000004357 /* CVDollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64684EB21E488C000004357 /* CVDollViewController.swift */; };
 		A661B45820AA26E800F9ED2F /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A661B45720AA26E800F9ED2F /* NotificationCenter.framework */; };
 		A661B45E20AA26E800F9ED2F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A661B45C20AA26E800F9ED2F /* MainInterface.storyboard */; };
 		A6683E84216F388300310DB5 /* DisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6683E83216F388300310DB5 /* DisclaimerViewController.swift */; };
 		A668C0F721766E5700D8EF91 /* EquipmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A668C0F621766E5700D8EF91 /* EquipmentDetailViewController.swift */; };
+		A675C07421E37CA300D77F86 /* getCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A675C07321E37CA300D77F86 /* getCV.swift */; };
+		A675C07621E37DF200D77F86 /* CVListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A675C07521E37DF200D77F86 /* CVListTableViewController.swift */; };
 		A67B50EF21487A8800A7D4E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D464D209FC985003D85D3 /* AppDelegate.swift */; };
 		A67B50F021487A8B00A7D4E1 /* sqlite.h in Sources */ = {isa = PBXBuildFile; fileRef = A610868A20C1A608006DF67E /* sqlite.h */; };
 		A67B50F121487A9600A7D4E1 /* SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610868B20C1A7E4006DF67E /* SQLite.swift */; };
@@ -114,6 +117,7 @@
 		A642306720AA93D2008622B4 /* TDoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TDoll.swift; path = "Girl Frontline Info/Object/TDoll.swift"; sourceTree = SOURCE_ROOT; };
 		A642306920ABA235008622B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A646509320EA45D200051266 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		A64684EB21E488C000004357 /* CVDollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVDollViewController.swift; sourceTree = "<group>"; };
 		A64B35C720A5C89C00A3602D /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A655A6F020A13A8900E29E9B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		A655A6F220A1400600E29E9B /* StarSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSearchViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 		A668C0F621766E5700D8EF91 /* EquipmentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDetailViewController.swift; sourceTree = "<group>"; };
 		A66D426D20FCD8FB002CDC54 /* Testing.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Testing.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A67208B020EA3C3B000A58B3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A675C07321E37CA300D77F86 /* getCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getCV.swift; sourceTree = "<group>"; };
+		A675C07521E37DF200D77F86 /* CVListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVListTableViewController.swift; sourceTree = "<group>"; };
 		A69E75B3214EF366001FE25F /* setupLocalDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setupLocalDB.swift; sourceTree = "<group>"; };
 		A69E75B5214EF545001FE25F /* downloadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = downloadData.swift; sourceTree = "<group>"; };
 		A69ED25E21532CD400BD63BD /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +277,8 @@
 				A6683E83216F388300310DB5 /* DisclaimerViewController.swift */,
 				A6E742892173F58200C9D1B9 /* KeySearchViewController.swift */,
 				A668C0F621766E5700D8EF91 /* EquipmentDetailViewController.swift */,
+				A675C07521E37DF200D77F86 /* CVListTableViewController.swift */,
+				A64684EB21E488C000004357 /* CVDollViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -316,6 +324,7 @@
 				A6E830072152E04E009337A8 /* selectDevice.swift */,
 				A602FBD4216D924900512D7D /* getNotice.swift */,
 				A6C036EC2174C1C900F2978E /* getEquipment.swift */,
+				A675C07321E37CA300D77F86 /* getCV.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -456,6 +465,7 @@
 				A67B50F121487A9600A7D4E1 /* SQLite.swift in Sources */,
 				A67B50F321487A9600A7D4E1 /* Version.swift in Sources */,
 				A67B50F421487A9600A7D4E1 /* getSearchResult.swift in Sources */,
+				A675C07621E37DF200D77F86 /* CVListTableViewController.swift in Sources */,
 				A6C1C840216DA51300E6B548 /* noticeDetailViewController.swift in Sources */,
 				A67B50F521487A9600A7D4E1 /* DownloadPhoto.swift in Sources */,
 				A67B50F621487A9600A7D4E1 /* setNavBarColor.swift in Sources */,
@@ -480,6 +490,7 @@
 				A67B510121487A9600A7D4E1 /* SettingsViewController.swift in Sources */,
 				A69ED25F21532CD400BD63BD /* ParentViewController.swift in Sources */,
 				A67B510221487A9600A7D4E1 /* SimulatorsViewController.swift in Sources */,
+				A675C07421E37CA300D77F86 /* getCV.swift in Sources */,
 				A6C036EB2174BC9B00F2978E /* Equipment.swift in Sources */,
 				A67B510321487A9600A7D4E1 /* StarSearchViewController.swift in Sources */,
 				A67B510421487A9600A7D4E1 /* TDollViewController.swift in Sources */,
@@ -489,6 +500,7 @@
 				A67B510721487A9600A7D4E1 /* TutorialEndViewController.swift in Sources */,
 				A67B510821487A9600A7D4E1 /* TutorialPagesViewController.swift in Sources */,
 				A67B510921487A9600A7D4E1 /* typeViewController.swift in Sources */,
+				A64684EC21E488C000004357 /* CVDollViewController.swift in Sources */,
 				A67B510A21487A9600A7D4E1 /* ViewController.swift in Sources */,
 				A67B510B21487A9600A7D4E1 /* allViewController.swift in Sources */,
 				A67B510C21487A9600A7D4E1 /* DeviceExtension.swift in Sources */,

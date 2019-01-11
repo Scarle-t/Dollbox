@@ -10,6 +10,10 @@ import UIKit
 
 class allViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, getSearchProtocol, localDBDelegate {
 
+    deinit {
+        print("Deinit allViewController")
+    }
+    
     let imgCache = Session.sharedInstance.imgSession
     let searchResult = getSearchResult()
     let localSearch = localDB()
@@ -179,7 +183,7 @@ class allViewController: UIViewController, UICollectionViewDelegate, UICollectio
             
         }
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         swipeResult()
     }

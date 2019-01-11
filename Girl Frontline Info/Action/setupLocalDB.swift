@@ -28,6 +28,10 @@ class localDB: NSObject, VersionProtocol {
     var feedVersion = NSArray()
     weak var delegate: localDBDelegate?
     
+    deinit {
+        print("Deinit localDB, setupLocalDB.swift")
+    }
+    
     func returnVersion(version: NSMutableArray) {
         feedVersion = version
     }
@@ -70,7 +74,8 @@ class localDB: NSObject, VersionProtocol {
                 "Eng_Name text",
                 "Zh_Name text",
                 "type text",
-                "Stars text"
+                "Stars text",
+                "cv integer"
                 ])
             let _ = mydb.createTable("obtain", columnsInfo: [
                 "build_time text",
@@ -95,6 +100,10 @@ class localDB: NSObject, VersionProtocol {
                 "shield integer",
                 "efficiency integer",
                 "ID text primary key"
+                ])
+            let _ = mydb.createTable("cv", columnsInfo: [
+                "id integer primary key",
+                "cv text"
                 ])
             let _ = mydb.createTable("info_e", columnsInfo: [
                 "Name text",
@@ -131,6 +140,7 @@ class localDB: NSObject, VersionProtocol {
             let _ = mydb.delete("obtain", cond: nil)
             let _ = mydb.delete("consumption", cond: nil)
             let _ = mydb.delete("skill", cond: nil)
+            let _ = mydb.delete("cv", cond: nil)
             let _ = mydb.delete("info_e", cond: nil)
             let _ = mydb.update("dataversion", cond: nil, rowInfo: [
                 "local_last" : "' '",

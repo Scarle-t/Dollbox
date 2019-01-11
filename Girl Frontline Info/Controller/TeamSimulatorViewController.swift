@@ -10,6 +10,10 @@ import UIKit
 
 class TeamSimulatorViewController: UIViewController {
     
+    deinit {
+        print("Deinit TeamSimulatorViewController")
+    }
+    
     let noti = UINotificationFeedbackGenerator()
     let edit = UIImpactFeedbackGenerator()
     
@@ -23,9 +27,7 @@ class TeamSimulatorViewController: UIViewController {
     @IBOutlet var imgTDoll: [UIImageView]!
     @IBOutlet var imgDelete: [UIButton]!
     @IBOutlet var imgDim: [UIView]!
-    @IBOutlet var imgName: [UILabel]!
     @IBOutlet weak var totalEfficiency: UILabel!
-    @IBOutlet weak var creditText: UITextView!
     @IBOutlet weak var navBtn: UIBarButtonItem!
     @IBAction func btnShare(_ sender: UIBarButtonItem) {
         if editState {
@@ -36,12 +38,10 @@ class TeamSimulatorViewController: UIViewController {
             nav.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(btnShare(_:))), animated: true)
             editState = false
         }else{
-            creditText.isHidden = false
             let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
             let image = renderer.image { ctx in
                 view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
             }
-            creditText.isHidden = true
             // set up activity view controller
             let imageToShare = [ image ]
             let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
@@ -66,27 +66,26 @@ class TeamSimulatorViewController: UIViewController {
         displayTDolls.removeObject(forKey: String(key))
         Session.sharedInstance.selectedTDoll = TDoll()
         imgTDoll[index!].image = #imageLiteral(resourceName: "SelectTDoll")
-        if localDB().readSettings()[0]{
-            imgName[index!].text = ""
-            imgName[index!].isEnabled = false
-            imgName[index!].isHidden = true
-        }
         totalEffi = 0
         for (_, value) in displayTDolls{
             totalEffi += Int((value as! TDoll).efficiency!)!
         }
         totalEfficiency.text = "\(totalEffi)"
     }
+    @IBAction func resetDoll(_ sender: UIBarButtonItem) {
+        totalEffi = 0
+        totalEfficiency.text = "\(totalEffi)"
+        displayTDolls.removeAllObjects()
+        for img in imgTDoll {
+            img.image = #imageLiteral(resourceName: "SelectTDoll")
+            img.alpha = 0.6
+        }
+    }
     
     func addDisplay(){
         let index = Int(from)! - 1
         if let TDoll = selectedTDoll{
             displayTDolls[from] = TDoll
-            if localDB().readSettings()[0]{
-                imgName[index].text = TDoll.Zh_Name
-                imgName[index].isEnabled = true
-                imgName[index].isHidden = false
-            }
             if let image = selectedTDImage{
                 imgTDoll[index].image = image
                 imgTDoll[index].alpha = 1.0
@@ -96,9 +95,6 @@ class TeamSimulatorViewController: UIViewController {
                 }
                 totalEfficiency.text = "\(totalEffi)"
             }
-        }
-        if UserDefaults.standard.bool(forKey: "offlineImg"){
-            imgName[index].isHidden = true
         }
     }
     func displayWarning(title: String){

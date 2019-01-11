@@ -10,6 +10,10 @@ import UIKit
 
 class OfflineSettingsViewController: UITableViewController, VersionProtocol, localDBDelegate, localDataDelegate, URLSessionDelegate {
 
+    deinit {
+        print("Deinit OfflineSettingsViewController")
+    }
+    
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var tsLabel: UILabel!
     @IBOutlet weak var offlineToggle: UITableViewCell!
@@ -430,6 +434,8 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
         downImgSwitch.setOn(userDefaults.bool(forKey: "offlineImg"), animated: true)
         downImgSwitch.addTarget(self, action: #selector(self.imgSwitch(_:)), for: .valueChanged)
         donwImgToggle.accessoryView = downImgSwitch
+        switchView.isEnabled = false
+        downImgSwitch.isEnabled = false
         
         versionLabel.text = " "
         tsLabel.text = " "
@@ -457,13 +463,13 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
             return 2
-        case 1, 2:
+        case 1:
             return 3
         default:
             return 0

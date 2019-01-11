@@ -15,9 +15,13 @@ protocol getSearchProtocol: class {
 
 class getSearchResult: NSObject, URLSessionDataDelegate {
     
-    weak var delegate: getSearchProtocol!
+    weak var delegate: getSearchProtocol?
     var data = Data()
     var urlPath: String = ""
+    
+    deinit {
+        print("Deinit getSearchResult, getSearchResult.swift")
+    }
     
     func parseJSON(_ data:Data) {
         
@@ -175,10 +179,14 @@ class getSearchResult: NSObject, URLSessionDataDelegate {
             {
                 tdoll.photo_path = photo_path
             }
+            if let cv = jsonElement["cv"] as? String
+            {
+                tdoll.cv = cv
+            }
             TDolls.add(tdoll)
         }
         DispatchQueue.main.async(execute: { () -> Void in
-            self.delegate.itemsDownloaded(items: TDolls)
+            self.delegate?.itemsDownloaded(items: TDolls)
         })
     }
     func downloadItems() {

@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    deinit {
+        print("Deinit ViewController")
+    }
+    
     var db: SQLiteConnect?
     
     override func viewDidAppear(_ animated: Bool) {

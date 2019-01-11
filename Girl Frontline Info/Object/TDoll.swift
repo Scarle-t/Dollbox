@@ -11,11 +11,16 @@ import Foundation
 
 class TDoll: NSObject {
     
+    deinit {
+        print("Deinit Object TDoll")
+    }
+    
     var ID: String?
     var Eng_Name: String?
     var Zh_Name: String?
     var type: String?
     var stars: String?
+    var cv: String?
     
     var health: String?
     var attack: String?
@@ -56,7 +61,7 @@ class TDoll: NSObject {
         
     }
     
-    init(ID: String, Eng_name: String, Zh_name: String, type: String, stars: String, health: String, attack: String, speed: String, hit_rate: String, dodge: String, movement: String, critical: String, chain: String, loads: String, shield: String, efficiency: String, ammo: String, mre: String, skill_name: String, skill_desc: String, area1: String, area2: String, area3: String, area4: String, area5: String, area6: String, area7: String, area8: String, area9: String, position: String, effect: String, build_time: String, obtain_method: String, photo_path: String){
+    init(ID: String, Eng_name: String, Zh_name: String, type: String, stars: String, health: String, attack: String, speed: String, hit_rate: String, dodge: String, movement: String, critical: String, chain: String, loads: String, shield: String, efficiency: String, ammo: String, mre: String, skill_name: String, skill_desc: String, area1: String, area2: String, area3: String, area4: String, area5: String, area6: String, area7: String, area8: String, area9: String, position: String, effect: String, build_time: String, obtain_method: String, photo_path: String, cv: String){
         
         self.ID = ID
         self.Eng_Name = Eng_name
@@ -92,6 +97,7 @@ class TDoll: NSObject {
         self.build_time = build_time
         self.obtain_method = obtain_method
         self.photo_path = photo_path
+        self.cv = cv
         
     }
 

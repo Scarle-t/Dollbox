@@ -18,10 +18,14 @@ extension VersionProtocol{
 }
 class Version: NSObject, URLSessionDataDelegate {
     
-    var delegate: VersionProtocol!
+    weak var delegate: VersionProtocol!
     var data = Data()
     var urlPath: String = "https://dollbox.scarletsc.net/getVersion.php"
     var defaultSession = URLSession()
+    
+    deinit {
+        print("Deinit Version, Version.swift")
+    }
     
     func parseJSON(_ data:Data) {
         var jsonResult = NSArray()

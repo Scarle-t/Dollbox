@@ -12,6 +12,10 @@ class DownloadPhoto: NSObject {
     
     let imgCache = Session.sharedInstance.imgSession
     
+    deinit {
+        print("Deinit DownloadPhoto, DownloadPhoto.swift")
+    }
+    
     func get(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             completion(data, response, error)

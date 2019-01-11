@@ -23,6 +23,10 @@ class downloadData: NSObject, URLSessionDelegate {
     weak var delegate: localDataDelegate?
     var counter = 0
     
+    deinit {
+        print("Deinit downloadData, downloadData.swift")
+    }
+    
     func parse(_ data:Data, _ action: String, source: UIViewController) {
         let src = source as! OfflineSettingsViewController
         DispatchQueue.main.async(flags: .barrier){

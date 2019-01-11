@@ -9,6 +9,11 @@
 import UIKit
 
 class noticeDetailViewController: UIViewController {
+    
+    deinit {
+        print("Deinit noticeDetailViewController")
+    }
+    
     var selectedNotice = Notice()
     
     @IBOutlet weak var content: UITextView!

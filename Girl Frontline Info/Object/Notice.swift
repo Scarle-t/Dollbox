@@ -10,6 +10,10 @@ import UIKit
 
 class Notice: NSObject {
     
+    deinit {
+        print("Deinit Object Notice")
+    }
+    
     var title: String?
     var content: String?
     var start_time: String?

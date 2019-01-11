@@ -18,6 +18,10 @@ class getEquipment: NSObject {
     var data = Data()
     var urlPath: String = ""
     
+    deinit {
+        print("Deinit getEquipment, getEquipment.swift")
+    }
+    
     func parseJSON(_ data:Data) {
         
         var jsonResult = NSArray()
@@ -65,7 +69,7 @@ class getEquipment: NSObject {
         })
     }
     func downloadItems() {
-        let url: URL = URL(string: urlPath)!
+        guard let url: URL = URL(string: urlPath) else {return}
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
         let task = defaultSession.dataTask(with: url) {
             (data, response, error) in

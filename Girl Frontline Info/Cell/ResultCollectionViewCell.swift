@@ -10,6 +10,10 @@ import UIKit
 
 class ResultCollectionViewCell: UICollectionViewCell {
     
+    deinit {
+        print("Deinit ResultCollectionViewCell")
+    }
+    
     @IBOutlet weak var imgResult: UIImageView!
     
     @IBOutlet weak var lblResult: UILabel!
