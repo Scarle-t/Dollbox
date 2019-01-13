@@ -198,7 +198,11 @@ class KeySearchViewController: UIViewController, UISearchBarDelegate, UICollecti
             case 3:
                 field = "obtain.obtain_method"
             case 4:
-                field = "cv.cv"
+                if localSearch.readSettings()[0]{
+                field = "info.cv"
+                }else{
+                    field = "cv.cv"
+                }
             default:
                 break
             }

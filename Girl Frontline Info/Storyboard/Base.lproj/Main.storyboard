@@ -396,7 +396,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="製造時間: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UY4-oj-V5M">
-                                        <rect key="frame" x="8" y="555" width="98" height="23"/>
+                                        <rect key="frame" x="8" y="558.33333333333337" width="98" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="3dd-Af-Pg7"/>
                                         </constraints>
@@ -405,7 +405,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pPK-Pl-GyT">
-                                        <rect key="frame" x="27" y="454" width="330" height="68"/>
+                                        <rect key="frame" x="27" y="457.33333333333337" width="330" height="68"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="68" id="hk1-6A-9Ri"/>
                                         </constraints>
@@ -413,7 +413,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwa-gW-mvq">
-                                        <rect key="frame" x="107" y="555" width="259" height="23"/>
+                                        <rect key="frame" x="107" y="558.33333333333337" width="259" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="agk-8s-dJx"/>
                                         </constraints>
@@ -430,7 +430,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="獲得方法: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKE-g1-8nm">
-                                        <rect key="frame" x="8" y="426" width="98" height="20"/>
+                                        <rect key="frame" x="8" y="426" width="98" height="23.333333333333314"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="98" id="0wb-pn-GGA"/>
                                         </constraints>
@@ -3645,9 +3645,8 @@
                         <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="ZdT-we-t3f">
-                                <string key="footerTitle">[此版本已強制關閉離線模式]  請確定有足夠儲存空間以下載整個資料庫
-建議使用Wi-Fi下載以避免流動數據收費  離線資料檔約150-200KB
-離線圖片約3MB</string>
+                                <string key="footerTitle">請確定有足夠儲存空間以下載整個資料庫
+建議使用Wi-Fi下載以避免流動數據收費</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="offlineToggle" textLabel="bIj-OD-5Ma" style="IBUITableViewCellStyleDefault" id="fkH-KO-mqn">
                                         <rect key="frame" x="0.0" y="35" width="375" height="44"/>
@@ -3688,7 +3687,7 @@
                             <tableViewSection headerTitle="資料庫" footerTitle="線上資料庫版本" id="kzU-EP-36m">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="G6G-xq-lJs" style="IBUITableViewCellStyleDefault" id="QWk-5I-Xie">
-                                        <rect key="frame" x="0.0" y="294.33333333333331" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="214.33333333333334" width="375" height="44.000000000000028"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QWk-5I-Xie" id="oCI-I9-dw9">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -3705,7 +3704,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="1ai-qX-71n" detailTextLabel="MdT-FA-YKu" style="IBUITableViewCellStyleValue1" id="bcb-wb-IiV">
-                                        <rect key="frame" x="0.0" y="338.33333333333337" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="258.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bcb-wb-IiV" id="USj-R4-hVn">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -3729,7 +3728,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="RDa-cc-MJ6" detailTextLabel="NAZ-j2-jQ5" style="IBUITableViewCellStyleValue1" id="AsT-fU-HIP">
-                                        <rect key="frame" x="0.0" y="382.33333333333337" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="302.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AsT-fU-HIP" id="fWB-DO-Mrc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -3757,7 +3756,7 @@
                             <tableViewSection headerTitle="" footerTitle="離線資料庫版本" id="Ekj-sf-5gz">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="QH1-hd-zJy" style="IBUITableViewCellStyleDefault" id="gaQ-Zk-0WK">
-                                        <rect key="frame" x="0.0" y="474.33333333333337" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="394.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gaQ-Zk-0WK" id="5PO-i4-k3b">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -3774,7 +3773,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="EhK-Gf-Z7H" detailTextLabel="eB4-1q-35n" style="IBUITableViewCellStyleValue1" id="kVc-GP-eqt">
-                                        <rect key="frame" x="0.0" y="518.33333333333337" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="438.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kVc-GP-eqt" id="yiz-wg-9Lw">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -3798,7 +3797,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="kg7-CR-43d" detailTextLabel="LON-JW-X0Q" style="IBUITableViewCellStyleValue1" id="SS1-hU-OMJ">
-                                        <rect key="frame" x="0.0" y="562.33333333333337" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="482.33333333333337" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SS1-hU-OMJ" id="6UY-HG-hei">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -3816,6 +3815,29 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="" id="KJE-HF-nJh">
+                                <string key="footerTitle">如離線模式出現問題，請完全移除離線資料庫後重試。
+問題依然存在請回報錯誤至開發者</string>
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="rwt-ah-yZd" style="IBUITableViewCellStyleDefault" id="53r-CY-QGX">
+                                        <rect key="frame" x="0.0" y="574.33333333333337" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="53r-CY-QGX" id="Juo-gw-1lB">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="完全移除離線資料庫" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rwt-ah-yZd">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -4347,7 +4369,7 @@
         <image name="tools" width="37.5" height="37.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jEs-dv-L4u"/>
+        <segue reference="y5E-dI-3hI"/>
         <segue reference="fR9-ad-JOO"/>
     </inferredMetricsTieBreakers>
 </document>

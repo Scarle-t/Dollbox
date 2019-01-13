@@ -75,7 +75,8 @@ class localDB: NSObject, VersionProtocol {
                 "Zh_Name text",
                 "type text",
                 "Stars text",
-                "cv integer"
+                "cv text",
+                "cover text"
                 ])
             let _ = mydb.createTable("obtain", columnsInfo: [
                 "build_time text",
@@ -100,10 +101,6 @@ class localDB: NSObject, VersionProtocol {
                 "shield integer",
                 "efficiency integer",
                 "ID text primary key"
-                ])
-            let _ = mydb.createTable("cv", columnsInfo: [
-                "id integer primary key",
-                "cv text"
                 ])
             let _ = mydb.createTable("info_e", columnsInfo: [
                 "Name text",
@@ -140,7 +137,6 @@ class localDB: NSObject, VersionProtocol {
             let _ = mydb.delete("obtain", cond: nil)
             let _ = mydb.delete("consumption", cond: nil)
             let _ = mydb.delete("skill", cond: nil)
-            let _ = mydb.delete("cv", cond: nil)
             let _ = mydb.delete("info_e", cond: nil)
             let _ = mydb.update("dataversion", cond: nil, rowInfo: [
                 "local_last" : "' '",
@@ -233,6 +229,8 @@ class localDB: NSObject, VersionProtocol {
                     tdoll.Zh_Name = String(cString: sqlite3_column_text(info, 2))
                     tdoll.type = String(cString: sqlite3_column_text(info, 3))
                     tdoll.stars = String(cString: sqlite3_column_text(info, 4))
+                    tdoll.cv = String(cString: sqlite3_column_text(info, 5))
+                    tdoll.photo_path = String(cString: sqlite3_column_text(info, 6))
                 }
                 if sqlite3_step(skill) == SQLITE_ROW{
                     tdoll.skill_name = String(cString: sqlite3_column_text(skill, 0))
@@ -259,6 +257,8 @@ class localDB: NSObject, VersionProtocol {
                 tdoll.Zh_Name = String(cString: sqlite3_column_text(statement, 2))
                 tdoll.type = String(cString: sqlite3_column_text(statement, 3))
                 tdoll.stars = String(cString: sqlite3_column_text(statement, 4))
+                tdoll.cv = String(cString: sqlite3_column_text(statement, 5))
+                tdoll.photo_path = String(cString: sqlite3_column_text(statement, 6))
                 
                 let obtain = mydb.fetch("obtain", cond: "ID = '" + id + "'", order: nil)
                 let buff = mydb.fetch("buff", cond: "ID = '" + id + "'", order: nil)
@@ -321,38 +321,40 @@ class localDB: NSObject, VersionProtocol {
                 tdoll.Zh_Name = String(cString: sqlite3_column_text(statement, 2))
                 tdoll.type = String(cString: sqlite3_column_text(statement, 3))
                 tdoll.stars = String(cString: sqlite3_column_text(statement, 4))
-                tdoll.effect = String(cString: sqlite3_column_text(statement, 5))
-                tdoll.position = String(cString: sqlite3_column_text(statement, 6))
-                tdoll.area1 = String(cString: sqlite3_column_text(statement, 7))
-                tdoll.area2 = String(cString: sqlite3_column_text(statement, 8))
-                tdoll.area3 = String(cString: sqlite3_column_text(statement, 9))
-                tdoll.area4 = String(cString: sqlite3_column_text(statement, 10))
-                tdoll.area5 = String(cString: sqlite3_column_text(statement, 11))
-                tdoll.area6 = String(cString: sqlite3_column_text(statement, 12))
-                tdoll.area7 = String(cString: sqlite3_column_text(statement, 13))
-                tdoll.area8 = String(cString: sqlite3_column_text(statement, 14))
-                tdoll.area9 = String(cString: sqlite3_column_text(statement, 15))
+                tdoll.cv = String(cString: sqlite3_column_text(statement, 5))
+                tdoll.photo_path = String(cString: sqlite3_column_text(statement, 6))
+                tdoll.effect = String(cString: sqlite3_column_text(statement, 7))
+                tdoll.position = String(cString: sqlite3_column_text(statement, 8))
+                tdoll.area1 = String(cString: sqlite3_column_text(statement, 9))
+                tdoll.area2 = String(cString: sqlite3_column_text(statement, 10))
+                tdoll.area3 = String(cString: sqlite3_column_text(statement, 11))
+                tdoll.area4 = String(cString: sqlite3_column_text(statement, 12))
+                tdoll.area5 = String(cString: sqlite3_column_text(statement, 13))
+                tdoll.area6 = String(cString: sqlite3_column_text(statement, 14))
+                tdoll.area7 = String(cString: sqlite3_column_text(statement, 15))
+                tdoll.area8 = String(cString: sqlite3_column_text(statement, 16))
+                tdoll.area9 = String(cString: sqlite3_column_text(statement, 17))
                 
-                tdoll.ammo = String(cString: sqlite3_column_text(statement, 17))
-                tdoll.mre = String(cString: sqlite3_column_text(statement, 18))
+                tdoll.ammo = String(cString: sqlite3_column_text(statement, 19))
+                tdoll.mre = String(cString: sqlite3_column_text(statement, 20))
                 
-                tdoll.build_time = String(cString: sqlite3_column_text(statement, 20))
-                tdoll.obtain_method = String(cString: sqlite3_column_text(statement, 21))
+                tdoll.build_time = String(cString: sqlite3_column_text(statement, 22))
+                tdoll.obtain_method = String(cString: sqlite3_column_text(statement, 23))
                 
-                tdoll.skill_name = String(cString: sqlite3_column_text(statement, 23))
-                tdoll.skill_desc = String(cString: sqlite3_column_text(statement, 24))
+                tdoll.skill_name = String(cString: sqlite3_column_text(statement, 25))
+                tdoll.skill_desc = String(cString: sqlite3_column_text(statement, 26))
                 
-                tdoll.health = String(cString: sqlite3_column_text(statement, 26))
-                tdoll.attack = String(cString: sqlite3_column_text(statement, 27))
-                tdoll.speed = String(cString: sqlite3_column_text(statement, 28))
-                tdoll.hit_rate = String(cString: sqlite3_column_text(statement, 29))
-                tdoll.dodge = String(cString: sqlite3_column_text(statement, 30))
-                tdoll.movement = String(cString: sqlite3_column_text(statement, 31))
-                tdoll.critical = String(cString: sqlite3_column_text(statement, 32))
-                tdoll.chain = String(cString: sqlite3_column_text(statement, 33))
-                tdoll.loads = String(cString: sqlite3_column_text(statement, 34))
-                tdoll.shield = String(cString: sqlite3_column_text(statement, 35))
-                tdoll.efficiency = String(cString: sqlite3_column_text(statement, 36))
+                tdoll.health = String(cString: sqlite3_column_text(statement, 28))
+                tdoll.attack = String(cString: sqlite3_column_text(statement, 29))
+                tdoll.speed = String(cString: sqlite3_column_text(statement, 30))
+                tdoll.hit_rate = String(cString: sqlite3_column_text(statement, 31))
+                tdoll.dodge = String(cString: sqlite3_column_text(statement, 32))
+                tdoll.movement = String(cString: sqlite3_column_text(statement, 33))
+                tdoll.critical = String(cString: sqlite3_column_text(statement, 34))
+                tdoll.chain = String(cString: sqlite3_column_text(statement, 35))
+                tdoll.loads = String(cString: sqlite3_column_text(statement, 36))
+                tdoll.shield = String(cString: sqlite3_column_text(statement, 37))
+                tdoll.efficiency = String(cString: sqlite3_column_text(statement, 38))
                 
                 tdolls.add(tdoll)
             }
@@ -372,6 +374,8 @@ class localDB: NSObject, VersionProtocol {
                 tdoll.Zh_Name = String(cString: sqlite3_column_text(statement, 2))
                 tdoll.type = String(cString: sqlite3_column_text(statement, 3))
                 tdoll.stars = String(cString: sqlite3_column_text(statement, 4))
+                tdoll.cv = String(cString: sqlite3_column_text(statement, 5))
+                tdoll.photo_path = String(cString: sqlite3_column_text(statement, 6))
                 let obtain = mydb.fetch("obtain", cond: "ID = '" + id + "'", order: nil)
                 let buff = mydb.fetch("buff", cond: "ID = '" + id + "'", order: nil)
                 let consumption = mydb.fetch("consumption", cond: "ID = '" + id + "'", order: nil)

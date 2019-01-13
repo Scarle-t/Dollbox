@@ -46,7 +46,7 @@ class downloadData: NSObject, URLSessionDelegate {
             jsonElement = jsonResult[i] as! NSDictionary
             
             if counter == 0{
-                if let id = jsonElement["ID"] as? String, let Eng_name = jsonElement["Eng_Name"] as? String, let Zh_name = jsonElement["Zh_Name"] as? String, let type = jsonElement["type"] as? String, let stars = jsonElement["Stars"] as? String
+                if let id = jsonElement["ID"] as? String, let Eng_name = jsonElement["Eng_Name"] as? String, let Zh_name = jsonElement["Zh_Name"] as? String, let type = jsonElement["type"] as? String, let stars = jsonElement["Stars"] as? String, let cv = jsonElement["cv"] as? String, let cover = jsonElement["cover"] as? String
                 {
                     if let mydb = db{
                         if action == "download"{
@@ -55,14 +55,18 @@ class downloadData: NSObject, URLSessionDelegate {
                                 "Eng_Name" : "'" + Eng_name + "'",
                                 "Zh_Name" : "'" + Zh_name + "'",
                                 "type" : "'" + type + "'",
-                                "Stars" : "'" + stars + "'"
+                                "Stars" : "'" + stars + "'",
+                                "cv" : "'" + cv + "'",
+                                "cover" : "'" + cover + "'"
                                 ])
                         }else if action == "update"{
                             let _ = mydb.update("info", cond: "ID = " + "'" + id + "'", rowInfo: [
                                 "Eng_Name" : "'" + Eng_name + "'",
                                 "Zh_Name" : "'" + Zh_name + "'",
                                 "type" : "'" + type + "'",
-                                "Stars" : "'" + stars + "'"
+                                "Stars" : "'" + stars + "'",
+                                "cv" : "'" + cv + "'",
+                                "cover" : "'" + cover + "'"
                                 ])
                         }
                     }

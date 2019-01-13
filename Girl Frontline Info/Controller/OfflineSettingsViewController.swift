@@ -434,8 +434,9 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
         downImgSwitch.setOn(userDefaults.bool(forKey: "offlineImg"), animated: true)
         downImgSwitch.addTarget(self, action: #selector(self.imgSwitch(_:)), for: .valueChanged)
         donwImgToggle.accessoryView = downImgSwitch
-        switchView.isEnabled = false
-        downImgSwitch.isEnabled = false
+        
+//        switchView.isEnabled = false
+//        downImgSwitch.isEnabled = false
         
         versionLabel.text = " "
         tsLabel.text = " "
@@ -460,17 +461,25 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
             }
         }
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print(userDefaults.bool(forKey: "offlineImg"))
+        
+    }
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 4
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
             return 2
-        case 1:
+        case 1, 2:
             return 3
+        case 3:
+            return 1
         default:
             return 0
         }
@@ -504,6 +513,32 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
                             self.start()
                         }
                     }
+                }
+            default:
+                break
+            }
+        case 3:
+            switch indexPath.row{
+            case 0:
+                if switchView.isOn{
+                    let errorAlert = UIAlertController(title: "離線模式已開啟", message: "請先關閉離線模式後重試。", preferredStyle: .alert)
+                    errorAlert.addAction(UIAlertAction(title: "確定", style: .default, handler: nil))
+                    self.present(errorAlert, animated: true, completion: nil)
+                }else{
+                    Session.sharedInstance.db = nil
+                    let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask,true)[0] as NSString
+                    let destinationPath = documentsPath.appendingPathComponent("sqlite3.db")
+                    do{
+                        try FileManager.default.removeItem(atPath: destinationPath)
+                    }catch{
+                        print(error)
+                    }
+                    let okAlert = UIAlertController(title: "已刪除", message: "請重啓應用程式。", preferredStyle: .alert)
+                    okAlert.addAction(UIAlertAction(title: "確定", style: .default, handler: {
+                        _ in
+                        exit(0)
+                    }))
+                    self.present(okAlert, animated: true, completion: nil)
                 }
             default:
                 break

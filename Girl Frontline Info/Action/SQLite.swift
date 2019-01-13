@@ -38,6 +38,10 @@ class SQLiteConnect {
         }
     }
     
+    func closeDatabase() -> Bool {
+        return sqlite3_close(db) == SQLITE_OK
+    }
+    
     // create table
     func createTable(_ tableName :String, columnsInfo :[String]) -> Bool {
         let sql = "create table if not exists \(tableName) "
