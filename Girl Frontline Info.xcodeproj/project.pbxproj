@@ -54,6 +54,13 @@
 		A67B510B21487A9600A7D4E1 /* allViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61D154121486A54005D7EDE /* allViewController.swift */; };
 		A67B510C21487A9600A7D4E1 /* DeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65B259220A655A00036BC39 /* DeviceExtension.swift */; };
 		A67B510D21487A9600A7D4E1 /* TDoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F2958820A05E0800239089 /* TDoll.swift */; };
+		A698D4E321EB73B20043BCC1 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A698D4E121EB73B20043BCC1 /* Interface.storyboard */; };
+		A698D4E521EB73B30043BCC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A698D4E421EB73B30043BCC1 /* Assets.xcassets */; };
+		A698D4EC21EB73B30043BCC1 /* Dollbox Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A698D4EB21EB73B30043BCC1 /* Dollbox Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A698D4F121EB73B30043BCC1 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A698D4F021EB73B30043BCC1 /* InterfaceController.swift */; };
+		A698D4F321EB73B30043BCC1 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A698D4F221EB73B30043BCC1 /* ExtensionDelegate.swift */; };
+		A698D4F521EB73B40043BCC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A698D4F421EB73B40043BCC1 /* Assets.xcassets */; };
+		A698D4F921EB73B40043BCC1 /* Dollbox.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A698D4DF21EB73B20043BCC1 /* Dollbox.app */; };
 		A69E75B4214EF366001FE25F /* setupLocalDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E75B3214EF366001FE25F /* setupLocalDB.swift */; };
 		A69E75B6214EF545001FE25F /* downloadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E75B5214EF545001FE25F /* downloadData.swift */; };
 		A69ED25F21532CD400BD63BD /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ED25E21532CD400BD63BD /* ParentViewController.swift */; };
@@ -69,6 +76,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A698D4ED21EB73B30043BCC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A60D4642209FC985003D85D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A698D4EA21EB73B30043BCC1;
+			remoteInfo = "Dollbox Extension";
+		};
+		A698D4F721EB73B40043BCC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A60D4642209FC985003D85D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A698D4DE21EB73B20043BCC1;
+			remoteInfo = Dollbox;
+		};
 		A6DFF944215FA32900FE5407 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A60D4642209FC985003D85D3 /* Project object */;
@@ -79,6 +100,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		A605ACFB21EB690E0032B267 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				A698D4F921EB73B40043BCC1 /* Dollbox.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A698D4FF21EB73B40043BCC1 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A698D4EC21EB73B30043BCC1 /* Dollbox Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A6DFF946215FA32900FE5407 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -136,6 +179,15 @@
 		A67208B020EA3C3B000A58B3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A675C07321E37CA300D77F86 /* getCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getCV.swift; sourceTree = "<group>"; };
 		A675C07521E37DF200D77F86 /* CVListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVListTableViewController.swift; sourceTree = "<group>"; };
+		A698D4DF21EB73B20043BCC1 /* Dollbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dollbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A698D4E221EB73B20043BCC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		A698D4E421EB73B30043BCC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A698D4E621EB73B30043BCC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A698D4EB21EB73B30043BCC1 /* Dollbox Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Dollbox Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A698D4F021EB73B30043BCC1 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		A698D4F221EB73B30043BCC1 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		A698D4F421EB73B40043BCC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A698D4F621EB73B40043BCC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A69E75B3214EF366001FE25F /* setupLocalDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setupLocalDB.swift; sourceTree = "<group>"; };
 		A69E75B5214EF545001FE25F /* downloadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = downloadData.swift; sourceTree = "<group>"; };
 		A69ED25E21532CD400BD63BD /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
@@ -176,12 +228,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A698D4E821EB73B30043BCC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		A60D4641209FC985003D85D3 = {
 			isa = PBXGroup;
 			children = (
+				A698D4E021EB73B20043BCC1 /* Dollbox */,
+				A698D4EF21EB73B30043BCC1 /* Dollbox Extension */,
 				A661B45620AA26E800F9ED2F /* Frameworks */,
 				A60D464C209FC985003D85D3 /* Girl Frontline Info */,
 				A661B45920AA26E800F9ED2F /* GLFL Info Widget */,
@@ -194,6 +255,8 @@
 			children = (
 				A60D464A209FC985003D85D3 /* Girl Frontline Info.app */,
 				A661B45520AA26E800F9ED2F /* GLFL Info Widget.appex */,
+				A698D4DF21EB73B20043BCC1 /* Dollbox.app */,
+				A698D4EB21EB73B30043BCC1 /* Dollbox Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,6 +303,27 @@
 				A661B45F20AA26E800F9ED2F /* Info.plist */,
 			);
 			path = "GLFL Info Widget";
+			sourceTree = "<group>";
+		};
+		A698D4E021EB73B20043BCC1 /* Dollbox */ = {
+			isa = PBXGroup;
+			children = (
+				A698D4E121EB73B20043BCC1 /* Interface.storyboard */,
+				A698D4E421EB73B30043BCC1 /* Assets.xcassets */,
+				A698D4E621EB73B30043BCC1 /* Info.plist */,
+			);
+			path = Dollbox;
+			sourceTree = "<group>";
+		};
+		A698D4EF21EB73B30043BCC1 /* Dollbox Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A698D4F021EB73B30043BCC1 /* InterfaceController.swift */,
+				A698D4F221EB73B30043BCC1 /* ExtensionDelegate.swift */,
+				A698D4F421EB73B40043BCC1 /* Assets.xcassets */,
+				A698D4F621EB73B40043BCC1 /* Info.plist */,
+			);
+			path = "Dollbox Extension";
 			sourceTree = "<group>";
 		};
 		A6B03C40214848B200FAF61A /* Storyboard */ = {
@@ -356,11 +440,13 @@
 				A60D4647209FC985003D85D3 /* Frameworks */,
 				A60D4648209FC985003D85D3 /* Resources */,
 				A6DFF946215FA32900FE5407 /* Embed App Extensions */,
+				A605ACFB21EB690E0032B267 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				A6DFF945215FA32900FE5407 /* PBXTargetDependency */,
+				A698D4F821EB73B40043BCC1 /* PBXTargetDependency */,
 			);
 			name = "Girl Frontline Info";
 			productName = "Girl Frontline Info";
@@ -384,13 +470,47 @@
 			productReference = A661B45520AA26E800F9ED2F /* GLFL Info Widget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		A698D4DE21EB73B20043BCC1 /* Dollbox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A698D50021EB73B40043BCC1 /* Build configuration list for PBXNativeTarget "Dollbox" */;
+			buildPhases = (
+				A698D4DD21EB73B20043BCC1 /* Resources */,
+				A698D4FF21EB73B40043BCC1 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A698D4EE21EB73B30043BCC1 /* PBXTargetDependency */,
+			);
+			name = Dollbox;
+			productName = Dollbox;
+			productReference = A698D4DF21EB73B20043BCC1 /* Dollbox.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		A698D4EA21EB73B30043BCC1 /* Dollbox Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A698D4FE21EB73B40043BCC1 /* Build configuration list for PBXNativeTarget "Dollbox Extension" */;
+			buildPhases = (
+				A698D4E721EB73B30043BCC1 /* Sources */,
+				A698D4E821EB73B30043BCC1 /* Frameworks */,
+				A698D4E921EB73B30043BCC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Dollbox Extension";
+			productName = "Dollbox Extension";
+			productReference = A698D4EB21EB73B30043BCC1 /* Dollbox Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		A60D4642209FC985003D85D3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Scarlet;
 				TargetAttributes = {
@@ -412,6 +532,12 @@
 							};
 						};
 					};
+					A698D4DE21EB73B20043BCC1 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					A698D4EA21EB73B30043BCC1 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 				};
 			};
 			buildConfigurationList = A60D4645209FC985003D85D3 /* Build configuration list for PBXProject "Girl Frontline Info" */;
@@ -429,6 +555,8 @@
 			targets = (
 				A60D4649209FC985003D85D3 /* Girl Frontline Info */,
 				A661B45420AA26E800F9ED2F /* GLFL Info Widget */,
+				A698D4DE21EB73B20043BCC1 /* Dollbox */,
+				A698D4EA21EB73B30043BCC1 /* Dollbox Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -452,6 +580,23 @@
 				A642306A20ABA235008622B4 /* Assets.xcassets in Resources */,
 				A6F6071620B887B900097FDC /* Mohave.otf in Resources */,
 				A661B45E20AA26E800F9ED2F /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A698D4DD21EB73B20043BCC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A698D4E521EB73B30043BCC1 /* Assets.xcassets in Resources */,
+				A698D4E321EB73B20043BCC1 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A698D4E921EB73B30043BCC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A698D4F521EB73B40043BCC1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,9 +666,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A698D4E721EB73B30043BCC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A698D4F321EB73B30043BCC1 /* ExtensionDelegate.swift in Sources */,
+				A698D4F121EB73B30043BCC1 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A698D4EE21EB73B30043BCC1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A698D4EA21EB73B30043BCC1 /* Dollbox Extension */;
+			targetProxy = A698D4ED21EB73B30043BCC1 /* PBXContainerItemProxy */;
+		};
+		A698D4F821EB73B40043BCC1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A698D4DE21EB73B20043BCC1 /* Dollbox */;
+			targetProxy = A698D4F721EB73B40043BCC1 /* PBXContainerItemProxy */;
+		};
 		A6DFF945215FA32900FE5407 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A661B45420AA26E800F9ED2F /* GLFL Info Widget */;
@@ -554,6 +718,14 @@
 				A661B45D20AA26E800F9ED2F /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		A698D4E121EB73B20043BCC1 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A698D4E221EB73B20043BCC1 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -765,6 +937,96 @@
 			};
 			name = Release;
 		};
+		A698D4FA21EB73B40043BCC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7WC44F9Y8F;
+				IBSC_MODULE = Dollbox_Extension;
+				INFOPLIST_FILE = Dollbox/Info.plist;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.scarletsc.Girl-Frontline-Info.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		A698D4FB21EB73B40043BCC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7WC44F9Y8F;
+				IBSC_MODULE = Dollbox_Extension;
+				INFOPLIST_FILE = Dollbox/Info.plist;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.scarletsc.Girl-Frontline-Info.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
+		A698D4FC21EB73B40043BCC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7WC44F9Y8F;
+				INFOPLIST_FILE = "Dollbox Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.scarletsc.Girl-Frontline-Info.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		A698D4FD21EB73B40043BCC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7WC44F9Y8F;
+				INFOPLIST_FILE = "Dollbox Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.scarletsc.Girl-Frontline-Info.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -791,6 +1053,24 @@
 			buildConfigurations = (
 				A661B46420AA26E800F9ED2F /* Debug */,
 				A661B46520AA26E800F9ED2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A698D4FE21EB73B40043BCC1 /* Build configuration list for PBXNativeTarget "Dollbox Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A698D4FC21EB73B40043BCC1 /* Debug */,
+				A698D4FD21EB73B40043BCC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A698D50021EB73B40043BCC1 /* Build configuration list for PBXNativeTarget "Dollbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A698D4FA21EB73B40043BCC1 /* Debug */,
+				A698D4FB21EB73B40043BCC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

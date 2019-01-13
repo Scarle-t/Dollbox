@@ -19,6 +19,7 @@ class BuildStatsViewController: UIViewController, UICollectionViewDelegate, UICo
     
     var userDefaults = UserDefaults.standard
     var selectedTDoll: TDoll = TDoll()
+    var selectedEquip: Equipment = Equipment()
     var constructTDoll = NSArray()
     var totalBuildTime = 0
     var total5Star = 0
@@ -145,6 +146,41 @@ class BuildStatsViewController: UIViewController, UICollectionViewDelegate, UICo
         myCell.contentView.frame = myCell.bounds
         return myCell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch type{
+        case "T":
+            let dest = storyboard?.instantiateViewController(withIdentifier: "detailVC") as! TDollViewController
+            selectedTDoll = constructTDoll[(indexPath.row)] as! TDoll
+            dest.selectedTDoll = self.selectedTDoll
+            if let imgPath = self.selectedTDoll.photo_path{
+                dest.selectedImg = imgCache.object(forKey: URL(string: "https://dollbox.scarletsc.net/img/\(imgPath)") as AnyObject) as? UIImage
+            }
+            if userDefaults.bool(forKey: "offlineImg"){
+                if let id = self.selectedTDoll.ID{
+                    dest.selectedImg = imgCache.object(forKey: id as AnyObject) as? UIImage
+                }
+            }
+            dest.from = "stats";
+            self.present(dest, animated: true, completion: nil)
+        case "E":
+            let dest = storyboard?.instantiateViewController(withIdentifier: "equipDetail") as! EquipmentDetailViewController
+            selectedEquip = constructTDoll[(indexPath.row)] as! Equipment
+            dest.selectedEquip = self.selectedEquip
+            if var imgPath = self.selectedEquip.cover{
+                if userDefaults.bool(forKey: "offlineImg"){
+                    dest.selectedImg = imgCache.object(forKey: imgPath as AnyObject) as? UIImage
+                }else{
+                    imgPath = imgPath.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+                    dest.selectedImg = imgCache.object(forKey: URL(string: "https://dollbox.scarletsc.net/img/\(imgPath).png") as AnyObject) as? UIImage
+                }
+            }
+            dest.from = "stats";
+            self.present(dest, animated: true, completion: nil)
+        default:
+            break;
+            
+        }
+    }
 
     @IBOutlet weak var buildTime: UILabel!
     @IBOutlet weak var total5: UILabel!
@@ -227,24 +263,6 @@ class BuildStatsViewController: UIViewController, UICollectionViewDelegate, UICo
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let detailVC  = segue.destination as! TDollViewController
-        if let sender = sender as? UICollectionViewCell{
-            let indexPath = self.resultView.indexPath(for: sender)
-            selectedTDoll = constructTDoll[(indexPath?.row)!] as! TDoll
-        }
-        detailVC.selectedTDoll = self.selectedTDoll
-        if let imgPath = self.selectedTDoll.photo_path{
-            detailVC.selectedImg = imgCache.object(forKey: URL(string: "https://dollbox.scarletsc.net/img/\(imgPath)") as AnyObject) as? UIImage
-        }
-        if userDefaults.bool(forKey: "offlineImg"){
-            if let id = self.selectedTDoll.ID{
-                detailVC.selectedImg = imgCache.object(forKey: id as AnyObject) as? UIImage
-            }
-            
-        }
-        detailVC.from = "stats"
     }
     
 }

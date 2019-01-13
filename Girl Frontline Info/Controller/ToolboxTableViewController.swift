@@ -27,8 +27,21 @@ class ToolboxTableViewController: UITableViewController, UICollectionViewDelegat
     }
     
     func returnItems(items: NSArray) {
-        feedItems = items
-        noticeList.reloadData()
+        if items.count > 0{
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
+                self.noticeList.frame = CGRect(x: 0, y: 0, width: 0, height: 200)
+                self.tableView.reloadData()
+            }, completion: nil)
+            feedItems = items
+            noticeList.reloadData()
+        }else{
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
+                self.noticeList.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+                self.tableView.reloadData()
+            }, completion: nil)
+            
+        }
+        
     }
     
     override func viewDidLoad() {

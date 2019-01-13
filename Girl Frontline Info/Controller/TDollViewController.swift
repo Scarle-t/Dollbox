@@ -62,7 +62,7 @@ class TDollViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func panGestureRecognizerHandler(_ sender: UIPanGestureRecognizer) {
-        if dismissBtn.isHidden == false{
+        if dismissBtn.alpha == 1{
             let touchPoint = sender.location(in: view?.window)
             switch sender.state {
             case .began:
@@ -191,8 +191,8 @@ class TDollViewController: UIViewController {
         }
         
         if from == "stats"{
-            dismissBtn.isHidden = false
-            sepView2.isHidden = false
+            dismissBtn.alpha = 1
+            sepView2.alpha = 1
         }
         sepView.setTitleTextAttributes([
             NSAttributedString.Key.font : UIFont(name: "Mohave", size: 14)!

@@ -45,6 +45,7 @@ class BuildSimulatorViewController: UIViewController, UICollectionViewDelegate, 
         
         switch typeSwitch.selectedSegmentIndex{
         case 0:
+            myCell.imgResult.backgroundColor = UIColor.clear
             let item: TDoll = resultT
             if userDefaults.bool(forKey: "offlineImg"){
                 if let id = item.ID{
