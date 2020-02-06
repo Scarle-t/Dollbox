@@ -23,7 +23,10 @@ class SettingsViewController: UITableViewController {
         super.viewDidLoad()
         setNavBarColor().white(self)
         appVersion.numberOfLines = 0
-        appVersion.text = "版本 " + ((Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String)!) + " (" + ((Bundle.main.infoDictionary!["CFBundleVersion"] as? String)!) + ")\nTESTFLIGHT BETA"
+        var verTxt = "版本 " + ((Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String)!) + " (" + ((Bundle.main.infoDictionary!["CFBundleVersion"] as? String)!) + ")"
+//        verTxt += "\nTESTFLIGHT BETA"
+        verTxt += "\nAPPSTORE"
+        appVersion.text = verTxt
         
         let wv = self.storyboard?.instantiateViewController(withIdentifier: "webView") as! UINavigationController
         let sv = self.storyboard?.instantiateViewController(withIdentifier: "settings") as! UINavigationController

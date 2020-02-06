@@ -208,7 +208,9 @@ class TDollViewController: UIViewController {
             ], for: UIControl.State.selected)
         Zh_name.text = selectedTDoll?.Zh_Name
         Eng_name.text = selectedTDoll?.Eng_Name
-        if selectedTDoll?.stars != "EXTRA"{
+        if selectedTDoll?.stars == "0"{
+            type.text = (selectedTDoll?.type)!
+        }else if selectedTDoll?.stars != "EXTRA"{
             type.text = (selectedTDoll?.stars)! + "星" + (selectedTDoll?.type)!
         }else{
             type.text = "特典" + (selectedTDoll?.type)!

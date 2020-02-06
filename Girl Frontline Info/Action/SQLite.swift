@@ -39,7 +39,7 @@ class SQLiteConnect {
     }
     
     func closeDatabase() -> Bool {
-        return sqlite3_close(db) == SQLITE_OK
+        return sqlite3_close_v2(db) == SQLITE_OK
     }
     
     // create table

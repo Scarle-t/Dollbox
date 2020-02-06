@@ -215,12 +215,28 @@ class downloadData: NSObject, URLSessionDelegate {
                                 "Build_Time" : "'" + bt + "'",
                                 "Stat" : "'" + stat + "'",
                                 "Obtain_Method" : "'" + ob + "'",
-                                "cover" : "'" + cover + "'",
-                                "EID" : String(EID)
+                                "cover" : "'" + cover + "'"
                                 ])
                         }
                     }
                 }
+            }else if counter == 2{
+                    if let cv = jsonElement["cv"] as? String{
+                        if cv != "無"{
+                            if let mydb = db{
+                                if action == "download"{
+                                    let _ = mydb.insert("cv", rowInfo: [
+                                        "id" : String(i),
+                                        "cv" : "'" + cv + "'"
+                                        ])
+                                }else if action == "update"{
+                                    let _ = mydb.update("cv", cond: "id = \(i)" , rowInfo: [
+                                        "cv" : "'" + cv + "'"
+                                        ])
+                                }
+                            }
+                        }
+                    }
             }
             
             DispatchQueue.global(qos: .background).async{
@@ -235,7 +251,11 @@ class downloadData: NSObject, URLSessionDelegate {
             self.urlPath = "https://dollbox.scarletsc.net/search_e"
             self.getItems(action, source: source)
             counter = 1
-        }else{
+        }else if counter == 1{
+            self.urlPath = "https://dollbox.scarletsc.net/getCV"
+            self.getItems(action, source: source)
+            counter = 2
+        }else if counter == 2{
             counter = 0
             
             DispatchQueue.main.async(execute: { () -> Void in
@@ -278,34 +298,55 @@ class downloadData: NSObject, URLSessionDelegate {
         })
     }
     func getItems(_ action: String, source: UIViewController) {
-        let url: URL = URL(string: urlPath)!
-        defaultSession = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil )
-        let task = defaultSession.dataTask(with: url) {
-            (data, response, error) in
-            if error != nil {
-                print("Failed to download data")
-                self.delegate?.failed()
-            }else {
-                print("Data downloaded")
-                self.parse(data!, action, source: source)
+        
+        if Reachability().isConnectedToNetwork(){
+            let url: URL = URL(string: urlPath)!
+            defaultSession = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil )
+            let task = defaultSession.dataTask(with: url) {
+                (data, response, error) in
+                if error != nil {
+                    print("Failed to download data")
+                    self.delegate?.failed()
+                }else {
+                    print("Data downloaded")
+                    self.parse(data!, action, source: source)
+                }
             }
+            task.resume()
+        }else{
+            let alert = UIAlertController(title: "未能連接至互聯網。\n請檢查連線狀況。", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "好", style: .cancel, handler: nil))
+            DispatchQueue.main.async {
+                source.present(alert, animated: true, completion: nil)
+            }
+            
         }
-        task.resume()
+        
     }
     func getVersion(){
-        let url: URL = URL(string: urlPath)!
-        defaultSession = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil )
-        let task = defaultSession.dataTask(with: url) {
-            (data, response, error) in
-            if error != nil {
-                print("Failed to download data")
-                self.delegate?.failed()
-            }else {
-                print("Data downloaded")
-                self.parseVersion(data!)
+        
+        if Reachability().isConnectedToNetwork(){
+            let url: URL = URL(string: urlPath)!
+            defaultSession = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil )
+            let task = defaultSession.dataTask(with: url) {
+                (data, response, error) in
+                if error != nil {
+                    print("Failed to download data")
+                    self.delegate?.failed()
+                }else {
+                    print("Data downloaded")
+                    self.parseVersion(data!)
+                }
+            }
+            task.resume()
+        }else{
+            let alert = UIAlertController(title: "未能連接至互聯網。\n請檢查連線狀況。", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "好", style: .cancel, handler: nil))
+            DispatchQueue.main.async {
+                (self.delegate as? UIViewController)?.present(alert, animated: true, completion: nil)
             }
         }
-        task.resume()
+        
     }
 
 }

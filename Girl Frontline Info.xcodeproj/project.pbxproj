@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,10 @@
 		A60D4658209FC986003D85D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60D4656209FC986003D85D3 /* LaunchScreen.storyboard */; };
 		A610868920C1A595006DF67E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A610868820C1A595006DF67E /* libsqlite3.tbd */; };
 		A61CA2CD216DC4BF0013F95B /* noticeEnlargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61CA2CC216DC4BF0013F95B /* noticeEnlargeViewController.swift */; };
+		A623BE0E222ED0A500838BA9 /* getSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F2958A20A062A000239089 /* getSearchResult.swift */; };
+		A623BE0F222ED0BC00838BA9 /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = A608E937222EBB5B00B4F3A2 /* Reach.swift */; };
 		A6321ED1217675110052EA89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60D4651209FC985003D85D3 /* Main.storyboard */; };
+		A6390F21222ED15A00D77A2F /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = A608E937222EBB5B00B4F3A2 /* Reach.swift */; };
 		A642306620AA92C9008622B4 /* getSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642306520AA92C9008622B4 /* getSearchResult.swift */; };
 		A642306820AA93D2008622B4 /* TDoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642306720AA93D2008622B4 /* TDoll.swift */; };
 		A642306A20ABA235008622B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A642306920ABA235008622B4 /* Assets.xcassets */; };
@@ -29,7 +32,6 @@
 		A67B50F021487A8B00A7D4E1 /* sqlite.h in Sources */ = {isa = PBXBuildFile; fileRef = A610868A20C1A608006DF67E /* sqlite.h */; };
 		A67B50F121487A9600A7D4E1 /* SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610868B20C1A7E4006DF67E /* SQLite.swift */; };
 		A67B50F321487A9600A7D4E1 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646509320EA45D200051266 /* Version.swift */; };
-		A67B50F421487A9600A7D4E1 /* getSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F2958A20A062A000239089 /* getSearchResult.swift */; };
 		A67B50F521487A9600A7D4E1 /* DownloadPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B03C4721484ACB00FAF61A /* DownloadPhoto.swift */; };
 		A67B50F621487A9600A7D4E1 /* setNavBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61D153D21484FBA005D7EDE /* setNavBarColor.swift */; };
 		A67B50F721487A9600A7D4E1 /* pickType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61D153F214861A9005D7EDE /* pickType.swift */; };
@@ -54,20 +56,24 @@
 		A67B510B21487A9600A7D4E1 /* allViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61D154121486A54005D7EDE /* allViewController.swift */; };
 		A67B510C21487A9600A7D4E1 /* DeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65B259220A655A00036BC39 /* DeviceExtension.swift */; };
 		A67B510D21487A9600A7D4E1 /* TDoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F2958820A05E0800239089 /* TDoll.swift */; };
+		A68E5D3C2205B45C00ABA2D6 /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E5D3B2205B45C00ABA2D6 /* NoticeTableViewCell.swift */; };
+		A68E5D3E2205C1CA00ABA2D6 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E5D3D2205C1CA00ABA2D6 /* NewsTableViewController.swift */; };
 		A698D4E321EB73B20043BCC1 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A698D4E121EB73B20043BCC1 /* Interface.storyboard */; };
 		A698D4E521EB73B30043BCC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A698D4E421EB73B30043BCC1 /* Assets.xcassets */; };
 		A698D4EC21EB73B30043BCC1 /* Dollbox Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A698D4EB21EB73B30043BCC1 /* Dollbox Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A698D4F121EB73B30043BCC1 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A698D4F021EB73B30043BCC1 /* InterfaceController.swift */; };
 		A698D4F321EB73B30043BCC1 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A698D4F221EB73B30043BCC1 /* ExtensionDelegate.swift */; };
 		A698D4F521EB73B40043BCC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A698D4F421EB73B40043BCC1 /* Assets.xcassets */; };
-		A698D4F921EB73B40043BCC1 /* Dollbox.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A698D4DF21EB73B20043BCC1 /* Dollbox.app */; };
+		A698D4F921EB73B40043BCC1 /* Dollbox.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A698D4DF21EB73B20043BCC1 /* Dollbox.app */; platformFilter = ios; };
 		A69E75B4214EF366001FE25F /* setupLocalDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E75B3214EF366001FE25F /* setupLocalDB.swift */; };
 		A69E75B6214EF545001FE25F /* downloadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E75B5214EF545001FE25F /* downloadData.swift */; };
 		A69ED25F21532CD400BD63BD /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69ED25E21532CD400BD63BD /* ParentViewController.swift */; };
+		A69F4BF822028EF200D16625 /* NoticeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F4BF722028EF200D16625 /* NoticeTable.swift */; };
+		A69F4BFA2202909600D16625 /* NoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F4BF92202909600D16625 /* NoticeCell.swift */; };
 		A6C036EB2174BC9B00F2978E /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C036EA2174BC9B00F2978E /* Equipment.swift */; };
 		A6C036ED2174C1C900F2978E /* getEquipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C036EC2174C1C900F2978E /* getEquipment.swift */; };
 		A6C1C840216DA51300E6B548 /* noticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C1C83F216DA51300E6B548 /* noticeDetailViewController.swift */; };
-		A6DFF943215FA32900FE5407 /* GLFL Info Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A661B45520AA26E800F9ED2F /* GLFL Info Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A6DFF943215FA32900FE5407 /* GLFL Info Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A661B45520AA26E800F9ED2F /* GLFL Info Widget.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A6E7428A2173F58200C9D1B9 /* KeySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E742892173F58200C9D1B9 /* KeySearchViewController.swift */; };
 		A6E830082152E04E009337A8 /* selectDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E830072152E04E009337A8 /* selectDevice.swift */; };
 		A6F6071520B887B900097FDC /* Mohave.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6F6071420B887B800097FDC /* Mohave.otf */; };
@@ -139,6 +145,7 @@
 		A602FBD2216D91B500512D7D /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		A602FBD4216D924900512D7D /* getNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getNotice.swift; sourceTree = "<group>"; };
 		A602FBD6216D97D600512D7D /* noticeCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noticeCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		A608E937222EBB5B00B4F3A2 /* Reach.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
 		A60D464A209FC985003D85D3 /* Girl Frontline Info.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Girl Frontline Info.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60D464D209FC985003D85D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A60D464F209FC985003D85D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +186,8 @@
 		A67208B020EA3C3B000A58B3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A675C07321E37CA300D77F86 /* getCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getCV.swift; sourceTree = "<group>"; };
 		A675C07521E37DF200D77F86 /* CVListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVListTableViewController.swift; sourceTree = "<group>"; };
+		A68E5D3B2205B45C00ABA2D6 /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
+		A68E5D3D2205C1CA00ABA2D6 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		A698D4DF21EB73B20043BCC1 /* Dollbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dollbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A698D4E221EB73B20043BCC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		A698D4E421EB73B30043BCC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -191,6 +200,8 @@
 		A69E75B3214EF366001FE25F /* setupLocalDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setupLocalDB.swift; sourceTree = "<group>"; };
 		A69E75B5214EF545001FE25F /* downloadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = downloadData.swift; sourceTree = "<group>"; };
 		A69ED25E21532CD400BD63BD /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
+		A69F4BF722028EF200D16625 /* NoticeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTable.swift; sourceTree = "<group>"; };
+		A69F4BF92202909600D16625 /* NoticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCell.swift; sourceTree = "<group>"; };
 		A6B03C4721484ACB00FAF61A /* DownloadPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadPhoto.swift; sourceTree = "<group>"; };
 		A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTDollViewController.swift; sourceTree = "<group>"; };
 		A6BB3BB120A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildtimeSearchCollectionViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +333,8 @@
 				A698D4F221EB73B30043BCC1 /* ExtensionDelegate.swift */,
 				A698D4F421EB73B40043BCC1 /* Assets.xcassets */,
 				A698D4F621EB73B40043BCC1 /* Info.plist */,
+				A69F4BF722028EF200D16625 /* NoticeTable.swift */,
+				A69F4BF92202909600D16625 /* NoticeCell.swift */,
 			);
 			path = "Dollbox Extension";
 			sourceTree = "<group>";
@@ -338,11 +351,21 @@
 		A6B03C41214848BC00FAF61A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A61D154121486A54005D7EDE /* allViewController.swift */,
 				A6185FB820B9C82800A5D83B /* BuildSimulatorViewController.swift */,
 				A6ECCAF120BC05F500D15ED5 /* BuildStatsViewController.swift */,
 				A6BB3BB120A3B2F00094C06C /* BuildtimeSearchCollectionViewController.swift */,
 				A655A6F020A13A8900E29E9B /* CategoryViewController.swift */,
+				A64684EB21E488C000004357 /* CVDollViewController.swift */,
+				A675C07521E37DF200D77F86 /* CVListTableViewController.swift */,
+				A6683E83216F388300310DB5 /* DisclaimerViewController.swift */,
+				A668C0F621766E5700D8EF91 /* EquipmentDetailViewController.swift */,
+				A6E742892173F58200C9D1B9 /* KeySearchViewController.swift */,
+				A68E5D3D2205C1CA00ABA2D6 /* NewsTableViewController.swift */,
+				A6C1C83F216DA51300E6B548 /* noticeDetailViewController.swift */,
+				A61CA2CC216DC4BF0013F95B /* noticeEnlargeViewController.swift */,
 				A6FCC45320E9919D00D31DE1 /* OfflineSettingsViewController.swift */,
+				A69ED25E21532CD400BD63BD /* ParentViewController.swift */,
 				A6B1A2CE20C0531900647DB3 /* SelectTDollViewController.swift */,
 				A67208B020EA3C3B000A58B3 /* SettingsViewController.swift */,
 				A6F6071120B8625000097FDC /* SimulatorsViewController.swift */,
@@ -354,15 +377,6 @@
 				A6E5BEE020C1895D00B1D01E /* TutorialPagesViewController.swift */,
 				A655A6F420A1502E00E29E9B /* typeViewController.swift */,
 				A60D464F209FC985003D85D3 /* ViewController.swift */,
-				A61D154121486A54005D7EDE /* allViewController.swift */,
-				A69ED25E21532CD400BD63BD /* ParentViewController.swift */,
-				A6C1C83F216DA51300E6B548 /* noticeDetailViewController.swift */,
-				A61CA2CC216DC4BF0013F95B /* noticeEnlargeViewController.swift */,
-				A6683E83216F388300310DB5 /* DisclaimerViewController.swift */,
-				A6E742892173F58200C9D1B9 /* KeySearchViewController.swift */,
-				A668C0F621766E5700D8EF91 /* EquipmentDetailViewController.swift */,
-				A675C07521E37DF200D77F86 /* CVListTableViewController.swift */,
-				A64684EB21E488C000004357 /* CVDollViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -390,6 +404,7 @@
 			children = (
 				A6BB3BB320A3B6E40094C06C /* ResultCollectionViewCell.swift */,
 				A602FBD6216D97D600512D7D /* noticeCellCollectionViewCell.swift */,
+				A68E5D3B2205B45C00ABA2D6 /* NoticeTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -409,6 +424,7 @@
 				A602FBD4216D924900512D7D /* getNotice.swift */,
 				A6C036EC2174C1C900F2978E /* getEquipment.swift */,
 				A675C07321E37CA300D77F86 /* getCV.swift */,
+				A608E937222EBB5B00B4F3A2 /* Reach.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -607,9 +623,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A623BE0F222ED0BC00838BA9 /* Reach.swift in Sources */,
+				A623BE0E222ED0A500838BA9 /* getSearchResult.swift in Sources */,
 				A67B50F121487A9600A7D4E1 /* SQLite.swift in Sources */,
 				A67B50F321487A9600A7D4E1 /* Version.swift in Sources */,
-				A67B50F421487A9600A7D4E1 /* getSearchResult.swift in Sources */,
 				A675C07621E37DF200D77F86 /* CVListTableViewController.swift in Sources */,
 				A6C1C840216DA51300E6B548 /* noticeDetailViewController.swift in Sources */,
 				A67B50F521487A9600A7D4E1 /* DownloadPhoto.swift in Sources */,
@@ -629,6 +646,7 @@
 				A67B50FE21487A9600A7D4E1 /* CategoryViewController.swift in Sources */,
 				A6C036ED2174C1C900F2978E /* getEquipment.swift in Sources */,
 				A67B50FF21487A9600A7D4E1 /* OfflineSettingsViewController.swift in Sources */,
+				A68E5D3C2205B45C00ABA2D6 /* NoticeTableViewCell.swift in Sources */,
 				A69E75B4214EF366001FE25F /* setupLocalDB.swift in Sources */,
 				A67B510021487A9600A7D4E1 /* SelectTDollViewController.swift in Sources */,
 				A6E830082152E04E009337A8 /* selectDevice.swift in Sources */,
@@ -650,6 +668,7 @@
 				A67B510B21487A9600A7D4E1 /* allViewController.swift in Sources */,
 				A67B510C21487A9600A7D4E1 /* DeviceExtension.swift in Sources */,
 				A67B510D21487A9600A7D4E1 /* TDoll.swift in Sources */,
+				A68E5D3E2205C1CA00ABA2D6 /* NewsTableViewController.swift in Sources */,
 				A67B50F021487A8B00A7D4E1 /* sqlite.h in Sources */,
 				A67B50EF21487A8800A7D4E1 /* AppDelegate.swift in Sources */,
 				A69E75B6214EF545001FE25F /* downloadData.swift in Sources */,
@@ -660,6 +679,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6390F21222ED15A00D77A2F /* Reach.swift in Sources */,
 				A642306820AA93D2008622B4 /* TDoll.swift in Sources */,
 				A642306620AA92C9008622B4 /* getSearchResult.swift in Sources */,
 				A6FD342321594BD9003C8481 /* TodayViewController.swift in Sources */,
@@ -671,7 +691,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A698D4F321EB73B30043BCC1 /* ExtensionDelegate.swift in Sources */,
+				A69F4BFA2202909600D16625 /* NoticeCell.swift in Sources */,
 				A698D4F121EB73B30043BCC1 /* InterfaceController.swift in Sources */,
+				A69F4BF822028EF200D16625 /* NoticeTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,11 +707,13 @@
 		};
 		A698D4F821EB73B40043BCC1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = A698D4DE21EB73B20043BCC1 /* Dollbox */;
 			targetProxy = A698D4F721EB73B40043BCC1 /* PBXContainerItemProxy */;
 		};
 		A6DFF945215FA32900FE5407 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = A661B45420AA26E800F9ED2F /* GLFL Info Widget */;
 			targetProxy = A6DFF944215FA32900FE5407 /* PBXContainerItemProxy */;
 		};
@@ -863,6 +887,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.scarletsc.Girl-Frontline-Info";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Girl Frontline Info/sqlite.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -887,6 +912,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.scarletsc.Girl-Frontline-Info";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Girl Frontline Info/sqlite.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -910,6 +936,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.scarletsc.Girl-Frontline-Info.GLFL-Info-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -932,6 +959,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.scarletsc.Girl-Frontline-Info.GLFL-Info-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

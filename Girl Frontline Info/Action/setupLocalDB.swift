@@ -110,7 +110,11 @@ class localDB: NSObject, VersionProtocol {
                 "Stat text",
                 "Obtain_Method text",
                 "cover text",
-                "EID integer"
+                "EID integer primary key"
+                ])
+            let _ = mydb.createTable("cv", columnsInfo: [
+                "id integer primary key",
+                "cv text"
                 ])
             let _ = mydb.createTable("settings", columnsInfo: [
                 "isOffline integer",
@@ -138,6 +142,7 @@ class localDB: NSObject, VersionProtocol {
             let _ = mydb.delete("consumption", cond: nil)
             let _ = mydb.delete("skill", cond: nil)
             let _ = mydb.delete("info_e", cond: nil)
+            let _ = mydb.delete("cv", cond: nil)
             let _ = mydb.update("dataversion", cond: nil, rowInfo: [
                 "local_last" : "' '",
                 "local_version" : "0"
@@ -483,6 +488,17 @@ class localDB: NSObject, VersionProtocol {
             }
         }
         self.delegate?.returndData(items: equips)
+    }
+    func cvList(){
+        db = Session.sharedInstance.db
+        let cvs = NSMutableArray()
+        if let mydb = db{
+            let statement = mydb.fetch("select cv from cv order by cv desc")
+            while sqlite3_step(statement) == SQLITE_ROW{
+                cvs.add(String(cString: sqlite3_column_text(statement, 0)))
+            }
+        }
+        self.delegate?.returndData(items: cvs)
     }
     func readVersion(){
         let verArray = NSMutableArray()

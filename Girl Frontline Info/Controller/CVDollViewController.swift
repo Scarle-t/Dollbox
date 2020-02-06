@@ -95,6 +95,19 @@ class CVDollViewController: UIViewController, UICollectionViewDelegate, UICollec
         
     }
     
+    func getResult(cv: String){
+        if localDB().readSettings()[0] {
+            let sql = "select * from info inner join buff on buff.ID = info.ID inner join consumption on consumption.ID = info.ID inner join obtain on obtain.ID = info.ID inner join skill on skill.ID = info.ID inner join stats on stats.ID = info.ID where info.cv = '\(cv)'"
+            localSearch.search(sql: sql)
+        }else{
+            let cvP = cv.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+            searchCV.urlPath = "https://dollbox.scarletsc.net/search?s&field=cv.cv&value=\(cvP)&precise"
+            searchCV.downloadItems()
+            listResult.reloadData()
+        }
+        listResult.reloadData()
+    }
+    
     @IBOutlet weak var listResult: UICollectionView!
 
     override func viewDidLoad() {
@@ -104,11 +117,8 @@ class CVDollViewController: UIViewController, UICollectionViewDelegate, UICollec
         searchCV.delegate = self
         localSearch.delegate = self
         self.title = cvName
-        if var cv = cvName {
-            cv = (cvName?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)!
-            searchCV.urlPath = "https://dollbox.scarletsc.net/search?s&field=cv.cv&value=\(cv)&precise"
-            searchCV.downloadItems()
-            listResult.reloadData()
+        if let cv = cvName {
+            getResult(cv: cv)
         }
         
         // Do any additional setup after loading the view.
@@ -120,11 +130,8 @@ class CVDollViewController: UIViewController, UICollectionViewDelegate, UICollec
         localSearch.delegate = self
         searchCV.delegate = self
         self.title = cvName
-        if var cv = cvName {
-            cv = (cvName?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)!
-            searchCV.urlPath = "https://dollbox.scarletsc.net/search?s&field=cv.cv&value=\(cv)&precise"
-            searchCV.downloadItems()
-            listResult.reloadData()
+        if let cv = cvName {
+            getResult(cv: cv)
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -140,11 +147,8 @@ class CVDollViewController: UIViewController, UICollectionViewDelegate, UICollec
         }else if cvName == "雨宮天"{
             setNavBarColor().set(self, r: 9, g: 43, b: 116, a: 1.0)
         }
-        if var cv = cvName {
-            cv = (cvName?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)!
-            searchCV.urlPath = "https://dollbox.scarletsc.net/search?s&field=cv.cv&value=\(cv)&precise"
-            searchCV.downloadItems()
-            listResult.reloadData()
+        if let cv = cvName {
+            getResult(cv: cv)
         }
     }
     

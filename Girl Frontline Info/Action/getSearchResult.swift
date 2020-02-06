@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 
 protocol getSearchProtocol: class {
     func itemsDownloaded(items: NSArray)
@@ -190,18 +189,22 @@ class getSearchResult: NSObject, URLSessionDataDelegate {
         })
     }
     func downloadItems() {
-        let url: URL = URL(string: urlPath)!
-        let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
-        let task = defaultSession.dataTask(with: url) {
-            (data, response, error) in
-            if error != nil {
-                print("Failed to download data")
-            }else {
-                print("Data downloaded")
-                self.parseJSON(data!)
+        
+        if Reachability().isConnectedToNetwork(){
+            let url: URL = URL(string: urlPath)!
+            let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
+            let task = defaultSession.dataTask(with: url) {
+                (data, response, error) in
+                if error != nil {
+                    print("Failed to download data")
+                }else {
+                    print("Data downloaded")
+                    self.parseJSON(data!)
+                }
             }
+            task.resume()
         }
-        task.resume()
+        
     }
     
 }

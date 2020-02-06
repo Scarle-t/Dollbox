@@ -10,19 +10,7 @@ import WatchKit
 import Foundation
 
 
-class InterfaceController: WKInterfaceController, noticeDelegate {
-    
-    let notice = getNotice()
-    
-    func returnItems(items: NSArray) {
-        if items.count > 0{
-            noticeTitle.setText((items[0] as! Notice).title)
-            noticeContent.setText((items[0] as! Notice).content)
-        }else{
-            noticeTitle.setText("暫無活動")
-        }
-    }
-    
+class InterfaceController: WKInterfaceController {
     
     @IBOutlet weak var noticeTitle: WKInterfaceLabel!
     @IBOutlet weak var noticeContent: WKInterfaceLabel!
@@ -31,15 +19,16 @@ class InterfaceController: WKInterfaceController, noticeDelegate {
         super.awake(withContext: context)
         
         // Configure interface objects here.
-        notice.delegate = self
-        notice.downloadItems()
+        let notice = context as! Notice
+        
+        noticeTitle.setText(notice.title)
+        noticeContent.setText(notice.content)
+        
     }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        notice.delegate = self
-        notice.downloadItems()
     }
     
     override func didDeactivate() {

@@ -155,13 +155,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize){
         if (activeDisplayMode == NCWidgetDisplayMode.compact) {
-            self.preferredContentSize = maxSize;
+            self.preferredContentSize = maxSize
             UIView.animate(withDuration: 0.3) {
                 self.largeView.alpha = 1
             }
         }
         else {
-            self.preferredContentSize = CGSize(width: 0, height: 305);
+            self.preferredContentSize = CGSize(width: 0, height: 305)
             UIView.animate(withDuration: 0.3) {
                 self.largeView.alpha = 0
             }

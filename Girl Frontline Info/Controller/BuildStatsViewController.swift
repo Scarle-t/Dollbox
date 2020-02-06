@@ -160,7 +160,7 @@ class BuildStatsViewController: UIViewController, UICollectionViewDelegate, UICo
                     dest.selectedImg = imgCache.object(forKey: id as AnyObject) as? UIImage
                 }
             }
-            dest.from = "stats";
+            dest.from = "stats"
             self.present(dest, animated: true, completion: nil)
         case "E":
             let dest = storyboard?.instantiateViewController(withIdentifier: "equipDetail") as! EquipmentDetailViewController
@@ -174,10 +174,10 @@ class BuildStatsViewController: UIViewController, UICollectionViewDelegate, UICo
                     dest.selectedImg = imgCache.object(forKey: URL(string: "https://dollbox.scarletsc.net/img/\(imgPath).png") as AnyObject) as? UIImage
                 }
             }
-            dest.from = "stats";
+            dest.from = "stats"
             self.present(dest, animated: true, completion: nil)
         default:
-            break;
+            break
             
         }
     }

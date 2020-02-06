@@ -128,31 +128,44 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
     }
     func switchAlert(_ state: Bool) {
         if state{
-            let db = Session.sharedInstance.db
-            if let mydb = db{
-                let statement = mydb.fetch("info", cond: nil, order: nil)
-                if sqlite3_step(statement) == SQLITE_ROW{
-                    let alert = UIAlertController(title: "更新資料檔", message: "這可能需要一分鐘至數分鐘時間，請耐心等候", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
-                        localDB().writeSettings(item: "isOffline", value: "1")
-                        self.type = "update"
-                        self.start()
-                    }))
-                    alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in
-                        self.switchView.setOn(false, animated: true)
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                    
-                }else{
-                    let alert = UIAlertController(title: "下載資料檔", message: "這可能需要一分鐘至數分鐘時間，請耐心等候", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
-                        localDB().writeSettings(item: "isOffline", value: "1")
-                        self.type = "download"
-                        self.start()
-                    }))
-                    alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in
-                        self.switchView.setOn(false, animated: true)
-                    }))
+            
+            if Reachability().isConnectedToNetwork(){
+            
+                let db = Session.sharedInstance.db
+                if let mydb = db{
+                    let statement = mydb.fetch("info", cond: nil, order: nil)
+                    if sqlite3_step(statement) == SQLITE_ROW{
+                        let alert = UIAlertController(title: "更新資料檔", message: "這可能需要一分鐘至數分鐘時間，請耐心等候", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
+                            localDB().writeSettings(item: "isOffline", value: "1")
+                            self.type = "update"
+                            self.start()
+                        }))
+                        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in
+                            self.switchView.setOn(false, animated: true)
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                        
+                    }else{
+                        let alert = UIAlertController(title: "下載資料檔", message: "這可能需要一分鐘至數分鐘時間，請耐心等候", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "確定", style: .default, handler: { _ in
+                            localDB().writeSettings(item: "isOffline", value: "1")
+                            self.type = "download"
+                            self.start()
+                        }))
+                        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in
+                            self.switchView.setOn(false, animated: true)
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            }else{
+                let alert = UIAlertController(title: "未能連接至互聯網。\n請檢查連線狀況。", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "好", style: .cancel, handler: {
+                    _ in
+                    self.switchView.setOn(false, animated: true)
+                }))
+                DispatchQueue.main.async {
                     self.present(alert, animated: true, completion: nil)
                 }
             }
@@ -258,13 +271,14 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
             if let mydb = db{
                 let statement = mydb.fetch("info", cond: nil, order: nil)
                 while sqlite3_step(statement) == SQLITE_ROW{
-                    let cover = String(cString: sqlite3_column_text(statement, 0)) + ".jpg"
+                    var cover = String(cString: sqlite3_column_text(statement, 0))
+                    cover = cover + (cover.contains("CT") || cover.contains("SF") ? ".png" : ".jpg")
                     let url = URL(string: "https://dollbox.scarletsc.net/img/" + cover)
                     let filePath = self.localPath[self.localPath.count-1].absoluteString + cover
                     DownloadPhoto().get(url: url!) { data, response, error in
                         guard let imgData = data, error == nil else { return }
                         DispatchQueue.main.async(execute: { () -> Void in
-                            let img = UIImage(data: imgData)?.jpegData(compressionQuality: 0.1)
+                            let img = cover.contains("CT") || cover.contains("SF") ? UIImage(data: imgData)?.pngData() : UIImage(data: imgData)?.jpegData(compressionQuality: 0.1)
                             do{
                                 try img?.write(to: URL(string: filePath)!)
                                 self.prog.progress += 0.04
@@ -399,7 +413,18 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
     }
     func imgToggles(_ state: Bool){
         if state{
-            self.present(imgAlert, animated: true, completion: nil)
+            if Reachability().isConnectedToNetwork(){
+                self.present(imgAlert, animated: true, completion: nil)
+            }else{
+                let alert = UIAlertController(title: "未能連接至互聯網。\n請檢查連線狀況。", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "好", style: .cancel, handler: {
+                    _ in
+                    self.downImgSwitch.setOn(false, animated: true)
+                }))
+                DispatchQueue.main.async {
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }else{
             self.present(delImgAlert, animated: true, completion: nil)
         }
@@ -520,26 +545,12 @@ class OfflineSettingsViewController: UITableViewController, VersionProtocol, loc
         case 3:
             switch indexPath.row{
             case 0:
-                if switchView.isOn{
-                    let errorAlert = UIAlertController(title: "離線模式已開啟", message: "請先關閉離線模式後重試。", preferredStyle: .alert)
-                    errorAlert.addAction(UIAlertAction(title: "確定", style: .default, handler: nil))
-                    self.present(errorAlert, animated: true, completion: nil)
-                }else{
-                    Session.sharedInstance.db = nil
-                    let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask,true)[0] as NSString
-                    let destinationPath = documentsPath.appendingPathComponent("sqlite3.db")
-                    do{
-                        try FileManager.default.removeItem(atPath: destinationPath)
-                    }catch{
-                        print(error)
-                    }
-                    let okAlert = UIAlertController(title: "已刪除", message: "請重啓應用程式。", preferredStyle: .alert)
-                    okAlert.addAction(UIAlertAction(title: "確定", style: .default, handler: {
-                        _ in
-                        exit(0)
-                    }))
-                    self.present(okAlert, animated: true, completion: nil)
-                }
+                let okAlert = UIAlertController(title: nil, message: "將於下次重啓應用程式時重載資料庫。", preferredStyle: .alert)
+                okAlert.addAction(UIAlertAction(title: "確定", style: .default, handler: {
+                    _ in
+                    self.userDefaults.set(true, forKey: "resetDB")
+                }))
+                self.present(okAlert, animated: true, completion: nil)
             default:
                 break
             }

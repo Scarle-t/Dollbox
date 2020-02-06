@@ -8,13 +8,14 @@
 
 import UIKit
 
-class CVListTableViewController: UITableViewController, cvDelegate {
+class CVListTableViewController: UITableViewController, cvDelegate, localDBDelegate {
     
     deinit {
         print("Deinit CVListTableViewController")
     }
     
     let getCVs = getCV()
+    let localSearch = localDB()
     
     var feedItems = [String]()
     
@@ -22,16 +23,30 @@ class CVListTableViewController: UITableViewController, cvDelegate {
         feedItems = items
         cvList.reloadData()
     }
+    func returndData(items: NSArray) {
+        feedItems = items as! [String]
+        cvList.reloadData()
+    }
     
     @IBOutlet var cvList: UITableView!
+    
+    func getResult(){
+        if localDB().readSettings()[0] {
+            localSearch.cvList()
+        }else{
+            getCVs.downloadItems()
+        }
+        cvList.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getCVs.delegate = self
         cvList.delegate = self
         cvList.dataSource = self
-        getCVs.downloadItems()
-        cvList.reloadData()
+        localSearch.delegate = self
+        
+        getResult()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -42,14 +57,12 @@ class CVListTableViewController: UITableViewController, cvDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setNavBarColor().white(self)
-        getCVs.downloadItems()
-        cvList.reloadData()
+        getResult()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNavBarColor().white(self)
-        getCVs.downloadItems()
-        cvList.reloadData()
+        getResult()
     }
 
     // MARK: - Table view data source

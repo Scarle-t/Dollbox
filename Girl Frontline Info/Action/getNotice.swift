@@ -66,18 +66,28 @@ class getNotice: NSObject {
         })
     }
     func downloadItems() {
-        let url: URL = URL(string: urlPath)!
-        let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
-        let task = defaultSession.dataTask(with: url) {
-            (data, response, error) in
-            if error != nil {
-                print("Failed to download data")
-            }else {
-                print("Data downloaded")
-                self.parseJSON(data!)
+        
+        if Reachability().isConnectedToNetwork(){
+            
+            let url: URL = URL(string: urlPath)!
+            let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
+            let task = defaultSession.dataTask(with: url) {
+                (data, response, error) in
+                if error != nil {
+                    print("Failed to download data")
+                }else {
+                    print("Data downloaded")
+                    self.parseJSON(data!)
+                }
+            }
+            task.resume()
+        }else{
+            let alert = UIAlertController(title: "未能連接至互聯網。\n請檢查連線狀況。", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "好", style: .cancel, handler: nil))
+            DispatchQueue.main.async {
+                (self.delegate as? UIViewController)?.present(alert, animated: true, completion: nil)
             }
         }
-        task.resume()
     }
 
 }

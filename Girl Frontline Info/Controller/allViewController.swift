@@ -45,7 +45,7 @@ class allViewController: UIViewController, UICollectionViewDelegate, UICollectio
         
         if userDefaults.bool(forKey: "offlineImg"){
             if let id = item.ID{
-                let cover = id + ".jpg"
+                let cover = id + (id.contains("CT") || id.contains("SF") ? ".png" : ".jpg")
                 let filePath = self.localPath[self.localPath.count-1].absoluteString + cover
                 let imgData = NSData(contentsOf: URL(string: filePath)!)
                 if let data = imgData{
